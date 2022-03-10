@@ -1,0 +1,109 @@
+$primary: #fdc300;
+$secondary: #000000;
+
+.nav {
+  position: relative;
+  padding: 20px 0;
+  
+  background-color: $primary;
+  // height: calc(100vh - 70px);
+  width: 74px;
+  display: block;
+  transition: .4s all ease;
+  // box-shadow: 0px 2px 0 rgba(0, 0, 0, 0.1);
+  box-shadow: -1px 1px 16px 3px #00000054;
+  @media screen and (max-width: 991px) {
+    // display: none;
+    position: relative;
+    left: -100%;
+    width: 240px;
+    position: fixed !important;
+    height: 100vh !important;
+    z-index: 1000;
+    box-shadow: 4px 8px 16px 3px #00000054 !important;
+    transition: .8s all ease;
+    &__title,
+    &__subitem {
+      display: block !important;
+    }
+    &__title,
+    &__subitem {
+      display: block !important;
+    }
+    &__item {
+      &-label {
+        color: black;
+        font-weight: bold;
+        display: block !important;
+      }
+    }
+  }
+  @media screen and (min-width: 991px) {
+    &__title,
+    &__subitem {
+      display: none !important;
+    }
+    &__item {
+      &-label {
+        color: black;
+        font-weight: 500 !important;
+        display: none !important;
+      }
+    }
+    &:hover {
+      width: 294px;
+    }
+    &:hover &__fixed {
+      width: 240px;
+      overflow-y: scroll !important;
+      overflow-x: hidden !important;
+    }
+
+    &:hover &__title,
+    &:hover &__item-label,
+    &:hover &__item-iconArrow {
+      display: block !important;
+    }
+    &:hover &__subitem {
+      display: flex !important;
+    }
+    &:hover &__item-icon {
+      position: relative;
+      font-size: 19px;
+      text-align: start;
+      width: 40px;
+    }
+  }
+
+  &__title {
+    font-size: 13px;
+    text-transform: uppercase;
+    padding-left: 18px;
+    font-weight: 800;
+  }
+  &__main {
+    font-size: 13px;
+    padding: 20px 0 0 20px;
+    font-weight: 800;
+    text-transform: uppercase;
+    color: $secondary;
+  }
+  &__fixed {
+    position: fixed;
+    display: flex;
+    flex-direction: column;
+    width: 70px;
+    height: 450px;
+    transition: 0.4s all;
+    // border: 2px solid red;
+    background: #fdc300;
+    border-radius: 5px;
+  }
+  &__fixed::-webkit-scrollbar {
+    width: 7px;
+  }
+  &__fixed::-webkit-scrollbar-thumb {
+    background: #d8a602;
+    border-radius: 5px;
+  }
+}

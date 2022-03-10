@@ -1,0 +1,43 @@
+.icon-user {
+  font-size: 20px;
+}
+
+.icon-arrow {
+  margin: 4px 0 0 0;
+}
+
+.text-user {
+  font-size: 18px;
+  margin: 0 8px 0 3px;
+}
+
+.logout__text {
+  font-weight: 500;
+  display: none;
+}
+
+.box-logut {
+  position: relative;
+}
+
+.box-logut:hover .logout {
+  padding: 20px;
+  position: absolute;
+  top: 30px;
+  width: 150px;
+  height: 80px;
+  background-color: white;
+  -webkit-box-shadow: 0px 2px 8px 2px #0000004f !important;
+          box-shadow: 0px 2px 8px 2px #0000004f !important;
+  -webkit-transition: .5s all ease;
+  transition: .5s all ease;
+}
+
+.box-logut:hover .logout__text {
+  display: block;
+}
+
+.box-logut:hover .logout__text:hover {
+  color: #fdc300;
+}
+/*# sourceMappingURL=User.css.map */

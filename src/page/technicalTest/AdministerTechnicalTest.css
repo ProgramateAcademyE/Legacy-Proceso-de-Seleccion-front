@@ -1,0 +1,92 @@
+.section__administer {
+  width: 100%;
+  max-width: 1800px;
+  padding: 20px 25px;
+  height: 600px;
+}
+
+@media screen and (min-width: 1400px) {
+  .section__administer {
+    height: 100vh;
+  }
+}
+
+.form {
+  padding: 20px;
+  background: white;
+  -webkit-box-shadow: 0px 2px 4px #0000004f;
+          box-shadow: 0px 2px 4px #0000004f;
+  border-radius: 5px;
+  margin-top: 40px;
+}
+
+.form .form-add {
+  width: 50%;
+}
+
+.form-select:focus {
+  border-color: #fdc300 !important;
+  outline: 0 !important;
+  -webkit-box-shadow: 3px 2px 0 0rem #fdc300a3 !important;
+          box-shadow: 3px 2px 0 0rem #fdc300a3 !important;
+}
+
+.form-control:focus {
+  color: #212529;
+  background-color: #fff;
+  border-color: #fdc300 !important;
+  outline: 0 !important;
+  -webkit-box-shadow: 3px 2px 0 0rem #fdc300a3 !important;
+          box-shadow: 3px 2px 0 0rem #fdc300a3 !important;
+}
+
+.btn-primary {
+  background-color: #010101 !important;
+}
+
+.btn-primary .add {
+  color: #ffcc02 !important;
+}
+
+/*.btn-success {
+    background-color: #ffcc02 !important;
+    border: #ffcc02 !important;
+}*/
+.btn-success .edit {
+  text-align: right;
+}
+
+/*responsive*/
+@media (max-width: 500px) {
+  .table thead {
+    display: none;
+  }
+  .table,
+  .table tbody,
+  .table tr,
+  .table td {
+    display: block;
+    width: 100%;
+  }
+  .table tr {
+    margin-bottom: 15px;
+  }
+  .table td {
+    text-align: right;
+    padding-left: 30%;
+    text-align: right;
+    position: relative;
+    font-size: 60%;
+  }
+  .btn {
+    font-size: 90%;
+  }
+  .btn .btn-success .btn-danger {
+    width: 10%;
+    height: 10%;
+  }
+  .btn-primary .add {
+    width: 100%;
+  }
+}
+/*# sourceMappingURL=AdministerTechnicalTest.css.map */

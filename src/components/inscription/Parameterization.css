@@ -1,0 +1,172 @@
+.containerP {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 95%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.containerFirstSection {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  margin-bottom: 40px;
+}
+
+.select {
+  margin-top: 10px;
+}
+
+.select select {
+  border-radius: 5px;
+  font-size: 1.2rem;
+  border-radius: 5px;
+}
+
+.text__content {
+  margin-bottom: 50px;
+}
+
+.text__content h4 {
+  font-size: 1.5rem;
+}
+
+.text__content p {
+  font-size: 1.2rem;
+}
+
+.second__section {
+  -webkit-box-shadow: 0px 2px 4px #0000004f;
+          box-shadow: 0px 2px 4px #0000004f;
+  background-color: white;
+  border-radius: 5px;
+  padding-top: 15px;
+  padding-left: 15px;
+  margin-bottom: 40px;
+  font-size: 1.4rem;
+  margin-right: auto;
+  margin-left: auto;
+  width: 100%;
+}
+
+.box__inputs {
+  width: 80%;
+  margin-bottom: 50px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+.containerForm {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.button {
+  margin-bottom: 40px;
+  margin-top: 20px;
+  width: 180px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  position: relative;
+  left: 80%;
+}
+
+.containerThirdSection {
+  -webkit-box-shadow: 0px 2px 4px #0000004f;
+          box-shadow: 0px 2px 4px #0000004f;
+  background-color: white;
+  border-radius: 5px;
+  padding-top: 15px;
+  padding-left: 15px;
+  margin-bottom: 40px;
+}
+
+.containerGlobal {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.containerLabel {
+  width: 250px;
+  padding-bottom: 30px;
+}
+
+.containerLegend {
+  font-size: 1.5rem;
+  padding-bottom: 30px;
+}
+
+/* Media queris*/
+@media only screen and (max-width: 769px) {
+  .containerFirstSection {
+    padding-top: 40px;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .containerSecondSection {
+    text-align: center;
+  }
+  .containerForm {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .button {
+    position: initial;
+  }
+  .containerGlobal {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: column;
+            flex-direction: column;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+@media only screen and (min-width: 1000px) {
+  .box__inputs {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .inputs {
+    margin-right: 10%;
+  }
+  label {
+    width: 250px;
+  }
+}
+/*# sourceMappingURL=Parameterization.css.map */

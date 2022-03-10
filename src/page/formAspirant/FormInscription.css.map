@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,YAAY,CAAC;EACX,KAAK,EAAE,IAAI;EACX,SAAS,EAAE,MAAM;EACjB,OAAO,EAAE,SAAS;EAClB,QAAQ,EAAE,mBAAmB;CAI9B",
+    "sources": [
+        "FormInscription.scss"
+    ],
+    "names": [],
+    "file": "FormInscription.css"
+}

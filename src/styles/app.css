@@ -1,0 +1,102 @@
+html, body {
+  height: 100vh;
+  width: 100vw;
+  overflow-x: hidden;
+}
+
+.calendar-screen {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-flow: column;
+          flex-flow: column;
+  height: 100vh;
+}
+
+@media screen and (max-width: 440px) {
+  .calendar-screen {
+    height: 70vh !important;
+  }
+}
+
+.rbc-calendar {
+  height: 100%;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Gilroy";
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-color: #f1f5f7;
+}
+
+.top {
+  padding-top: 70px;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+.transition {
+  -webkit-transition: .4s all !important;
+  transition: .4s all !important;
+}
+
+a {
+  text-decoration: none;
+}
+
+.ripple {
+  background-position: center;
+  -webkit-transition: background 0.8s;
+  transition: background 0.8s;
+}
+
+.ripple:hover {
+  background-image: radial-gradient(circle, transparent 1%, #fac906 1%);
+  background-position: center;
+  background-size: 15000%;
+}
+
+.ripple:active {
+  -webkit-transition: background 0s;
+  transition: background 0s;
+  background-color: #caa10c;
+  background-size: 100%;
+}
+
+.upperCase {
+  text-transform: uppercase;
+}
+
+.bold {
+  font-weight: 700;
+}
+
+.bold-500 {
+  font-weight: 500;
+}
+
+.ligth {
+  font-weight: 400;
+}
+
+.subtitle {
+  position: relative;
+  bottom: 1px;
+  font-size: 9px;
+  margin: 0 15px 0 10px;
+}
+
+.text-crumbs {
+  font-size: 14px;
+}
+/*# sourceMappingURL=app.css.map */

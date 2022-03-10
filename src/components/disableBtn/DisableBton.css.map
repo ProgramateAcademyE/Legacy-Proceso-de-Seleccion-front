@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,QAAQ,CAAC;EACL,KAAK,EAAE,MAAM;CAChB;;AAED,AAAA,KAAK,CAAC;EACF,KAAK,EAAE,GAAG;CACb",
+    "sources": [
+        "DisableBton.scss"
+    ],
+    "names": [],
+    "file": "DisableBton.css"
+}

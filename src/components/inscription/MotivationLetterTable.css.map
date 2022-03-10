@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,QAAQ,CAAC;EACL,KAAK,EAAE,IAAI;EACX,SAAS,EAAE,MAAM;EACjB,OAAO,EAAE,SAAS;EAClB,MAAM,EAAE,KAAK;CAIhB;;AAHG,MAAM,CAAC,MAAM,MAAM,SAAS,EAAE,MAAM;EALxC,AAAA,QAAQ,CAAC;IAMD,MAAM,EAAE,KAAK;GAEpB",
+    "sources": [
+        "MotivationLetterTable.scss"
+    ],
+    "names": [],
+    "file": "MotivationLetterTable.css"
+}

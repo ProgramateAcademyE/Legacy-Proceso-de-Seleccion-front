@@ -1,0 +1,25 @@
+.mainContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:70vh;
+}
+
+.containerFirstView{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+}
+
+.containerP{
+    text-align: center;
+    font-size: 30px;
+}
+
+.containerButton{
+    display: flex;
+    justify-content:center;
+    // background-color:red;
+    width:280px;
+}

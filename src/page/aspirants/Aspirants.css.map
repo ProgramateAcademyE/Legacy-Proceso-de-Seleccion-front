@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,SAAS,CAAA;EACL,KAAK,EAAE,IAAI;EACX,SAAS,EAAE,MAAM;EACjB,OAAO,EAAE,SAAS;EAClB,MAAM,EAAE,KAAK;CAIhB;;AAHG,MAAM,CAAC,MAAM,MAAM,SAAS,EAAE,MAAM;EALxC,AAAA,SAAS,CAAA;IAMD,MAAM,EAAE,KAAK;GAEpB",
+    "sources": [
+        "Aspirants.scss"
+    ],
+    "names": [],
+    "file": "Aspirants.css"
+}
