@@ -28,124 +28,76 @@ import Footer from "../components/footer/Footer";
 import { getData } from "../actions/sololearnProfile";
 import SelectionResults from "../page/selection/SelectionResults";
 
+import Register from "../components/register/Register";
+
 const App = () => {
-    const auth = useSelector((state) => state.auth);
+  const auth = useSelector((state) => state.auth);
 
-    const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
-    useEffect(() => {
-        dispatch(getData(auth.user.id));
-    }, [dispatch, auth]);
+  useEffect(() => {
+    dispatch(getData(auth.user.id));
+  }, [dispatch, auth]);
 
-    const { isLogged, isAdmin } = auth;
-    const { pathname } = useLocation();
+  const { isLogged, isAdmin } = auth;
+  const { pathname } = useLocation();
 
-    return (
-        <>
-            {/* {pathname !== "/login" && <Header user={user} adminstate={adminstate} />} */}
-            {pathname !== "/" && <Header />}
+  return (
+    <>
+      {/* {pathname !== "/login" && <Header user={user} adminstate={adminstate} />} */}
+      {pathname !== "/" && <Header />}
 
-            <div className="d-flex top">
-                {/* {pathname !== "/login" && <Nav user={user} adminstate={adminstate} />} */}
-                {pathname !== "/" && <Nav />}
+      <div className="d-flex top">
+        {/* {pathname !== "/login" && <Nav user={user} adminstate={adminstate} />} */}
+        {pathname !== "/" && <Nav />}
 
-                <Switch>
-                    <Route exact path="/" component={LoginFull} />
-                    {/* <Redirect to="/login" /> */}
-                    {isLogged && isAdmin && (
-                        <>
-                            <Route
-                                path="/dashboard"
-                                component={DashboardAdmin}
-                            />
-                            <Route
-                                path="/dia-de-entrevista"
-                                component={InterviewDays}
-                            />
-                            <Route path="/calendario">
-                                <InterviewDay />
-                            </Route>
-                            <Route
-                                path="/convocatoria"
-                                component={Convocatory}
-                            />
-                            <Route path="/nuevacohorte" component={NewCohort} />
-                            <Route
-                                path="/editarcohorte"
-                                component={EditCohort}
-                            />
-                            <Route path="/aspirantes" component={Aspirants} />
-                            <Route
-                                path="/prueba"
-                                component={AdministerTechnicalTest}
-                            />
-                            <Route
-                                path="/agregar"
-                                component={AdministerTechnicalTestAdd}
-                            />
-                            <Route
-                                path="/editar"
-                                component={AdministerTechnicalTestEdit}
-                            />
-                            <Route
-                                path="/calificar"
-                                component={QualifyTechnicalTest}
-                            />
-                            <Route path="/citation" component={Citations} />
+        <Switch>
+          <Route exact path="/" component={LoginFull} />
+          <Route exact path="/register" component={Register} />
+          {/* <Redirect to="/login" /> */}
+          {isLogged && isAdmin && (
+            <>
+              <Route path="/dashboard" component={DashboardAdmin} />
+              <Route path="/dia-de-entrevista" component={InterviewDays} />
+              <Route path="/calendario">
+                <InterviewDay />
+              </Route>
+              <Route path="/convocatoria" component={Convocatory} />
+              <Route path="/nuevacohorte" component={NewCohort} />
+              <Route path="/editarcohorte" component={EditCohort} />
+              <Route path="/aspirantes" component={Aspirants} />
+              <Route path="/prueba" component={AdministerTechnicalTest} />
+              <Route path="/agregar" component={AdministerTechnicalTestAdd} />
+              <Route path="/editar" component={AdministerTechnicalTestEdit} />
+              <Route path="/calificar" component={QualifyTechnicalTest} />
+              <Route path="/citation" component={Citations} />
 
-                            {/* <Route path="/inscripcion" component={Inscription} /> */}
-                            {/* <Route
+              {/* <Route path="/inscripcion" component={Inscription} /> */}
+              {/* <Route
                   path="/resultsInscription"
                   component={ResultsInscription}
                 /> */}
-                            <Route
-                                path="/resultsInscription"
-                                component={Results}
-                            />
-                            <Route
-                                path="/waiting-list"
-                                component={WaitingList}
-                            />
-                            <Route
-                                path="/motivationLetter"
-                                component={MotivationLetter}
-                            />
-                            <Route
-                                path="/parameterization"
-                                component={Parameterization}
-                            />
-                            <Route
-                                path="/selection-results"
-                                component={SelectionResults}
-                            />
-                        </>
-                    )}
-                    {!isAdmin && isLogged && (
-                        <>
-                            <Route
-                                exact
-                                path="/inscripcion"
-                                component={FormInscription}
-                            />
-                            <Route exact path="/entrevista">
-                                <InterviewAspirant />
-                            </Route>
-                            <Route
-                                exact
-                                path="/aspirante"
-                                component={ProofAspirant}
-                            />
-                            <Route
-                                exact
-                                path="/dashboard"
-                                component={DashboardAspirant}
-                            />
-                        </>
-                    )}
-                </Switch>
-            </div>
-            {pathname !== "/" && <Footer />}
-        </>
-    );
+              <Route path="/resultsInscription" component={Results} />
+              <Route path="/waiting-list" component={WaitingList} />
+              <Route path="/motivationLetter" component={MotivationLetter} />
+              <Route path="/parameterization" component={Parameterization} />
+              <Route path="/selection-results" component={SelectionResults} />
+            </>
+          )}
+          {!isAdmin && isLogged && (
+            <>
+              <Route exact path="/inscripcion" component={FormInscription} />
+              <Route exact path="/entrevista">
+                <InterviewAspirant />
+              </Route>
+              <Route exact path="/aspirante" component={ProofAspirant} />
+              <Route exact path="/dashboard" component={DashboardAspirant} />
+            </>
+          )}
+        </Switch>
+      </div>
+      {pathname !== "/" && <Footer />}
+    </>
+  );
 };
 export default App;

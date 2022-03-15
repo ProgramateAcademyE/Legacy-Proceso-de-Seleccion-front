@@ -8,7 +8,6 @@ export const dispatchLogin = () => {
 }
 
 export const fetchUser = async (token) => {
-    // return async (dispatch) => {
         try {
             const res = await axios.get('http://localhost:3001/api/user/info', {
                 headers: {Authorization: token}
@@ -18,7 +17,6 @@ export const fetchUser = async (token) => {
         } catch (error) {
             console.log('error', error)
         }
-    // }
 }
 
 export const dispatchGetUser = (res) => {
