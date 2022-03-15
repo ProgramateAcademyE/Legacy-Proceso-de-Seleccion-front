@@ -27,6 +27,7 @@ import InterviewDays from "../page/interviewDays/InterviewDays";
 import Footer from "../components/footer/Footer";
 import { getData } from "../actions/sololearnProfile";
 import SelectionResults from "../page/selection/SelectionResults";
+import Register from "../components/register/register";
 
 const App = () => {
     const auth = useSelector((state) => state.auth);
@@ -51,6 +52,7 @@ const App = () => {
 
                 <Switch>
                     <Route exact path="/" component={LoginFull} />
+                    <Route exact path="/register" component={Register} />
                     {/* <Redirect to="/login" /> */}
                     {isLogged && isAdmin && (
                         <>
