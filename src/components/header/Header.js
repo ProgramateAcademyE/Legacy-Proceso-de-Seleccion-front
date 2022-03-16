@@ -59,12 +59,15 @@ const Header = () => {
     <>
       <header className="header d-flex justify-content-between">
         <div className="header__logo" id="logo">
-          <Link to="/">
-            <img
-              src="https://i.ibb.co/ZM3jGdB/logoeducamasimbolo.png"
-              alt="logo"
-            />
-          </Link>
+          {auth ? 
+            <Link to="/dashboard">
+              <img
+                src="https://i.ibb.co/ZM3jGdB/logoeducamasimbolo.png"
+                alt="logo"
+              />
+            </Link>:
+            null
+          }
         </div>
         <div className="menu-bar">
           <i className="fas fa-bars pointer" onClick={moveNav} />
