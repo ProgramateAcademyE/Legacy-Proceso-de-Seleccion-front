@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import axios from 'axios'
-import { PETITIONS } from '../../../../requestUrl'
+import { PETITIONS } from '../../../requestUrl'
 import './Register.css'
   
 
