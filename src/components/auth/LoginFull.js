@@ -6,7 +6,7 @@ import axios from "axios";
 //   showSuccessMsg
 // } from '../../notification/Notification'
 import { useDispatch, useSelector } from "react-redux";
-import auth from "./auth.module.css"
+import auth from "./Auth.module.css"
 import { dispatchLogin } from "../../actions/authAction";
 import Spinner from "./Spinner";
 

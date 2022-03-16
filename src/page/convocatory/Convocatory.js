@@ -6,7 +6,7 @@ import DisableBtn from "../../components/disableBtn/DisableBtn";
 import RequestService from "../../config/index";
 import ModalConvocatory from "../../components/modals/ModalConvocatory";
 import { Link } from "react-router-dom";
-import "./Convocatory.scss";
+import convocatorycss from"./convocatory.module.css";
 
 const Convocatory = () => {
     const [convocatories, setConvocatories] = useState([]);

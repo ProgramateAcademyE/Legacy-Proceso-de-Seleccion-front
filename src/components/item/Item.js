@@ -11,7 +11,7 @@ const Item = ({ item, toggleItem, activeItems, active }) => {
     const iconName = !isActive ? "fa-angle-down" : "fa-angle-up";
 
     const isActiveItem = active && 'active'
-    // const Background = active && 'background'
+    
 
 
     return (

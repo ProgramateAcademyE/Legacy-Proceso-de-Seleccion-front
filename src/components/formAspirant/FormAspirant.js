@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Step1 from "../stepForm/Step1";
-import "./FormAspirant.scss";
+import FormAspirantcss from "./FormAspirant.module.css";
 
 const FormAspirant = () => {
   const [data, setData] = useState({

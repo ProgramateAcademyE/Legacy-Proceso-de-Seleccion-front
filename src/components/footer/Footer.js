@@ -1,6 +1,6 @@
 import React from "react";
 // import logosWhite from "../../assets/logos/logosWhite.png";
-import headerF from "./headerF.module.css";
+import headerF from "./HeaderF.module.css";
 
 export default function Footer() {
   return (

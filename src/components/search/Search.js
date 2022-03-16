@@ -1,5 +1,5 @@
 import React from "react";
-import "./Search.scss";
+import searchcss from "./Search.module.css";
 const Search = () => {
   return (
     <form action="" className="d-flex flex-column gap-1">
