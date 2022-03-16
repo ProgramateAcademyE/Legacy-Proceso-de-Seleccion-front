@@ -1,13 +1,21 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import axios from "axios"
 
 import "./NewCohort.scss";
 
 import { PETITIONS } from "../../../requestUrl";
+import { getDepartments } from "../../helpers/getDepartments";
 
 
 const NewCohort = () => {
+  const [departments, setDepartments] = useState([])
+
+  useEffect(() => {
+    getDepartments().then(async (department) => setDepartments(department))
+  }, [])
+  
+
   return<>
 
     <div style={{width: '50%', margin:' 0 auto'}}>
@@ -20,12 +28,14 @@ const NewCohort = () => {
           endDate: '',
           startDateBootcamp: '',
           endDateBootcamp: '',
-          residenceCountry: [],
+          residenceCountry: ['Colombia'],
           residenceDepartment: [],
           letter: 50,
           sololearn: 25,
           personalProfile: 25,
           age: [],
+          gender: [],
+          typePopulation: '',
           stratus: []
         }}
 
@@ -122,7 +132,7 @@ const NewCohort = () => {
             <div>
               <h3>Parametrizacion de la evaluacion del perfil</h3>
               <div>
-                <label htmlFor="residenceCountry">Pais de residencia</label><br/>
+                <h4>Pais de residencia</h4>
                 <label>
                   <Field type="checkbox" name="residenceCountry" value="Colombia" />
                   Colombia
@@ -133,18 +143,17 @@ const NewCohort = () => {
                 </label>
               </div>
               <div>
-                <label htmlFor="residenceDepartment">Departamento de residencia</label><br/>
-                <label>
-                  <Field type="checkbox" name="residenceDepartment" value="Choco" />
-                  Choco
-                </label>
-                <label>
-                  <Field type="checkbox" name="residenceDepartment" value="Medellín" />
-                  Medellín
-                </label>
+                <h4>Departamento de residencia</h4>
+                {departments?.map((department) => (
+                  // console.log(department)
+                  <label key={department.id}>
+                    <Field type="checkbox" name="residenceDepartment" value={department.departamento} />
+                    {department.departamento}
+                  </label>
+                ))}
               </div>
               <div>
-                <label htmlFor="age">Edad</label><br/>
+                <h4>Edad</h4>
                 <label>
                   <Field type="checkbox" name="age" value="< 18" />
                   Menores de 18
@@ -155,7 +164,73 @@ const NewCohort = () => {
                 </label>
               </div>
               <div>
-                <label htmlFor="stratus">Estrato</label><br/>
+                <h4>Genero segun identificación</h4>
+                <label>
+                  <Field type="checkbox" name="gender" value="masculino" />
+                  Masculino
+                </label>
+                <label>
+                  <Field type="checkbox" name="gender" value="femenino" />
+                  Femenino
+                </label>
+              </div>
+              <div>
+                <h4>Tipo de población</h4>
+                <label>
+                  <Field type="checkbox" name="typePopulation" value="Indígena" />
+                  Indígena
+                </label>
+                <label>
+                  <Field type="checkbox" name="typePopulation" value="Afrocolombiano" />
+                  Afrocolombiano
+                </label>
+                <label>
+                  <Field type="checkbox" name="typePopulation" value="Raizal" />
+                  Raizal
+                </label>
+                <label>
+                  <Field type="checkbox" name="typePopulation" value="Palenquero" />
+                  Palenquero
+                </label>
+                <label>
+                  <Field type="checkbox" name="typePopulation" value="Gitano" />
+                  Gitano
+                </label>
+                <label>
+                  <Field type="checkbox" name="typePopulation" value="Migrante" />
+                  Migrante
+                </label>
+                <label>
+                  <Field type="checkbox" name="typePopulation" value="Desplazado por la violencia" />
+                  Desplazado por la violencia
+                </label>
+                <label>
+                  <Field type="checkbox" name="typePopulation" value="Víctima del conflicto armado" />
+                  Víctima del conflicto armado
+                </label>
+                <label>
+                  <Field type="checkbox" name="typePopulation" value="Desmovilizado" />
+                  Desmovilizado
+                </label>
+                <label>
+                  <Field type="checkbox" name="typePopulation" value="Desplazado por fenómenos naturales" />
+                  Desplazado por fenómenos naturales
+                </label>
+                <label>
+                  <Field type="checkbox" name="typePopulation" value="Personas privadas de libertad o INPEC" />
+                  Personas privadas de libertad o INPEC
+                </label>
+                <label>
+                  <Field type="checkbox" name="typePopulation" value="Adolescentes en conflicto con la ley penal" />
+                  Adolescentes en conflicto con la ley penal
+                </label>
+                <label>
+                  <Field type="checkbox" name="typePopulation" value="LGBTIQ+" />
+                  LGBTIQ+
+                </label>
+              </div>
+              <div>
+                <h4>Estrato</h4>
                 <label>
                   <Field type="checkbox" name="stratus" value="1" />
                   Estrato 1
