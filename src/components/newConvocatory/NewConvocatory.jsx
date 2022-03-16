@@ -1,5 +1,5 @@
 import React from "react";
-import "./NewConvocatory.scss";
+import newconvocatory from "./newconvocatory.module.css";
 import { Link } from "react-router-dom";
 
 const NewConvocatory = () => {

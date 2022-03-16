@@ -1,5 +1,5 @@
 import React from "react";
-import "./NewCohort.scss";
+import newcohort from "./newcohort.module.css";
 import { Link } from "react-router-dom";
 
 const NewCohort = () => {

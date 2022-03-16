@@ -1,5 +1,5 @@
 import React from "react";
-import "./Modal.scss";
+import modalcss  from "./Modal.module.css";
 
 const ModalConvocatory = () => {
     return (
