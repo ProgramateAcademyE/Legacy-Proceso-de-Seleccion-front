@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector } from "react-redux";
 import FormSend from "../../components/formSend/FormSend";
 import HorizontalLinearStepper from "../../components/stepForm/StepForm";
-import forminscription from "./forminscription.module.css";
+import forminscription from "./FormInscription.module.css";
 
 function FormInscription() {
 

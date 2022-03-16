@@ -3,7 +3,7 @@ import DoughtnutHtml from "../../components/doughnut/DoughtnutHtml";
 import DoughtnutCss from "../../components/doughnut/DoughtnutCss";
 import DoughtnutJavascript from "../../components/doughnut/DoughtnutJavascript";
 import DoughtnutPython from "../../components/doughnut/DoughtnutPython";
-import DashboardAspirantcss from "./dashboardaspirant.module.css";
+import DashboardAspirantcss from "./DashboardAspirant.module.css";
 import { useSelector } from "react-redux";
 import NotProfile from "../../components/notProfile/NotProfile";
 

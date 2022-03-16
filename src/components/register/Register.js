@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import axios from 'axios'
 import { PETITIONS } from '../../../requestUrl'
-import './Register.css'
+import registercss from './Register.module.css'
   
 
 const Register = () => {
