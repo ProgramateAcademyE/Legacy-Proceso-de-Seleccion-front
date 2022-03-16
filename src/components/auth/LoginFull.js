@@ -6,7 +6,7 @@ import axios from "axios";
 //   showSuccessMsg
 // } from '../../notification/Notification'
 import { useDispatch, useSelector } from "react-redux";
-import "./auth.css";
+import auth from "./Auth.module.css"
 import { dispatchLogin } from "../../actions/authAction";
 import Spinner from "./Spinner";
 
@@ -73,7 +73,7 @@ const Login = () => {
           <div>
             <label htmlFor="email">Email Address</label>
             <input
-              className="email"
+              className={auth.email}
               type="text"
               placeholder="Enter email address"
               id="email"

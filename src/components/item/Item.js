@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import { Link } from 'react-router-dom';
-import './Item.scss'
+import item from './Item.module.css'
 
 const Item = ({ item, toggleItem, activeItems, active }) => {
 
@@ -11,7 +11,7 @@ const Item = ({ item, toggleItem, activeItems, active }) => {
     const iconName = !isActive ? "fa-angle-down" : "fa-angle-up";
 
     const isActiveItem = active && 'active'
-    // const Background = active && 'background'
+    
 
 
     return (

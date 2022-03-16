@@ -1,12 +1,10 @@
 import React, { useContext, useEffect } from "react";
 import CohorteGoal from "../../components/graphicsAdmin/CohorteGoal";
-import SocialMedia from "../../components/graphicsAdmin/SocialMedia";
 import FunnelDos from "../../components/graphicsAdmin/FunnelDos";
 import DateMigrants from "../../components/graphicsAdmin/DateMigrants";
 import AmountPassing from "../../components/graphicsAdmin/AmountPassing";
 import LocationMigrants from "../../components/graphicsAdmin/LocationMigrants";
-
-import "./DashboardAdmin.scss";
+import dashboardadmincss from "./DashboardAdmin.module.css";
 import { providerContext } from "../../Context/status";
 
 const DashboardAdmin = () => {

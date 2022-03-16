@@ -1,6 +1,6 @@
 import React, { useContext, useEffect, useState } from "react";
 import { providerContext } from "../../Context/status";
-import "./Parameterization.scss";
+import Parameterizationcss from "./Parameterization.module.css";
 
 const Parameterization = () => {
   const { getConvocatorys, convocatorys, convocatory, putParameterization, getConvocatory } = useContext(providerContext);

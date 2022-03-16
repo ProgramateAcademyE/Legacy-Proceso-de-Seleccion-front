@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import axios from "axios"
-
-import "./NewCohort.scss";
-
 import { PETITIONS } from "../../../requestUrl";
 import { getDepartments } from "../../helpers/getDepartments";
 

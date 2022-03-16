@@ -1,6 +1,6 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import './User.scss';
+import usercss from './User.module.css';
 const User = () => {
 
     const {user} = useSelector(state => state.auth)

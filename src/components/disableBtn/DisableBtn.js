@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./DisableBton.scss";
+import disablebutton from "./DisableBtn.module.css"
 
 const DisableBtn = () => {
     const [disable, setDisable] = useState(false);
