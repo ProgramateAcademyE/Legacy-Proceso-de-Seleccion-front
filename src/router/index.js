@@ -45,11 +45,11 @@ const App = () => {
   return (
     <>
       {/* {pathname !== "/login" && <Header user={user} adminstate={adminstate} />} */}
-      {pathname !== "/" && <Header />}
+      {pathname !== "/" && pathname !== "/register" && <Header />}
 
       <div className="d-flex top">
         {/* {pathname !== "/login" && <Nav user={user} adminstate={adminstate} />} */}
-        {pathname !== "/" && <Nav />}
+        {pathname !== "/" && pathname !== "/register" && <Nav />}
 
         <Switch>
           <Route exact path="/" component={LoginFull} />
@@ -96,7 +96,7 @@ const App = () => {
           )}
         </Switch>
       </div>
-      {pathname !== "/" && <Footer />}
+      {pathname !== "/" && pathname !== "/register" && <Footer />}
     </>
   );
 };
