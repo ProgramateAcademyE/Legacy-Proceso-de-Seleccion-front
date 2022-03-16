@@ -64,6 +64,12 @@ const Register = () => {
     setUser({...user, password})
   }
 
+  const handleconfirmPassword = (e) => {
+    const confirmPassword = e.target.value
+    setUser({...user, confirmPassword})
+  }
+  
+
 
   return (
     <>
@@ -78,9 +84,12 @@ const Register = () => {
         {errors.lastName && <p>{errors.lastName}</p>}
         <label>Correo</label>
         <input type='email'onChange={handleEmail}/>
-
+        {errors.email && <p>{errors.email}</p>}
         <label>Contraseña</label>
         <input type='password'onChange={handlePassword}/>
+
+        <label>Confirmar Contraseña</label>
+        <input type='password'onChange={handleconfirmPassword}/>
 
         <input className='buttonS' type='submit'/>
       </form>
