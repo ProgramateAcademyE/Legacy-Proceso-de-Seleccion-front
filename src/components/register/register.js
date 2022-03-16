@@ -43,14 +43,14 @@ const Register = () => {
   }
 
   const handleName = (e) => {
-    const name = e.target.value
-    setUser({...user, name})
+    const names = e.target.value
+    setUser({...user, names})
 
   }
 
   const handleLastName = (e) => {
-    const lastName = e.target.value
-    setUser({...user, lastName})
+    const surname = e.target.value
+    setUser({...user, surname})
 
   }
 
@@ -63,7 +63,7 @@ const Register = () => {
     const password = e.target.value
     setUser({...user, password})
   }
-
+  console.log(user)
 
   return (
     <>
