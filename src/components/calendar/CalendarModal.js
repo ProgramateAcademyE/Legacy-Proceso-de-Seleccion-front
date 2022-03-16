@@ -5,7 +5,7 @@ import DateTimePicker from "react-datetime-picker";
 import Swal from "sweetalert2";
 import { customStyles } from "../../helpers/center-modal";
 import { useSelector } from "react-redux";
-import "./Calendar.scss";
+import calendar from "./calendar.module.css"
 import { useDispatch } from "react-redux";
 import { uiCloseModal } from "../../actions/ui";
 import axios from "axios";
