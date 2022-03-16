@@ -9,16 +9,7 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
 
-    try {
-      axios.post(PETITIONS.register, user )
-      .then(res => {
-        console.log(res.data.msg);
-        console.log(res);
-        alert(res.data.msg)
-      })
-    } catch (error) {
-      console.log(error)
-    }
+    
   }
 
   const handleName = (e) => {
