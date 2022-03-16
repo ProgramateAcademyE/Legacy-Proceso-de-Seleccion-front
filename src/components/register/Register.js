@@ -98,7 +98,7 @@ const Register = () => {
         <input required type='password'onChange={handleconfirmPassword}/>
         {errors.password && <p>{errors.password}</p>}
         <input className='buttonS' type='submit'/>
-        <p> Ya estas registrado? <Link to="/">Loggin</Link></p>
+        <p> Ya estas registrado? <Link to="/">Login</Link></p>
       </form>
       </div>
     </>
