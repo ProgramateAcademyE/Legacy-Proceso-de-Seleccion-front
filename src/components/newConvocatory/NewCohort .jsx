@@ -7,6 +7,7 @@ import { getDepartments, dataTypePopulation } from "../../helpers/ConvocatoryHel
 
 const NewCohort = () => {
   const [departments, setDepartments] = useState([])
+  
   let stractus = []
   for(let i = 1; i <= 6; i++){
     stractus.push(i)

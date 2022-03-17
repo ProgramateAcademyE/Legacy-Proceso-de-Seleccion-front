@@ -22,11 +22,6 @@ const Nav = () => {
 
   const isActive = ITEMS.findIndex(item => item.pathname === location.pathname)
   const isActiveAspirant = ITEMS_ASPIRANTS.findIndex(item => item.pathname === location.pathname)
- 
-  
-
-
-
   return (
     <div className="nav" id="menu">
       <span className="nav__title">Menu</span>
@@ -39,7 +34,7 @@ const Nav = () => {
                 key={index}
                 item={item}
                 toggleItem={() => toggleItem(item.id)}
-                activeItems={activeItems}
+                 activeItems={activeItems}
                 active={index === isActive}
               />
             ))}
@@ -52,7 +47,7 @@ const Nav = () => {
                 item={item}
                 toggleItem={() => toggleItem(item.id)}
                 activeItems={activeItems}
-                active={index === isActiveAspirant}
+                active={index === isActiveAspirant} 
               />
             ))}
         </nav>
