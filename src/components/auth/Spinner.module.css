@@ -1,15 +1,16 @@
 .spinner_Box{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    position: absolute;
-    width: 100%;
-    height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  margin: auto;
+  width: 400px;
+  height: 50px;
 }
 .sk-chase {
     width: 100px;
     height: 100px;
-    position: relative;
+    position: fixed;
     animation: sk-chase 2.5s infinite linear both;
     margin: auto;
   }
@@ -17,7 +18,7 @@
   .sk-chase-dot {
     width: 100%;
     height: 100%;
-    position: absolute;
+    position: fixed;
     left: 0;
     top: 0; 
     animation: sk-chase-dot 2.0s infinite ease-in-out both; 
@@ -28,7 +29,7 @@
     display: block;
     width: 25%;
     height: 25%;
-    background-color: #d6b210;
+    background-color: #7AC139;
     border-radius: 100%;
     animation: sk-chase-dot-before 2.0s infinite ease-in-out both; 
   }
