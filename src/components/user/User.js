@@ -20,7 +20,7 @@ const User = () => {
         <>
         <div className='User__Box pointer box-logut'>
             <i className="far fa-user icon-user"/>
-            <span className='text-user'>{user.name}</span>
+            <span className='text-user'>{user.names}</span>
             <i className="fas fa-chevron-down icon-arrow"/>
         <div className="logout d-flex flex-column justify-content-center">
             <span className='logout__text'>Editar perfil</span>

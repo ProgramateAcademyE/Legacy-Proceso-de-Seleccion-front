@@ -1,12 +1,13 @@
 .form{
     width: 400px;
-    height: 400px;
+    height: 500px;
     display: flex;
     justify-content: center;
     flex-direction: column;
     background: #FFCC02;
     box-sizing: border-box;
     border-radius: 10px;
+    padding: 40px;
 }
 
 .form h1{
@@ -23,6 +24,17 @@
     background-color: #000;
     color: #FFCC02;
     width: 80px;
-    margin-top: 50px;
+    margin: 15px auto;
     border-radius: 5px;
+}
+
+.form input{
+    border: none;
+    padding: 5px;
+    border-radius: 3px;
+}
+
+a{
+    color: #111;
+    font-weight: 600;
 }

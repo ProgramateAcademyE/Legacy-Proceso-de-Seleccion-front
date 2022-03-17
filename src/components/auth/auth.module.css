@@ -1,13 +1,30 @@
 .login_page{
+    width: 400px;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background: #FFCC02;
+    box-sizing: border-box;
+    border-radius: 10px;
     max-width: 500px;
     margin: auto;
-    color: #444;
+    color: #000;
     padding: 0 15px;
+}
+
+.cardLoggin{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
 }
 .login_page h2{
     text-transform: uppercase;
+    text-align: center;
     font-size: 2rem;
-    margin: 20px 0;
+  
     letter-spacing: 1.5px;
 }
 .password, .email{
@@ -22,29 +39,27 @@
     width: 100%;
     height: 45px;
     margin: 10px 0;
-    border: 2px solid #777;
-    outline: none;
-    padding: 0 10px;
+    border: none;
+    border-radius: 3px;
+    padding: 5px;
 }
 .login_page .row{
     display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap-reverse;
-    align-items: flex-start;
+    justify-content: center;
+    align-items: center;
 }
 .login_page .row a{
     color: crimson;
 }
 .login_page .row button{
+    background-color: #000;
+    color: #FFCC02;
     width: 150px;
-    padding: 10px 0;
-    color: white;
-    background: #fdc300;
-    text-transform: uppercase;
-    letter-spacing: 1.5px;
-    margin-right: 10px;
+    text-align: center;
+    margin-top: 50px;
+    border-radius: 5px;
     border: none;
-    box-shadow: 0px 2px 11px 0px #0000004f !important;
+    padding: 5px;
 }
 .login_page p{
     margin: 10px 0;
@@ -53,6 +68,7 @@
     color: #111;
     font-weight: 600;
 }
+
 
 /* ------------- Forgot Password --------------- */
 .fg_pass h2{

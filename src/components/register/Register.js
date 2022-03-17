@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import axios from 'axios'
+import { Link } from "react-router-dom";
 import { PETITIONS } from '../../../requestUrl'
-import registercss from './Register.module.css'
+import register from './Register.module.css'
   
 
 const Register = () => {
@@ -10,22 +11,27 @@ const Register = () => {
 
   const validate = values => {
     const error = {}
-    if (!values.names) {
-      error.names = 'Required';
-    } else if (values.names.test > 15) {
-      error.names = 'Este campo es obligatorio';
+    if (!values.name) {
+      error.name = 'Este campo es obligatorio';
+    } else if (values.name.test > 15) {
+    
     }
   
-    if (!values.surname) {
-      error.surname = 'Required';
-    } else if (values.surname.test > 20) {
-      error.surname = 'Este campo es obligatorio';
+    if (!values.lastName) {
+      error.lastName = 'Este campo es obligatorio';
+    } else if (values.lastName.test > 20) {
+
     }
   
     if (!values.email) {
-      error.email = 'Required';
+      error.email = 'Este campo es obligatorio';
     } else if (!/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(values.email)) {
-      error.email = "Invalid email address";
+    }
+
+    if (!values.confirmPassword) {
+      error.password = 'Este campo es obligatorio';
+    } else if (values.confirmPassword !== values.password) {
+      error.password = 'Tus contraseñas no son iguales';
     }
   
     return error;
@@ -43,14 +49,14 @@ const Register = () => {
   }
 
   const handleName = (e) => {
-    const names = e.target.value
-    setUser({...user, names})
+    const name = e.target.value
+    setUser({...user, name})
 
   }
 
   const handleLastName = (e) => {
-    const surname = e.target.value
-    setUser({...user, surname})
+    const lastName = e.target.value
+    setUser({...user, lastName})
 
   }
 
@@ -75,27 +81,27 @@ const Register = () => {
     <>
     <div className='container'>
       <form className='form' onSubmit={handleSubmit}>
-      <h1> Registrate </h1>
+        <h1> Registrate </h1>
         <label>Nombre</label>
-        <input type='text' onChange={handleName}/>
+        <input required type='text' onChange={handleName}/>
         {errors.name && <p>{errors.name}</p>}
         <label>Apellido</label>
-        <input type='text' onChange={handleLastName}/>
+        <input required type='text' onChange={handleLastName}/>
         {errors.lastName && <p>{errors.lastName}</p>}
         <label>Correo</label>
-        <input type='email'onChange={handleEmail}/>
+        <input required type='email'onChange={handleEmail}/>
         {errors.email && <p>{errors.email}</p>}
         <label>Contraseña</label>
         <input type='password'onChange={handlePassword}/>
-
         <label>Confirmar Contraseña</label>
-        <input type='password'onChange={handleconfirmPassword}/>
-
+        <input required type='password'onChange={handleconfirmPassword}/>
+        {errors.password && <p>{errors.password}</p>}
         <input className='buttonS' type='submit'/>
+        <p> Ya estas registrado? <Link to="/">Loggin</Link></p>
       </form>
       </div>
     </>
   )
 }
 
-export default Register
+export default Register;

@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import aspirantscss from "./Aspirants.module.css";
-import Tablita from "../../components/tablita/Tablita";
+import Tablita from "../../components/tablita/Table";
 import RequestService from "../../config/index";
 import ModalAspirants from "../../components/modals/ModalAspirants";
 
