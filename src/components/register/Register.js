@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import axios from 'axios'
 import { Link } from "react-router-dom";
 import { PETITIONS } from '../../../requestUrl'
-import registercss from './Register.module.css'
+import register from './Register.module.css'
   
 
 const Register = () => {
@@ -11,16 +11,16 @@ const Register = () => {
 
   const validate = values => {
     const error = {}
-    if (!values.names) {
-      error.names = 'Required';
-    } else if (values.names.test > 15) {
-      error.names = 'Este campo es obligatorio';
+    if (!values.name) {
+      error.name = 'Este campo es obligatorio';
+    } else if (values.name.test > 15) {
+    
     }
   
-    if (!values.surname) {
-      error.surname = 'Required';
-    } else if (values.surname.test > 20) {
-      error.surname = 'Este campo es obligatorio';
+    if (!values.lastName) {
+      error.lastName = 'Este campo es obligatorio';
+    } else if (values.lastName.test > 20) {
+
     }
   
     if (!values.email) {
@@ -49,14 +49,14 @@ const Register = () => {
   }
 
   const handleName = (e) => {
-    const names = e.target.value
-    setUser({...user, names})
+    const name = e.target.value
+    setUser({...user, name})
 
   }
 
   const handleLastName = (e) => {
-    const surname = e.target.value
-    setUser({...user, surname})
+    const lastName = e.target.value
+    setUser({...user, lastName})
 
   }
 
@@ -92,13 +92,12 @@ const Register = () => {
         <input required type='email'onChange={handleEmail}/>
         {errors.email && <p>{errors.email}</p>}
         <label>Contraseña</label>
-        <input required type='password'onChange={handlePassword}/>
-
+        <input type='password'onChange={handlePassword}/>
         <label>Confirmar Contraseña</label>
         <input required type='password'onChange={handleconfirmPassword}/>
         {errors.password && <p>{errors.password}</p>}
         <input className='buttonS' type='submit'/>
-        <p> Ya estas registrado? <Link to="/">Login</Link></p>
+        <p> Ya estas registrado? <Link to="/">Loggin</Link></p>
       </form>
       </div>
     </>
