@@ -7,7 +7,7 @@ import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
-import Search from "../../components/search/Search";
+import Search from "../search/Search";
 import RequestService from "../../config/index";
 import { CSVLink } from "react-csv";
 
@@ -17,7 +17,7 @@ const useStyles = makeStyles({
     },
 });
 
-export default function BasicTable({ rows, actions = false }) {
+export default function BasicTable({ rows, actions = false, data }) {
     const classes = useStyles();
 
     const header = [];
@@ -26,11 +26,11 @@ export default function BasicTable({ rows, actions = false }) {
         header.push(key);
     }
 
-    const getUser = async () => {
-        const { data } = await RequestService.get("/candidate/candidate");
-        const { users } = data;
-    };
-    getUser();
+    // const getUser = async () => {
+    //     const { data } = await RequestService.get("/candidate/candidate");
+    //     const { users } = data;
+    // };
+    // getUser();
 
     return (
         <>
@@ -40,24 +40,24 @@ export default function BasicTable({ rows, actions = false }) {
                     <TableHead>
                         <TableRow>
                             {header.map((row, index) => (
-                                <TableCell key={index} align="right">
+                                <TableCell key={index} align="center">
                                     {row}
                                 </TableCell>
                             ))}
                             {actions && (
-                                <TableCell align="right">Acciones</TableCell>
+                                <TableCell align="center">Acciones</TableCell>
                             )}
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {rows.map((prop) => (
-                            <TableRow key={prop.id}>
+                        {rows.map((prop, index) => (
+                            <TableRow key={index}>
                                 {header.map((row, index) => (
-                                    <TableCell key={index} align="right">
+                                    <TableCell key={index} align="center">
                                         {prop[row]}
                                     </TableCell>
                                 ))}
-                                <TableCell align="right">
+                                <TableCell align="center">
                                     {actions &&
                                         actions.map((action, index) =>
                                             action.status ? (
