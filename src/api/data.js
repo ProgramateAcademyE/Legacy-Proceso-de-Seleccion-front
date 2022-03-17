@@ -10,43 +10,34 @@ export const ITEMS = [
         name: "Convocatoria",
         icon: "fab fa-connectdevelop",
         id: 28,
-        items: [],
+        items: [ 
+             {
+                name: "Administrar Pruebas Técnicas",
+                pathname: "/prueba",
+            },],
         pathname: "/convocatoria",
     },
     {
         name: "Aspirantes",
         icon: "far fa-user",
         id: 2,
-        items: [],
-        pathname: "/aspirantes",
-    },
-    {
-        name: "Inscripcion",
-        icon: "far fa-id-card",
-        id: 3,
-        items: [
+        items: [  
             {
                 name: "Resultados",
                 pathname: "/resultsInscription",
             },
-            {
+             {
                 name: "Lista de espera",
                 pathname: "/waiting-list",
             },
-            {
-                name: "Calificación de la carta de motivación",
-                pathname: "/motivationLetter",
-            },
-            {
-                name: "Parametrización",
-                pathname: "/parameterization",
-            },
         ],
+        pathname: "/aspirantes",
     },
+    
     {
         name: "Citación",
         icon: "fas fa-map-marker-alt",
-        id: 4,
+        id: 3,
         items: [
             {
                 name: "Consolidado Postulantes",
@@ -55,32 +46,6 @@ export const ITEMS = [
             {
                 name: "Dias de Entrevista",
                 pathname: "/dia-de-entrevista",
-            },
-        ],
-    },
-    {
-        name: "Prueba Técnica",
-        icon: "fas fa-laptop-code",
-        id: 5,
-        items: [
-            {
-                name: "Administrar Pruebas Técnicas",
-                pathname: "/prueba",
-            },
-            {
-                name: "Calificar Pruebas Tecnicas",
-                pathname: "/calificar",
-            },
-        ],
-    },
-    {
-        name: "Selección",
-        icon: "fas fa-vote-yea",
-        id: 6,
-        items: [
-            {
-                name: "Resultados",
-                pathname: "/selection-results",
             },
         ],
     },

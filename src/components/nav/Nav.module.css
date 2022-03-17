@@ -1,9 +1,9 @@
 .nav {
-  position: absolute;
+  position: fixed;
   height: 100%;
   padding: 20px 0;
   background-color: #fdc300;
-  width: 74px;
+  width: 75px;
   display: block;
   -webkit-transition: .4s all ease;
   transition: .4s all ease;
@@ -96,8 +96,8 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 70px;
-  height: 80%;
+  width: 75px;
+  height: 78%;
   -webkit-transition: 0.4s all;
   transition: 0.4s all;
   background: #fdc300;

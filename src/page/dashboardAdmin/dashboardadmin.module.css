@@ -31,11 +31,15 @@
 
 .socialMedia__container {
   width: 400px;
-  height: auto;
+  height: 400px;
   margin-top: 20px;
   background-color: #ffffff;
   -webkit-box-shadow: 0px 2px 4px #0000004f !important;
           box-shadow: 0px 2px 4px #0000004f !important;
+}
+.socialMedia__container-title{
+  display: flex;
+  justify-content: center;
 }
 
 .cohorteGoal__container-title,

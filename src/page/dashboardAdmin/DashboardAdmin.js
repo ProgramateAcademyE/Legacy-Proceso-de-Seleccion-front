@@ -101,7 +101,7 @@ const DashboardAdmin = () => {
                         </div>
                     </div> */}
                     <div className="socialMedia__container">
-                        <div className="socialMedia__container-title d-flex justify-content-center align-items-center">
+                        <div className="socialMedia__container-title">
                             <h2 className="m-0">
                                 Departamento de residencia
                             </h2>

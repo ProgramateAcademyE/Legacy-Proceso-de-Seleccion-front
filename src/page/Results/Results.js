@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import Tablita from "../../components/tablita/Table";
 import RequestService from "../../config/index";
 import MotivationLetterModal from "../../components/modals/MotivationLetterModal";
+import results from "./Results.module.css"
 
 const Results = () => {
     const [results, setResults] = useState([]);
@@ -69,13 +70,8 @@ const Results = () => {
 
     return (
         <div className="Aspirants">
-            <div className="section__content d-flex justify-content-between">
+            <div className="section__content">
                 <span className="upperCase bold">Resultados</span>
-                <div className="box__content">
-                    <span className="text-crumbs bold-500"> Programate </span>
-                    <i className="fas fa-chevron-right subtitle" />
-                    <span className="text-crumbs">Aspirantes</span>
-                </div>
             </div>
             <div className="table mt-4">
                 <Tablita key={rows.length} rows={rows} />
