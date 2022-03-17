@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 
 const Step1 = ({ data, handeleChange }) => {
   const {
@@ -9,32 +9,16 @@ const Step1 = ({ data, handeleChange }) => {
     documentType,
     documentNumber,
     documentPdf,
+    dateOfBirth,
+    age,
+    sex,
+    maritalStatus,
     email,
-    phone,
-    nacionality,
-    livesInColombia,
-    migrant,
-    address,
-    locationInBogota,
-    municipalityOfResidency,
-    residencyDepartment
+    phone1,
+    phone2,
   } = data;
 
   //   const variable = auth.user.id
-
-  const [countries, setCountries] = useState([]);
-
-  const getCountry = async () => {
-    const url = "https://restcountries.com/v3.1/all";
-    const request = await fetch(url);
-    const countrie = await request.json();
-    const countries = countrie.map((item) => item.name.common).sort();
-    setCountries(countries);
-  };
-
-  useEffect(() => {
-    getCountry();
-  }, []);
 
   return (
     <>
@@ -107,6 +91,8 @@ const Step1 = ({ data, handeleChange }) => {
             <option value="cc">Selecciona el tipo de documento</option>
             <option value="CC">CC</option>
             <option value="TI">TI</option>
+            <option value="CC">Cédula de extranjería</option>
+            <option value="TI">Permiso Especial de Permanencia - PEP</option>
           </select>
         </div>
         <div className="col-12 col-md-6">
@@ -122,22 +108,82 @@ const Step1 = ({ data, handeleChange }) => {
           />
         </div>
       </div>
-
       <div className="row mt-4">
+
+      </div>
+      <div className="row mt-4">
+      <div className="col-12 col-md-6">
+        <label htmlFor="formFile" className="form-label">
+          Fotocopia de documento de identidad
+        </label>
+        <input
+          className="form-control"
+          type="file"
+          id="formFile"
+          name="documentPdf"
+          onChange={handeleChange}
+          value={documentPdf}
+        />
+        </div>
         <div className="col-12 col-md-6">
-          <label htmlFor="formFile" className="form-label">
-            Fotocopia de documento de identidad
+          <label htmlFor="" className="form-label">
+            Fecha de nacimiento
           </label>
           <input
+            type="date"
             className="form-control"
-            type="file"
-            id="formFile"
-            name="documentPdf"
+            name="dateOfBirth"
             onChange={handeleChange}
-            value={documentPdf}
+            value={dateOfBirth}
           />
         </div>
         <div className="col-12 col-md-6">
+          <label htmlFor="" className="form-label">
+            Edad actual
+          </label>
+          <input
+            type="number"
+            className="form-control"
+            name="age"
+            onChange={handeleChange}
+            value={age}
+          />
+        </div>
+        <div htmlFor="" className="col-12 col-md-6">
+          <label className="form-label">Sexo (Según documento de identidad)</label>
+          <select
+            name="sex"
+            onChange={handeleChange}
+            value={sex}
+            className="form-select"
+          >
+            <option value="cc">Selecciona tu Sexo</option>
+            <option value="masculino">Masculino</option>
+            <option value="femenino">Femenino</option>
+          </select>
+        </div>
+        <div htmlFor="" className="col-12 col-md-6">
+          <label className="form-label">Estado Civil</label>
+          <select
+            name="maritalStatus"
+            onChange={handeleChange}
+            value={maritalStatus}
+            className="form-select"
+          >
+            <option value="cc">Selecciona tu Estado Civil</option>
+            <option value="Soltero">Soltero</option>
+            <option value="Casado">Casado</option>
+            <option value="Divorciado">Divorciado</option>
+            <option value="Separación en proceso judicial">Separación en proceso judicial</option>
+            <option value="Union libre">Union libre</option>
+            <option value="Viudo">Viudo</option>
+
+          </select>
+        </div>
+      </div>
+      <div className="row mt-4">
+      <h2>Información de contacto</h2>
+      <div className="col-12 col-md-6">
           <label htmlFor="" className="form-label">
             Correo electrónico
           </label>
@@ -149,38 +195,32 @@ const Step1 = ({ data, handeleChange }) => {
             value={email}
           />
         </div>
-      </div>
-      <div className="row mt-4">
         <div className="col-12 col-md-6">
           <label htmlFor="" className="form-label">
-            Teléfono de contacto
+            Teléfono principal de contacto
           </label>
           <input
             type="number"
             className="form-control"
-            name="phone"
+            name="phone1"
             onChange={handeleChange}
-            value={phone}
+            value={phone1}
           />
         </div>
-        <div htmlFor="" className="col-12 col-md-6">
-          <label className="form-label">Nacionalidad</label>
-          <select
-            name="nacionality"
+        <div className="col-12 col-md-6">
+          <label htmlFor="" className="form-label">
+            Teléfono alterno de contacto
+          </label>
+          <input
+            type="number"
+            className="form-control"
+            name="phone2"
             onChange={handeleChange}
-            value={nacionality}
-            className="form-select"
-          >
-            <option value="select">Selecciona un pais</option>
-            {countries.map((countrie) => (
-              <option key={countrie} value={countrie}>
-                {countrie}
-              </option>
-            ))}
-          </select>
+            value={phone2}
+          />
         </div>
         <div className="row mt-4">
-          <div htmlFor="" className="col-12 col-md-6">
+{/*           <div htmlFor="" className="col-12 col-md-6">
             <label className="form-label">¿Eres Migrante?</label>
             <select
               name="migrant"
@@ -192,81 +232,7 @@ const Step1 = ({ data, handeleChange }) => {
               <option value="si">Si</option>
               <option value="no">No</option>
             </select>
-          </div>
-          <div htmlFor="" className="col-12 col-md-6">
-            <label className="form-label">¿Vives en Colombia?</label>
-            <select
-              name="livesInColombia"
-              onChange={handeleChange}
-              value={livesInColombia}
-              className="form-select"
-            >
-              <option value="select">Selecciona si o no</option>
-              <option value="si">Si</option>
-              <option value="no">No</option>
-            </select>
-          </div>
-        </div>
-        <div className="row mt-4">
-          <div htmlFor="" className="col-12 col-md-6">
-            <label className="form-label">Departamento de residencia</label>
-            <select
-              name="residencyDepartment"
-              onChange={handeleChange}
-              value={residencyDepartment}
-              className="form-select"
-            >
-              <option value="select">Selecciona tu Departamento</option>
-              <option value="Cundinamarca">Cundinamarca</option>
-              <option value="Guainía">Guainía</option>
-              <option value="Guaviare">Guaviare</option>
-            </select>
-          </div>
-          <div htmlFor="" className="col-12 col-md-6">
-            <label className="form-label">Municipio de Residencia</label>
-            <select
-              name="municipalityOfResidency"
-              onChange={handeleChange}
-              value={municipalityOfResidency}
-              className="form-select"
-            >
-              <option value="cc">Selecciona tu Municipio</option>
-              <option value="Bogota">Bogota</option>
-              <option value="Barranquilla">Barranquilla</option>
-              <option value="Medellin">Medellin</option>
-            </select>
-          </div>
-        </div>
-
-        <div className="row mt-4">
-          <div htmlFor="" className="col-12 col-md-6">
-            <label className="form-label">
-              Si resides en Bogotá, cual es tu localidad de residencia
-            </label>
-            <select
-              name="locationInBogota"
-              onChange={handeleChange}
-              value={locationInBogota}
-              className="form-select"
-            >
-              <option value="cc">Selecciona tu localidad</option>
-              <option value="La Candelaria">La Candelaria</option>
-              <option value="Ciudad Bolívar">Ciudad Bolívar</option>
-              <option value="Sumapaz">Sumapaz</option>
-            </select>
-          </div>
-          <div className="col-12 col-md-6">
-            <label htmlFor="" className="form-label">
-              Dirección permanente/recurrent e de residencia
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              name="address"
-              onChange={handeleChange}
-              value={address}
-            />
-          </div>
+          </div> */}
         </div>
       </div>
     </>
