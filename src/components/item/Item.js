@@ -21,7 +21,7 @@ const Item = ({ item, toggleItem, activeItems, active }) => {
           onClick={toggleItem}
         >
           <div className='d-flex align-items-center  px-3'>
-            <i className={`${icon} nav__item-icon ${isActiveItem}`} />
+          <Link to={pathname}><i className={`${icon} nav__item-icon ${isActiveItem}`} /></Link>  
             <Link to={pathname} className={`mx-1 nav__item-label ${isActiveItem}`}>{name}</Link>
           </div>
 

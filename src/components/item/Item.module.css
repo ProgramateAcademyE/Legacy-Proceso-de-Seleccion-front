@@ -31,10 +31,7 @@
     font-size: 14.8px;
   }
  
-  
-
-
-.active{
+  .active{
   color: rgb(255, 255, 255) !important;
   transition: 0.4s all;
 

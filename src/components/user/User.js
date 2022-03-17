@@ -7,7 +7,6 @@ const User = () => {
 
     const handleLogout = () => {
         try {
-            // await axios.get('/user/logout')
             localStorage.removeItem('firstLogin')
             localStorage.removeItem('loggedAgoraUser')
             window.location.href = "/";
