@@ -413,6 +413,8 @@
 }
 body {
     background-color: #f1f5f7;
+    width: 0;
+    height: 0;
 }
 .hhh {
     padding-top: 70px;

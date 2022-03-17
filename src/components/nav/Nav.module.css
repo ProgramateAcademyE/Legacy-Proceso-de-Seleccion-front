@@ -50,7 +50,7 @@
     width: 294px;
   }
   .nav:hover .nav__fixed {
-    width: 240px;
+    width: 294px;
     overflow-y: scroll !important;
     overflow-x: hidden !important;
   }
