@@ -71,13 +71,6 @@ const Register = () => {
     setUser({...user, password})
   }
 
-  const handleconfirmPassword = (e) => {
-    const confirmPassword = e.target.value
-    // setUser({...user, confirmPassword})
-  }
-  
-
-
   return (
     <>
     <div className='container'>
@@ -95,7 +88,7 @@ const Register = () => {
         <label>Contraseña</label>
         <input type='password'onChange={handlePassword}/>
         <label>Confirmar Contraseña</label>
-        <input required type='password'onChange={handleconfirmPassword}/>
+        <input required type='password'/>
         {errors.password && <p>{errors.password}</p>}
         <input className='buttonS' type='submit'/>
         <p> Ya estas registrado? <Link to="/">Loggin</Link></p>
