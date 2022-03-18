@@ -23,3 +23,13 @@ export const dataTypePopulation = [
   "Adolescentes en conflicto con la ley penal",
   "LGBTIQ+",
 ]
+
+export const getOneConvocatory = async (id) => {
+  const APIURL = `http://localhost:3001/api/admin/convocatory/${id}`;
+
+  // Fetching data...
+  const res = await fetch(APIURL);
+  const response = await res.json();
+
+  return response;
+};

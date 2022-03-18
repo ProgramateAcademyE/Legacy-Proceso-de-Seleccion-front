@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
@@ -8,7 +9,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Search from "../search/Search";
-import RequestService from "../../config/index";
+// import RequestService from "../../config/index";
 import { CSVLink } from "react-csv";
 
 const useStyles = makeStyles({
@@ -17,7 +18,7 @@ const useStyles = makeStyles({
     },
 });
 
-export default function BasicTable({ rows, actions = false, data }) {
+export default function BasicTable({ rows, actions = false, convocatoryData }) {
     const classes = useStyles();
 
     const header = [];
@@ -50,26 +51,37 @@ export default function BasicTable({ rows, actions = false, data }) {
                         </TableRow>
                     </TableHead>
                     <TableBody>
-                        {rows.map((prop, index) => (
+                        {convocatoryData.map((prop, index) => (
                             <TableRow key={index}>
-                                {header.map((row, index) => (
-                                    <TableCell key={index} align="center">
-                                        {prop[row]}
-                                    </TableCell>
-                                ))}
+                                <TableCell align="center">
+                                    {prop.name}
+                                </TableCell>
+                                <TableCell align="center">
+                                    {prop.maxQuotas}
+                                </TableCell>
+                                <TableCell align="center">
+                                    {prop.initialDate}
+                                </TableCell>
+                                <TableCell align="center">
+                                    {prop.finalDate}
+                                </TableCell>
+                                <TableCell align="center">
+                                    {prop.initialBootcampDate}
+                                </TableCell>
+                                <TableCell align="center">
+                                    {prop.finalBootcampDate}
+                                </TableCell>
                                 <TableCell align="center">
                                     {actions &&
                                         actions.map((action, index) =>
                                             action.status ? (
                                                 <span key={index}>
+                                                    <Link to={`/editarcohorte?idConvocatory=${prop._id}`}>
                                                     {action.icon}
+                                                    </Link>
                                                 </span>
                                             ) : null
                                         )}
-                                    {/* <i className="far fa-check-square"> </i>
-                                    <i className="far fa-edit"> </i>
-                                    <i className="far fa-eye"> </i>
-                                    <i className="far fa-trash-alt"> </i> */}
                                 </TableCell>
                             </TableRow>
                         ))}

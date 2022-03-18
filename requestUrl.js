@@ -5,4 +5,6 @@ export const PETITIONS = {
   createConvocatory: 'http://localhost:3001/api/admin/new-conv',
   // Get all Convocatories
   getConvocatories: 'http://localhost:3001/api/admin/convocatories',
+  // Activate user
+  activateUser: 'http://localhost:3001/api/user/activation/',
 }

@@ -28,9 +28,8 @@ const Convocatory = () => {
     {
       status: true,
       icon: (
-        <Link to="/editarcohorte">
           <i className="far fa-edit"></i>
-        </Link>
+        // </Link>
       ),
     },
     {
@@ -74,7 +73,7 @@ const Convocatory = () => {
         {rows.length > 0 ? (
           <Table
             className="table"
-            data={convocatories}
+            convocatoryData={convocatories}
             key={rows.Id}
             rows={rows}
             actions={actions}

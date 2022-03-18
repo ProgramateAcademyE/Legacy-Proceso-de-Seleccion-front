@@ -28,6 +28,7 @@ import Footer from "../components/footer/Footer";
 import { getData } from "../actions/sololearnProfile";
 import SelectionResults from "../page/selection/SelectionResults";
 
+import Verify from "../components/verify/Verify";
 import Register from "../components/register/Register";
 
 const App = () => {
@@ -45,13 +46,14 @@ const App = () => {
   return (
     <>
       {/* {pathname !== "/login" && <Header user={user} adminstate={adminstate} />} */}
-      {pathname !== "/" && pathname !== "/register" && <Header />}
+      {pathname !== "/" && pathname !== "/register" && pathname !== '/verify' && <Header />}
 
       <div className="d-flex top">
         {/* {pathname !== "/login" && <Nav user={user} adminstate={adminstate} />} */}
-        {pathname !== "/" && pathname !== "/register" && <Nav />}
+        {pathname !== "/" && pathname !== "/register" && pathname !== '/verify' && <Nav />}
 
         <Switch>
+          <Route exact path="/verify" component={Verify} />
           <Route exact path="/" component={LoginFull} />
           <Route exact path="/register" component={Register} />
           {/* <Redirect to="/login" /> */}
@@ -64,7 +66,7 @@ const App = () => {
               </Route>
               <Route path="/convocatoria" component={Convocatory} />
               <Route path="/nuevacohorte" component={NewCohort} />
-              <Route path="/editarcohorte" component={EditCohort} />
+              <Route path="/editarcohorte" component={NewCohort} />
               <Route path="/aspirantes" component={Aspirants} />
               <Route path="/prueba" component={AdministerTechnicalTest} />
               <Route path="/agregar" component={AdministerTechnicalTestAdd} />
@@ -96,7 +98,7 @@ const App = () => {
           )}
         </Switch>
       </div>
-      {pathname !== "/" && pathname !== "/register" && <Footer />}
+      {pathname !== "/" && pathname !== "/register" && pathname !== '/verify' && <Footer />}
     </>
   );
 };
