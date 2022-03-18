@@ -58,6 +58,11 @@ const Login = () => {
           password: false,
         });
       }
+      setTimeout(() => {
+        guardarSpinner(false);
+      }, 300);
+
+      return;
     } else {
       if (user.password.length < 6) {
         if (validateEmail(user.email) === null) {
@@ -71,6 +76,10 @@ const Login = () => {
             email: false,
           });
         }
+        setTimeout(() => {
+          guardarSpinner(false);
+        }, 300);
+        return;
       }
     }
     try {
