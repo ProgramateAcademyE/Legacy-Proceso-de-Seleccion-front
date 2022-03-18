@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Tablita from "../../components/tablita/Tablita";
+import Tablita from "../../components/tablita/Table";
 import RequestService from "../../config/index";
 
 const WaitingList = () => {

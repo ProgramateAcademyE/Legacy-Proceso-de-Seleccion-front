@@ -14,8 +14,7 @@ import { ContentContext } from "../../Context/status";
 import { initialData } from "./index";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-
-import "./StepForm.scss";
+import stepformcss from "./StepForm.module.css";
 import { getData, getProfileFull } from "../../actions/sololearnProfile";
 
 const useStyles = makeStyles((theme) => ({

@@ -6,7 +6,7 @@ import axios from "axios";
 //   showSuccessMsg
 // } from '../../notification/Notification'
 import { useDispatch, useSelector } from "react-redux";
-import "./auth.css";
+import auth from "./Auth.module.css";
 import { dispatchLogin } from "../../actions/authAction";
 import Spinner from "./Spinner";
 
@@ -63,45 +63,48 @@ const Login = () => {
 
   return (
     <>
-      <div className="mensajes">{componentes}</div>
-      <div className="login_page">
-        <h2>Login</h2>
-        {/* {err && showErrMsg(err)}
+      <div className="cardLoggin">
+        <div className="mensajes">{componentes}</div>
+        <div className="login_page">
+          <h2>Iniciar Sesión</h2>
+          {/* {err && showErrMsg(err)}
       {success && showSuccessMsg(success)} */}
 
-        <form onSubmit={handleSubmit}>
-          <div>
-            <label htmlFor="email">Email Address</label>
-            <input
-              className="email"
-              type="text"
-              placeholder="Enter email address"
-              id="email"
-              value={email}
-              name="email"
-              onChange={handleChangeInput}
-            />
-          </div>
-          <div>
-            <label htmlFor="password">Password</label>
-            <input
-              className="password"
-              type="password"
-              placeholder="Enter password"
-              id="password"
-              value={password}
-              name="password"
-              onChange={handleChangeInput}
-            />
-          </div>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label htmlFor="email">Correo</label>
+              <input
+                className={auth.email}
+                type="text"
+                placeholder="Correo"
+                id="email"
+                value={email}
+                name="email"
+                onChange={handleChangeInput}
+              />
+            </div>
+            <div>
+              <label htmlFor="password">Contraseña</label>
+              <input
+                className="password"
+                type="password"
+                placeholder="Contraseña"
+                id="password"
+                value={password}
+                name="password"
+                onChange={handleChangeInput}
+              />
+            </div>
 
-          <div className="row">
-            <button type="submit">Login</button>
-          </div>
-        </form>
-        <p>
-          New Customer? <Link to="/register">Register</Link>
-        </p>
+            <div className="row">
+              <button type="submit">Iniciar Sesión</button>
+            </div>
+          </form>
+          <p>
+            Nuevo usuario? <Link to="/register">Registrate
+            </Link>
+          </p>
+        </div>
       </div>
     </>
   );

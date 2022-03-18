@@ -11,6 +11,7 @@ const Step2 = ({ data, handeleChange }) => {
       locationInBogota,
       stratum,
       areaType,
+      billPdf,
       disability,
       familyIncome,
       householdMembers,
@@ -18,7 +19,8 @@ const Step2 = ({ data, handeleChange }) => {
       vulnerablePopulation,
       pcAccess,
       internetAccess,
-      internetCompany
+      internetCompany,
+      mbCount
       } = data;
 
     const [countries, setCountries] = useState([]);
@@ -192,6 +194,19 @@ const Step2 = ({ data, handeleChange }) => {
         </div>
         </div>
       <div className="row mt-4">
+      <div className="col-12 col-md-6">
+        <label htmlFor="formFile" className="form-label">
+          Fotocopia de recibo en PDF
+        </label>
+        <input
+          className="form-control"
+          type="file"
+          id="formFile"
+          name="billPdf"
+          onChange={handeleChange}
+          value={billPdf}
+        />
+        </div>
         <div htmlFor="" className="col-12 col-md-6">
           <label className="form-label">
           ¿Cuantas personas viven en tu casa?
@@ -211,6 +226,8 @@ const Step2 = ({ data, handeleChange }) => {
             <option value="Más de 5 personas">Más de 5 personas</option>
           </select>
         </div>
+      </div>
+      <div className="row mt-4">
         <div htmlFor="" className="col-12 col-md-6">
           <label className="form-label">
           ¿Tienes hijos?
@@ -230,8 +247,6 @@ const Step2 = ({ data, handeleChange }) => {
             <option value="Si, cinco o más">Si, cinco o más</option>
           </select>
         </div>
-        </div>
-      <div className="row mt-4">
         <div htmlFor="" className="col-12 col-md-6">
           <label className="form-label">
           ¿Cuál fue el ingreso total de tu grupo familiar el mes pasado?
@@ -254,6 +269,8 @@ const Step2 = ({ data, handeleChange }) => {
             <option value="Más de 6 salarios mínimos">Más de 7 salarios mínimos</option>
           </select>
         </div>
+        </div>
+      <div className="row mt-4">
         <div htmlFor="" className="col-12 col-md-6">
           <label className="form-label">
           ¿Perteneces a alguna de las siguientes poblaciones?
@@ -281,8 +298,6 @@ const Step2 = ({ data, handeleChange }) => {
             <option value="Otro">Otro</option>
           </select>
         </div>
-      </div>
-      <div className="row mt-4">
         <div htmlFor="" className="col-12 col-md-6">
           <label className="form-label">
           ¿Tienes alguna de las siguientes discapacidades?
@@ -305,6 +320,8 @@ const Step2 = ({ data, handeleChange }) => {
             <option value="Otra">Otra</option>
           </select>
         </div>
+      </div>
+      <div className="row mt-4">
         <div htmlFor="" className="col-12 col-md-6">
           <label className="form-label">¿Tienes acceso a un computador?</label>
           <select
@@ -318,8 +335,6 @@ const Step2 = ({ data, handeleChange }) => {
             <option value="No">No</option>
           </select>
         </div>
-        </div>
-        <div className="row mt-4">
         <div htmlFor="" className="col-12 col-md-6">
           <label className="form-label">¿Tienes acceso a internet a través de un plan de servicios de hogar?</label>
           <select
@@ -333,16 +348,30 @@ const Step2 = ({ data, handeleChange }) => {
             <option value="No">No</option>
           </select>
         </div>
+        </div>
+        <div className="row mt-4">
         <div className="col-12 col-md-6">
           <label htmlFor="" className="form-label">
           Si tu respondiste sí, ¿con qué operador tienes el servicio de internet plan hogar?
           </label>
           <input
-            type="internetCompany"
+            type="text"
             className="form-control"
             name="internetCompany"
             onChange={handeleChange}
             value={internetCompany}
+          />
+        </div>
+        <div className="col-12 col-md-6">
+          <label htmlFor="" className="form-label">
+          ¿De cuantas megas es tu plan hogar?
+          </label>
+          <input
+            type="text"
+            className="form-control"
+            name="mbCount"
+            onChange={handeleChange}
+            value={mbCount}
           />
         </div>
       </div>

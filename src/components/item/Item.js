@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import { Link } from 'react-router-dom';
-import './Item.scss'
+import item from './Item.module.css'
 
 const Item = ({ item, toggleItem, activeItems, active }) => {
 
@@ -11,7 +11,7 @@ const Item = ({ item, toggleItem, activeItems, active }) => {
     const iconName = !isActive ? "fa-angle-down" : "fa-angle-up";
 
     const isActiveItem = active && 'active'
-    // const Background = active && 'background'
+    
 
 
     return (
@@ -21,7 +21,7 @@ const Item = ({ item, toggleItem, activeItems, active }) => {
           onClick={toggleItem}
         >
           <div className='d-flex align-items-center  px-3'>
-            <i className={`${icon} nav__item-icon ${isActiveItem}`} />
+          <Link to={pathname}><i className={`${icon} nav__item-icon ${isActiveItem}`} /></Link>  
             <Link to={pathname} className={`mx-1 nav__item-label ${isActiveItem}`}>{name}</Link>
           </div>
 

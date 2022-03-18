@@ -1,7 +1,6 @@
 import React from "react";
 // import logosWhite from "../../assets/logos/logosWhite.png";
-
-import "./headerFooterStyles.css";
+import headerF from "./HeaderF.module.css";
 
 export default function Footer() {
   return (

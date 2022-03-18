@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import Step1 from "../stepForm/Step1";
-import "./FormAspirant.scss";
+import FormAspirantcss from "./FormAspirant.module.css";
 
 const FormAspirant = () => {
   const [data, setData] = useState({
@@ -127,14 +127,6 @@ const FormAspirant = () => {
 
       <form onSubmit={sendData}>
           <Step1 data={data} handeleChange={handeleChange}/>
-        
-          
-
-        
-
-        {/* {error ? (
-          <p className="error-mesage mt-4">Todos los campos son obligatorios</p>
-        ) : null} */}
 
 
         <button
@@ -152,3 +144,11 @@ const FormAspirant = () => {
 export default FormAspirant;
 
 
+<<<<<<< HEAD
+=======
+
+
+
+
+
+>>>>>>> 61e5e0e1b62867a78c04ad95895474fc981c845b

@@ -9,6 +9,7 @@ const Step1 = ({ data, handeleChange }) => {
     documentType,
     documentNumber,
     documentPdf,
+    profilePic,
     dateOfBirth,
     age,
     sex,
@@ -177,8 +178,20 @@ const Step1 = ({ data, handeleChange }) => {
             <option value="Separación en proceso judicial">Separación en proceso judicial</option>
             <option value="Union libre">Union libre</option>
             <option value="Viudo">Viudo</option>
-
           </select>
+        </div>
+        <div className="col-12 col-md-6">
+        <label htmlFor="formFile" className="form-label">
+          Foto de perfil
+        </label>
+        <input
+          className="form-control"
+          type="file"
+          id="formFile"
+          name="profilePic"
+          onChange={handeleChange}
+          value={profilePic}
+        />
         </div>
       </div>
       <div className="row mt-4">
@@ -218,21 +231,6 @@ const Step1 = ({ data, handeleChange }) => {
             onChange={handeleChange}
             value={phone2}
           />
-        </div>
-        <div className="row mt-4">
-{/*           <div htmlFor="" className="col-12 col-md-6">
-            <label className="form-label">¿Eres Migrante?</label>
-            <select
-              name="migrant"
-              onChange={handeleChange}
-              value={migrant}
-              className="form-select"
-            >
-              <option value="select">Selecciona si o no</option>
-              <option value="si">Si</option>
-              <option value="no">No</option>
-            </select>
-          </div> */}
         </div>
       </div>
     </>

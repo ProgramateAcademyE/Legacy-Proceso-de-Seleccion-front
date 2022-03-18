@@ -1,5 +1,5 @@
 import React from "react";
-import "./MotivationLetterTable.scss";
+import motivationletter from"./MotivationLetter.module.css";
 
 const MotivationLetterTable = () => {
     const pruebas1 = [
@@ -26,7 +26,7 @@ const MotivationLetterTable = () => {
     return (
         <>
             <div className="qualify">
-            <div className="qualify__content d-flex justify-content-between">
+            <div className="qualify__content d-flex">
                 <span className="upperCase bold"> Carta Motvation </span>
                 <div className="box__content">
                     <span className="text-crumbs bold-500"> Programate </span>

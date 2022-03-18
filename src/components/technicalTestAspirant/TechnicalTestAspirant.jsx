@@ -3,7 +3,7 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Spinner from '../auth/Spinner'
 import { getFormAll } from "../../actions/userAction";
-import "./TechnicalTestAspirant.scss";
+import Technincaltest from "./TechnicalTestAspirant.module.css";
 
 const TechnicalTestAspirant = () => {
   const [test, setTest] = useState({

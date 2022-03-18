@@ -1,27 +1,29 @@
 import React, { useEffect, useState } from "react";
-import Tablita from "../../components/tablita/Tablita";
+import Table from "../../components/tablita/Table";
 import NewConvocatory from "../../components/newConvocatory/NewConvocatory";
 import "../../components/newConvocatory/EditCohort.jsx";
 import DisableBtn from "../../components/disableBtn/DisableBtn";
 import RequestService from "../../config/index";
 import ModalConvocatory from "../../components/modals/ModalConvocatory";
 import { Link } from "react-router-dom";
-import "./Convocatory.scss";
+import convocatorycss from "./Convocatory.module.css";
+import { PETITIONS } from "../../../requestUrl";
 
 const Convocatory = () => {
   const [convocatories, setConvocatories] = useState([]);
-  const getUser = async () => {
-    const { data } = await RequestService.get("/admin/convocatories");
-    if (data) {
-      setConvocatories(data);
-    }
-  };
+
+  const getAllConvocatories = async () => {
+    const res = await fetch(PETITIONS.getConvocatories);
+    const response = await res.json();
+  
+    return response;
+  }
 
   useEffect(() => {
-    getUser();
+    getAllConvocatories().then((convocatory) => setConvocatories(convocatory));
   }, []);
-  
-  console.log({convocatories});
+
+  console.log( convocatories);
   const actions = [
     {
       status: true,
@@ -33,7 +35,7 @@ const Convocatory = () => {
     },
     {
       status: true,
-      icon: <ModalConvocatory />,
+      icon: <ModalConvocatory/>,
     },
     {
       status: true,
@@ -41,16 +43,14 @@ const Convocatory = () => {
     },
   ];
 
-  const fixDate = (date) => {
-    return date.split("T")[0];
-  };
-
   // console.log(convocatories)
-  const rows = convocatories.map((conv, idx) => ({
-    ID: idx,
-    Nombre: conv.name,
-    Cupos: conv.maxQuotas,
-    "Fecha de Inicio": fixDate(conv.initialDate),
+  const rows = convocatories.map((conv) => ({
+    "Convocatoria": conv.name,
+    "Cupos": conv.maxQuotas,
+    "Fecha Inicio": conv.initialDate,
+    "Fecha Fin": conv.finalDate,
+    "Inicio Bootcamp": conv.initialBootcampDate,
+    "Fin Bootcamp": conv.finalBootcampDate
   }));
 
   return (
@@ -58,6 +58,13 @@ const Convocatory = () => {
       <div className="section__convocatory">
         <div className="section__content mb-5 d-flex justify-content-between">
           <span className="upperCase bold">Convocatorias</span>
+          {rows.length > 0 ? (
+            <Link to="/nuevacohorte">
+              <button type="submit" className="btn btn-success mt-3">
+                Crear Convocatoria
+              </button>
+            </Link>
+          ) : null}
           <div className="box__content">
             <span className="text-crumbs bold-500">Programate</span>
             <i className="fas fa-chevron-right subtitle" />
@@ -65,22 +72,16 @@ const Convocatory = () => {
           </div>
         </div>
         {rows.length > 0 ? (
-          <Tablita
+          <Table
             className="table"
-            key={rows.ID}
+            data={convocatories}
+            key={rows.Id}
             rows={rows}
             actions={actions}
           />
         ) : (
           <NewConvocatory />
         )}
-        {rows.length > 0 ? (
-          <Link to="/nuevacohorte">
-            <button type="submit" className="btn btn-success mt-3">
-              Crear Convocatoria
-            </button>
-          </Link>
-        ) : null}
       </div>
     </>
   );

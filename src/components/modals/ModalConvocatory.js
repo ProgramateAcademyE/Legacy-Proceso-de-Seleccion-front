@@ -1,7 +1,10 @@
 import React from "react";
-import "./Modal.scss";
+import modalcss  from "./Modal.module.css";
 
-const ModalConvocatory = () => {
+const ModalConvocatory = (props) => {
+    const { data } = props
+
+    console.log({data})
     return (
         <div>
             <div className="btn">

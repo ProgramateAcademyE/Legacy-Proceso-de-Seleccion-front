@@ -1,7 +1,7 @@
 import React, { useContext } from "react";
 import { Bar } from "react-chartjs-2";
 import { providerContext } from "../../Context/status";
-import "./GraphicsAdmin.scss";
+
 
 
 const LocationMigrants = ({ item }) => {

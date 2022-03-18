@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import Spinner from '../auth/Spinner'
-import './NotProfile.scss'
+import notprofile from "./NotProfile.module.css"
 
 const NotProfile = () => {
 

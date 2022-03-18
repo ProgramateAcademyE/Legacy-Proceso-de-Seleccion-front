@@ -1,5 +1,5 @@
 import React from "react";
-import Tablita from "../tablita/Tablita";
+import Tablita from "../tablita/Table";
 
 const Citation = ({ data }) => {
     const { id, date, journey, users } = data;

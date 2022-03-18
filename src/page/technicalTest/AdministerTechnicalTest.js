@@ -1,9 +1,8 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import "./AdministerTechnicalTest.scss";
-import Swal from "sweetalert2";
+import AdministerTcss from "./AdministerTechnicalTest.module.css"
 import modalDelete from "../../components/alert/alert";
-import alert from "../../components/alert/alert";
+
 
 const AdministerTechnicalTest = () => {
     const pruebas1 = [

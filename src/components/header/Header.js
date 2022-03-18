@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from "react-router-dom";
 import Search from "../search/Search";
 import User from "../user/User";
-import "./Header.scss";
+import header from "./Header.module.css";
 import { dispatchGetUser, dispatchLogin, fetchUser } from "../../actions/authAction";
 
 const Header = () => {

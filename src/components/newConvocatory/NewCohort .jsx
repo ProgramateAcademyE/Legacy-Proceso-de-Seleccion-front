@@ -1,13 +1,23 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import axios from "axios"
-
-import "./NewCohort.scss";
-
 import { PETITIONS } from "../../../requestUrl";
+import { getDepartments, dataTypePopulation } from "../../helpers/ConvocatoryHelper";
 
 
 const NewCohort = () => {
+  const [departments, setDepartments] = useState([])
+  
+  let stractus = []
+  for(let i = 1; i <= 6; i++){
+    stractus.push(i)
+  }
+
+  useEffect(() => {
+    getDepartments().then(async (department) => setDepartments(department))
+  }, [])
+  
+
   return<>
 
     <div style={{width: '50%', margin:' 0 auto'}}>
@@ -20,13 +30,15 @@ const NewCohort = () => {
           endDate: '',
           startDateBootcamp: '',
           endDateBootcamp: '',
-          residenceCountry: [],
+          residenceCountry: ['Colombia'],
           residenceDepartment: [],
           letter: 50,
           sololearn: 25,
           personalProfile: 25,
           age: [],
-          stratus: []
+          gender: [],
+          typePopulation: [],
+          stratus: [],
         }}
 
         validate={(allValues) => {
@@ -37,8 +49,9 @@ const NewCohort = () => {
           }
           return errors;
         }}
-
+        
         onSubmit={(allValues, { resetForm }) => {
+          console.log(allValues)
           const newConvocatory = {
             name: allValues.nameConvocatory,
             maxQuotas: allValues.maxQuotas,
@@ -54,11 +67,13 @@ const NewCohort = () => {
             residenceCountry: allValues.residenceCountry,
             residencyDepartment: allValues.residenceDepartment,
             maxAge: allValues.age,
-            maxSocioeconomicStratus: allValues.stratus
+            maxSocioeconomicStratus: allValues.stratus,
+            gender: allValues.gender,
+            typePopulation: allValues.typePopulation
           };
 
           try {
-            axios.post(PETITIONS.convocatory, newConvocatory)
+            axios.post(PETITIONS.createConvocatory, newConvocatory)
             .then(res => {
               const msg = res.data.msg;
               alert(msg);
@@ -120,66 +135,54 @@ const NewCohort = () => {
 
             {/* Parametrization of the evaluation profile */}
             <div>
-              <h3>Parametrizacion de la evaluacion del perfil</h3>
+              <h3>Parametrizacion de la evaluacion del perfil (Para seleccionar varios datos presione la telca Shift o Ctrl)</h3>
               <div>
-                <label htmlFor="residenceCountry">Pais de residencia</label><br/>
-                <label>
-                  <Field type="checkbox" name="residenceCountry" value="Colombia" />
-                  Colombia
-                </label>
-                <label>
-                  <Field type="checkbox" name="residenceCountry" value="Venezuela" />
-                  Venezuela
-                </label>
+                <h4>Pais de residencia</h4>
+                <Field name="residenceCountry" as="select" multiple className="form-control select picker">
+                  <option value="colombia">Colombia</option>
+                  <option value="venezuela">Venezuela</option>
+                  <option value="no-aplica">No aplica</option>
+                </Field>
               </div>
               <div>
-                <label htmlFor="residenceDepartment">Departamento de residencia</label><br/>
-                <label>
-                  <Field type="checkbox" name="residenceDepartment" value="Choco" />
-                  Choco
-                </label>
-                <label>
-                  <Field type="checkbox" name="residenceDepartment" value="Medellín" />
-                  Medellín
-                </label>
+                <h4>Departamento de residencia</h4>
+                <Field name="residenceDepartment" as="select" multiple className="form-control select picker" style={{height: '300px'}}>
+                  {departments?.map((department, index) => (
+                    <option value={department.departamento} key={index}>{department.departamento}</option>
+                  ))}
+                  <option value="caracas">Caracas</option>
+                  <option value="otro">Otro</option>
+                </Field>
               </div>
               <div>
-                <label htmlFor="age">Edad</label><br/>
-                <label>
-                  <Field type="checkbox" name="age" value="< 18" />
-                  Menores de 18
-                </label>
-                <label>
-                  <Field type="checkbox" name="age" value="> 18" />
-                  Mayores de 18
-                </label>
+                <h4>Edad</h4>
+                <Field name="age" as="select" multiple className="form-control select picker">
+                  <option value="18+">Mayores a 18</option>
+                  <option value="18-">Menores a 18</option>
+                </Field>
               </div>
               <div>
-                <label htmlFor="stratus">Estrato</label><br/>
-                <label>
-                  <Field type="checkbox" name="stratus" value="1" />
-                  Estrato 1
-                </label>
-                <label>
-                  <Field type="checkbox" name="stratus" value="2" />
-                  Estrato 2
-                </label>
-                <label>
-                  <Field type="checkbox" name="stratus" value="3" />
-                  Estrato 3
-                </label>
-                <label>
-                  <Field type="checkbox" name="stratus" value="4" />
-                  Estrato 4
-                </label>
-                <label>
-                  <Field type="checkbox" name="stratus" value="5" />
-                  Estrato 5
-                </label>
-                <label>
-                  <Field type="checkbox" name="stratus" value="6" />
-                  Estrato 6
-                </label>
+                <h4>Genero segun documento de identidad</h4>
+                <Field name="gender" as="select" multiple className="form-control select picker">
+                  <option value="masculino">Masculino</option>
+                  <option value="femenino">Femenino</option>
+                </Field>
+              </div>
+              <div>
+                <h4>Tipo de población</h4>
+                <Field name="typePopulation" as="select" multiple className="form-control select picker">
+                  {dataTypePopulation?.map((data, index) => (
+                    <option value={data} key={index}>{data}</option>
+                  ))}
+                </Field>
+              </div>
+              <div>
+                <h4>Estrato</h4>
+                <Field name="stratus" as="select" multiple className="form-control select picker">
+                  {stractus?.map((strac, index) => (
+                    <option value={strac} key={index}>{strac}</option>
+                  ))}
+                </Field>
               </div>
             </div>
             <input type="submit" value="Guardar" />

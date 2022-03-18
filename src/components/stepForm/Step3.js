@@ -5,6 +5,8 @@ const Step3 = ({ data, handeleChange }) => {
     const {
         degreeTitle,
         academicLevel,
+        studiesPdf,
+        cvPdf,
         unemployementTime,
         currentcurrentOccupation,
         contractWorker,
@@ -48,6 +50,34 @@ const Step3 = ({ data, handeleChange }) => {
             onChange={handeleChange}
             value={degreeTitle}
           />
+        </div>
+      </div>
+      <div className="row mt-4">
+      <div className="col-12 col-md-6">
+        <label htmlFor="formFile" className="form-label">
+        Certificado de estudio en PDF
+        </label>
+        <input
+          className="form-control"
+          type="file"
+          id="formFile"
+          name="studiesPdf"
+          onChange={handeleChange}
+          value={studiesPdf}
+        />
+        </div>
+        <div className="col-12 col-md-6">
+        <label htmlFor="formFile" className="form-label">
+        Hoja de vida en PDF
+        </label>
+        <input
+          className="form-control"
+          type="file"
+          id="formFile"
+          name="cvPdf"
+          onChange={handeleChange}
+          value={cvPdf}
+        />
         </div>
       </div>
       <div className="row mt-4">
