@@ -1,5 +1,6 @@
 .nav {
-  position: relative;
+  position: absolute;
+  height: 100%;
   padding: 20px 0;
   background-color: #fdc300;
   width: 74px;
@@ -96,7 +97,7 @@
       -ms-flex-direction: column;
           flex-direction: column;
   width: 70px;
-  height: 450px;
+  height: 80%;
   -webkit-transition: 0.4s all;
   transition: 0.4s all;
   background: #fdc300;
