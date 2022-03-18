@@ -21,7 +21,10 @@ const Login = () => {
 
   const [spinner, guardarSpinner] = useState(false);
   const dispatch = useDispatch();
-
+  const [isFailing, setIsFailing] = useState({
+    email: false,
+    password: false,
+  });
   const auth = useSelector((state) => state.auth);
 
   const history = useHistory();
@@ -29,13 +32,47 @@ const Login = () => {
 
   const handleChangeInput = (e) => {
     const { name, value } = e.target;
+    setIsFailing({ email: false, password: false });
     setUser({ ...user, [name]: value, err: "", success: "" });
+  };
+  const validateEmail = (email) => {
+    return String(email)
+      .toLowerCase()
+      .match(
+        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+      );
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     guardarSpinner(true);
-
+    if (validateEmail(user.email) === null) {
+      if (user.password.length < 6) {
+        setIsFailing({
+          email: true,
+          password: true,
+        });
+      } else {
+        setIsFailing({
+          email: true,
+          password: false,
+        });
+      }
+    } else {
+      if (user.password.length < 6) {
+        if (validateEmail(user.email) === null) {
+          setIsFailing({
+            password: true,
+            email: true,
+          });
+        } else {
+          setIsFailing({
+            password: true,
+            email: false,
+          });
+        }
+      }
+    }
     try {
       const res = await axios.post("http://localhost:3001/api/user/login", {
         email,
@@ -74,7 +111,7 @@ const Login = () => {
             <div>
               <label htmlFor="email">Correo</label>
               <input
-                className={auth.email}
+                className={`email ${isFailing.email ? "fail" : ""}`}
                 type="text"
                 placeholder="Correo"
                 id="email"
@@ -86,7 +123,7 @@ const Login = () => {
             <div>
               <label htmlFor="password">Contraseña</label>
               <input
-                className="password"
+                className={`password ${isFailing.password ? "fail" : ""}`}
                 type="password"
                 placeholder="Contraseña"
                 id="password"
@@ -101,8 +138,7 @@ const Login = () => {
             </div>
           </form>
           <p>
-            Nuevo usuario? <Link to="/register">Registrate
-            </Link>
+            Nuevo usuario? <Link to="/register">Registrate</Link>
           </p>
         </div>
       </div>
