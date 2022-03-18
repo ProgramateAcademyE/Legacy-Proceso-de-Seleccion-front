@@ -41,6 +41,7 @@ const Register = () => {
     e.preventDefault()
     setErrors(validate(user))
 
+    console.log(user)
     axios.post(PETITIONS.register, user )
     .then(res => {
       console.log(res);
@@ -49,14 +50,14 @@ const Register = () => {
   }
 
   const handleName = (e) => {
-    const name = e.target.value
-    setUser({...user, name})
+    const names = e.target.value
+    setUser({...user, names})
 
   }
 
   const handleLastName = (e) => {
-    const lastName = e.target.value
-    setUser({...user, lastName})
+    const surname = e.target.value
+    setUser({...user, surname})
 
   }
 
@@ -72,7 +73,7 @@ const Register = () => {
 
   const handleconfirmPassword = (e) => {
     const confirmPassword = e.target.value
-    setUser({...user, confirmPassword})
+    // setUser({...user, confirmPassword})
   }
   
 
