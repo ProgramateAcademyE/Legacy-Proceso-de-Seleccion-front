@@ -43,6 +43,7 @@ const Register = () => {
     e.preventDefault()
     setErrors(validate(user))
 
+    console.log(user)
     axios.post(PETITIONS.register, user )
     .then(res => {
       console.log(res);
@@ -51,14 +52,14 @@ const Register = () => {
   }
 
   const handleName = (e) => {
-    const name = e.target.value
-    setUser({...user, name})
+    const names = e.target.value
+    setUser({...user, names})
 
   }
 
   const handleLastName = (e) => {
-    const lastName = e.target.value
-    setUser({...user, lastName})
+    const surname = e.target.value
+    setUser({...user, surname})
 
   }
 
@@ -71,13 +72,6 @@ const Register = () => {
     const password = e.target.value
     setUser({...user, password})
   }
-
-  const handleconfirmPassword = (e) => {
-    const confirmPassword = e.target.value
-    setUser({...user, confirmPassword})
-  }
-  
-
 
   return (
     <>
@@ -99,7 +93,7 @@ const Register = () => {
         <label>Contraseña</label>
         <input type='password'onChange={handlePassword}/>
         <label>Confirmar Contraseña</label>
-        <input required type='password'onChange={handleconfirmPassword}/>
+        <input required type='password'/>
         {errors.password && <p>{errors.password}</p>}
         <input className='buttonS' type='submit'/>
         <p> Ya estas registrado? <Link to="/">Loggin</Link></p>
