@@ -9,9 +9,9 @@ export const ITEMS = [
     {
         name: "Convocatoria",
         icon: "fab fa-connectdevelop",
-        id: 28,
-        items: [ 
-             {
+        id: 2,
+        items: [
+            {
                 name: "Administrar Pruebas Técnicas",
                 pathname: "/prueba",
             },],
@@ -20,24 +20,20 @@ export const ITEMS = [
     {
         name: "Aspirantes",
         icon: "far fa-user",
-        id: 2,
-        items: [  
+        id: 3,
+        items: [
             {
-                name: "Resultados",
-                pathname: "/resultsInscription",
-            },
-             {
                 name: "Lista de espera",
                 pathname: "/waiting-list",
             },
         ],
-        pathname: "/aspirantes",
+        pathname: "/InfoAspirants",
     },
-    
+
     {
         name: "Citación",
         icon: "fas fa-map-marker-alt",
-        id: 3,
+        id: 4,
         items: [
             {
                 name: "Consolidado Postulantes",
@@ -46,6 +42,36 @@ export const ITEMS = [
             {
                 name: "Dias de Entrevista",
                 pathname: "/dia-de-entrevista",
+            },
+        ],
+    },
+    {
+        name: "Calificaciones",
+        icon: "fas fa-map-marker-alt",
+        id: 5,
+        items: [
+            {
+                name: "SoloLearn",
+                pathname: "/",
+
+            },
+            {
+                name: "Carta de Motivacion",
+                pathname: "/",
+            },
+            {
+                name: "Prueba Tecnica",
+                pathname: "/",
+            },
+
+
+            {
+                name: "Entrevista",
+                pathname: "/",
+            },
+            {
+                name: "Assesment",
+                pathname: "/",
             },
         ],
     },
@@ -58,13 +84,7 @@ export const ITEMS_ASPIRANTS = [
         pathname: "/dashboard",
         id: 7,
     },
-    {
-        name: "Formulario de inscripción",
-        icon: "fas fa-bullhorn",
-        items: [],
-        pathname: "/inscripcion",
-        id: 8,
-    },
+
     {
         name: "Agenda de Entrevista y assessment",
         icon: "fas fa-map-marker-alt",

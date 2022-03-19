@@ -3,6 +3,8 @@ import Tablita from "../../components/tablita/Table";
 import RequestService from "../../config/index";
 import MotivationLetterModal from "../../components/modals/MotivationLetterModal";
 import results from "./Results.module.css"
+import ModalAspirants from "../../components/modals/ModalAspirants";
+
 
 const Results = () => {
     const [results, setResults] = useState([]);
@@ -40,16 +42,16 @@ const Results = () => {
     };
 
     const rows = results.map((result) => ({
-        ID: result.user_id,
+        
         Nombre: result.userFullName,
-        // HTML: result.htmlScore,
-        // CSS: result.cssScore,
-        // Javascript: result.javascriptScore,
-        // Python: result.pythonScore,
         Sololearn: result.soloLearnScore,
         "Perfil Personal": result.personalProfileScore,
         Motivación: result.motivationScore,
-        "Promedio Final": (
+        "Promedio 1era Fase": result.promedioprimerafase,
+        "Prueba Tecnica": result.pruebatecnica,
+        Entrevista: result.Enrevista,
+        Assesment: result.Assenment,
+        "Promedio 2da Fase": (
             <div
                 style={{
                     background: checkScoreColor(result.finalScore),
@@ -62,16 +64,19 @@ const Results = () => {
         ),
         Estado: (
             <select>
-                <option value="pasa">Pasa</option>
-                <option value="nopasa">No pasa</option>
+                <option value="Aceptado">Aceptado</option>
+                <option value="ListaDeespera">Lista de Espera</option>
             </select>
+        ),
+        Info: (
+         <ModalAspirants/>
         ),
     }));
 
     return (
         <div className="Aspirants">
             <div className="section__content">
-                <span className="upperCase bold">Resultados</span>
+                <span className="upperCase bold">Aspirantes</span>
             </div>
             <div className="table mt-4">
                 <Tablita key={rows.length} rows={rows} />

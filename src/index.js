@@ -4,7 +4,7 @@ import { Provider } from "react-redux";
 import { BrowserRouter as Router } from "react-router-dom";
 import App from "./router";
 import { store } from "./store/store";
-import "./styles/app.scss";
+import "./styles/app.css";
 import StateContext from './Context/status'
 
 

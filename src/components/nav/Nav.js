@@ -34,7 +34,7 @@ const Nav = () => {
                 key={index}
                 item={item}
                 toggleItem={() => toggleItem(item.id)}
-                 activeItems={activeItems}
+                activeItems={activeItems}
                 active={index === isActive}
               />
             ))}

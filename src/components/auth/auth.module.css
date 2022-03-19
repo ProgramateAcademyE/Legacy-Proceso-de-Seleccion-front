@@ -1,6 +1,6 @@
 .login_page{
     width: 400px;
-    height: 500px;
+    height: 410px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -18,7 +18,9 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: auto;
+  
+    padding: 10vw 0vw 11.7vw 13vw;
+
 }
 .login_page h2{
     text-transform: uppercase;

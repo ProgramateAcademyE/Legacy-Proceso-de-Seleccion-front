@@ -4,7 +4,7 @@
   flex-flow: column;
   height: 100vh;
   @media screen and (max-width: 440px) {
-    height: 70vh !important;
+  height: 70vh !important;
   }
 }
 
@@ -22,9 +22,7 @@ body {
   background-color: #f1f5f7;
 }
 
-.top {
-  padding-top: 70px;
-}
+
 
 .pointer {
   cursor: pointer;
@@ -42,9 +40,8 @@ a {
   background-position: center;
   transition: background 0.8s;
 }
-// -color e0b60d
+
 .ripple:hover {
-  //   background-color: #e0b60d;
   background-image: radial-gradient(circle, transparent 1%, #fac906 1%);
   background-position: center;
   background-size: 15000%;

@@ -15,7 +15,7 @@
     padding: 5px 0 0 3px;
     transition: .4s all;
   }
-  img {
+  .Logo__A {
     width: 71px;
     object-fit: cover;
   }

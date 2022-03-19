@@ -1,3 +1,5 @@
+
+
 .form{
     width: 400px;
     height: 500px;
@@ -13,11 +15,20 @@
 .form h1{
     text-align: center;
 }
+.Logo__Programate{
+    display: flex;
+    height: 7vw;
+    margin-top: 1vw;
+    margin-left: 1vw;
+}
 
-.container{
+
+.container {
+    padding: 6vw 16vw 6vw 0px;
     display: flex;
     justify-content: center;
     align-items: center;
+    flex-direction: column;
 }
 
 .form .buttonS{
