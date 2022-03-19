@@ -55,6 +55,7 @@ const App = () => {
         <Switch>
           <Route exact path="/verify" component={Verify} />
           <Route exact path="/" component={LoginFull} />
+          <Route exact path="/forgot" component={Forgot} />
           <Route exact path="/register" component={Register} />
           {/* <Redirect to="/login" /> */}
           {isLogged && isAdmin && (

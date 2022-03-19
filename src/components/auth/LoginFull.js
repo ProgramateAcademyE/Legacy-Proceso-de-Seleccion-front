@@ -97,6 +97,7 @@ const Login = () => {
             </div>
 
             <div className="row">
+              <Link to="" ><p>Olvidaste tu contraseña?</p></Link>
               <button type="submit">Iniciar Sesión</button>
             </div>
           </form>

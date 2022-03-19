@@ -11,15 +11,15 @@ const Register = () => {
 
   const validate = values => {
     const error = {}
-    if (!values.name) {
-      error.name = 'Este campo es obligatorio';
-    } else if (values.name.test > 15) {
+    if (!values.names) {
+      error.names = 'Este campo es obligatorio';
+    } else if (values.names.test > 15) {
     
     }
   
-    if (!values.lastName) {
-      error.lastName = 'Este campo es obligatorio';
-    } else if (values.lastName.test > 20) {
+    if (!values.surname) {
+      error.surname = 'Este campo es obligatorio';
+    } else if (values.surname.test > 20) {
 
     }
   
@@ -40,6 +40,7 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     setErrors(validate(user))
+    
 
     console.log(user)
     axios.post(PETITIONS.register, user )
@@ -49,13 +50,13 @@ const Register = () => {
     })
   }
 
-  const handleName = (e) => {
+  const handleNames = (e) => {
     const names = e.target.value
     setUser({...user, names})
 
   }
 
-  const handleLastName = (e) => {
+  const handleSurname = (e) => {
     const surname = e.target.value
     setUser({...user, surname})
 
@@ -71,16 +72,21 @@ const Register = () => {
     setUser({...user, password})
   }
 
+  const handleConfirmPassword = (e) => {
+    const confirmPassword = e.target.value
+    setUser({...user, confirmPassword})
+  }
+
   return (
     <>
     <div className='container'>
       <form className='form' onSubmit={handleSubmit}>
         <h1> Registrate </h1>
         <label>Nombre</label>
-        <input required type='text' onChange={handleName}/>
+        <input required type='text' onChange={handleNames}/>
         {errors.name && <p>{errors.name}</p>}
         <label>Apellido</label>
-        <input required type='text' onChange={handleLastName}/>
+        <input required type='text' onChange={handleSurname}/>
         {errors.lastName && <p>{errors.lastName}</p>}
         <label>Correo</label>
         <input required type='email'onChange={handleEmail}/>
@@ -88,7 +94,7 @@ const Register = () => {
         <label>Contraseña</label>
         <input type='password'onChange={handlePassword}/>
         <label>Confirmar Contraseña</label>
-        <input required type='password'/>
+        <input required type='password'onChange={handleConfirmPassword}/>
         {errors.password && <p>{errors.password}</p>}
         <input className='buttonS' type='submit'/>
         <p> Ya estas registrado? <Link to="/">Loggin</Link></p>
