@@ -12,11 +12,12 @@ footer {
   align-items: center;
   max-width: 1300px;
   margin: 15px auto;
-  width: 90%;
+  width: 82%;
 }
 
 .footerContainer p {
   margin-bottom: 0;
+
 }
 
 .LogosFooterContainer {
@@ -33,6 +34,7 @@ footer {
   align-items: center;
   justify-content: space-between;
   width: 130px;
+  margin-left: 41vw;
 }
 
 .notificationsConfigContainer {

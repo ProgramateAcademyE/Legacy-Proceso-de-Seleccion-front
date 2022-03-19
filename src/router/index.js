@@ -54,8 +54,12 @@ const App = () => {
 
         <Switch>
           <Route exact path="/verify" component={Verify} />
+          
           <Route exact path="/" component={LoginFull} />
-          <Route exact path="/register" component={Register} />
+       
+          <Route exact path="/register" component={Register} /> 
+          
+          
           {/* <Redirect to="/login" /> */}
           {isLogged && isAdmin && (
             <>
@@ -68,6 +72,8 @@ const App = () => {
               <Route path="/nuevacohorte" component={NewCohort} />
               <Route path="/editarcohorte" component={NewCohort} />
               <Route path="/aspirantes" component={Aspirants} />
+              <Route path="/editarcohorte" component={EditCohort} />
+              
               <Route path="/prueba" component={AdministerTechnicalTest} />
               <Route path="/agregar" component={AdministerTechnicalTestAdd} />
               <Route path="/editar" component={AdministerTechnicalTestEdit} />
@@ -79,7 +85,7 @@ const App = () => {
                   path="/resultsInscription"
                   component={ResultsInscription}
                 /> */}
-              <Route path="/resultsInscription" component={Results} />
+              <Route path="/InfoAspirants" component={Results} />
               <Route path="/waiting-list" component={WaitingList} />
               <Route path="/motivationLetter" component={MotivationLetter} />
               <Route path="/parameterization" component={Parameterization} />
@@ -99,6 +105,7 @@ const App = () => {
         </Switch>
       </div>
       {pathname !== "/" && pathname !== "/register" && pathname !== '/verify' && <Footer />}
+       <Footer />
     </>
   );
 };

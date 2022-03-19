@@ -1,8 +1,9 @@
 import React, { useState } from 'react'
-import axios from 'axios'
+import axios from 'axios';
 import { Link } from "react-router-dom";
-import { PETITIONS } from '../../../requestUrl'
-import register from './Register.module.css'
+import { PETITIONS } from '../../../requestUrl';
+import register from './Register.module.css';
+import programateacademycolor from '../../../dist/Assets/programateacademycolor.png';
   
 
 const Register = () => {
@@ -33,6 +34,7 @@ const Register = () => {
     } else if (values.confirmPassword !== values.password) {
       error.password = 'Tus contraseñas no son iguales';
     }
+
   
     return error;
   };
@@ -73,7 +75,10 @@ const Register = () => {
 
   return (
     <>
+
+    <div className='Logo__Programate'><img src={programateacademycolor} alt='Logo'/></div> 
     <div className='container'>
+    
       <form className='form' onSubmit={handleSubmit}>
         <h1> Registrate </h1>
         <label>Nombre</label>
@@ -95,7 +100,7 @@ const Register = () => {
       </form>
       </div>
     </>
-  )
-}
+  );
+};
 
 export default Register;

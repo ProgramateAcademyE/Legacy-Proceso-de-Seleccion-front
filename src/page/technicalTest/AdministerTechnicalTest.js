@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import AdministerTcss from "./AdministerTechnicalTest.module.css"
+import Administercss from "./AdministerTechnicalTest.module.css"
 import modalDelete from "../../components/alert/alert";
 
 
@@ -29,28 +29,17 @@ const AdministerTechnicalTest = () => {
     return (
         <>
             <div className="section__administer">
-                <div className="section__content d-flex justify-content-between">
+                
                     <span className="upperCase bold">
                         Administrar prueba técnica
                     </span>
-                    <div className="box__content">
-                        <span>Programate</span>
-                        <i className="fas fa-chevron-right subtitle" />
-                        <span>Prueba técnica</span>
-                        <i className="fas fa-chevron-right subtitle" />
-                        <span>Administrar prueba técnica</span>
+            
+                <div className="Form__Administer">
+                    <div className="Button__Administer">
+                        <Link to="/agregar">
+                            <button className="btn btn-success">Crear</button>
+                        </Link>
                     </div>
-                </div>
-                <div className="form">
-                    <Link to="/agregar">
-                        {/* <button className="btn btn-primary add">
-                                Agregar
-                            </button> */}
-
-                        <div>
-                            <button className="btn btn-success">Agregar</button>
-                        </div>
-                    </Link>
                     <div className="section__table table">
                         <table className="table">
                             <thead>

@@ -7,6 +7,7 @@ const User = () => {
 
     const handleLogout = () => {
         try {
+            // await axios.get('/user/logout')
             localStorage.removeItem('firstLogin')
             localStorage.removeItem('loggedAgoraUser')
             window.location.href = "/";
@@ -17,7 +18,7 @@ const User = () => {
 
     return (
         <>
-        <div className='d-flex align-items-center pointer box-logut'>
+        <div className='User__Box pointer box-logut'>
             <i className="far fa-user icon-user"/>
             <span className='text-user'>{user.names}</span>
             <i className="fas fa-chevron-down icon-arrow"/>
@@ -31,3 +32,4 @@ const User = () => {
 }
 
 export default User
+

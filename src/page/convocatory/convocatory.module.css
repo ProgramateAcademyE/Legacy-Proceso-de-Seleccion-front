@@ -1,6 +1,14 @@
 .section__convocatory {
     width: 100%;
-    max-width: 1800px;
-    height: 800px;
-    padding: 20px;
+    height: 260px;
+    margin: 8vw 3vw 326px 11vw;
 }
+
+.section__contentC {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+

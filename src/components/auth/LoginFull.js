@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import auth from "./Auth.module.css";
 import { dispatchLogin } from "../../actions/authAction";
 import Spinner from "./Spinner";
+import programateacademycolor from '../../../dist/Assets/programateacademycolor.png';
 
 const Login = () => {
   //Inicializo hooks
@@ -63,6 +64,7 @@ const Login = () => {
 
   return (
     <>
+    <div className='Logo__Programate'><img src={programateacademycolor} alt='Logo'/></div> 
       <div className="cardLoggin">
         <div className="mensajes">{componentes}</div>
         <div className="login_page">
