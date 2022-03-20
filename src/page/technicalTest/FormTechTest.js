@@ -1,32 +1,40 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import { Formik, Field, Form, ErrorMessage } from "formik";
 import { PETITIONS } from "../../../requestUrl";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 
-const AdministerTechnicalTestAdd = () => {
-	const [convocatory, setConvocatory] = useState();
-  let history = useHistory();
-
-	useEffect(() => {
-		axios.get(PETITIONS.getConvocatories).then((res) => {
-			setConvocatory(res.data);
-		});
-	}, []);
+const FormTechTest = (props) => {
+	let history = useHistory();
+	const { convocatory, query, data } = props;
 
 	return (
 		<div style={{ margin: "165px auto" }}>
+			<h2>{query ? `Actualizar Prueba Tecnica` : "Nueva Prueba Tecnica"}</h2>
 			<Formik
 				initialValues={{
-					titleTest: "",
-					linkTest: "",
+					titleTest: data?.title || "",
+					linkTest: data?.url || "",
 					pdfTest: "",
-					convocatoryTest: [],
+					convocatoryTest: data?.convocatories || [],
 				}}
 				validate={(allValues) => {
 					let errors = {};
 					if (!allValues.titleTest) {
 						errors.titleTest = "Ingrese un titulo";
+					}
+					if (!allValues.linkTest) {
+						errors.linkTest = "Introduzca un link valido";
+					}
+					if (!allValues.pdfTest) {
+						errors.pdfTest = "Por favor agregue un archivo";
+					}
+					if (
+						!allValues.convocatoryTest ||
+						allValues.convocatoryTest.length <= 0
+					) {
+						errors.convocatoryTest =
+							"Por favor seleccione al menos una convocatoria";
 					}
 					return errors;
 				}}
@@ -37,19 +45,23 @@ const AdministerTechnicalTestAdd = () => {
 						pdf: allValues.pdfTest,
 						convocatories: allValues.convocatoryTest,
 					};
-          console.log(newTest)
-          try{
-            axios
-              .post(PETITIONS.createTechTest, newTest)
-              .then((res) => {
-                const msg = res.data.msg;
-                alert(msg);
-                history.push("/prueba");
-              });
-          }catch(error){
-            console.log(error)
-          }
-
+					try {
+						if (query) {
+							axios
+								.put(`${PETITIONS.updateTechTest}${data._id}`, newTest)
+								.then(() => {
+									history.push("/prueba");
+								});
+						} else {
+							axios.post(PETITIONS.createTechTest, newTest).then((res) => {
+								const msg = res.data.msg;
+								alert(msg);
+								history.push("/prueba");
+							});
+						}
+					} catch (error) {
+						return error;
+					}
 					resetForm();
 				}}>
 				{({ errors }) => (
@@ -95,9 +107,17 @@ const AdministerTechnicalTestAdd = () => {
 										</option>
 									))}
 								</Field>
+								<ErrorMessage
+									name='convocatoryTest'
+									component={() => (
+										<span style={{ color: "red" }}>
+											{errors.convocatoryTest}
+										</span>
+									)}
+								/>
 							</div>
 						</div>
-						<input type='submit' value='Guardar' />
+						<input type='submit' value={data ? "Actualizar" : "Guardar"} />
 					</Form>
 				)}
 			</Formik>
@@ -105,4 +125,4 @@ const AdministerTechnicalTestAdd = () => {
 	);
 };
 
-export default AdministerTechnicalTestAdd;
+export default FormTechTest;

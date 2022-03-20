@@ -6,11 +6,9 @@ import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
-import Paper from "@material-ui/core/Paper";
-import { makeStyles } from "@material-ui/core/styles";
 import axios from "axios";
 import { PETITIONS } from "../../../requestUrl";
-import './TechTest.css'
+import "./TechTest.css";
 
 const AdministerTechnicalTest = () => {
 	const [test, setTest] = useState();
@@ -28,11 +26,18 @@ const AdministerTechnicalTest = () => {
 		});
 	}, []);
 
+	const handleDelete = (id) => {
+		axios.delete(`${PETITIONS.deleteTechTest}${id}`);
+		setTest(test.filter((filterTest) => filterTest._id !== id));
+	};
+
 	return (
-    <div className="table-container">
-			<div className="title">
+		<div className='table-container'>
+			<div className='title'>
 				<h3>Crear Prueba Tecnica</h3>
-        <Link to='/agregar' className='btn btn-success mt-3 mb-3'>Crear Convocatoria</Link>
+				<Link to='/agregar' className='btn btn-success mt-3 mb-3'>
+					Crear Prueba tecnica
+				</Link>
 			</div>
 			<TableContainer>
 				<Table aria-label='simple table'>
@@ -49,7 +54,7 @@ const AdministerTechnicalTest = () => {
 							<TableRow key={index}>
 								<TableCell align='center'>
 									<a href={prop.url} target='_blank' rel='noopener noreferrer'>
-										{prop.title}
+										<i className='fas fa-external-link-alt'></i> {prop.title}
 									</a>
 								</TableCell>
 								<TableCell align='center'>
@@ -58,7 +63,7 @@ const AdministerTechnicalTest = () => {
 										target='_blank'
 										download={prop.title}
 										rel='noopener noreferrer'>
-										Descargar prueba tecnica
+										<i className='far fa-file-pdf'></i>
 									</a>
 								</TableCell>
 								<TableCell align='center'>
@@ -70,7 +75,16 @@ const AdministerTechnicalTest = () => {
 										</div>
 									))}
 								</TableCell>
-								<TableCell align='center'>L, A, E</TableCell>
+								<TableCell align='center'>
+									<Link to={`/editarprueba?idtest=${prop._id}`}>
+										<button>update</button>
+									</Link>
+									<div>
+										<button onClick={() => handleDelete(prop._id)}>
+											delete
+										</button>
+									</div>
+								</TableCell>
 							</TableRow>
 						))}
 					</TableBody>

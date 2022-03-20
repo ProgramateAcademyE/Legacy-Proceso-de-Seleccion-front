@@ -9,9 +9,8 @@ import Convocatory from "../page/convocatory/Convocatory";
 import DashboardAspirant from "../page/dasborardAspirant/DashboardAspirant";
 import DashboardAdmin from "../page/dashboardAdmin/DashboardAdmin";
 import AdministerTechnicalTest from "../page/technicalTest/AdministerTechnicalTest";
-import AdministerTechnicalTestAdd from "../page/technicalTest/AdministerTechnicalTestAdd";
+import AddTechTest from "../page/technicalTest/AddTechTest";
 import QualifyTechnicalTest from "../page/technicalTest/QualifyTechnicalTest";
-import AdministerTechnicalTestEdit from "../page/technicalTest/AdministerTechnicalTestEdit";
 import Results from "../page/Results/Results";
 import FormInscription from "../page/formAspirant/FormInscription";
 import InterviewAspirant from "../page/interviewAspirant/InterviewAspirant";
@@ -72,8 +71,8 @@ const App = () => {
               <Route path="/aspirantes" component={Aspirants} />
               
               <Route path="/prueba" component={AdministerTechnicalTest} />
-              <Route path="/agregar" component={AdministerTechnicalTestAdd} />
-              <Route path="/editar" component={AdministerTechnicalTestEdit} />
+              <Route path="/agregar" component={AddTechTest}/>
+              <Route path="/editarprueba" component={AddTechTest}/>
               <Route path="/calificar" component={QualifyTechnicalTest} />
               <Route path="/citation" component={Citations} />
 
