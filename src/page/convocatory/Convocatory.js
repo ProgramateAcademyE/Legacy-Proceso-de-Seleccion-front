@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Table from "../../components/tablita/Table";
 import NewConvocatory from "../../components/newConvocatory/NewConvocatory";
-import "../../components/newConvocatory/EditCohort.jsx";
 import DisableBtn from "../../components/disableBtn/DisableBtn";
 import RequestService from "../../config/index";
 import ModalConvocatory from "../../components/modals/ModalConvocatory";

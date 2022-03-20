@@ -1,5 +1,4 @@
 import React from "react";
-import "./AdministerTechnicalTest";
 import { Link } from "react-router-dom";
 
 const AdministerTechnicalTestEdit = () => {

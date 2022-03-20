@@ -117,9 +117,8 @@ const FormConvocatory = (props) => {
 						try {
 							if(query){
 								axios.put(`${PETITIONS.updateConcovatory}${data._id}`, newConvocatory)
-									.then((res) => {
-										const msg = res.data.msg;
-										alert(msg);
+									.then(() => {
+										// alert(msg);
 										history.push("/convocatoria")
 									});
 							}else{

@@ -18,7 +18,6 @@ import InterviewAspirant from "../page/interviewAspirant/InterviewAspirant";
 import ProofAspirant from "../page/proofAspirant/ProofAspirant";
 import InterviewDay from "../page/citation/InterviewDay";
 import NewCohort from "../components/newConvocatory/NewCohort ";
-import EditCohort from "../components/newConvocatory/EditCohort";
 import LoginFull from "../components/auth/LoginFull";
 import WaitingList from "../page/waitingList/WaitingList";
 import { useDispatch, useSelector } from "react-redux";
@@ -27,9 +26,10 @@ import InterviewDays from "../page/interviewDays/InterviewDays";
 import Footer from "../components/footer/Footer";
 import { getData } from "../actions/sololearnProfile";
 import SelectionResults from "../page/selection/SelectionResults";
-
 import Verify from "../components/verify/Verify";
 import Register from "../components/register/Register";
+
+import './style.css'
 
 const App = () => {
   const auth = useSelector((state) => state.auth);
@@ -48,7 +48,7 @@ const App = () => {
       {/* {pathname !== "/login" && <Header user={user} adminstate={adminstate} />} */}
       {pathname !== "/" && pathname !== "/register" && pathname !== '/verify' && <Header />}
 
-      <div className="d-flex top">
+      <div className="login">
         {/* {pathname !== "/login" && <Nav user={user} adminstate={adminstate} />} */}
         {pathname !== "/" && pathname !== "/register" && pathname !== '/verify' && <Nav />}
 
@@ -59,8 +59,6 @@ const App = () => {
        
           <Route exact path="/register" component={Register} /> 
           
-          
-          {/* <Redirect to="/login" /> */}
           {isLogged && isAdmin && (
             <>
               <Route path="/dashboard" component={DashboardAdmin} />
@@ -72,7 +70,6 @@ const App = () => {
               <Route path="/nuevacohorte" component={NewCohort} />
               <Route path="/editarcohorte" component={NewCohort} />
               <Route path="/aspirantes" component={Aspirants} />
-              <Route path="/editarcohorte" component={EditCohort} />
               
               <Route path="/prueba" component={AdministerTechnicalTest} />
               <Route path="/agregar" component={AdministerTechnicalTestAdd} />
@@ -104,8 +101,7 @@ const App = () => {
           )}
         </Switch>
       </div>
-      {pathname !== "/" && pathname !== "/register" && pathname !== '/verify' && <Footer />}
-       <Footer />
+      {pathname !== '/verify' && <Footer />}
     </>
   );
 };

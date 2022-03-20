@@ -1,102 +1,83 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import Administercss from "./AdministerTechnicalTest.module.css"
-import modalDelete from "../../components/alert/alert";
-
+import Table from "@material-ui/core/Table";
+import TableBody from "@material-ui/core/TableBody";
+import TableCell from "@material-ui/core/TableCell";
+import TableContainer from "@material-ui/core/TableContainer";
+import TableHead from "@material-ui/core/TableHead";
+import TableRow from "@material-ui/core/TableRow";
+import Paper from "@material-ui/core/Paper";
+import { makeStyles } from "@material-ui/core/styles";
+import axios from "axios";
+import { PETITIONS } from "../../../requestUrl";
+import './TechTest.css'
 
 const AdministerTechnicalTest = () => {
-    const pruebas1 = [
-        {
-            id: 1,
-            pruebaTecnica: "prueba tecnica1",
-            link: "https://drive.google.com",
-            convocatoria: "convocatoria1",
-        },
-        {
-            id: 2,
-            pruebaTecnica: "prueba tecnica2",
-            link: "https://drive.google.com",
-            convocatoria: "convocatoria1",
-        },
-        {
-            id: 3,
-            pruebaTecnica: "prueba tecnica3",
-            link: "https://drive.google.com",
-            convocatoria: "convocatoria1",
-        },
-    ];
+	const [test, setTest] = useState();
+	const [conv, setConv] = useState();
 
-    return (
-        <>
-            <div className="section__administer">
-                
-                    <span className="upperCase bold">
-                        Administrar prueba técnica
-                    </span>
-            
-                <div className="Form__Administer">
-                    <div className="Button__Administer">
-                        <Link to="/agregar">
-                            <button className="btn btn-success">Crear</button>
-                        </Link>
-                    </div>
-                    <div className="section__table table">
-                        <table className="table">
-                            <thead>
-                                <tr>
-                                    <th scope="col">ID</th>
-                                    <th scope="col">Prueba técnica</th>
-                                    <th scope="col">Link</th>
-                                    <th scope="col">Convocatoria</th>
-                                    <th scope="col">Acciones</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {pruebas1.map((prueba, index) => (
-                                    <tr key={index}>
-                                        <th scope="row">{prueba.id}</th>
-                                        <td>{prueba.pruebaTecnica}</td>
-                                        <td>{prueba.link}</td>
-                                        <td>{prueba.convocatoria}</td>
-                                        <td>
-                                            {/* Commit before */}
-                                            {/* <div className="buttom d-flex justify-content-center align-items-center">
-                                                <Link to="/administertechnicaltestedit">
-                                                    <button className="btn btn-success">
-                                                        <i className="fas fa-edit"></i>
-                                                    </button>
-                                                </Link>
-                                                <button
-                                                    type="button"
-                                                    onClick={() =>
-                                                        prueba.id &&
-                                                        modalDelete(prueba.id)
-                                                    }
-                                                    className="btn btn-danger"
-                                                >
-                                                    <i className="fas fa-trash"></i> */}
+	useEffect(() => {
+		axios.get(PETITIONS.getTechTest).then((res) => {
+			setTest(res.data);
+		});
+	}, []);
 
-                                            <Link to="/editar">
-                                                <button className="btn btn-success">
-                                                    <i className="fas fa-edit"></i>
-                                                </button>
-                                            </Link>
-                                            <button
-                                                className="btn btn-danger"
-                                                onClick={modalDelete}
-                                            >
-                                                <i className="fas fa-trash"></i>
-                                            </button>
-                                        </td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </>
-    );
+	useEffect(() => {
+		axios.get(PETITIONS.getConvocatories).then((res) => {
+			setConv(res.data);
+		});
+	}, []);
+
+	return (
+    <div className="table-container">
+			<div className="title">
+				<h3>Crear Prueba Tecnica</h3>
+        <Link to='/agregar' className='btn btn-success mt-3 mb-3'>Crear Convocatoria</Link>
+			</div>
+			<TableContainer>
+				<Table aria-label='simple table'>
+					<TableHead>
+						<TableRow>
+							<TableCell align='center'>NOMBRE</TableCell>
+							<TableCell align='center'>PDF</TableCell>
+							<TableCell align='center'>CONVOCATORIAS</TableCell>
+							<TableCell align='center'>Acciones</TableCell>
+						</TableRow>
+					</TableHead>
+					<TableBody>
+						{test?.map((prop, index) => (
+							<TableRow key={index}>
+								<TableCell align='center'>
+									<a href={prop.url} target='_blank' rel='noopener noreferrer'>
+										{prop.title}
+									</a>
+								</TableCell>
+								<TableCell align='center'>
+									<a
+										href={prop.pdf}
+										target='_blank'
+										download={prop.title}
+										rel='noopener noreferrer'>
+										Descargar prueba tecnica
+									</a>
+								</TableCell>
+								<TableCell align='center'>
+									{conv?.map(({ _id, name }) => (
+										<div key={_id}>
+											{prop.convocatories?.map((id) =>
+												id === _id ? name : null
+											)}
+										</div>
+									))}
+								</TableCell>
+								<TableCell align='center'>L, A, E</TableCell>
+							</TableRow>
+						))}
+					</TableBody>
+				</Table>
+			</TableContainer>
+		</div>
+	);
 };
 
 export default AdministerTechnicalTest;

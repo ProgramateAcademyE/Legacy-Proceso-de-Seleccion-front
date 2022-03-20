@@ -10,6 +10,8 @@ import auth from "./Auth.module.css";
 import { dispatchLogin } from "../../actions/authAction";
 import Spinner from "./Spinner";
 import programateacademycolor from '../../../dist/Assets/programateacademycolor.png';
+import programateacademycolorBN from '../../../dist/Assets/Programate-academy-negros.png';
+
 
 const Login = () => {
   //Inicializo hooks
@@ -111,10 +113,12 @@ const Login = () => {
   return (
     <>
     <div className='Logo__Programate'><img src={programateacademycolor} alt='Logo'/></div> 
+    {/* <div className='Logo__Programate'><img src={programateacademycolorBN} alt='Logo'/></div>  */}
       <div className="cardLoggin">
         <div className="mensajes">{componentes}</div>
         <div className="login_page">
           <h2>Iniciar Sesión</h2>
+          <img src={programateacademycolorBN} alt='Logo' className="main-logo"/>
           {/* {err && showErrMsg(err)}
       {success && showSuccessMsg(success)} */}
 

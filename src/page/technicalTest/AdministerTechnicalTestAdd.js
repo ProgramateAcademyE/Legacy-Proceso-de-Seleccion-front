@@ -1,81 +1,108 @@
-import React, { useState } from "react";
-import "./AdministerTechnicalTest";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { Formik, Field, Form, ErrorMessage } from "formik";
+import { PETITIONS } from "../../../requestUrl";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
 
 const AdministerTechnicalTestAdd = () => {
+	const [convocatory, setConvocatory] = useState();
+  let history = useHistory();
 
-    // const [test, setTest] = useState({
-    //     url: "",
-    //   });
-    
-    //   const onSubmit = (e) => {
-    //     e.preventDefault();
-    //     setTest({
-    //       url: "",
-    //     })
-    //   }
-    
-    //   const handleChange = (e) => {
-    //       const {name, value} = e.target
-    //       setTest({
-    //         ...test,
-    //         [name]: value
-    //       })
-    //   } 
-    
-    //   const {url} = test
+	useEffect(() => {
+		axios.get(PETITIONS.getConvocatories).then((res) => {
+			setConvocatory(res.data);
+		});
+	}, []);
 
-    return (
-        <div className="section__administer">
-            <div className="section__content d-flex justify-content-between">
-                <span className="upperCase bold">Agregar prueba técnica</span>
-                <div className="box__content">
-                    <span>Programate</span>
-                    <i class="fas fa-chevron-right subtitle" />
-                    <span>Prueba técnica</span>
-                    <i class="fas fa-chevron-right subtitle" />
-                    <span>Administrar prueba técnica</span>
-                </div>
-            </div>
-            <div className="form form-add m">
-                <form action="">
-                    <label htmlFor="">Prueba técnica</label>
-                    <input
-                        type="text"
-                        className="form-control mb-3"
-                        name="prueba_tecnica" 
-                        // value=""                   
-                        required
-                    ></input>
-                    <label htmlFor="">Link</label>
-                    <input
-                        type="text"
-                        className="form-control mb-3"
-                        name="link"
-                        // value=""
-                        required
-                    ></input>
-                    <select
-                        class="form-select mb-3"
-                        aria-label="Default select example"
-                    >
-                        
-                        <option value="1">Convocatoria 1</option>
-                        <option value="2">Convocatoria 2</option>
-                        <option value="3">Convocatoria 3</option>
-                    </select>
+	return (
+		<div style={{ margin: "165px auto" }}>
+			<Formik
+				initialValues={{
+					titleTest: "",
+					linkTest: "",
+					pdfTest: "",
+					convocatoryTest: [],
+				}}
+				validate={(allValues) => {
+					let errors = {};
+					if (!allValues.titleTest) {
+						errors.titleTest = "Ingrese un titulo";
+					}
+					return errors;
+				}}
+				onSubmit={(allValues, { resetForm }) => {
+					const newTest = {
+						title: allValues.titleTest,
+						url: allValues.linkTest,
+						pdf: allValues.pdfTest,
+						convocatories: allValues.convocatoryTest,
+					};
+          console.log(newTest)
+          try{
+            axios
+              .post(PETITIONS.createTechTest, newTest)
+              .then((res) => {
+                const msg = res.data.msg;
+                alert(msg);
+                history.push("/prueba");
+              });
+          }catch(error){
+            console.log(error)
+          }
 
-                    <div className="buttom__create">
-            <Link to="/prueba"> 
-             <button type="submit" class="btn btn-success">
-                Crear
-              </button>
-            </Link>
-            </div>  
-                </form>
-            </div>
-        </div>
-    );
+					resetForm();
+				}}>
+				{({ errors }) => (
+					<Form>
+						{/* Technical Test */}
+						<div>
+							<div>
+								<label htmlFor='titleTest'>Titulo</label>
+								<Field type='text' name='titleTest' id='titleTest' />
+								<ErrorMessage
+									name='titleTest'
+									component={() => (
+										<span style={{ color: "red" }}>{errors.titleTest}</span>
+									)}
+								/>
+							</div>
+							<div>
+								<label htmlFor='linkTest'>Url</label>
+								<Field type='url' name='linkTest' />
+								<ErrorMessage
+									name='linkTest'
+									component={() => (
+										<span style={{ color: "red" }}>{errors.linkTest}</span>
+									)}
+								/>
+							</div>
+							<div>
+								<label htmlFor='pdfTest'>PDF</label>
+								<Field type='file' name='pdfTest' id='pdfTest' />
+								<ErrorMessage
+									name='pdfTest'
+									component={() => (
+										<span style={{ color: "red" }}>{errors.pdfTest}</span>
+									)}
+								/>
+							</div>
+							<div>
+								<label htmlFor='convocatoryTest'>Convocatoria</label>
+								<Field name='convocatoryTest' as='select' multiple>
+									{convocatory?.map((data) => (
+										<option key={data._id} value={data._id}>
+											{data.name}
+										</option>
+									))}
+								</Field>
+							</div>
+						</div>
+						<input type='submit' value='Guardar' />
+					</Form>
+				)}
+			</Formik>
+		</div>
+	);
 };
 
 export default AdministerTechnicalTestAdd;

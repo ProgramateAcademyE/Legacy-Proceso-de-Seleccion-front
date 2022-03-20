@@ -4,6 +4,7 @@ import { Link } from "react-router-dom";
 import { PETITIONS } from '../../../requestUrl';
 import register from './Register.module.css';
 import programateacademycolor from '../../../dist/Assets/programateacademycolor.png';
+import programateacademycolorBN from '../../../dist/Assets/Programate-academy-negros.png';
   
 
 const Register = () => {
@@ -87,6 +88,7 @@ const Register = () => {
     
       <form className='form' onSubmit={handleSubmit}>
         <h1> Registrate </h1>
+        <img src={programateacademycolorBN} alt='Logo' className='main-logo'/>
         <label>Nombre</label>
         <input required type='text' onChange={handleNames}/>
         {errors.name && <p>{errors.name}</p>}
@@ -102,7 +104,7 @@ const Register = () => {
         <input required type='password'onChange={handleConfirmPassword}/>
         {errors.password && <p>{errors.password}</p>}
         <input className='buttonS' type='submit'/>
-        <p> Ya estas registrado? <Link to="/">Loggin</Link></p>
+        <p> Ya estas registrado? <Link to="/">Login</Link></p>
       </form>
       </div>
     </>
