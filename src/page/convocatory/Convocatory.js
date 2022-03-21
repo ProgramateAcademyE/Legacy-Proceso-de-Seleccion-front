@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Table from "../../components/tablita/Table";
 import NewConvocatory from "../../components/newConvocatory/NewConvocatory";
-import "../../components/newConvocatory/EditCohort.jsx";
 import DisableBtn from "../../components/disableBtn/DisableBtn";
 import RequestService from "../../config/index";
 import ModalConvocatory from "../../components/modals/ModalConvocatory";
@@ -55,20 +54,16 @@ const Convocatory = () => {
   return (
     <>
       <div className="section__convocatory">
-        <div className="section__content mb-5 d-flex justify-content-between">
+        <div className="section__contentC">
           <span className="upperCase bold">Convocatorias</span>
           {rows.length > 0 ? (
             <Link to="/nuevacohorte">
-              <button type="submit" className="btn btn-success mt-3">
+              <button type="submit" className="btn btn-success ">
                 Crear Convocatoria
               </button>
             </Link>
           ) : null}
-          <div className="box__content">
-            <span className="text-crumbs bold-500">Programate</span>
-            <i className="fas fa-chevron-right subtitle" />
-            <span className="text-crumbs">Convocatoria</span>
-          </div>
+          
         </div>
         {rows.length > 0 ? (
           <Table

@@ -31,13 +31,7 @@ const Citations = () => {
             <div className="section__convocatory">
                 <div className="section__content d-flex justify-content-between">
                     <span className="upperCase bold"> Convocatoria </span>
-                    <div className="box__content">
-                        <span className="text-crumbs bold-500">Programate</span>
-                        <i className="fas fa-chevron-right subtitle" />
-                        <span className="text-crumbs">
-                            Consolidado Postulantes
-                        </span>
-                    </div>
+                    
                 </div>
                 {data &&
                     data.map((citation) => (

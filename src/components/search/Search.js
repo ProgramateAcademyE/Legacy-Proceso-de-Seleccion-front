@@ -2,7 +2,7 @@ import React from "react";
 import searchcss from "./Search.module.css";
 const Search = () => {
   return (
-    <form action="" className="d-flex flex-column gap-1">
+    <form action="" className="Search__Box">
       <div className="wrap-input100 validate-input mb-3 d-flex align-items-center">
         <i className="fas fa-search" />
         <input

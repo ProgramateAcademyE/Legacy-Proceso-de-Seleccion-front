@@ -1,14 +1,61 @@
 import React from "react";
 import modalcss  from "./Modal.module.css";
 
-const ModalAspirants = () => {
+const ModalAspirants = (Data) => {
+let{Primernombre,
+Segundonombre,
+Primerapellido,
+Segundoapellido,
+Tipodedocumento,
+Numerodedocumento,
+PDFdedocumento,
+Fotodeperfil,
+Fechadenacimiento,
+Edad,
+Sexo,
+Estadocivil,
+Correoelectronico,
+Telefonoprimario,
+Telefonoallterno,
+Paisdenacimiento,
+Paisderesidencia,
+Departamento,
+Municipio,
+Direccion,
+Localidad,
+Estrato,
+Tipodearea,
+PDFderecibo,
+Discapacidad,
+Ingresosfamiliares,
+Numerodeintegrantesdelhogar,
+Hijos,
+Poblacion,
+Accesoapc,
+Accesoainternet,
+Compañiadeinternet,
+Megas,
+Maximoestudioalcanzado,
+Título,
+PDFdelcertificadooacta,
+Situacionlaboral,
+Tiempodedesempleo,
+Personasdependeneconómicamente,
+Hatenidoempleoformal,
+Idiomanativo,
+Otroidioma,
+Niveldeidioma,
+Codigoperfilensololearn} = Data
+
+
+
     return (
         <div>
-            <div className="btn">
+            
                 <a href="#aspirante">
                     <i className="far fa-eye"> </i>
                 </a>
-            </div>
+        
             <div id="aspirante" className="modalDialog">
                 <div className="content">
                     <a href="#close" title="Close" className="close">
@@ -18,250 +65,272 @@ const ModalAspirants = () => {
                     <div className="row">
                         <div className="col-12 col-md-6 d-flex align-item-left item">
                             <p>
-                                <em>Primer nombre:</em> Pedro
+                               {" Primer nombre:" + Primernombre}
                             </p>
                         </div>
                         <div className="col-12 col-md-6 d-flex align-item-left">
                             <p>
-                                <em>Segundo nombre:</em> Pedro
+                            {"Segundo nombre:" + Segundonombre}
                             </p>
                         </div>
                     </div>
                     <div className="row mt-4">
                         <div className="col-12 col-md-6 d-flex align-item-left item">
                             <p>
-                                <em>Primer apellido:</em> Ayala
+                            {" Primer Apellido:" + Primerapellido}
                             </p>
                         </div>
                         <div className="col-12 col-md-6">
                             <p>
-                                <em>Segundo apellido:</em> Pedro
+                            {"Segundo Apellido:" + Segundoapellido}
                             </p>
                         </div>
                     </div>
                     <div className="row mt-4">
                         <div className="col-12 col-md-6">
                             <p>
-                                <em>Tipo de documento:</em> CC
+                            {"Tipo de Docuemnto:" + Tipodedocumento}
                             </p>
                         </div>
                         <div className="col-12 col-md-6">
                             <p>
-                                <em>Número de documento:</em> 1026456789
+                            {"Numero de documento:" + Numerodedocumento}
                             </p>
                         </div>
                     </div>
                     <div className="row mt-4">
                         <div className="col-12 col-md-6">
                             <p>
-                                <em>Fotocopia de documento de identidad:</em>{" "}
-                                PDF
+                            {"Pdf de el Documento:" + PDFdedocumento}                           
                             </p>
                         </div>
                         <div className="col-12 col-md-6">
                             <p>
-                                <em>Correo electónico:</em> Pedro@gmail.com
+                            {"Foto de perfil:" + Fotodeperfil}
                             </p>
                         </div>
                     </div>
                     <div className="row mt-4">
                         <div className="col-12 col-md-6">
                             <p>
-                                <em>Telefono:</em> 3002345678
+                            {"Fecha de nacimiento:" + Fechadenacimiento}
                             </p>
                         </div>
                         <div className="col-12 col-md-6">
                             <p>
-                                <em>Nacionalidad:</em> Colombia
+                            {"Edad:" + Edad}
                             </p>
                         </div>
                     </div>
                     <div className="row mt-4">
                         <div className="col-12 col-md-6">
                             <p>
-                                <em>¿Eres Migrante?:</em> Si
+                            {"Sexo:" + Sexo}
                             </p>
                         </div>
                         <div className="col-12 col-md-6">
                             <p>
-                                <em>¿Vives en Colombia?:</em> Si
+                            {"Estado Civil:" + Estadocivil}
                             </p>
                         </div>
                     </div>
                     <div className="row mt-4">
                         <div className="col-12 col-md-6">
                             <p>
-                                <em>Departamento de residencia:</em> Bogotá
+                            {"Email:" + Correoelectronico}
                             </p>
                         </div>
                         <div className="col-12 col-md-6">
                             <p>
-                                <em>Municipio de Residencia:</em> Bogotá
+                            {"Telefono Primario:" + Telefonoprimario}
                             </p>
                         </div>
                     </div>
                     <div className="row mt-4">
                         <div className="col-12 col-md-6">
                             <p>
-                                <em>
-                                    Si resides en Bogotá, cual es tu localidad
-                                    de residencia:{" "}
-                                </em>
-                                Puente Aranda
+                            {"Telefono Alterno:" + Telefonoallterno}
                             </p>
                         </div>
                         <div className="col-12 col-md-6">
-                            <p>
-                                <em>Dirección:</em> calle 11 # 17-09
+                            <p> {"Pais de Nacimiento:" + Paisdenacimiento}
+                            
                             </p>
                         </div>
                     </div>
                     <div className="row mt-4">
                         <div className="col-12 col-md-6">
                             <p>
-                                <em>Estrato socioeconómico:</em> 1
+                            {"Pais de residencia:" + Paisderesidencia}
                             </p>
                         </div>
                         <div className="col-12 col-md-6">
                             <p>
-                                <em>Fecha de nacimiento:</em> 23/09/1993
+                            {"Departamento:" + Departamento}
                             </p>
                         </div>
                     </div>
                     <div className="row mt-4">
                         <div className="col-12 col-md-6">
                             <p>
-                                <em>Edad actual:</em> 27
+                            {"Municipio:" + Municipio}
                             </p>
                         </div>
                         <div className="col-12 col-md-6">
                             <p>
-                                <em>
-                                    Si cumple 18 años durante la formación,
-                                    ingrese la fecha de cumpleaños:{" "}
-                                </em>
-                                23/03/2021
+                            {"Direccion" + Direccion}
                             </p>
                         </div>
                     </div>
                     <div className="row mt-4">
                         <div className="col-12 col-md-6">
                             <p>
-                                <em>Sexo:</em> Femenino
+                            {"Localidad:" + Localidad}
                             </p>
                         </div>
                         <div className="col-12 col-md-6">
                             <p>
-                                <em>Estado Civil:</em> soltera
+                            {"Estrato" + Estrato}
                             </p>
                         </div>
                     </div>
                     <div className="row mt-4">
                         <div className="col-12 col-md-6">
                             <p>
-                                <em>Máximo Nivel Académico Alcanzado:</em>{" "}
-                                Técnico
+                            {"Tipo De Area:" + Tipodearea}
                             </p>
                         </div>
                         <div className="col-12 col-md-6">
                             <p>
-                                <em>
-                                    {" "}
-                                    Si tu respuesta anterior fue técnico,
-                                    tecnólogo o grado universitario profesional
-                                    cuéntanos ¿Qué título obtuviste?:{" "}
-                                </em>{" "}
-                                Tecnico en asistencia administrativa
+                            {"Pdf de recibo:" + PDFderecibo}
                             </p>
                         </div>
                     </div>
                     <div className="row mt-4">
                         <div className="col-12 col-md-6">
                             <p>
-                                <em>Actividad económica /ocupación actual:</em>{" "}
-                                Desempleado
+                            {"Discapacidad:" + Discapacidad}
                             </p>
                         </div>
                         <div className="col-12 col-md-6">
                             <p>
-                                <em>
-                                    Si la respuesta anterior es "desempleado",
-                                    ¿hace cuánto tiempo te encuentras en dicha
-                                    situación?:
-                                </em>{" "}
-                                Hace 1 año
+                            {"Ingresos Familiarias:" + Ingresosfamiliares}
                             </p>
                         </div>
                     </div>
                     <div className="row mt-4">
                         <div className="col-12 col-md-6">
                             <p>
-                                <em>¿Has tenido antes un empleo formal?:</em> Si
+                            {"Numero de integrantes de el hogar:" + Numerodeintegrantesdelhogar}
                             </p>
                         </div>
                         <div className="col-12 col-md-6">
                             <p>
-                                <em>¿Eres víctima del conflicto armado?:</em> Si
+                            {"Hijos:" + Hijos}
                             </p>
                         </div>
                     </div>
                     <div className="row mt-4">
                         <div className="col-12 col-md-6">
                             <p>
-                                <em>¿Tienes acceso a un computador?:</em> Si
+                            {"Poblacion:" + Poblacion}
                             </p>
                         </div>
                         <div className="col-12 col-md-6">
                             <p>
-                                <em>
-                                    ¿Cuántas veces has intentado ingresar a
-                                    "Prográmate"?:{" "}
-                                </em>{" "}
-                                2
+                            {"Acceso a PC:" + Accesoapc}
                             </p>
                         </div>
                     </div>
                     <div className="row mt-4">
                         <div className="col-12 col-md-6">
                             <p>
-                                <em>Número del perfil de Sololearn:</em> 456789
+                            {"Acceso a Internet:" + Accesoainternet}
                             </p>
                         </div>
                         <div className="col-12 col-md-6">
                             <p>
-                                <em>
-                                    ¿Cuáles son tus principales sueños en la
-                                    vida y cómo la formación te aportará a
-                                    cumplirlos?:
-                                </em>{" "}
-                                lorem lorem lorem
+                            {"Compañia de internet:" + Compañiadeinternet}
                             </p>
                         </div>
                     </div>
                     <div className="row mt-4">
                         <div className="col-12 col-md-6">
                             <p>
-                                <em>
-                                    Cuéntanos en el siguiente espacio en un
-                                    párrafo de motivación ¿qué es prográmate
-                                    para ti? ¿Qué es lo que más te interesa de
-                                    la metodología? ¿Por qué quieres ser parte
-                                    de Prográmate?:{" "}
-                                </em>{" "}
-                                lorem lorem
+                            {"Megas:" + Megas}
                             </p>
                         </div>
                         <div className="col-12 col-md-6">
                             <p>
-                                <em>
-                                    ¿Cuáles son tus principales sueños en la
-                                    vida y cómo la formación te aportará a
-                                    cumplirlos?:
-                                </em>{" "}
-                                lorem lorem lorem
+                            {"Maximo Estudio alcanzado:" + Maximoestudioalcanzado}
                             </p>
                         </div>
                     </div>
+                        <div className="col-12 col-md-6">
+                            <p>
+                            {"Titulo:" + Título}
+                            </p>
+                        </div>
+                    <div className="row mt-4">
+                        <div className="col-12 col-md-6">
+                            <p>
+                            {"Certificado De Acta:" + PDFdelcertificadooacta}
+                            </p>
+                        </div>
+                        <div className="col-12 col-md-6">
+                            <p>
+                            {"Titulo:" + Título}
+                            </p>
+                        </div>
+                    </div>
+                    <div className="row mt-4">
+                        <div className="col-12 col-md-6">
+                            <p>
+                            {"Situacion Laboral:" + Situacionlaboral}
+                            </p>
+                        </div>
+                        <div className="col-12 col-md-6">
+                            <p>
+                            {"Tiempo de desempleo:" + Tiempodedesempleo}
+                            </p>
+                        </div>
+                    </div>
+                    <div className="row mt-4">
+                        <div className="col-12 col-md-6">
+                            <p>
+                            {"Personas dependientes Economicamentes:" + Personasdependeneconómicamente}
+                            </p>
+                        </div>
+                        <div className="col-12 col-md-6">
+                            <p>
+                            {"Ha tenido Empleo:" + Hatenidoempleoformal}
+                            </p>
+                        </div>
+                    </div>    
+                    <div className="row mt-4">  
+                        <div className="col-12 col-md-6">
+                            <p>
+                            {"Idioma Nativo:" + Idiomanativo}
+                            </p>
+                        </div>
+                        <div className="col-12 col-md-6">
+                            <p>
+                            {"Otro Idioma:" + Otroidioma}
+                            </p>
+                        </div>
+                    </div> 
+                    <div className="row mt-4">   
+                        <div className="col-12 col-md-6">
+                            <p>
+                            {"Niveldeidioma:" + Niveldeidioma}
+                            </p>
+                        </div>
+                        <div className="col-12 col-md-6">
+                            <p>
+                            {"Codigoperfilensololearn:" + Codigoperfilensololearn}
+                            </p>
+                        </div>
+                     </div>
                 </div>
             </div>
         </div>

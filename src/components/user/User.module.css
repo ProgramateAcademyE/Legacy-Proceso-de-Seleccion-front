@@ -1,7 +1,11 @@
 .icon-user {
   font-size: 20px;
 }
-
+.User__Box{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .icon-arrow {
   margin: 4px 0 0 0;
 }
@@ -15,9 +19,14 @@
   font-weight: 500;
   display: none;
 }
+.logout {
+  position: fixed;
+  padding: 2vh;
+}
 
 .box-logut {
-  position: relative;
+  position: absolute;
+  pointer-events: all;
 }
 
 .box-logut:hover .logout {

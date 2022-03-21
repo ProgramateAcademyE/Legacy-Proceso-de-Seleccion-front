@@ -10,24 +10,27 @@
   z-index: 100;
 }
   #logo {
-    width: 70px;
+    width: auto;
     background-color: #FDC300;
     padding: 5px 0 0 3px;
     transition: .4s all;
   }
-  img {
-    width: 60px;
+  .Logo__A {
+    width: 71px;
     object-fit: cover;
   }
   .header__search{
     align-self: center;
     flex: 1;
+    padding-top: 2vh;
+    padding-left: 2vh;
   }
   .header__user {
-    width: 200px;
-    align-self: center;
+      width: 104px;
+      display: flex;
+      align-items: center;
   }
-
+  
 
 .menu-bar{
   position: relative;

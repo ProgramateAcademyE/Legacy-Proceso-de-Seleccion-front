@@ -61,7 +61,7 @@ const Header = () => {
         <div className="header__logo" id="logo">
           {auth ? 
             <Link to="/dashboard">
-              <img
+              <img className="Logo__A"
                 src="https://i.ibb.co/ZM3jGdB/logoeducamasimbolo.png"
                 alt="logo"
               />
