@@ -9,16 +9,14 @@ import Convocatory from "../page/convocatory/Convocatory";
 import DashboardAspirant from "../page/dasborardAspirant/DashboardAspirant";
 import DashboardAdmin from "../page/dashboardAdmin/DashboardAdmin";
 import AdministerTechnicalTest from "../page/technicalTest/AdministerTechnicalTest";
-import AdministerTechnicalTestAdd from "../page/technicalTest/AdministerTechnicalTestAdd";
+import AddTechTest from "../page/technicalTest/AddTechTest";
 import QualifyTechnicalTest from "../page/technicalTest/QualifyTechnicalTest";
-import AdministerTechnicalTestEdit from "../page/technicalTest/AdministerTechnicalTestEdit";
 import Results from "../page/Results/Results";
 import FormInscription from "../page/formAspirant/FormInscription";
 import InterviewAspirant from "../page/interviewAspirant/InterviewAspirant";
 import ProofAspirant from "../page/proofAspirant/ProofAspirant";
 import InterviewDay from "../page/citation/InterviewDay";
 import NewCohort from "../components/newConvocatory/NewCohort ";
-import EditCohort from "../components/newConvocatory/EditCohort";
 import LoginFull from "../components/auth/LoginFull";
 import WaitingList from "../page/waitingList/WaitingList";
 import { useDispatch, useSelector } from "react-redux";
@@ -27,8 +25,11 @@ import InterviewDays from "../page/interviewDays/InterviewDays";
 import Footer from "../components/footer/Footer";
 import { getData } from "../actions/sololearnProfile";
 import SelectionResults from "../page/selection/SelectionResults";
-
+import Verify from "../components/verify/Verify";
 import Register from "../components/register/Register";
+import ListOfUsers from "../components/allUsers/ListOfUsers";
+
+import './style.css'
 
 const App = () => {
   const auth = useSelector((state) => state.auth);
@@ -45,34 +46,34 @@ const App = () => {
   return (
     <>
       {/* {pathname !== "/login" && <Header user={user} adminstate={adminstate} />} */}
-      {pathname !== "/" && pathname !== "/register" && <Header />}
+      {pathname !== "/" && pathname !== "/register" && pathname !== '/verify' && <Header />}
 
-      <div className="d-flex top">
+      <div className="login">
         {/* {pathname !== "/login" && <Nav user={user} adminstate={adminstate} />} */}
-        {pathname !== "/" && pathname !== "/register" && <Nav />}
+        {pathname !== "/" && pathname !== "/register" && pathname !== '/verify' && <Nav />}
 
         <Switch>
+          <Route exact path="/verify" component={Verify} />
           
           <Route exact path="/" component={LoginFull} />
        
           <Route exact path="/register" component={Register} /> 
           
-          
-          {/* <Redirect to="/login" /> */}
           {isLogged && isAdmin && (
             <>
               <Route path="/dashboard" component={DashboardAdmin} />
+              <Route path="/users" component={ListOfUsers}/>
+
               <Route path="/dia-de-entrevista" component={InterviewDays} />
-              <Route path="/calendario">
-                <InterviewDay />
-              </Route>
+              <Route path="/calendario"><InterviewDay /></Route>
               <Route path="/convocatoria" component={Convocatory} />
               <Route path="/nuevacohorte" component={NewCohort} />
-              <Route path="/editarcohorte" component={EditCohort} />
+              <Route path="/editarcohorte" component={NewCohort} />
+              <Route path="/aspirantes" component={Aspirants} />
               
               <Route path="/prueba" component={AdministerTechnicalTest} />
-              <Route path="/agregar" component={AdministerTechnicalTestAdd} />
-              <Route path="/editar" component={AdministerTechnicalTestEdit} />
+              <Route path="/agregar" component={AddTechTest}/>
+              <Route path="/editarprueba" component={AddTechTest}/>
               <Route path="/calificar" component={QualifyTechnicalTest} />
               <Route path="/citation" component={Citations} />
 
@@ -100,7 +101,7 @@ const App = () => {
           )}
         </Switch>
       </div>
-       <Footer />
+      {pathname !== '/verify' && <Footer />}
     </>
   );
 };

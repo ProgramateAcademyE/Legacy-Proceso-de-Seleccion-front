@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Table from "../../components/tablita/Table";
 import NewConvocatory from "../../components/newConvocatory/NewConvocatory";
-import "../../components/newConvocatory/EditCohort.jsx";
 import DisableBtn from "../../components/disableBtn/DisableBtn";
 import RequestService from "../../config/index";
 import ModalConvocatory from "../../components/modals/ModalConvocatory";
@@ -28,9 +27,8 @@ const Convocatory = () => {
     {
       status: true,
       icon: (
-        <Link to="/editarcohorte">
           <i className="far fa-edit"></i>
-        </Link>
+        // </Link>
       ),
     },
     {
@@ -70,7 +68,7 @@ const Convocatory = () => {
         {rows.length > 0 ? (
           <Table
             className="table"
-            data={convocatories}
+            convocatoryData={convocatories}
             key={rows.Id}
             rows={rows}
             actions={actions}

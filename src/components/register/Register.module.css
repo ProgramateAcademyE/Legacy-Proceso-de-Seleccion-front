@@ -1,8 +1,6 @@
-
-
 .form{
-    width: 400px;
-    height: 500px;
+    min-width: 468px;
+    min-height: 500px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -10,6 +8,10 @@
     box-sizing: border-box;
     border-radius: 10px;
     padding: 40px;
+}
+
+.main-logo{
+    width: 300px;
 }
 
 .form h1{
@@ -24,11 +26,10 @@
 
 
 .container {
-    padding: 6vw 16vw 6vw 0px;
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;
+    min-height: 90vh;
 }
 
 .form .buttonS{
