@@ -1,30 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
+import { Form, Field, Formik } from "formik";
 
-const Step2 = ({ data, handeleChange }) => {
+const Step2 = () => {
 
-    const {
-      nacionality,
-      currentCountry,
-      residencyDepartment,
-      municipalityOfResidency,
-      address,
-      locationInBogota,
-      stratum,
-      areaType,
-      billPdf,
-      disability,
-      familyIncome,
-      householdMembers,
-      numberOfChildren,
-      vulnerablePopulation,
-      pcAccess,
-      internetAccess,
-      internetCompany,
-      mbCount
-      } = data;
-
-    const [countries, setCountries] = useState([]);
-    const getCountry = async () => {
+/*       const [countries, setCountries] = useState([]);
+      const getCountry = async () => {
       const url = "https://restcountries.com/v3.1/all";
       const request = await fetch(url);
       const countrie = await request.json();
@@ -34,9 +14,9 @@ const Step2 = ({ data, handeleChange }) => {
     
     useEffect(() => {
     getCountry();
-    }, []);
-    
-    const [departments, setDepartments] = useState([]);
+    }, []); */
+  
+/*       const [departments, setDepartments] = useState([]);
       const getDepartment = async () => {
       const depUrl = 'https://raw.githubusercontent.com/marcovega/colombia-json/master/colombia.min.json';
       const requestDep = await fetch(depUrl);
@@ -47,34 +27,57 @@ const Step2 = ({ data, handeleChange }) => {
     
     useEffect(() => {
       getDepartment();
-    }, []);
-    
+    }, []); */
+
   return (
   <>
-    <div className="row mt-4">
-      <div htmlFor="" className="col-12 col-md-6">
-          <label className="form-label">País de nacimiento</label>
-          <select
+    <Formik
+    initialValues={{
+      nacionality: '',
+      currentCountry: '',
+      residencyDepartment: '',
+      municipalityOfResidency: '',
+      address: '',
+      locationInBogota: '',
+      stratum: '',
+      areaType: '',
+      billPdf: '',
+      disability: '',
+      familyIncome: '',
+      householdMembers: '',
+      numberOfChildren: '',
+      vulnerablePopulation: '',
+      pcAccess: '',
+      internetAccess: '',
+      internetCompany: '',
+      mbCount: ''
+    }}
+    >
+      <Form>
+{/*       <div className="row mt-4">
+      <div className="col-12 col-md-6">
+          <label htmlFor="nacionality" className="form-label">País de nacimiento</label>
+          <Field
+            id="nacionality"
             name="nacionality"
-            onChange={handeleChange}
-            value={nacionality}
             className="form-select"
+            as="select"
           >
-            <option value="select">Selecciona un pais</option>
+            <option value="cc">Selecciona un país</option>
             {countries.map((countrie) => (
               <option key={countrie} value={countrie}>
                 {countrie}
               </option>
             ))}
-          </select>
-        </div>
-        <div htmlFor="" className="col-12 col-md-6">
-          <label className="form-label">País de residencia</label>
-          <select
+          </Field>
+        </div> */}
+{/*        <div className="col-12 col-md-6">
+          <label htmlFor="currentCountry" className="form-label">País de residencia</label>
+          <Field
+            id="currentCountry"
             name="currentCountry"
-            onChange={handeleChange}
-            value={currentCountry}
             className="form-select"
+            as="select"
           >
             <option value="select">Selecciona un país</option>
             {countries.map((countrie) => (
@@ -82,47 +85,63 @@ const Step2 = ({ data, handeleChange }) => {
                 {countrie}
               </option>
             ))}
-          </select>
+          </Field>
         </div>
-      </div>
-    <div className="row mt-4">
-        <div htmlFor="" className="col-12 col-md-6">
-            <label className="form-label">Si actualmente vives en Colombia, selecciona departamento de residencia</label>
-            <select
-              name="residencyDepartment"
-              onChange={handeleChange}
-              value={residencyDepartment}
-              className="form-select"
-            >
-              <option value="select">Selecciona tu departamento</option>
-              {departments.map((department) => (
-              <option key={department} value={department}>
-                {department}
-              </option>
-            ))}
-            </select>
-          </div>
-          <div htmlFor="" className="col-12 col-md-6">
-            <label className="form-label">Municipio de Residencia</label>
-            <input
+      </div> */}
+          <div className="row mt-4">
+        <div className="col-12 col-md-6">
+        <label htmlFor="nacionality" className="form-label">Indica tu país de nacimiento</label>
+            <Field
               type="text"
+              id="nacionality"
+              name="nacionality"
+              placeholder=""
               className="form-control"
-              name="municipalityOfResidency"
-              onChange={handeleChange}
-              value={municipalityOfResidency}
             />
           </div>
+          <div className="col-12 col-md-6">
+            <label htmlFor="currentCountry" className="form-label">Indica tu país de residencia</label>
+            <Field
+              type="text"
+              id="currentCountry"
+              name="currentCountry"
+              placeholder=""
+              className="form-control"
+            />
+          </div> 
+      </div>
+    <div className="row mt-4">
+        <div htmlFor="residencyDepartment" className="col-12 col-md-6">
+        <label htmlFor="residencyDepartment" className="form-label">Si actualmente vives en Colombia, indica tu departamento de residencia</label>
+            <Field
+              type="text"
+              id="residencyDepartment"
+              name="residencyDepartment"
+              placeholder=""
+              className="form-control"
+            />
+          </div>
+          <div className="col-12 col-md-6">
+            <label htmlFor="municipalityOfResidency" className="form-label">Indica tu municipio de Residencia</label>
+            <Field
+              type="text"
+              id="municipalityOfResidency"
+              name="municipalityOfResidency"
+              placeholder=""
+              className="form-control"
+            />
+          </div> 
       </div>
       <div className="row mt-4">
-          <div htmlFor="" className="col-12 col-md-6">
-            <label className="form-label">
+          <div className="col-12 col-md-6">
+            <label htmlFor="locationInBogota" className="form-label">
               Si resides en Bogotá, indica tu localidad de residencia
             </label>
-            <select
-              name="locationInBogota"
-              onChange={handeleChange}
-              value={locationInBogota}
+            <Field
+              id="documentType"
+              name="documentType"
               className="form-select"
+              as="select"
             >
               <option value="cc">Selecciona tu localidad</option>
               <option value="Usaquén">Usaquén</option>
@@ -145,29 +164,29 @@ const Step2 = ({ data, handeleChange }) => {
               <option value="Rafael Uribe Uribe">Rafael Uribe Uribe</option>
               <option value="Ciudad Bolívar">Ciudad Bolívar</option>
               <option value="Sumapaz">Sumapaz</option>
-            </select>
+              </Field>
           </div>
           <div className="col-12 col-md-6">
-            <label htmlFor="" className="form-label">
+            <label htmlFor="address" className="form-label">
               Dirección actual de residencia
             </label>
-            <input
+            <Field
               type="text"
-              className="form-control"
+              id="address"
               name="address"
-              onChange={handeleChange}
-              value={address}
+              placeholder=""
+              className="form-control"
             />
           </div>
         </div>
         <div className="row mt-4">
-          <div htmlFor="" className="col-12 col-md-6">
-          <label className="form-label">Estrato socioeconómico</label>
-          <select
-            name="stratum"
-            onChange={handeleChange}
-            value={stratum}
+          <div className="col-12 col-md-6">
+          <label htmlFor="socialClass" className="form-label">Estrato socioeconómico</label>
+          <Field
+            id="socialClass"
+            name="socialClass"
             className="form-select"
+            as="select"
           >
             <option value="cc">Selecciona tu Estrato</option>
             <option value="1">1</option>
@@ -176,46 +195,46 @@ const Step2 = ({ data, handeleChange }) => {
             <option value="4">4</option>
             <option value="5">5</option>
             <option value="6">6</option>
-          </select>
+          </Field>
         </div>
-        <div htmlFor="" className="col-12 col-md-6">
-          <label className="form-label">Tipo de área</label>
-          <select
+        <div className="col-12 col-md-6">
+          <label htmlFor="areaType" className="form-label">Tipo de área</label>
+          <Field
+            id="areaType"
             name="areaType"
-            onChange={handeleChange}
-            value={areaType}
             className="form-select"
+            as="select"
           >
             <option value="cc">Selecciona el tipo de área</option>
             <option value="Rural">Rural</option>
             <option value="Suburbana">Suburbana</option>
             <option value="Urbana">Urbana</option>
-          </select>
+          </Field>
         </div>
         </div>
-      <div className="row mt-4">
-      <div className="col-12 col-md-6">
-        <label htmlFor="formFile" className="form-label">
+        <div className="row mt-4">
+        <div className="col-12 col-md-6">
+        <label htmlFor="billPdf" className="form-label">
           Fotocopia de recibo en PDF
         </label>
-        <input
-          className="form-control"
+        <Field
           type="file"
-          id="formFile"
+          id="billPdf"
           name="billPdf"
-          onChange={handeleChange}
-          value={billPdf}
+          placeholder=""
+          className="form-control"
         />
         </div>
-        <div htmlFor="" className="col-12 col-md-6">
-          <label className="form-label">
+        <div className="col-12 col-md-6">
+          <label htmlFor="householdMembers" className="form-label">
           ¿Cuantas personas viven en tu casa?
           </label>
-          <select
+          <Field
+            id="householdMembers"
             name="householdMembers"
-            onChange={handeleChange}
-            value={householdMembers}
-            className="form-select"
+            placeholder=""
+            className="form-control"
+            as="select"
           >
             <option value="cc">Selecciona el número de personas</option>
             <option value="Vivo solo/a">Vivo solo/a</option>
@@ -224,19 +243,20 @@ const Step2 = ({ data, handeleChange }) => {
             <option value="4 personas">4 personas</option>
             <option value="5 personas">5 personas</option>
             <option value="Más de 5 personas">Más de 5 personas</option>
-          </select>
+          </Field>
         </div>
       </div>
-      <div className="row mt-4">
-        <div htmlFor="" className="col-12 col-md-6">
-          <label className="form-label">
+
+<div className="row mt-4">
+        <div className="col-12 col-md-6">
+          <label htmlFor="numberOfChildren" className="form-label">
           ¿Tienes hijos?
           </label>
-          <select
+          <Field
+            id="numberOfChildren"
             name="numberOfChildren"
-            onChange={handeleChange}
-            value={numberOfChildren}
             className="form-select"
+            as="select"
           >
             <option value="cc">Selecciona el número de hijos</option>
             <option value="No">No</option>
@@ -245,17 +265,17 @@ const Step2 = ({ data, handeleChange }) => {
             <option value="Si, tres">Si, tres</option>
             <option value="Si, cuatro">Si, cuatro</option>
             <option value="Si, cinco o más">Si, cinco o más</option>
-          </select>
+          </Field>
         </div>
-        <div htmlFor="" className="col-12 col-md-6">
-          <label className="form-label">
+        <div className="col-12 col-md-6">
+          <label htmlFor="familyIncome" className="form-label">
           ¿Cuál fue el ingreso total de tu grupo familiar el mes pasado?
           </label>
-          <select
+          <Field
+            id="familyIncome"
             name="familyIncome"
-            onChange={handeleChange}
-            value={familyIncome}
             className="form-select"
+            as="select"
           >
             <option value="cc">Selecciona el rango de ingreso</option>
             <option value="Menos de un salario mínimo">Menos de un salario mínimo</option>
@@ -267,19 +287,19 @@ const Step2 = ({ data, handeleChange }) => {
             <option value="Más de 5 hasta 6 salarios mínimos">Más de 5 hasta 6 salarios mínimos</option>
             <option value="Más de 5 hasta 6 salarios mínimos">Más de 6 hasta 7 salarios mínimos</option>
             <option value="Más de 6 salarios mínimos">Más de 7 salarios mínimos</option>
-          </select>
+          </Field>
         </div>
-        </div>
-      <div className="row mt-4">
-        <div htmlFor="" className="col-12 col-md-6">
-          <label className="form-label">
+      </div>
+{/*        <div className="row mt-4">
+        <div className="col-12 col-md-6">
+          <label htmlFor="vulnerablePopulation" className="form-label">
           ¿Perteneces a alguna de las siguientes poblaciones?
           </label>
-          <select
+          <Field
+            id="vulnerablePopulation"
             name="vulnerablePopulation"
-            onChange={handeleChange}
-            value={vulnerablePopulation}
             className="form-select"
+            as="select"
           >
             <option value="cc">Selecciona el tipo de población</option>
             <option value="Indígena">Indígena</option>
@@ -296,17 +316,17 @@ const Step2 = ({ data, handeleChange }) => {
             <option value="Adolescentes en conflicto con la ley penal">Adolescentes en conflicto con la ley penal</option>
             <option value="LGBTIQ+">LGBTIQ+</option>
             <option value="Otro">Otro</option>
-          </select>
+          </Field>
         </div>
-        <div htmlFor="" className="col-12 col-md-6">
-          <label className="form-label">
+        <div className="col-12 col-md-6">
+          <label htmlFor="disability" className="form-label">
           ¿Tienes alguna de las siguientes discapacidades?
           </label>
-          <select
+          <Field
+            id="disability"
             name="disability"
-            onChange={handeleChange}
-            value={disability}
             className="form-select"
+            as="select"
           >
             <option value="cc">Selecciona el tipo de discapacidad</option>
             <option value="Discapacidad física">Discapacidad física</option>
@@ -318,63 +338,167 @@ const Step2 = ({ data, handeleChange }) => {
             <option value="Discapacidad múltiple">Discapacidad múltiple</option>
             <option value="Ninguna">Ninguna</option>
             <option value="Otra">Otra</option>
-          </select>
+          </Field>
         </div>
-      </div>
+      </div> */}
+        <div className="row mt-4">
+  <label htmlFor="vulnerablePopulation" className="form-label">
+    Selecciona el/los tipos de población a los que perteneces
+  </label>
+  <div className="col-12 col-md-6">
+  <label>
+    <Field type="checkbox" name="Indígena" value="Indígena" />
+    Indígena
+  </label> <br/>
+  <label>
+    <Field type="checkbox" name="Raizal" value="Raizal" />
+    Raizal
+  </label> <br/>
+  <label>
+    <Field type="checkbox" name="Afrocolombiano" value="Afrocolombiano" />
+    Afrocolombiano
+  </label> <br/>
+  <label>
+    <Field type="checkbox" name="Palenquero" value="Palenquero" />
+    Palenquero
+  </label> <br/>
+  <label>
+    <Field type="checkbox" name="Gitano" value="Gitano" />
+    Gitano
+  </label> <br/>
+  <label>
+    <Field type="checkbox" name="Migrante" value="Migrante" />
+    Migrante
+  </label> <br/>
+  <label>
+    <Field type="checkbox" name="Desplazado por la violencia" value="Desplazado por la violencia" />
+    Desplazado por la violencia
+  </label> <br/>
+  </div>
+  <div className="col-12 col-md-6">
+  <label>
+    <Field type="checkbox" name="LGBTIQ+" value="LGBTIQ+" />
+    LGBTIQ+
+  </label> <br/>
+  <label>
+    <Field type="checkbox" name="Víctima del conflicto armado" value="Víctima del conflicto armado" />
+    Víctima del conflicto armado
+  </label> <br/>
+  <label>
+    <Field type="checkbox" name="Desmovilizado" value="Desmovilizado" />
+    Desmovilizado
+  </label> <br/>
+  <label>
+    <Field type="checkbox" name="Persona privadas de libertad o INPEC" value="Persona privadas de libertad o INPEC" />
+    Persona privadas de libertad o INPEC
+  </label> <br/>
+  <label>
+    <Field type="checkbox" name="Desplazado por fenómenos naturales" value="Desplazado por fenómenos naturales" />
+    Desplazado por fenómenos naturales
+  </label> <br/>
+  <label>
+    <Field type="checkbox" name="Adolescentes en conflicto con la ley penal" value="Adolescentes en conflicto con la ley penal" />
+    Adolescentes en conflicto con la ley penal
+  </label> <br/>
+  </div>
+  </div>
+  <div className="row mt-4">
+  <label htmlFor="disability" className="form-label">
+    Selecciona el/los tipos de discapacidad que tengas
+  </label>
+  <div className="col-12 col-md-6">
+  <label>
+    <Field type="checkbox" name="Discapacidad física" value="Discapacidad física" />
+    Discapacidad física
+  </label> <br/>
+  <label>
+    <Field type="checkbox" name="Discapacidad auditiva" value="Discapacidad auditiva" />
+    Discapacidad auditiva
+  </label> <br/>
+  <label>
+    <Field type="checkbox" name="Discapacidad visual" value="Discapacidad visual" />
+    Discapacidad visual
+  </label> <br/>
+  <label>
+    <Field type="checkbox" name="Sordoceguera" value="Sordoceguera" />
+    Sordoceguera
+  </label> <br/>
+  </div>
+  <div className="col-12 col-md-6">
+  <label>
+    <Field type="checkbox" name="Discapacidad intelectual+" value="Discapacidad intelectual+" />
+    Discapacidad intelectual
+  </label> <br/>
+  <label>
+    <Field type="checkbox" name="Discapacidad psicosocial" value="Discapacidad psicosocial" />
+    Discapacidad psicosocial
+  </label> <br/>
+  <label>
+    <Field type="checkbox" name="Discapacidad múltiple" value="Discapacidad múltiple" />
+    Discapacidad múltiple
+  </label> <br/>
+  <label>
+    <Field type="checkbox" name="Ninguna" value="Ninguna" />
+    Ninguna
+  </label> <br/>
+  </div>
+  </div>
       <div className="row mt-4">
-        <div htmlFor="" className="col-12 col-md-6">
-          <label className="form-label">¿Tienes acceso a un computador?</label>
-          <select
+      <div className="col-12 col-md-6">
+          <label htmlFor="pcAccess" className="form-label">¿Tienes acceso a un computador?</label>
+          <Field
+            id="pcAccess"
             name="pcAccess"
-            onChange={handeleChange}
-            value={pcAccess}
             className="form-select"
+            as="select"
           >
             <option value="cc">Selecciona Si o No</option>
             <option value="Si">Si</option>
             <option value="No">No</option>
-          </select>
+          </Field>
         </div>
-        <div htmlFor="" className="col-12 col-md-6">
-          <label className="form-label">¿Tienes acceso a internet a través de un plan de servicios de hogar?</label>
-          <select
+        <div className="col-12 col-md-6">
+          <label htmlFor="internetAccess" className="form-label">¿Tienes acceso a internet a través de un plan de servicios de hogar?</label>
+          <Field
+            id="internetAccess"
             name="internetAccess"
-            onChange={handeleChange}
-            value={internetAccess}
             className="form-select"
+            as="select"
           >
             <option value="cc">Selecciona Si o No</option>
             <option value="Si">Si</option>
             <option value="No">No</option>
-          </select>
+          </Field>
         </div>
         </div>
         <div className="row mt-4">
         <div className="col-12 col-md-6">
-          <label htmlFor="" className="form-label">
+          <label htmlFor="internetCompany" className="form-label">
           Si tu respondiste sí, ¿con qué operador tienes el servicio de internet plan hogar?
           </label>
-          <input
+          <Field
             type="text"
-            className="form-control"
+            id="internetCompany"
             name="internetCompany"
-            onChange={handeleChange}
-            value={internetCompany}
+            placeholder=""
+            className="form-control"
           />
         </div>
         <div className="col-12 col-md-6">
-          <label htmlFor="" className="form-label">
+          <label htmlFor="mbCount" className="form-label">
           ¿De cuantas megas es tu plan hogar?
           </label>
-          <input
+          <Field
             type="text"
-            className="form-control"
+            id="mbCount"
             name="mbCount"
-            onChange={handeleChange}
-            value={mbCount}
+            placeholder=""
+            className="form-control"
           />
         </div>
       </div>
+      </Form>
+    </Formik>
   </>
   );
 };
