@@ -11,8 +11,8 @@ import { PETITIONS } from "../../../requestUrl";
 import "./TechTest.css";
 
 const AdministerTechnicalTest = () => {
-	const [test, setTest] = useState();
-	const [conv, setConv] = useState();
+	const [test, setTest] = useState([]);
+	const [conv, setConv] = useState([]);
 
 	useEffect(() => {
 		axios.get(PETITIONS.getTechTest).then((res) => {
@@ -30,66 +30,82 @@ const AdministerTechnicalTest = () => {
 		axios.delete(`${PETITIONS.deleteTechTest}${id}`);
 		setTest(test.filter((filterTest) => filterTest._id !== id));
 	};
-
+	
 	return (
 		<div className='table-container'>
-			<div className='title'>
-				<h3>Crear Prueba Tecnica</h3>
-				<Link to='/agregar' className='btn btn-success mt-3 mb-3'>
-					Crear Prueba tecnica
-				</Link>
+			{test.length <= 0 ?
+			<div className="mainContainer">
+				<div className="containerFirstView">
+					<div className="containerP">
+						<p>
+							No hay pruebas técnicas activas <br></br>
+							¿Deseas crear una nueva prueba técnica?
+						</p>
+					</div>
+					<Link to="/agregar" className='containerButton btn btn-success mt-3 mb-3'>Crear</Link>
+				</div>
 			</div>
-			<TableContainer>
-				<Table aria-label='simple table'>
-					<TableHead>
-						<TableRow>
-							<TableCell align='center'>NOMBRE</TableCell>
-							<TableCell align='center'>PDF</TableCell>
-							<TableCell align='center'>CONVOCATORIAS</TableCell>
-							<TableCell align='center'>Acciones</TableCell>
-						</TableRow>
-					</TableHead>
-					<TableBody>
-						{test?.map((prop, index) => (
-							<TableRow key={index}>
-								<TableCell align='center'>
-									<a href={prop.url} target='_blank' rel='noopener noreferrer'>
-										<i className='fas fa-external-link-alt'></i> {prop.title}
-									</a>
-								</TableCell>
-								<TableCell align='center'>
-									<a
-										href={prop.pdf}
-										target='_blank'
-										download={prop.title}
-										rel='noopener noreferrer'>
-										<i className='far fa-file-pdf'></i>
-									</a>
-								</TableCell>
-								<TableCell align='center'>
-									{conv?.map(({ _id, name }) => (
-										<div key={_id}>
-											{prop.convocatories?.map((id) =>
-												id === _id ? name : null
-											)}
-										</div>
-									))}
-								</TableCell>
-								<TableCell align='center'>
-									<Link to={`/editarprueba?idtest=${prop._id}`}>
-										<button>update</button>
-									</Link>
-									<div>
-										<button onClick={() => handleDelete(prop._id)}>
-											delete
-										</button>
-									</div>
-								</TableCell>
+			:
+			<div>
+				<div className='title'>
+					<h3>Crear Prueba Tecnica</h3>
+					<Link to='/agregar' className='btn btn-success mt-3 mb-3'>
+						Crear Prueba tecnica
+					</Link>
+				</div>
+				<TableContainer>
+					<Table aria-label='simple table'>
+						<TableHead>
+							<TableRow>
+								<TableCell align='center'>NOMBRE</TableCell>
+								<TableCell align='center'>PDF</TableCell>
+								<TableCell align='center'>CONVOCATORIAS</TableCell>
+								<TableCell align='center'>Acciones</TableCell>
 							</TableRow>
-						))}
-					</TableBody>
-				</Table>
-			</TableContainer>
+						</TableHead>
+						<TableBody>
+							{test?.map((prop, index) => (
+								<TableRow key={index}>
+									<TableCell align='center'>
+										<a href={prop.url} target='_blank' rel='noopener noreferrer'>
+											<i className='fas fa-external-link-alt'></i> {prop.title}
+										</a>
+									</TableCell>
+									<TableCell align='center'>
+										<a
+											href={prop.pdf}
+											target='_blank'
+											download={prop.title}
+											rel='noopener noreferrer'>
+											<i className='far fa-file-pdf'></i>
+										</a>
+									</TableCell>
+									<TableCell align='center'>
+										{conv?.map(({ _id, name }) => (
+											<div key={_id}>
+												{prop.convocatories?.map((id) =>
+													id === _id ? name : null
+												)}
+											</div>
+										))}
+									</TableCell>
+									<TableCell align='center'>
+										<Link to={`/editarprueba?idtest=${prop._id}`}>
+											<button>update</button>
+										</Link>
+										<div>
+											<button onClick={() => handleDelete(prop._id)}>
+												delete
+											</button>
+										</div>
+									</TableCell>
+								</TableRow>
+							))}
+						</TableBody>
+					</Table>
+				</TableContainer>
+			</div>
+			}
 		</div>
 	);
 };

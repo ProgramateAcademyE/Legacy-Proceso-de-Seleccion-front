@@ -7,6 +7,8 @@ export const PETITIONS = {
   register: `${BASEURL}api/user/register`,
   // Activate user
   activateUser: `${BASEURL}api/user/activation/`,
+  // update user role
+  updateRole: `${BASEURL}api/user/update_role/`,
   // ========================================
 
   // ============ Convocatory ===============
@@ -28,7 +30,7 @@ export const PETITIONS = {
   // Update tech test
   updateTechTest: `${BASEURL}api/admin/test/`,
   // Delete tech test
-  deleteTechTest: `${BASEURL}api/admin/test/`
+  deleteTechTest: `${BASEURL}api/admin/test/`,
   // ========================================
 
 }

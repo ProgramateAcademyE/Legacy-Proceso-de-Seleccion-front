@@ -7,7 +7,7 @@ import { useHistory } from "react-router-dom";
 const FormTechTest = (props) => {
 	let history = useHistory();
 	const { convocatory, query, data } = props;
-
+	console.log(data)
 	return (
 		<div style={{ margin: "165px auto" }}>
 			<h2>{query ? `Actualizar Prueba Tecnica` : "Nueva Prueba Tecnica"}</h2>

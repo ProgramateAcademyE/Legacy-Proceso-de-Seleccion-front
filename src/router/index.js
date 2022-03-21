@@ -27,6 +27,7 @@ import { getData } from "../actions/sololearnProfile";
 import SelectionResults from "../page/selection/SelectionResults";
 import Verify from "../components/verify/Verify";
 import Register from "../components/register/Register";
+import ListOfUsers from "../components/allUsers/ListOfUsers";
 
 import './style.css'
 
@@ -61,10 +62,10 @@ const App = () => {
           {isLogged && isAdmin && (
             <>
               <Route path="/dashboard" component={DashboardAdmin} />
+              <Route path="/users" component={ListOfUsers}/>
+
               <Route path="/dia-de-entrevista" component={InterviewDays} />
-              <Route path="/calendario">
-                <InterviewDay />
-              </Route>
+              <Route path="/calendario"><InterviewDay /></Route>
               <Route path="/convocatoria" component={Convocatory} />
               <Route path="/nuevacohorte" component={NewCohort} />
               <Route path="/editarcohorte" component={NewCohort} />
