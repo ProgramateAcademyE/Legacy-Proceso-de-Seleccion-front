@@ -40,13 +40,14 @@ const Register = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     setErrors(validate(user))
-    
+
 
     console.log(user)
     axios.post(PETITIONS.register, user )
     .then(res => {
       console.log(res);
       console.log(res.data);
+      
     })
   }
 
