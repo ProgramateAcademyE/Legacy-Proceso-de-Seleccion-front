@@ -6,7 +6,7 @@ import "./Register.module.css";
 import Spinner from "../auth/Spinner";
 import Swal from "sweetalert2";
 
-const Register = () => {
+const RegisterAdmin = () => {
   const [spinner, mostrarSpinner] = useState(false);
   const [user, setUser] = useState({
     names: null,
@@ -57,7 +57,7 @@ const Register = () => {
     }
     mostrarSpinner(true);
     axios
-      .post(PETITIONS.register, user)
+      .post(PETITIONS.registerAdmin, user)
       .then((res) => {
         setTimeout(() => {
           mostrarSpinner(false);
@@ -122,7 +122,7 @@ const Register = () => {
       <div className="container">
         <form className="form" onSubmit={handleSubmit}>
           {spinner ? <Spinner /> : null}
-          <h1> Registrate </h1>
+          <h1> Registro Admin </h1>
           <label>Nombre</label>
           <input
             className={`${errors.names ? "fail" : ""}`}
@@ -184,4 +184,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default RegisterAdmin;

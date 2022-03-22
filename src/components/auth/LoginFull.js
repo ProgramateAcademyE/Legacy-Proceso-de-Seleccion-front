@@ -9,6 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 import auth from "./Auth.module.css";
 import { dispatchLogin } from "../../actions/authAction";
 import Spinner from "./Spinner";
+import Swal from "sweetalert2";
 
 const Login = () => {
   //Inicializo hooks
@@ -24,6 +25,8 @@ const Login = () => {
   const [isFailing, setIsFailing] = useState({
     email: false,
     password: false,
+    msgEmail: "",
+    msgPassword: "",
   });
   const auth = useSelector((state) => state.auth);
 
@@ -83,34 +86,54 @@ const Login = () => {
       }
     }
     try {
-      const res = await axios.post("http://localhost:3001/api/user/login", {
-        email,
-        password,
-      });
-
-      setUser({ ...user, err: "", success: res.data.msg });
-      window.localStorage.setItem("firstLogin", true);
-      window.localStorage.setItem("loggedAgoraUser", JSON.stringify(res.data));
-      dispatch(dispatchLogin());
-      guardarSpinner(false);
-      history.push("/dashboard");
+      await axios
+        .post("http://localhost:3001/api/user/login", {
+          email,
+          password,
+        })
+        .then((res) => {
+          console.log("res", res);
+          if (res.status === 200) {
+            setUser({ ...user, err: "", success: res.data.msg });
+            window.localStorage.setItem("firstLogin", true);
+            window.localStorage.setItem(
+              "loggedAgoraUser",
+              JSON.stringify(res.data)
+            );
+            dispatch(dispatchLogin());
+            guardarSpinner(false);
+            history.push("/dashboard");
+          } else {
+            return;
+          }
+        })
+        .catch((err) => {
+          console.log(err);
+          setIsFailing({
+            email: true,
+            password: true,
+            msgEmail: "Revisa tus datos",
+            msgPassword: "Revisa tus datos",
+          });
+          guardarSpinner(false);
+          setTimeout(() => {
+            Swal.fire({
+              icon: "error",
+              title: "Error",
+              text: "Tus credenciales son incorrectas!",
+            });
+          }, 200);
+        });
     } catch (err) {
-      err.response.data.error &&
-        setUser({ ...user, err: err.response.data.error, success: "" });
-      console.log("El error", err);
+      console.log(err);
       guardarSpinner(false);
     }
   };
 
-  let componentes;
-  if (spinner) {
-    componentes = <Spinner />;
-  }
-
   return (
     <>
       <div className="cardLoggin">
-        <div className="mensajes">{componentes}</div>
+        <div className="mensajes">{spinner ? <Spinner /> : null}</div>
         <div className="login_page">
           <h2>Iniciar Sesión</h2>
           {/* {err && showErrMsg(err)}
@@ -121,13 +144,24 @@ const Login = () => {
               <label htmlFor="email">Correo</label>
               <input
                 className={`email ${isFailing.email ? "fail" : ""}`}
-                type="text"
+                type="email"
                 placeholder="Correo"
                 id="email"
                 value={email}
                 name="email"
                 onChange={handleChangeInput}
               />
+              <div
+                style={{
+                  width: "100%",
+                  color: "red",
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "flex-end",
+                }}
+              >
+                <small>{isFailing.msgEmail}</small>
+              </div>
             </div>
             <div>
               <label htmlFor="password">Contraseña</label>
@@ -140,6 +174,17 @@ const Login = () => {
                 name="password"
                 onChange={handleChangeInput}
               />
+              <div
+                style={{
+                  width: "100%",
+                  color: "red",
+                  display: "flex",
+                  flexDirection: "row",
+                  justifyContent: "flex-end",
+                }}
+              >
+                <small>{isFailing.msgEmail}</small>
+              </div>
             </div>
 
             <div className="row">

@@ -27,6 +27,7 @@ import InterviewDays from "../page/interviewDays/InterviewDays";
 import Footer from "../components/footer/Footer";
 import { getData } from "../actions/sololearnProfile";
 import SelectionResults from "../page/selection/SelectionResults";
+// import RegisterAdmin from "../components/register/RegisterAdmin";
 
 import Register from "../components/register/Register";
 
