@@ -9,7 +9,10 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Search from "../search/Search";
-// import RequestService from "../../config/index";
+import axios from "axios";
+import { useHistory } from "react-router-dom";
+import { PETITIONS } from "../../../requestUrl";
+
 import { CSVLink } from "react-csv";
 
 const useStyles = makeStyles({
@@ -18,20 +21,30 @@ const useStyles = makeStyles({
     },
 });
 
-export default function BasicTable({ rows, actions = false, convocatoryData }) {
+export default function BasicTable({ rows, convocatoryData }) {
     const classes = useStyles();
 
     const header = [];
-
     for (const key in rows[0]) {
         header.push(key);
     }
+    // redirect user
+    let history = useHistory()
 
     // const getUser = async () => {
     //     const { data } = await RequestService.get("/candidate/candidate");
     //     const { users } = data;
     // };
     // getUser();
+
+    const handleDelete = (id) => {
+        try {
+            axios.delete(`${PETITIONS.deleteConvocatory}${id}`)
+            history.push("/convocatoria")
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
     return (
         <>
@@ -45,9 +58,7 @@ export default function BasicTable({ rows, actions = false, convocatoryData }) {
                                     {row}
                                 </TableCell>
                             ))}
-                            {actions && (
-                                <TableCell align="center">Acciones</TableCell>
-                            )}
+                            <TableCell align="center">Acciones</TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
@@ -72,16 +83,20 @@ export default function BasicTable({ rows, actions = false, convocatoryData }) {
                                     {prop.finalBootcampDate}
                                 </TableCell>
                                 <TableCell align="center">
-                                    {actions &&
-                                        actions.map((action, index) =>
-                                            action.status ? (
-                                                <span key={index}>
-                                                    <Link to={`/editarcohorte?idConvocatory=${prop._id}`}>
-                                                    {action.icon}
-                                                    </Link>
-                                                </span>
-                                            ) : null
-                                        )}
+                                        <Link to={`/editarcohorte?idConvocatory=${prop._id}`}>
+                                            <div><i className="far fa-edit" style={{color: 'blue'}}></i></div>
+                                        </Link>
+                                        <Link to={`/detail?idConvocatory=${prop._id}`}>
+                                            <div><i className="far fa-eye" style={{color: 'green'}}></i></div>
+                                        </Link>
+                                        <Link to={`/editarcohorte?idConvocatory=${prop._id}`}>
+                                            <div><i className="fas fa-power-off"></i></div>
+                                        </Link>
+                                        {/* <Link to={`/delete?idConvocatory=${prop._id}?delete=true`}> */}
+                                        <button onClick={() => handleDelete(prop._id)}>
+                                            <div><i className="far fa-trash-alt" style={{color: 'red'}}></i></div>
+                                        </button>
+                                        {/* </Link> */}
                                 </TableCell>
                             </TableRow>
                         ))}
