@@ -3,7 +3,7 @@ import React from "react";
 
 const Step1 = () => {
 
-/*   const textValidation = (formValue) => {
+  /*const textValidation = (formValue) => {
     const error = {};
       if(!formValues.formValue){
         error.formValue = "Por favor escribe tu nombre"
