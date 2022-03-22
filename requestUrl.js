@@ -18,6 +18,8 @@ export const PETITIONS = {
   getConvocatories: `${BASEURL}api/admin/convocatories`,
   // Update convocatory
   updateConcovatory: `${BASEURL}api/admin/update-conv/`,
+  // Delete 
+  deleteConvocatory: `${BASEURL}api/admin/convocatory/`,
   // ========================================
 
   // ============ Tech Test ================

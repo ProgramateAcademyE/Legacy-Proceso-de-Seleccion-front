@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { makeStyles } from "@material-ui/core/styles";
 import Table from "@material-ui/core/Table";
@@ -9,105 +9,133 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Search from "../search/Search";
-
+import axios from "axios";
+import { PETITIONS } from "../../../requestUrl";
 // import RequestService from "../../config/index";
 import { CSVLink } from "react-csv";
 
 const useStyles = makeStyles({
-    table: {
-        minWidth: 650,
-    },
+	table: {
+		minWidth: 650,
+	},
 });
 
 export default function BasicTable({ rows, convocatoryData }) {
-    const classes = useStyles();
+	const classes = useStyles();
+	const [convocatory, setConvocatory] = useState(convocatoryData)
 
-    const header = [];
-    for (const key in rows[0]) {
-        header.push(key);
-    }
-    // redirect user
-    let history = useHistory()
+	const header = [];
+	for (const key in rows[0]) {
+		header.push(key);
+	}
 
-    // const getUser = async () => {
-    //     const { data } = await RequestService.get("/candidate/candidate");
-    //     const { users } = data;
-    // };
-    // getUser();
+	const handleDelete = (id) => {
+		try {
+			axios.delete(`${PETITIONS.deleteConvocatory}${id}`);
+			setConvocatory(
+				convocatory.filter((oneConvocatory) => oneConvocatory._id !== id)
+			);
+		} catch (error) {
+			console.log(error);
+		}
+	};
 
-    const handleDelete = (id) => {
-        try {
-            axios.delete(`${PETITIONS.deleteConvocatory}${id}`)
-            history.push("/convocatoria")
-        } catch (error) {
-            console.log(error)
-        }
-    }
-
-    return (
-        <>
-            <Search />
-            <TableContainer component={Paper}>
-                <Table className={classes.table} aria-label="simple table">
-                    <TableHead>
-                        <TableRow>
-                            {header.map((row, index) => (
-                                <TableCell key={index} align="center">
-                                    {row}
-                                </TableCell>
-                            ))}
-                            <TableCell align="center">Acciones</TableCell>
-                        </TableRow>
-                    </TableHead>
-                    <TableBody>
-                        {convocatoryData.map((prop, index) => (
-                            <TableRow key={index}>
-                                <TableCell align="center">
-                                    {prop.name}
-                                </TableCell>
-                                <TableCell align="center">
-                                    {prop.maxQuotas}
-                                </TableCell>
-                                <TableCell align="center">
-                                    {prop.initialDate}
-                                </TableCell>
-                                <TableCell align="center">
-                                    {prop.finalDate}
-                                </TableCell>
-                                <TableCell align="center">
-                                    {prop.initialBootcampDate}
-                                </TableCell>
-                                <TableCell align="center">
-                                    {prop.finalBootcampDate}
-                                </TableCell>
-                                <TableCell align="center">
-                                        <Link to={`/editarcohorte?idConvocatory=${prop._id}`}>
-                                            <div><i className="far fa-edit" style={{color: 'blue'}}></i></div>
-                                        </Link>
-                                        <Link to={`/detail?idConvocatory=${prop._id}`}>
-                                            <div><i className="far fa-eye" style={{color: 'green'}}></i></div>
-                                        </Link>
-                                        <Link to={`/editarcohorte?idConvocatory=${prop._id}`}>
-                                            <div><i className="fas fa-power-off"></i></div>
-                                        </Link>
-                                        {/* <Link to={`/delete?idConvocatory=${prop._id}?delete=true`}> */}
-                                        <button onClick={() => handleDelete(prop._id)}>
-                                            <div><i className="far fa-trash-alt" style={{color: 'red'}}></i></div>
-                                        </button>
-                                        {/* </Link> */}
-                                </TableCell>
-                            </TableRow>
-                        ))}
-                    </TableBody>
-                </Table>
-            </TableContainer>
-            <div className="containerButton">
-                <div>
-                    <CSVLink data={rows} filename="prueba CSV">
-                        <button className="btn btn-success">Exportar</button>
-                    </CSVLink>
-                </div>
+	return (
+		<>
+			{convocatoryData.length <= 0 || convocatory.length <= 0 ? (
+				<div className='mainContainer'>
+					<div className='containerFirstView'>
+						<div className='containerP'>
+							<p>
+								No hay convocatorias<br></br>
+								¿Deseas crear una nueva convocatoria?
+							</p>
+						</div>
+						<Link
+							to='/nuevacohorte'
+							className='containerButton btn btn-success mt-3 mb-3'>
+							Crear
+						</Link>
+					</div>
+				</div>
+			) : (
+				<>
+          <div className="section__contentC">
+            <span className="upperCase bold">Convocatorias</span>
+          </div>
+					<Link to='/nuevacohorte' className='btn btn-success '>
+						Crear Convocatoria
+					</Link>
+					<Search />
+					<TableContainer component={Paper}>
+						<Table className={classes.table} aria-label='simple table'>
+							<TableHead>
+								<TableRow>
+									{header.map((row, index) => (
+										<TableCell key={index} align='center'>
+											{row}
+										</TableCell>
+									))}
+									<TableCell align='center'>Acciones</TableCell>
+								</TableRow>
+							</TableHead>
+							<TableBody>
+								{convocatory?.map((prop, index) => (
+									<TableRow key={index}>
+										<TableCell align='center'>{prop.name}</TableCell>
+										<TableCell align='center'>{prop.maxQuotas}</TableCell>
+										<TableCell align='center'>{prop.initialDate}</TableCell>
+										<TableCell align='center'>{prop.finalDate}</TableCell>
+										<TableCell align='center'>
+											{prop.initialBootcampDate}
+										</TableCell>
+										<TableCell align='center'>
+											{prop.finalBootcampDate}
+										</TableCell>
+										<TableCell align='center'>
+											<Link to={`/editarcohorte?idConvocatory=${prop._id}`}>
+												<div>
+													<i
+														className='far fa-edit'
+														style={{ color: "blue" }}></i>
+												</div>
+											</Link>
+											<Link to={`/detail?idConvocatory=${prop._id}`}>
+												<div>
+													<i
+														className='far fa-eye'
+														style={{ color: "green" }}></i>
+												</div>
+											</Link>
+											<Link to={`/editarcohorte?idConvocatory=${prop._id}`}>
+												<div>
+													<i className='fas fa-power-off'></i>
+												</div>
+											</Link>
+											{/* <Link to={`/delete?idConvocatory=${prop._id}?delete=true`}> */}
+											<button onClick={() => handleDelete(prop._id)}>
+												<div>
+													<i
+														className='far fa-trash-alt'
+														style={{ color: "red" }}></i>
+												</div>
+											</button>
+											{/* </Link> */}
+										</TableCell>
+									</TableRow>
+								))}
+							</TableBody>
+						</Table>
+					</TableContainer>
+          <div className='containerButton'>
+            <div>
+              <CSVLink data={rows} filename='prueba CSV'>
+                <button className='btn btn-success'>Exportar</button>
+              </CSVLink>
             </div>
-        </>
-    );
+          </div>
+				</>
+			)}
+		</>
+	);
 }
