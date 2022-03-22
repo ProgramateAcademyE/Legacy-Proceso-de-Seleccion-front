@@ -9,6 +9,8 @@ export const PETITIONS = {
   activateUser: `${BASEURL}api/user/activation/`,
   // update user role
   updateRole: `${BASEURL}api/user/update_role/`,
+  // Register Admin
+  registerAdmin: "http://localhost:3001/api/user/register_admin",
   // ========================================
 
   // ============ Convocatory ===============
