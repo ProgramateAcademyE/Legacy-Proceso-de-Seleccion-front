@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Tablita from "../../components/tablita/Table";
+import GeneralTable from "../../components/tablita/GeneralTable";
 import RequestService from "../../config/index";
 import MotivationLetterModal from "../../components/modals/MotivationLetterModal";
 import results from "./Results.module.css"
-import ModalAspirants from "../../components/modals/ModalAspirants";
+import ModalAspirants from "../../components/modals/ModalAspirants"
 
 
 const Results = () => {
@@ -47,10 +47,10 @@ const Results = () => {
         Sololearn: result.soloLearnScore,
         "Perfil Personal": result.personalProfileScore,
         Motivación: result.motivationScore,
-        "Promedio 1era Fase": result.promedioprimerafase,
-        "Prueba Tecnica": result.pruebatecnica,
+        "Promedio 1era Fase": result.promedioprimerafase, 
+        "Prueba Tecnica": result.pruebatecnica, 
         Entrevista: result.Enrevista,
-        Assesment: result.Assenment,
+        Assesment: result.Assesnment, 
         "Promedio 2da Fase": (
             <div
                 style={{
@@ -79,7 +79,7 @@ const Results = () => {
                 <span className="upperCase bold">Aspirantes</span>
             </div>
             <div className="table mt-4">
-                <Tablita key={rows.length} rows={rows} />
+                <GeneralTable key={rows.length} rows={rows} />
             </div>
         </div>
     );
