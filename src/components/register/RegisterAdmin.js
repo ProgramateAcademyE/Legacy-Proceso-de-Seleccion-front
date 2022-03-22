@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { Link } from "react-router-dom";
 import { PETITIONS } from "../../../requestUrl";
 import "./Register.module.css";
 import Spinner from "../auth/Spinner";
@@ -175,9 +174,6 @@ const RegisterAdmin = () => {
             <small style={{ color: "red" }}>{errors.password}</small>
           )}
           <input className="buttonS" type="submit" />
-          <p>
-            Ya estas registrado? <Link to="/">Login</Link>
-          </p>
         </form>
       </div>
     </>

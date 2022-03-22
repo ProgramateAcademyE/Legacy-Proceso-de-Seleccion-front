@@ -27,7 +27,7 @@ import InterviewDays from "../page/interviewDays/InterviewDays";
 import Footer from "../components/footer/Footer";
 import { getData } from "../actions/sololearnProfile";
 import SelectionResults from "../page/selection/SelectionResults";
-// import RegisterAdmin from "../components/register/RegisterAdmin";
+import RegisterAdmin from "../components/register/RegisterAdmin";
 
 import Register from "../components/register/Register";
 
@@ -55,6 +55,7 @@ const App = () => {
         <Switch>
           <Route exact path="/" component={LoginFull} />
           <Route exact path="/register" component={Register} />
+
           {/* <Redirect to="/login" /> */}
           {isLogged && isAdmin && (
             <>
@@ -64,6 +65,7 @@ const App = () => {
                 <InterviewDay />
               </Route>
               <Route path="/convocatoria" component={Convocatory} />
+
               <Route path="/nuevacohorte" component={NewCohort} />
               <Route path="/editarcohorte" component={EditCohort} />
               <Route path="/aspirantes" component={Aspirants} />
@@ -72,7 +74,7 @@ const App = () => {
               <Route path="/editar" component={AdministerTechnicalTestEdit} />
               <Route path="/calificar" component={QualifyTechnicalTest} />
               <Route path="/citation" component={Citations} />
-
+              <Route path="/register-admin" component={RegisterAdmin} />
               {/* <Route path="/inscripcion" component={Inscription} /> */}
               {/* <Route
                   path="/resultsInscription"
