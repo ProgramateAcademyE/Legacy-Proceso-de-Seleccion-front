@@ -17,15 +17,19 @@ export const ITEMS = [
        
     },
     {
-        name: "Convocatoria",
+        name: "Administrar Convocatorias",
         icon: "fab fa-connectdevelop",
         id: 2,
         items: [
             {
-                name: "Administrar Pruebas Técnicas",
+                name: "Convocatorias",
+                 pathname: "/convocatoria",
+            },
+            {
+                name: "Pruebas Técnicas",
                 pathname: "/prueba",
             },],
-        pathname: "/convocatoria",
+       
     },
     {
         name: "Aspirantes",
@@ -33,11 +37,15 @@ export const ITEMS = [
         id: 3,
         items: [
             {
+                name: "Informacion Aspirantes",
+                pathname: "/InfoAspirants",
+            },
+            {
                 name: "Lista de espera",
                 pathname: "/waiting-list",
             },
         ],
-        pathname: "/InfoAspirants",
+        
     },
 
     {
@@ -57,7 +65,7 @@ export const ITEMS = [
     },
     {
         name: "Calificaciones",
-        icon: "fas fa-map-marker-alt",
+        icon: "fas fa-user-edit",
         id: 5,
         items: [
             {

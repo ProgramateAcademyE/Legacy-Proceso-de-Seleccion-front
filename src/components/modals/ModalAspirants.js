@@ -2,7 +2,7 @@ import React from "react";
 import modalcss  from "./Modal.module.css";
 
 const ModalAspirants = (Data) => {
-let InfoAspirant =
+let 
 {Primernombre,
 Segundonombre,
 Primerapellido,
