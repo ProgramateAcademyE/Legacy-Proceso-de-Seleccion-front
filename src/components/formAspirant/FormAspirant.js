@@ -12,7 +12,8 @@ const FormAspirant = () => {
     numberDocument: "",
     pdf: "",
     email: "",
-    phone: "",
+    phone1: "",
+    phone2: "",
     nationality: "",
     migrant: "",
     liveColombia: "",
@@ -67,7 +68,8 @@ const FormAspirant = () => {
       numberDocument: "",
       pdf: "",
       email: "",
-      phone: "",
+      phone1: "",
+      phone2: "",
       nationality: "",
       migrant: "",
       liveColombia: "",
@@ -107,6 +109,16 @@ const FormAspirant = () => {
   getCountrie()
 
 
+/*   const  getDepartment = async () => {
+    const depUrl = 'https://raw.githubusercontent.com/marcovega/colombia-json/master/colombia.min.json';
+    const requestDep = await fetch(depUrl);
+    const department = await requestDep.json();
+    const departments = department.map(item => item.departamento).sort()
+    setDepartment(departments)
+  }
+  
+  getDepartment() */
+
 
   return (
 
@@ -130,10 +142,3 @@ const FormAspirant = () => {
 };
 
 export default FormAspirant;
-
-
-
-
-
-
-

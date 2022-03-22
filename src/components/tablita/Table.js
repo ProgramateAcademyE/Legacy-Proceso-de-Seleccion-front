@@ -9,10 +9,8 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import Search from "../search/Search";
-import axios from "axios";
-import { useHistory } from "react-router-dom";
-import { PETITIONS } from "../../../requestUrl";
 
+// import RequestService from "../../config/index";
 import { CSVLink } from "react-csv";
 
 const useStyles = makeStyles({

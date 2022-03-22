@@ -13,7 +13,6 @@ const FormConvocatory = (props) => {
   let history = useHistory()
 
   const { departments, data, query, stractus} = props
-  console.log(data)
 	return (
 		<>
 			<div style={{ width: "50%", margin: " 0 auto" }}>
@@ -117,9 +116,7 @@ const FormConvocatory = (props) => {
 						try {
 							if(query){
 								axios.put(`${PETITIONS.updateConcovatory}${data._id}`, newConvocatory)
-									.then((res) => {
-										const msg = res.data.msg;
-										alert(msg);
+									.then(() => {
 										history.push("/convocatoria")
 									});
 							}else{

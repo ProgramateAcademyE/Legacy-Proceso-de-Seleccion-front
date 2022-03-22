@@ -28,8 +28,7 @@ const NewCohort = () => {
 	useEffect(() => {
 		getDepartments().then(async (department) => setDepartments(department));
 		if (query) {
-			getOneConvocatory(query).then(async (oneConvocatory) => setConv(oneConvocatory)
-			);
+			getOneConvocatory(query).then(async (oneConvocatory) => setConv(oneConvocatory));
 		}
 	}, [ query ]);
 	
@@ -38,11 +37,6 @@ const NewCohort = () => {
 		data = convData
 		return data
 	})
-
-	if(data !== undefined){
-		console.log(data.name)
-	}
-
 
 	return (
 		<>

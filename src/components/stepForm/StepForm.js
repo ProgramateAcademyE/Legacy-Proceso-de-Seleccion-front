@@ -31,7 +31,7 @@ const useStyles = makeStyles((theme) => ({
 }));
 
 function getSteps() {
-  return ["Información Personal", "Estudios", "Motivación"];
+return ["Información Personal", "Datos sociodemográficos", "Información laboral y académica"];
 }
 
 function getStepContent(step) {

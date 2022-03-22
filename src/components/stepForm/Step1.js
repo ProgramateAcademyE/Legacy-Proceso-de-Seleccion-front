@@ -1,276 +1,274 @@
-import React, { useState, useEffect } from "react";
+import { ErrorMessage, Form, Field, Formik } from "formik";
+import React from "react";
 
-const Step1 = ({ data, handeleChange }) => {
-  const {
-    firstName,
-    secondName,
-    firstSurname,
-    secondSurname,
-    documentType,
-    documentNumber,
-    documentPdf,
-    email,
-    phone,
-    nacionality,
-    livesInColombia,
-    migrant,
-    address,
-    locationInBogota,
-    municipalityOfResidency,
-    residencyDepartment
-  } = data;
+const Step1 = () => {
 
-  //   const variable = auth.user.id
-
-  const [countries, setCountries] = useState([]);
-
-  const getCountry = async () => {
-    const url = "https://restcountries.com/v3.1/all";
-    const request = await fetch(url);
-    const countrie = await request.json();
-    const countries = countrie.map((item) => item.name.common).sort();
-    setCountries(countries);
-  };
-
-  useEffect(() => {
-    getCountry();
-  }, []);
+  /*const textValidation = (formValue) => {
+    const error = {};
+      if(!formValues.formValue){
+        error.formValue = "Por favor escribe tu nombre"
+      } else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.formValue)){
+        error.formValue = "Por favor ingresa solo letras"
+      }
+      return error;
+  } */
 
   return (
     <>
-      <div className="row">
-        <div className="col-12 col-md-6">
-          <label htmlFor="" className="form-label">
-            Primer Nombre
-          </label>
-          <input
-            type="text"
-            name="firstName"
-            className="form-control"
-            placeholder=""
-            onChange={handeleChange}
-            value={firstName}
-          />
-        </div>
-        <div className="col-12 col-md-6">
-          <label htmlFor="" className="form-label">
-            Segundo Nombre
-          </label>
-          <input
-            type="text"
-            name="secondName"
-            className="form-control"
-            placeholder=""
-            onChange={handeleChange}
-            value={secondName}
-          />
-        </div>
-      </div>
-      <div className="row mt-4">
-        <div className="col-12 col-md-6">
-          <label htmlFor="" className="form-label">
-            Primer Apellido
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            name="firstSurname"
-            placeholder=""
-            onChange={handeleChange}
-            value={firstSurname}
-          />
-        </div>
-        <div className="col-12 col-md-6">
-          <label htmlFor="" className="form-label">
-            Segundo Apellido
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            name="secondSurname"
-            placeholder=""
-            onChange={handeleChange}
-            value={secondSurname}
-          />
-        </div>
-      </div>
+    <Formik
+    initialValues={{
+      firstName: '',
+      secondName: '',
+      firstSurname: '',
+      secondSurname: '',
+      documentType: '',
+      documentNumber: '',
+      documentPdf: '',
+      profilePic: '',
+      dateOfBirth: '',
+      age: '',
+      sex: '',
+      maritalStatus: '',
+      email: '',
+      phone1: '',
+      phone2: ''
+    }}
 
-      <div className="row mt-4">
-        <div htmlFor="" className="col-12 col-md-6">
-          <label className="form-label">Tipo de documento</label>
-          <select
-            name="documentType"
-            onChange={handeleChange}
-            value={documentType}
-            className="form-select"
-          >
-            <option value="cc">Selecciona el tipo de documento</option>
-            <option value="CC">CC</option>
-            <option value="TI">TI</option>
-          </select>
-        </div>
-        <div className="col-12 col-md-6">
-          <label htmlFor="" className="form-label">
-            Número de documento
+ validate={(formValues) => {
+      const error = {};
+      if(!formValues.firstName){
+        error.firstName = "Por favor escribe tu nombre"
+      } else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.firstName)){
+        error.firstName = "Por favor ingresa solo letras"
+      }
+      return error;
+    }} 
+   /*  validate={(formValues) => {textValidation(firstName)} 
+    } */
+   
+    onSubmit={(formValues) => {
+      console.log('asdfasdf')
+    }}
+    >
+      { ( {errors} ) => (
+<Form className="step1">
+  <div className="row mt-4">
+    <div className="col-12 col-md-6">
+  <label htmlFor="firstName" className="form-label">
+    Primer Nombre
+  </label>
+  <Field
+    type="text"
+    id="firstName"
+    name="firstName"
+    placeholder=""
+    className="form-control"
+  />
+  <ErrorMessage name="firstName" component={() => (
+     <div className="error"> {errors.firstName} </div>
+     )} />
+  </div>
+  <div className="col-12 col-md-6">
+  <label htmlFor="secondName" className="form-label">
+    Segundo Nombre
+  </label>
+  <Field
+    type="text"
+    id="secondName"
+    name="secondName"
+    placeholder=""
+    className="form-control"
+  />
+    </div>
+  </div>
+  <div className="row mt-4">
+    <div className="col-12 col-md-6">
+  <label htmlFor="firstSurname" className="form-label">
+    Primer apellido
+  </label>
+  <Field
+    type="text"
+    id="firstSurname"
+    name="firstSurname"
+    placeholder=""
+    className="form-control"
+  />
+  <ErrorMessage name="firstSurname" component={() => (
+     <div className="error"> {errors.firstSurname} </div>
+     )} />
+  </div>
+  <div className="col-12 col-md-6">
+  <label htmlFor="secondSurname"  className="form-label">
+    Segundo apellido
+  </label>
+  <Field
+    type="text"
+    id="secondSurname"
+    name="secondSurname"
+    placeholder=""
+    className="form-control"
+  />
+    </div>
+  </div>
+  <div className="row mt-4">
+    <div className="col-12 col-md-6">
+    <label htmlFor="documentType" className="form-label">Tipo de documento</label>
+      <Field
+        id="documentType"
+        name="documentType"
+        className="form-select"
+        as="select"
+      >
+        <option value="cc">Selecciona el tipo de documento</option>
+        <option value="CC">CC</option>
+        <option value="TI">TI</option>
+        <option value="CC">Cédula de extranjería</option>
+        <option value="PEP">Permiso Especial de Permanencia - PEP</option>
+        <option value="PEP">Permiso de proteccion temporal - PPT</option>
+      </Field>
+    </div>
+    <div className="col-12 col-md-6">
+  <label htmlFor="documentNumber"  className="form-label">
+    Número de documento
+  </label>
+  <Field
+    type="number"
+    id="documentNumber"
+    name="documentNumber"
+    placeholder=""
+    className="form-control"
+  />
+    </div>
+  </div>
+  <div className="row mt-4">
+    <div className="col-12 col-md-6">
+    <label htmlFor="documentPdf" className="form-label">
+    Documento de identidad en PDF
+    </label>
+  <Field
+    type="file"
+    id="documentPdf"
+    name="documentPdf"
+    placeholder=""
+    className="form-control"
+  />
+    </div>
+    <div className="col-12 col-md-6">
+    <label htmlFor="dateOfBirth" className="form-label">
+    Fecha de nacimiento
+    </label>
+  <Field
+    type="date"
+    id="dateOfBirth"
+    name="dateOfBirth"
+    placeholder=""
+    className="form-control"
+  />
+    </div>
+    <div className="row mt-4">
+    <div className="col-12 col-md-6">
+          <label htmlFor="age" className="form-label">
+            Edad actual
           </label>
-          <input
+          <Field
             type="number"
+            id="age"
             className="form-control"
-            name="documentNumber"
-            onChange={handeleChange}
-            value={documentNumber}
+            name="age"
           />
         </div>
-      </div>
-
-      <div className="row mt-4">
-        <div className="col-12 col-md-6">
-          <label htmlFor="formFile" className="form-label">
-            Fotocopia de documento de identidad
-          </label>
-          <input
-            className="form-control"
-            type="file"
-            id="formFile"
-            name="documentPdf"
-            onChange={handeleChange}
-            value={documentPdf}
-          />
-        </div>
-        <div className="col-12 col-md-6">
-          <label htmlFor="" className="form-label">
-            Correo electrónico
-          </label>
-          <input
-            type="email"
-            className="form-control"
-            name="email"
-            onChange={handeleChange}
-            value={email}
-          />
-        </div>
-      </div>
-      <div className="row mt-4">
-        <div className="col-12 col-md-6">
-          <label htmlFor="" className="form-label">
-            Teléfono de contacto
-          </label>
-          <input
-            type="number"
-            className="form-control"
-            name="phone"
-            onChange={handeleChange}
-            value={phone}
-          />
-        </div>
-        <div htmlFor="" className="col-12 col-md-6">
-          <label className="form-label">Nacionalidad</label>
-          <select
-            name="nacionality"
-            onChange={handeleChange}
-            value={nacionality}
+        <div htmlFor="sex" className="col-12 col-md-6">
+          <label className="form-label">Sexo (Según documento de identidad)</label>
+          <Field
+            as="select"
+            id="sex"
             className="form-select"
+            name="sex"
           >
-            <option value="select">Selecciona un pais</option>
-            {countries.map((countrie) => (
-              <option key={countrie} value={countrie}>
-                {countrie}
-              </option>
-            ))}
-          </select>
+            <option value="cc">Selecciona tu Sexo</option>
+            <option value="masculino">Masculino</option>
+            <option value="femenino">Femenino</option>
+          </Field>
         </div>
-        <div className="row mt-4">
-          <div htmlFor="" className="col-12 col-md-6">
-            <label className="form-label">¿Eres Migrante?</label>
-            <select
-              name="migrant"
-              onChange={handeleChange}
-              value={migrant}
-              className="form-select"
-            >
-              <option value="select">Selecciona si o no</option>
-              <option value="si">Si</option>
-              <option value="no">No</option>
-            </select>
-          </div>
-          <div htmlFor="" className="col-12 col-md-6">
-            <label className="form-label">¿Vives en Colombia?</label>
-            <select
-              name="livesInColombia"
-              onChange={handeleChange}
-              value={livesInColombia}
-              className="form-select"
-            >
-              <option value="select">Selecciona si o no</option>
-              <option value="si">Si</option>
-              <option value="no">No</option>
-            </select>
-          </div>
-        </div>
-        <div className="row mt-4">
-          <div htmlFor="" className="col-12 col-md-6">
-            <label className="form-label">Departamento de residencia</label>
-            <select
-              name="residencyDepartment"
-              onChange={handeleChange}
-              value={residencyDepartment}
-              className="form-select"
-            >
-              <option value="select">Selecciona tu Departamento</option>
-              <option value="Cundinamarca">Cundinamarca</option>
-              <option value="Guainía">Guainía</option>
-              <option value="Guaviare">Guaviare</option>
-            </select>
-          </div>
-          <div htmlFor="" className="col-12 col-md-6">
-            <label className="form-label">Municipio de Residencia</label>
-            <select
-              name="municipalityOfResidency"
-              onChange={handeleChange}
-              value={municipalityOfResidency}
-              className="form-select"
-            >
-              <option value="cc">Selecciona tu Municipio</option>
-              <option value="Bogota">Bogota</option>
-              <option value="Barranquilla">Barranquilla</option>
-              <option value="Medellin">Medellin</option>
-            </select>
-          </div>
-        </div>
+    </div>
+  </div>
+  <div className="row mt-4">
+    <div className="col-12 col-md-6">
+    <label htmlFor="maritalStatus" className="form-label">Estado civil</label>
+      <Field
+        id="maritalStatus"
+        name="maritalStatus"
+        className="form-select"
+        as="select"
+      >
+            <option value="cc">Selecciona tu Estado Civil</option>
+            <option value="Soltero">Soltero</option>
+            <option value="Casado">Casado</option>
+            <option value="Divorciado">Divorciado</option>
+            <option value="Separación en proceso judicial">Separación en proceso judicial</option>
+            <option value="Union libre">Union libre</option>
+            <option value="Viudo">Viudo</option>
 
-        <div className="row mt-4">
-          <div htmlFor="" className="col-12 col-md-6">
-            <label className="form-label">
-              Si resides en Bogotá, cual es tu localidad de residencia
-            </label>
-            <select
-              name="locationInBogota"
-              onChange={handeleChange}
-              value={locationInBogota}
-              className="form-select"
-            >
-              <option value="cc">Selecciona tu localidad</option>
-              <option value="La Candelaria">La Candelaria</option>
-              <option value="Ciudad Bolívar">Ciudad Bolívar</option>
-              <option value="Sumapaz">Sumapaz</option>
-            </select>
-          </div>
-          <div className="col-12 col-md-6">
-            <label htmlFor="" className="form-label">
-              Dirección permanente/recurrent e de residencia
-            </label>
-            <input
-              type="text"
-              className="form-control"
-              name="address"
-              onChange={handeleChange}
-              value={address}
-            />
-          </div>
-        </div>
-      </div>
-    </>
-  );
-};
+      </Field>
+    </div>
+    <div className="col-12 col-md-6">
+    <label htmlFor="profilePic" className="form-label">
+    Foto de perfil
+    </label>
+  <Field
+    type="file"
+    id="profilePic"
+    name="profilePic"
+    placeholder=""
+    className="form-control"
+  />
+    </div>
+  </div>
+  <div className="row mt-4">
+    <div className="col-12 col-md-6">
+    <label htmlFor="email" className="form-label">
+    Correo electrónico
+  </label>
+  <Field
+    type="text"
+    id="email"
+    name="email"
+    placeholder=""
+    className="form-control"
+  />
+    </div>
+    <div className="col-12 col-md-6">
+    <label htmlFor="phone1" className="form-label">
+    Teléfono principal de correo
+  </label>
+  <Field
+    type="number"
+    id="phone1"
+    name="phone1"
+    placeholder=""
+    className="form-control"
+  />
+    </div>
+  </div>  
+  <div className="row mt-4">
+    <div className="col-12 col-md-6">
+    <label htmlFor="phone2" className="form-label">
+    Telefono alterno de contacto
+  </label>
+  <Field
+    type="number"
+    id="phone2"
+    name="phone2"
+    placeholder=""
+    className="form-control"
+  />
+    </div>
+  </div>  
+</Form>
+)}
+</Formik>
+  </>
+  )}
+
 
 export default Step1;

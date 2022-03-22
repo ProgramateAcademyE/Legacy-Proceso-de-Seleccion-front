@@ -1,6 +1,6 @@
 .form{
-    width: 400px;
-    height: 500px;
+    min-width: 468px;
+    min-height: 500px;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -10,14 +10,26 @@
     padding: 40px;
 }
 
+.main-logo{
+    width: 300px;
+}
+
 .form h1{
     text-align: center;
 }
+.Logo__Programate{
+    display: flex;
+    height: 7vw;
+    margin-top: 1vw;
+    margin-left: 1vw;
+}
 
-.container{
+
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
+    min-height: 90vh;
 }
 
 .form .buttonS{
