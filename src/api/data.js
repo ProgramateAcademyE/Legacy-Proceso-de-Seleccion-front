@@ -3,8 +3,18 @@ export const ITEMS = [
         name: "Dashboard",
         icon: "fas fa-th-large",
         id: 1,
-        items: [],
-        pathname: "/dashboard",
+        items: [
+            {
+                name: "Estadisticas",
+                pathname: "/dashboard"
+
+            },
+            { name:" Administrador de Usuarios",
+              pathname: "/Users"
+
+            }
+        ],
+       
     },
     {
         name: "Convocatoria",
