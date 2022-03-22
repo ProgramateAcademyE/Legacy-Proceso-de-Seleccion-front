@@ -13,6 +13,26 @@ const Step1 = () => {
       return error;
   } */
 
+/*  const validate = values => {
+
+  let errors = {}
+  if(!formValues.firstName){
+    error.firstName = "Este campo es obligatorio"
+  } else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.firstName)){
+    error.firstName = "Por favor ingresa solo letras"
+  }
+
+  if(!formValues.email){
+    error.email = "Este campo es obligatorio"
+  } else if(!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(formValues.email)){
+    error.email = "Por favor ingresa un correo válido"
+  }
+
+  return errors;
+}
+console.log('Errors' , formik.errors); */
+
+
   return (
     <>
     <Formik
@@ -34,21 +54,40 @@ const Step1 = () => {
       phone2: ''
     }}
 
- validate={(formValues) => {
+    validate={(formValues) => {
       const error = {};
       if(!formValues.firstName){
-        error.firstName = "Por favor escribe tu nombre"
+        error.firstName = "Por favor ingresa tu nombre"
       } else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.firstName)){
-        error.firstName = "Por favor ingresa solo letras"
+        error.firstName = "Por favor ingresa sólo letras"
       }
+
+      if(!formValues.firstSurname){
+        error.firstSurname = "Por favor ingresa tu apellido"
+      } else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.firstSurname)){
+        error.firstSurname = "Por favor ingresa sólo letras"
+      }
+
+      if(!formValues.phone1){
+        error.phone1 = "Por favor ingresa tu número de contacto"
+      }
+
+      if(!formValues.documentNumber){
+        error.documentNumber = "Por favor ingresa tu número de documento"
+      }
+
+      if(!formValues.email){
+        error.email = "Por favor ingresa tu correo"
+      } else if(!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(formValues.email)){
+        error.email = "Por favor ingresa un correo válido"
+      }
+
       return error;
     }} 
+
    /*  validate={(formValues) => {textValidation(firstName)} 
     } */
-   
-    onSubmit={(formValues) => {
-      console.log('asdfasdf')
-    }}
+  
     >
       { ( {errors} ) => (
 <Form className="step1">
@@ -138,6 +177,9 @@ const Step1 = () => {
     placeholder=""
     className="form-control"
   />
+    <ErrorMessage name="documentNumber" component={() => (
+     <div className="error"> {errors.documentNumber} </div>
+     )} />
     </div>
   </div>
   <div className="row mt-4">
@@ -236,10 +278,13 @@ const Step1 = () => {
     placeholder=""
     className="form-control"
   />
+  <ErrorMessage name="email" component={() => (
+     <div className="error"> {errors.email} </div>
+     )} />
     </div>
     <div className="col-12 col-md-6">
     <label htmlFor="phone1" className="form-label">
-    Teléfono principal de correo
+    Teléfono principal de contacto
   </label>
   <Field
     type="number"
@@ -248,6 +293,9 @@ const Step1 = () => {
     placeholder=""
     className="form-control"
   />
+    <ErrorMessage name="phone1" component={() => (
+     <div className="error"> {errors.phone1} </div>
+     )} />
     </div>
   </div>  
   <div className="row mt-4">

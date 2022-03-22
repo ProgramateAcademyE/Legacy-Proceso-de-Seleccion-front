@@ -1,5 +1,5 @@
 import React from "react";
-import { Form, Field, Formik } from "formik";
+import { ErrorMessage, Form, Field, Formik } from "formik";
 
 const Step2 = () => {
 
@@ -52,8 +52,45 @@ const Step2 = () => {
       internetCompany: '',
       mbCount: ''
     }}
+
+    validate={(formValues) => {
+      const error = {};
+      if(!formValues.nacionality){
+        error.nacionality = "Por favor indica tu país de nacimiento"
+      } else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.nacionality)){
+        error.nacionality = "Por favor ingresa sólo letras"
+      }
+
+      if(!formValues.currentCountry){
+        error.currentCountry = "Por favor indica tu país de residencia"
+      } else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.currentCountry)){
+        error.currentCountry = "Por favor ingresa sólo letras"
+      }
+
+      if(!formValues.residencyDepartment){
+        error.residencyDepartment = "Por favor indica tu departamento de residencia"
+      } else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.residencyDepartment)){
+        error.residencyDepartment = "Por favor ingresa sólo letras"
+      }
+
+      if(!formValues.socialClass){
+        error.socialClass = "Por favor selecciona tu estrato"
+      }
+
+      if(!formValues.pcAccess){
+        error.pcAccess = "Por favor selecciona una respuesta"
+      }
+
+      if(!formValues.internetAccess){
+        error.internetAccess = "Por favor selecciona una respuesta"
+      }
+
+      return error;
+    }} 
     >
-      <Form>
+
+    { ( {errors} ) => (
+      <Form className="step2">
 {/*       <div className="row mt-4">
       <div className="col-12 col-md-6">
           <label htmlFor="nacionality" className="form-label">País de nacimiento</label>
@@ -98,16 +135,22 @@ const Step2 = () => {
               placeholder=""
               className="form-control"
             />
-          </div>
-          <div className="col-12 col-md-6">
-            <label htmlFor="currentCountry" className="form-label">Indica tu país de residencia</label>
-            <Field
-              type="text"
-              id="currentCountry"
-              name="currentCountry"
-              placeholder=""
-              className="form-control"
-            />
+              <ErrorMessage name="nacionality" component={() => (
+     <div className="error"> {errors.nacionality} </div>
+     )} />
+    </div>
+    <div className="col-12 col-md-6">
+      <label htmlFor="currentCountry" className="form-label">Indica tu país de residencia</label>
+      <Field
+        type="text"
+        id="currentCountry"
+        name="currentCountry"
+        placeholder=""
+        className="form-control"
+      />
+    <ErrorMessage name="currentCountry" component={() => (
+     <div className="error"> {errors.currentCountry} </div>
+     )} />
           </div> 
       </div>
     <div className="row mt-4">
@@ -120,6 +163,9 @@ const Step2 = () => {
               placeholder=""
               className="form-control"
             />
+          <ErrorMessage name="residencyDepartment" component={() => (
+     <div className="error"> {errors.residencyDepartment} </div>
+     )} />  
           </div>
           <div className="col-12 col-md-6">
             <label htmlFor="municipalityOfResidency" className="form-label">Indica tu municipio de Residencia</label>
@@ -196,6 +242,9 @@ const Step2 = () => {
             <option value="5">5</option>
             <option value="6">6</option>
           </Field>
+        <ErrorMessage name="socialClass" component={() => (
+     <div className="error"> {errors.socialClass} </div>
+     )} />
         </div>
         <div className="col-12 col-md-6">
           <label htmlFor="areaType" className="form-label">Tipo de área</label>
@@ -347,58 +396,62 @@ const Step2 = () => {
   </label>
   <div className="col-12 col-md-6">
   <label>
-    <Field type="checkbox" name="Indígena" value="Indígena" />
+    <Field type="checkbox" name="vulnerablePopulation" value="Indígena" />
     Indígena
   </label> <br/>
   <label>
-    <Field type="checkbox" name="Raizal" value="Raizal" />
+    <Field type="checkbox" name="vulnerablePopulation" value="Raizal" />
     Raizal
   </label> <br/>
   <label>
-    <Field type="checkbox" name="Afrocolombiano" value="Afrocolombiano" />
+    <Field type="checkbox" name="vulnerablePopulation" value="Afrocolombiano" />
     Afrocolombiano
   </label> <br/>
   <label>
-    <Field type="checkbox" name="Palenquero" value="Palenquero" />
+    <Field type="checkbox" name="vulnerablePopulation" value="Palenquero" />
     Palenquero
   </label> <br/>
   <label>
-    <Field type="checkbox" name="Gitano" value="Gitano" />
+    <Field type="checkbox" name="vulnerablePopulation" value="Gitano" />
     Gitano
   </label> <br/>
   <label>
-    <Field type="checkbox" name="Migrante" value="Migrante" />
+    <Field type="checkbox" name="vulnerablePopulation" value="Migrante" />
     Migrante
   </label> <br/>
   <label>
-    <Field type="checkbox" name="Desplazado por la violencia" value="Desplazado por la violencia" />
+    <Field type="checkbox" name="vulnerablePopulation" value="Desplazado por la violencia" />
     Desplazado por la violencia
   </label> <br/>
   </div>
   <div className="col-12 col-md-6">
   <label>
-    <Field type="checkbox" name="LGBTIQ+" value="LGBTIQ+" />
+    <Field type="checkbox" name="vulnerablePopulation" value="LGBTIQ+" />
     LGBTIQ+
   </label> <br/>
   <label>
-    <Field type="checkbox" name="Víctima del conflicto armado" value="Víctima del conflicto armado" />
+    <Field type="checkbox" name="vulnerablePopulation" value="Víctima del conflicto armado" />
     Víctima del conflicto armado
   </label> <br/>
   <label>
-    <Field type="checkbox" name="Desmovilizado" value="Desmovilizado" />
+    <Field type="checkbox" name="vulnerablePopulation" value="Desmovilizado" />
     Desmovilizado
   </label> <br/>
   <label>
-    <Field type="checkbox" name="Persona privadas de libertad o INPEC" value="Persona privadas de libertad o INPEC" />
+    <Field type="checkbox" name="vulnerablePopulation" value="Persona privadas de libertad o INPEC" />
     Persona privadas de libertad o INPEC
   </label> <br/>
   <label>
-    <Field type="checkbox" name="Desplazado por fenómenos naturales" value="Desplazado por fenómenos naturales" />
+    <Field type="checkbox" name="vulnerablePopulation" value="Desplazado por fenómenos naturales" />
     Desplazado por fenómenos naturales
   </label> <br/>
   <label>
-    <Field type="checkbox" name="Adolescentes en conflicto con la ley penal" value="Adolescentes en conflicto con la ley penal" />
+    <Field type="checkbox" name="vulnerablePopulation" value="Adolescentes en conflicto con la ley penal" />
     Adolescentes en conflicto con la ley penal
+  </label> <br/>
+  <label>
+    <Field type="checkbox" name="vulnerablePopulation" value="Ninguna" />
+    Ninguna
   </label> <br/>
   </div>
   </div>
@@ -408,37 +461,37 @@ const Step2 = () => {
   </label>
   <div className="col-12 col-md-6">
   <label>
-    <Field type="checkbox" name="Discapacidad física" value="Discapacidad física" />
+    <Field type="checkbox" name="disability" value="Discapacidad física" />
     Discapacidad física
   </label> <br/>
   <label>
-    <Field type="checkbox" name="Discapacidad auditiva" value="Discapacidad auditiva" />
+    <Field type="checkbox" name="disability" value="Discapacidad auditiva" />
     Discapacidad auditiva
   </label> <br/>
   <label>
-    <Field type="checkbox" name="Discapacidad visual" value="Discapacidad visual" />
+    <Field type="checkbox" name="disability" value="Discapacidad visual" />
     Discapacidad visual
   </label> <br/>
   <label>
-    <Field type="checkbox" name="Sordoceguera" value="Sordoceguera" />
+    <Field type="checkbox" name="disability" value="Sordoceguera" />
     Sordoceguera
   </label> <br/>
   </div>
   <div className="col-12 col-md-6">
   <label>
-    <Field type="checkbox" name="Discapacidad intelectual+" value="Discapacidad intelectual+" />
+    <Field type="checkbox" name="disability" value="Discapacidad intelectual" />
     Discapacidad intelectual
   </label> <br/>
   <label>
-    <Field type="checkbox" name="Discapacidad psicosocial" value="Discapacidad psicosocial" />
+    <Field type="checkbox" name="disability" value="Discapacidad psicosocial" />
     Discapacidad psicosocial
   </label> <br/>
   <label>
-    <Field type="checkbox" name="Discapacidad múltiple" value="Discapacidad múltiple" />
+    <Field type="checkbox" name="disability" value="Discapacidad múltiple" />
     Discapacidad múltiple
   </label> <br/>
   <label>
-    <Field type="checkbox" name="Ninguna" value="Ninguna" />
+    <Field type="checkbox" name="disability" value="Ninguna" />
     Ninguna
   </label> <br/>
   </div>
@@ -456,6 +509,9 @@ const Step2 = () => {
             <option value="Si">Si</option>
             <option value="No">No</option>
           </Field>
+          <ErrorMessage name="pcAccess" component={() => (
+     <div className="error"> {errors.pcAccess} </div>
+     )} />
         </div>
         <div className="col-12 col-md-6">
           <label htmlFor="internetAccess" className="form-label">¿Tienes acceso a internet a través de un plan de servicios de hogar?</label>
@@ -469,6 +525,9 @@ const Step2 = () => {
             <option value="Si">Si</option>
             <option value="No">No</option>
           </Field>
+          <ErrorMessage name="internetAccess" component={() => (
+     <div className="error"> {errors.internetAccess} </div>
+     )} />
         </div>
         </div>
         <div className="row mt-4">
@@ -498,9 +557,9 @@ const Step2 = () => {
         </div>
       </div>
       </Form>
+      )}
     </Formik>
   </>
-  );
-};
+  )}
 
 export default Step2;

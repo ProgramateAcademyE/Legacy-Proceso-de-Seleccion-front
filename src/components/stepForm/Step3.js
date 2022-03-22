@@ -1,5 +1,5 @@
 import React from "react";
-import {Form, Field, Formik } from "formik";
+import { ErrorMessage, Form, Field, Formik } from "formik";
 
 const Step3 = () => {
  
@@ -20,8 +20,18 @@ const Step3 = () => {
       languageLevel: '',
       soloLearnProfile: ''
     }}
+
+    validate={(formValues) => {
+      const error = {};
+      if(!formValues.soloLearnProfile){
+        error.soloLearnProfile = "Por favor ingresa tu número de perfil"
+      }
+        return error;
+    }} 
+
     >
-      <Form>
+    { ( {errors} ) => (
+      <Form className="step3">
       <div className="row mt-4">
       <div className="col-12 col-md-6">
           <label htmlFor="academicLevel" className="form-label">Máximo Nivel Académico Alcanzado</label> <br/>
@@ -235,9 +245,13 @@ const Step3 = () => {
             className="form-control"
             name="soloLearnProfile"
           />
+            <ErrorMessage name="soloLearnProfile" component={() => (
+     <div className="error"> {errors.soloLearnProfile} </div>
+     )} />
         </div>
       </div>
         </Form>
+        )}
       </Formik>
     </>
   );
