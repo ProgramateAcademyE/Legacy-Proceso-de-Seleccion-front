@@ -57,7 +57,7 @@ const RegisterAdmin = () => {
     }
     mostrarSpinner(true);
     axios
-      .post(PETITIONS.registerAdmin, user)
+      .post(PETITIONS.registerAdmin, { ...user, role: 1 })
       .then((res) => {
         setTimeout(() => {
           mostrarSpinner(false);
