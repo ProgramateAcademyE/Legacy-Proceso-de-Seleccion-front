@@ -1,32 +1,45 @@
-import { PETITIONS } from "../../../requestUrl";
-
-
-
-
+import React, { useEffect, useState } from "react";
+import axios from 'axios';
 
 const AspirantConvocatorys = () => {
+
     const [Aspirantconvocatories, setAspirantConvocatories] = useState([]);
-  
-    const getAllConvocatories = async () => {
-      const res = await fetch(PETITIONS.getConvocatories);
-      const response = await res.json();
-    
-      return response;
-    }
-  
+
     useEffect(() => {
-      getAllConvocatories().then((convocatory) => setAspirantConvocatories(convocatory));
-    }, []);
+        try {
+          axios.get(' http://localhost:3001/api/admin/convocatories', {
+          }).then(res => {
+            setAspirantConvocatories(res.data)
+          })
+        } catch (error) {
+          console.log (error)
+        }
+      }, [setAspirantConvocatories])
   
-    const Convocatories = Aspirantconvocatories.map((conv) => ({
-        "Convocatoria": conv.name,
-        "Inicio Bootcamp": conv.initialBootcampDate,
-        "Fin Bootcamp": conv.finalBootcampDate,
-        "residenceCountry": allValues.residenceCountry,
-        residencyDepartment: allValues.residenceDepartment,
-        maxAge: allValues.age,
-        maxSocioeconomicStratus: allValues.stratus,
-        gender: allValues.gender,
-        typePopulation: allValues.typePopulation
-      }));
-}
+
+ 
+
+
+    return(
+        
+            <>
+            {Aspirantconvocatories.map ((info) => (
+            <div>
+                <h1>{info.name}</h1>
+                <p>Fechas de el Bootcamp</p>
+                <p>{"Inicio:" + info.startDateBootcamp}</p>
+                <p>{"Fin:" + info.endDateBootcamp}</p>
+                <p>{"Pais de Residencia:" + info.residenceCountry}</p>
+                <p>{"Departamento de residencia:" + info.residenceDepartment}</p>
+                <p>{"Edad Limite:" + info.age}</p>
+                <p>{"Estrato Maximo:" + info.stratus}</p>
+                <p>{"Genero:" + info.gender}</p>
+                <p>{"Tipo de poblacion:" + info.typePopulation}</p></div>
+                
+            ))};
+            </>
+        );
+    
+    };
+
+export default AspirantConvocatorys;

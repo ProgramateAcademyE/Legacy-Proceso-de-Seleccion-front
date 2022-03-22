@@ -28,6 +28,7 @@ import SelectionResults from "../page/selection/SelectionResults";
 import Verify from "../components/verify/Verify";
 import Register from "../components/register/Register";
 import ListOfUsers from "../components/allUsers/ListOfUsers";
+import AspirantConvocatorys from "../page/Aspirant Convocatory/AspirantConvocatory";
 
 import './style.css'
 
@@ -95,6 +96,7 @@ const App = () => {
               <Route exact path="/entrevista">
                 <InterviewAspirant />
               </Route>
+              <Route exact path="/Convocatoriasaspirante" component={AspirantConvocatorys}/>
               <Route exact path="/aspirante" component={ProofAspirant} />
               <Route exact path="/dashboard" component={DashboardAspirant} />
             </>

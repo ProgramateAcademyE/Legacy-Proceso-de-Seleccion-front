@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Tablita from "../../components/tablita/Table";
+import BasicTable from "../../components/tablita/Table";
 import RequestService from "../../config/index";
 import MotivationLetterModal from "../../components/modals/MotivationLetterModal";
 import results from "./Results.module.css"
@@ -47,10 +47,10 @@ const Results = () => {
         Sololearn: result.soloLearnScore,
         "Perfil Personal": result.personalProfileScore,
         Motivación: result.motivationScore,
-        "Promedio 1era Fase": result.promedioprimerafase,
-        "Prueba Tecnica": result.pruebatecnica,
-        Entrevista: result.Enrevista,
-        Assesment: result.Assenment,
+      /*   "Promedio 1era Fase": result.promedioprimerafase, */
+        /* "Prueba Tecnica": result.pruebatecnica, */
+        /* Entrevista: result.Enrevista,
+        Assesment: result.Assenment, */
         "Promedio 2da Fase": (
             <div
                 style={{
@@ -68,9 +68,9 @@ const Results = () => {
                 <option value="ListaDeespera">Lista de Espera</option>
             </select>
         ),
-        Info: (
+       /*  Info: (
          <ModalAspirants/>
-        ),
+        ), */
     }));
 
     return (
@@ -79,7 +79,7 @@ const Results = () => {
                 <span className="upperCase bold">Aspirantes</span>
             </div>
             <div className="table mt-4">
-                <Tablita key={rows.length} rows={rows} />
+                <BasicTable key={rows.length} rows={rows} />
             </div>
         </div>
     );
