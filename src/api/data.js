@@ -62,26 +62,26 @@ export const ITEMS = [
         items: [
             {
                 name: "SoloLearn",
-                pathname: "/",
+                pathname: "/calificacion-sololearn",
 
             },
             {
                 name: "Carta de Motivacion",
-                pathname: "/",
+                pathname: "/calificacion-carta-motivacional",
             },
             {
                 name: "Prueba Tecnica",
-                pathname: "/",
+                pathname: "/calificacion-prueba-tecnica",
             },
 
 
             {
                 name: "Entrevista",
-                pathname: "/",
+                pathname: "/calificacion-entrevista",
             },
             {
-                name: "Assesment",
-                pathname: "/",
+                name: "Assessment",
+                pathname: "/calificacion-assessment",
             },
         ],
     },

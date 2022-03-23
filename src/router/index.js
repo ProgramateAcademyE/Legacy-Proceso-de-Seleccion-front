@@ -10,7 +10,7 @@ import DashboardAspirant from "../page/dasborardAspirant/DashboardAspirant";
 import DashboardAdmin from "../page/dashboardAdmin/DashboardAdmin";
 import AdministerTechnicalTest from "../page/technicalTest/AdministerTechnicalTest";
 import AddTechTest from "../page/technicalTest/AddTechTest";
-import QualifyTechnicalTest from "../page/technicalTest/QualifyTechnicalTest";
+import QualifyTechnicalTest from "../page/Qualification/QualifyTechnicalTest";
 import Results from "../page/Results/Results";
 import FormInscription from "../page/formAspirant/FormInscription";
 import InterviewAspirant from "../page/interviewAspirant/InterviewAspirant";
@@ -31,6 +31,10 @@ import ListOfUsers from "../components/allUsers/ListOfUsers";
 import AspirantConvocatorys from "../page/Aspirant Convocatory/AspirantConvocatory";
 
 import './style.css'
+import QualifyAssessment from "../page/Qualification/QualifyAssessment";
+import QualifySololearn from "../page/Qualification/QualifySoloLearn";
+import QualifyMotivationLetter from "../page/Qualification/QualifyMotivationLetter";
+import QualifyInterview from "../page/Qualification/QualifyInterview";
 
 const App = () => {
   const auth = useSelector((state) => state.auth);
@@ -75,8 +79,13 @@ const App = () => {
               <Route path="/prueba" component={AdministerTechnicalTest} />
               <Route path="/agregar" component={AddTechTest}/>
               <Route path="/editarprueba" component={AddTechTest}/>
-              <Route path="/calificar" component={QualifyTechnicalTest} />
               <Route path="/citation" component={Citations} />
+
+              <Route path="/calificacion-sololearn" component={QualifySololearn} />
+              <Route path="/calificacion-carta-motivacional" component={QualifyMotivationLetter} />
+              <Route path="/calificacion-prueba-tecnica" component={QualifyTechnicalTest} />
+              <Route path="/calificacion-entrevista" component={QualifyInterview} />
+              <Route path="/calificacion-assessment" component={QualifyAssessment} />
 
               {/* <Route path="/inscripcion" component={Inscription} /> */}
               {/* <Route
