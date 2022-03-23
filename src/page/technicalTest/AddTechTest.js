@@ -7,7 +7,7 @@ import { getOneTest } from "../../helpers/TechTestHelper";
 import FormTechTest from "./FormTechTest";
 
 const AdministerTechnicalTestAdd = () => {
-	const [convocatory, setConvocatory] = useState();
+	const [convocatory, setConvocatory] = useState([]);
 	const [testInfo, setTestInfo] = useState([]);
 
 	let query = useQuery();
@@ -28,12 +28,15 @@ const AdministerTechnicalTestAdd = () => {
 		return data;
 	});
 
+	console.log(convocatory?.length <= 0)
+
 	return (
 		<div style={{ margin: "165px auto" }}>
 			{data !== undefined && idTest ? (
 				<FormTechTest query={idTest} data={data} convocatory={convocatory} />
 			) : null}
 			{!idTest ? (
+				convocatory?.length <= 0 ? <h2>Por favor agregue una convocatoria antes de asignar una prueba técnica</h2> :
 				<FormTechTest convocatory={convocatory} query={idTest} />
 			) : null}
 		</div>

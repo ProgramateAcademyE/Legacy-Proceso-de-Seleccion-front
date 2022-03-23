@@ -26,6 +26,8 @@ import Footer from "../components/footer/Footer";
 import { getData } from "../actions/sololearnProfile";
 import SelectionResults from "../page/selection/SelectionResults";
 import Verify from "../components/verify/Verify";
+import RegisterAdmin from "../components/register/RegisterAdmin";
+
 import Register from "../components/register/Register";
 import ListOfUsers from "../components/allUsers/ListOfUsers";
 import AspirantConvocatorys from "../page/Aspirant Convocatory/AspirantConvocatory";
@@ -64,6 +66,8 @@ const App = () => {
        
           <Route exact path="/register" component={Register} /> 
           
+
+          {/* <Redirect to="/login" /> */}
           {isLogged && isAdmin && (
             <>
               <Route path="/dashboard" component={DashboardAdmin} />
@@ -72,6 +76,7 @@ const App = () => {
               <Route path="/dia-de-entrevista" component={InterviewDays} />
               <Route path="/calendario"><InterviewDay /></Route>
               <Route path="/convocatoria" component={Convocatory} />
+
               <Route path="/nuevacohorte" component={NewCohort} />
               <Route path="/editarcohorte" component={NewCohort} />
               <Route path="/aspirantes" component={Aspirants} />
@@ -87,6 +92,7 @@ const App = () => {
               <Route path="/calificacion-entrevista" component={QualifyInterview} />
               <Route path="/calificacion-assessment" component={QualifyAssessment} />
 
+              <Route path="/register-admin" component={RegisterAdmin} />
               {/* <Route path="/inscripcion" component={Inscription} /> */}
               {/* <Route
                   path="/resultsInscription"
