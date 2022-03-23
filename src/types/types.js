@@ -22,7 +22,10 @@ export const types = {
   login: '[login] Set Login',
   getToken: 'getToken',
   getUser: '[login] Get User',
-  getAllUsers: '[login] Get All Users'
+  getAllUsers: '[login] Get All Users',
+
+
+  addToConvocatory: '[convocatory] Add to convocatory'
 
 
 };

@@ -144,11 +144,3 @@ const FormAspirant = () => {
 export default FormAspirant;
 
 
-<<<<<<< HEAD
-=======
-
-
-
-
-
->>>>>>> 61e5e0e1b62867a78c04ad95895474fc981c845b

@@ -1,29 +1,57 @@
-import React from "react";
-const AspirantConvView = (data) => {
+ import React, { useState } from "react";
+ import { useSelector } from 'react-redux';
+
+
+
+const AspirantConvView = (props) => {
+    let {data} = props
+    const {user} = useSelector(state => state.auth)
+    
+    const [idRegister, setidRegister] = useState({})
+     
+    console.log(idRegister)
+    
+
     let {
-        nameConvocatory, startDateBootcamp, endDateBootcamp,
+        _id,
+        name,
+        initialBootcampDate, 
+        finalBootcampDate,
         residenceCountry,
-        residenceDepartment,
-        age,
-        stratus,
+        residencyDepartment,
+        maxAge,
+        maxSocioeconomicStratus,
         gender,
-        typePopulation,
+        typePopulation
 
-    } = data
-
-
-    return (
-        <>
-            <h1>{nameConvocatory}</h1>
+    } = data;
+   
+return (
+     <>
+        <div>
+            <h1>{name}</h1>
             <p>Fechas de el Bootcamp</p>
-            <p>{"Inicio:" + startDateBootcamp}</p>
-            <p>{"Fin:" + endDateBootcamp}</p>
+            <p>{"Inicio de el Bootcamp:"+ initialBootcampDate}</p>
+            <p>{"Fin de el Bootcamp:" + finalBootcampDate}</p>
             <p>{"Pais de Residencia:" + residenceCountry}</p>
-            <p>{"Departamento de residencia:" + residenceDepartment}</p>
-            <p>{"Edad Limite:" + age}</p>
-            <p>{"Estrato Maximo:" + stratus}</p>
+            <p>{"Departamento de residencia:" + residencyDepartment}</p>
+            <p>{"Edad Limite:" + maxAge}</p>
+            <p>{"Estrato Maximo:" + maxSocioeconomicStratus}</p>
             <p>{"Genero:" + gender}</p>
-            <p>{"Tipo de poblacion:" + typePopulation}</p>
+            <p>{"Tipo de poblacion:" + typePopulation}</p></div>
+
+            <button
+            className="ButtonP"
+            onClick={() => {
+            setidRegister({idUser : user._id, idConvocatory: _id})
+            
+            }}
+            
+          >
+           Postularse
+          </button>
+            
+
         </>
     );
 
@@ -31,4 +59,4 @@ const AspirantConvView = (data) => {
 
 export default AspirantConvView;
 
-
+ 
