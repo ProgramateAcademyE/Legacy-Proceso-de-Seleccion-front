@@ -41,6 +41,7 @@ function getStepContent(step) {
 
   const handeleChange = (e) => {
     const { name, value } = e.target;
+    console.log(data)
     setData({
       ...data,
       [name]: value,
