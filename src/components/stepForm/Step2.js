@@ -38,10 +38,11 @@ const Step2 = ({ data, handeleChange }) => {
 					municipalityOfResidency: "",
 					address: "",
 					locationInBogota: "",
+					socialClass:"",
 					stratum: "",
 					areaType: "",
 					billPdf: "",
-					disability: "",
+					disability: [],
 					familyIncome: "",
 					householdMembers: "",
 					numberOfChildren: "",
@@ -250,6 +251,8 @@ const Step2 = ({ data, handeleChange }) => {
 									name='address'
 									placeholder=''
 									className='form-control'
+									onChange={handeleChange}
+									value={data.address}
 								/>
 							</div>
 						</div>
@@ -263,6 +266,8 @@ const Step2 = ({ data, handeleChange }) => {
 									name='socialClass'
 									className='form-select'
 									as='select'
+									onChange={handeleChange}
+									value={data.socialClass}
 								>
 									<option value='cc'>Selecciona tu Estrato</option>
 									<option value='1'>1</option>
@@ -288,6 +293,8 @@ const Step2 = ({ data, handeleChange }) => {
 									name='areaType'
 									className='form-select'
 									as='select'
+									onChange={handeleChange}
+									value={data.areaType}
 								>
 									<option value='cc'>Selecciona el tipo de área</option>
 									<option value='Rural'>Rural</option>
@@ -319,6 +326,8 @@ const Step2 = ({ data, handeleChange }) => {
 									placeholder=''
 									className='form-control'
 									as='select'
+									onChange={handeleChange}
+									value={data.householdMembers}
 								>
 									<option value='cc'>Selecciona el número de personas</option>
 									<option value='Vivo solo/a'>Vivo solo/a</option>
@@ -341,6 +350,8 @@ const Step2 = ({ data, handeleChange }) => {
 									name='numberOfChildren'
 									className='form-select'
 									as='select'
+									onChange={handeleChange}
+									value={data.numberOfChildren}
 								>
 									<option value='cc'>Selecciona el número de hijos</option>
 									<option value='No'>No</option>
@@ -360,6 +371,8 @@ const Step2 = ({ data, handeleChange }) => {
 									name='familyIncome'
 									className='form-select'
 									as='select'
+									onChange={handeleChange}
+									value={data.familyIncome}
 								>
 									<option value='cc'>Selecciona el rango de ingreso</option>
 									<option value='Menos de un salario mínimo'>
@@ -663,6 +676,8 @@ const Step2 = ({ data, handeleChange }) => {
 									name='pcAccess'
 									className='form-select'
 									as='select'
+									onChange={handeleChange}
+									value={data.pcAccess}
 								>
 									<option value='cc'>Selecciona Si o No</option>
 									<option value='Si'>Si</option>
@@ -685,6 +700,8 @@ const Step2 = ({ data, handeleChange }) => {
 									name='internetAccess'
 									className='form-select'
 									as='select'
+									onChange={handeleChange}
+									value={data.internetAccess}
 								>
 									<option value='cc'>Selecciona Si o No</option>
 									<option value='Si'>Si</option>
@@ -710,6 +727,8 @@ const Step2 = ({ data, handeleChange }) => {
 									name='internetCompany'
 									placeholder=''
 									className='form-control'
+									onChange={handeleChange}
+									value={data.internetCompany}
 								/>
 							</div>
 							<div className='col-12 col-md-6'>
@@ -722,6 +741,8 @@ const Step2 = ({ data, handeleChange }) => {
 									name='mbCount'
 									placeholder=''
 									className='form-control'
+									onChange={handeleChange}
+									value={data.mbCount}
 								/>
 							</div>
 						</div>
