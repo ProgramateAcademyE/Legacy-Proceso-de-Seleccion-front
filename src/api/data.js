@@ -28,6 +28,10 @@ export const ITEMS = [
             {
                 name: "Pruebas Técnicas",
                 pathname: "/prueba",
+            },
+            {
+                name: "Convocatorias y aspirantes",
+                pathname: "/convocatorias-aspirantes",
             },],
        
     },

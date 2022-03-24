@@ -37,6 +37,7 @@ import QualifyAssessment from "../page/Qualification/QualifyAssessment";
 import QualifySololearn from "../page/Qualification/QualifySoloLearn";
 import QualifyMotivationLetter from "../page/Qualification/QualifyMotivationLetter";
 import QualifyInterview from "../page/Qualification/QualifyInterview";
+import ConvocatoryAspirants from "../page/convocatory/ConvocaryAspirants";
 
 const App = () => {
   const auth = useSelector((state) => state.auth);
@@ -80,6 +81,7 @@ const App = () => {
               <Route path="/nuevacohorte" component={NewCohort} />
               <Route path="/editarcohorte" component={NewCohort} />
               <Route path="/aspirantes" component={Aspirants} />
+              <Route path="/convocatorias-aspirantes" component={ConvocatoryAspirants} />
               
               <Route path="/prueba" component={AdministerTechnicalTest} />
               <Route path="/agregar" component={AddTechTest}/>
