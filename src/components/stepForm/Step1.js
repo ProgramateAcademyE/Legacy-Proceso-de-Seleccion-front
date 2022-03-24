@@ -1,176 +1,248 @@
+import { ErrorMessage, Form, Field, Formik } from "formik";
 import React from "react";
 
-const Step1 = ({ data, handeleChange }) => {
-  const {
-    firstName,
-    secondName,
-    firstSurname,
-    secondSurname,
-    documentType,
-    documentNumber,
-    documentPdf,
-    profilePic,
-    dateOfBirth,
-    age,
-    sex,
-    maritalStatus,
-    email,
-    phone1,
-    phone2,
-  } = data;
+const Step1 = () => {
 
-  //   const variable = auth.user.id
+  /*const textValidation = (formValue) => {
+    const error = {};
+      if(!formValues.formValue){
+        error.formValue = "Por favor escribe tu nombre"
+      } else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.formValue)){
+        error.formValue = "Por favor ingresa solo letras"
+      }
+      return error;
+  } */
+
+/*  const validate = values => {
+
+  let errors = {}
+  if(!formValues.firstName){
+    error.firstName = "Este campo es obligatorio"
+  } else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.firstName)){
+    error.firstName = "Por favor ingresa solo letras"
+  }
+
+  if(!formValues.email){
+    error.email = "Este campo es obligatorio"
+  } else if(!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(formValues.email)){
+    error.email = "Por favor ingresa un correo válido"
+  }
+
+  return errors;
+}
+console.log('Errors' , formik.errors); */
+
 
   return (
     <>
-      <div className="row">
-        <div className="col-12 col-md-6">
-          <label htmlFor="" className="form-label">
-            Primer Nombre
-          </label>
-          <input
-            type="text"
-            name="firstName"
-            className="form-control"
-            placeholder=""
-            onChange={handeleChange}
-            value={firstName}
-          />
-        </div>
-        <div className="col-12 col-md-6">
-          <label htmlFor="" className="form-label">
-            Segundo Nombre
-          </label>
-          <input
-            type="text"
-            name="secondName"
-            className="form-control"
-            placeholder=""
-            onChange={handeleChange}
-            value={secondName}
-          />
-        </div>
-      </div>
-      <div className="row mt-4">
-        <div className="col-12 col-md-6">
-          <label htmlFor="" className="form-label">
-            Primer Apellido
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            name="firstSurname"
-            placeholder=""
-            onChange={handeleChange}
-            value={firstSurname}
-          />
-        </div>
-        <div className="col-12 col-md-6">
-          <label htmlFor="" className="form-label">
-            Segundo Apellido
-          </label>
-          <input
-            type="text"
-            className="form-control"
-            name="secondSurname"
-            placeholder=""
-            onChange={handeleChange}
-            value={secondSurname}
-          />
-        </div>
-      </div>
+    <Formik
+    initialValues={{
+      firstName: '',
+      secondName: '',
+      firstSurname: '',
+      secondSurname: '',
+      documentType: '',
+      documentNumber: '',
+      documentPdf: '',
+      profilePic: '',
+      dateOfBirth: '',
+      age: '',
+      sex: '',
+      maritalStatus: '',
+      email: '',
+      phone1: '',
+      phone2: ''
+    }}
 
-      <div className="row mt-4">
-        <div htmlFor="" className="col-12 col-md-6">
-          <label className="form-label">Tipo de documento</label>
-          <select
-            name="documentType"
-            onChange={handeleChange}
-            value={documentType}
-            className="form-select"
-          >
-            <option value="cc">Selecciona el tipo de documento</option>
-            <option value="CC">CC</option>
-            <option value="TI">TI</option>
-            <option value="CC">Cédula de extranjería</option>
-            <option value="TI">Permiso Especial de Permanencia - PEP</option>
-          </select>
-        </div>
-        <div className="col-12 col-md-6">
-          <label htmlFor="" className="form-label">
-            Número de documento
-          </label>
-          <input
-            type="number"
-            className="form-control"
-            name="documentNumber"
-            onChange={handeleChange}
-            value={documentNumber}
-          />
-        </div>
-      </div>
-      <div className="row mt-4">
+    validate={(formValues) => {
+      const error = {};
+      if(!formValues.firstName){
+        error.firstName = "Por favor ingresa tu nombre"
+      } else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.firstName)){
+        error.firstName = "Por favor ingresa sólo letras"
+      }
 
-      </div>
-      <div className="row mt-4">
-      <div className="col-12 col-md-6">
-        <label htmlFor="formFile" className="form-label">
-          Fotocopia de documento de identidad
-        </label>
-        <input
-          className="form-control"
-          type="file"
-          id="formFile"
-          name="documentPdf"
-          onChange={handeleChange}
-          value={documentPdf}
-        />
-        </div>
-        <div className="col-12 col-md-6">
-          <label htmlFor="" className="form-label">
-            Fecha de nacimiento
-          </label>
-          <input
-            type="date"
-            className="form-control"
-            name="dateOfBirth"
-            onChange={handeleChange}
-            value={dateOfBirth}
-          />
-        </div>
-        <div className="col-12 col-md-6">
-          <label htmlFor="" className="form-label">
+      if(!formValues.firstSurname){
+        error.firstSurname = "Por favor ingresa tu apellido"
+      } else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.firstSurname)){
+        error.firstSurname = "Por favor ingresa sólo letras"
+      }
+
+      if(!formValues.phone1){
+        error.phone1 = "Por favor ingresa tu número de contacto"
+      }
+
+      if(!formValues.documentNumber){
+        error.documentNumber = "Por favor ingresa tu número de documento"
+      }
+
+      if(!formValues.email){
+        error.email = "Por favor ingresa tu correo"
+      } else if(!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(formValues.email)){
+        error.email = "Por favor ingresa un correo válido"
+      }
+
+      return error;
+    }} 
+
+   /*  validate={(formValues) => {textValidation(firstName)} 
+    } */
+  
+    >
+      { ( {errors} ) => (
+<Form className="step1">
+  <div className="row mt-4">
+    <div className="col-12 col-md-6">
+  <label htmlFor="firstName" className="form-label">
+    Primer Nombre
+  </label>
+  <Field
+    type="text"
+    id="firstName"
+    name="firstName"
+    placeholder=""
+    className="form-control"
+  />
+  <ErrorMessage name="firstName" component={() => (
+     <div className="error"> {errors.firstName} </div>
+     )} />
+  </div>
+  <div className="col-12 col-md-6">
+  <label htmlFor="secondName" className="form-label">
+    Segundo Nombre
+  </label>
+  <Field
+    type="text"
+    id="secondName"
+    name="secondName"
+    placeholder=""
+    className="form-control"
+  />
+    </div>
+  </div>
+  <div className="row mt-4">
+    <div className="col-12 col-md-6">
+  <label htmlFor="firstSurname" className="form-label">
+    Primer apellido
+  </label>
+  <Field
+    type="text"
+    id="firstSurname"
+    name="firstSurname"
+    placeholder=""
+    className="form-control"
+  />
+  <ErrorMessage name="firstSurname" component={() => (
+     <div className="error"> {errors.firstSurname} </div>
+     )} />
+  </div>
+  <div className="col-12 col-md-6">
+  <label htmlFor="secondSurname"  className="form-label">
+    Segundo apellido
+  </label>
+  <Field
+    type="text"
+    id="secondSurname"
+    name="secondSurname"
+    placeholder=""
+    className="form-control"
+  />
+    </div>
+  </div>
+  <div className="row mt-4">
+    <div className="col-12 col-md-6">
+    <label htmlFor="documentType" className="form-label">Tipo de documento</label>
+      <Field
+        id="documentType"
+        name="documentType"
+        className="form-select"
+        as="select"
+      >
+        <option value="cc">Selecciona el tipo de documento</option>
+        <option value="CC">CC</option>
+        <option value="TI">TI</option>
+        <option value="CC">Cédula de extranjería</option>
+        <option value="PEP">Permiso Especial de Permanencia - PEP</option>
+        <option value="PEP">Permiso de proteccion temporal - PPT</option>
+      </Field>
+    </div>
+    <div className="col-12 col-md-6">
+  <label htmlFor="documentNumber"  className="form-label">
+    Número de documento
+  </label>
+  <Field
+    type="number"
+    id="documentNumber"
+    name="documentNumber"
+    placeholder=""
+    className="form-control"
+  />
+    <ErrorMessage name="documentNumber" component={() => (
+     <div className="error"> {errors.documentNumber} </div>
+     )} />
+    </div>
+  </div>
+  <div className="row mt-4">
+    <div className="col-12 col-md-6">
+    <label htmlFor="documentPdf" className="form-label">
+    Documento de identidad en PDF
+    </label>
+  <Field
+    type="file"
+    id="documentPdf"
+    name="documentPdf"
+    placeholder=""
+    className="form-control"
+  />
+    </div>
+    <div className="col-12 col-md-6">
+    <label htmlFor="dateOfBirth" className="form-label">
+    Fecha de nacimiento
+    </label>
+  <Field
+    type="date"
+    id="dateOfBirth"
+    name="dateOfBirth"
+    placeholder=""
+    className="form-control"
+  />
+    </div>
+    <div className="row mt-4">
+    <div className="col-12 col-md-6">
+          <label htmlFor="age" className="form-label">
             Edad actual
           </label>
-          <input
+          <Field
             type="number"
+            id="age"
             className="form-control"
             name="age"
-            onChange={handeleChange}
-            value={age}
           />
         </div>
-        <div htmlFor="" className="col-12 col-md-6">
+        <div htmlFor="sex" className="col-12 col-md-6">
           <label className="form-label">Sexo (Según documento de identidad)</label>
-          <select
-            name="sex"
-            onChange={handeleChange}
-            value={sex}
+          <Field
+            as="select"
+            id="sex"
             className="form-select"
+            name="sex"
           >
             <option value="cc">Selecciona tu Sexo</option>
             <option value="masculino">Masculino</option>
             <option value="femenino">Femenino</option>
-          </select>
+          </Field>
         </div>
-        <div htmlFor="" className="col-12 col-md-6">
-          <label className="form-label">Estado Civil</label>
-          <select
-            name="maritalStatus"
-            onChange={handeleChange}
-            value={maritalStatus}
-            className="form-select"
-          >
+    </div>
+  </div>
+  <div className="row mt-4">
+    <div className="col-12 col-md-6">
+    <label htmlFor="maritalStatus" className="form-label">Estado civil</label>
+      <Field
+        id="maritalStatus"
+        name="maritalStatus"
+        className="form-select"
+        as="select"
+      >
             <option value="cc">Selecciona tu Estado Civil</option>
             <option value="Soltero">Soltero</option>
             <option value="Casado">Casado</option>
@@ -178,63 +250,73 @@ const Step1 = ({ data, handeleChange }) => {
             <option value="Separación en proceso judicial">Separación en proceso judicial</option>
             <option value="Union libre">Union libre</option>
             <option value="Viudo">Viudo</option>
-          </select>
-        </div>
-        <div className="col-12 col-md-6">
-        <label htmlFor="formFile" className="form-label">
-          Foto de perfil
-        </label>
-        <input
-          className="form-control"
-          type="file"
-          id="formFile"
-          name="profilePic"
-          onChange={handeleChange}
-          value={profilePic}
-        />
-        </div>
-      </div>
-      <div className="row mt-4">
-      <h2>Información de contacto</h2>
-      <div className="col-12 col-md-6">
-          <label htmlFor="" className="form-label">
-            Correo electrónico
-          </label>
-          <input
-            type="email"
-            className="form-control"
-            name="email"
-            onChange={handeleChange}
-            value={email}
-          />
-        </div>
-        <div className="col-12 col-md-6">
-          <label htmlFor="" className="form-label">
-            Teléfono principal de contacto
-          </label>
-          <input
-            type="number"
-            className="form-control"
-            name="phone1"
-            onChange={handeleChange}
-            value={phone1}
-          />
-        </div>
-        <div className="col-12 col-md-6">
-          <label htmlFor="" className="form-label">
-            Teléfono alterno de contacto
-          </label>
-          <input
-            type="number"
-            className="form-control"
-            name="phone2"
-            onChange={handeleChange}
-            value={phone2}
-          />
-        </div>
-      </div>
-    </>
-  );
-};
+
+      </Field>
+    </div>
+    <div className="col-12 col-md-6">
+    <label htmlFor="profilePic" className="form-label">
+    Foto de perfil
+    </label>
+  <Field
+    type="file"
+    id="profilePic"
+    name="profilePic"
+    placeholder=""
+    className="form-control"
+  />
+    </div>
+  </div>
+  <div className="row mt-4">
+    <div className="col-12 col-md-6">
+    <label htmlFor="email" className="form-label">
+    Correo electrónico
+  </label>
+  <Field
+    type="text"
+    id="email"
+    name="email"
+    placeholder=""
+    className="form-control"
+  />
+  <ErrorMessage name="email" component={() => (
+     <div className="error"> {errors.email} </div>
+     )} />
+    </div>
+    <div className="col-12 col-md-6">
+    <label htmlFor="phone1" className="form-label">
+    Teléfono principal de contacto
+  </label>
+  <Field
+    type="number"
+    id="phone1"
+    name="phone1"
+    placeholder=""
+    className="form-control"
+  />
+    <ErrorMessage name="phone1" component={() => (
+     <div className="error"> {errors.phone1} </div>
+     )} />
+    </div>
+  </div>  
+  <div className="row mt-4">
+    <div className="col-12 col-md-6">
+    <label htmlFor="phone2" className="form-label">
+    Telefono alterno de contacto
+  </label>
+  <Field
+    type="number"
+    id="phone2"
+    name="phone2"
+    placeholder=""
+    className="form-control"
+  />
+    </div>
+  </div>  
+</Form>
+)}
+</Formik>
+  </>
+  )}
+
 
 export default Step1;

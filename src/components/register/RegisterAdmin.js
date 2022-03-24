@@ -1,15 +1,11 @@
-import React, { useState } from 'react'
-import axios from 'axios';
-import { Link } from "react-router-dom";
-import { PETITIONS } from '../../../requestUrl';
-import register from './Register.module.css';
-import programateacademycolor from '../../../dist/Assets/programateacademycolor.png';
-import programateacademycolorBN from '../../../dist/Assets/Programate-academy-negros.png';
-  
+import React, { useState } from "react";
+import axios from "axios";
+import { PETITIONS } from "../../../requestUrl";
+import "./Register.module.css";
 import Spinner from "../auth/Spinner";
 import Swal from "sweetalert2";
 
-const Register = () => {
+const RegisterAdmin = () => {
   const [spinner, mostrarSpinner] = useState(false);
   const [user, setUser] = useState({
     names: null,
@@ -60,7 +56,7 @@ const Register = () => {
     }
     mostrarSpinner(true);
     axios
-      .post(PETITIONS.register, user)
+      .post(PETITIONS.registerAdmin, { ...user, role: 1 })
       .then((res) => {
         setTimeout(() => {
           mostrarSpinner(false);
@@ -125,7 +121,7 @@ const Register = () => {
       <div className="container">
         <form className="form" onSubmit={handleSubmit}>
           {spinner ? <Spinner /> : null}
-          <h1> Registrate </h1>
+          <h1> Registro Admin </h1>
           <label>Nombre</label>
           <input
             className={`${errors.names ? "fail" : ""}`}
@@ -178,13 +174,10 @@ const Register = () => {
             <small style={{ color: "red" }}>{errors.password}</small>
           )}
           <input className="buttonS" type="submit" />
-          <p>
-            Ya estas registrado? <Link to="/">Login</Link>
-          </p>
         </form>
       </div>
     </>
   );
 };
 
-export default Register;
+export default RegisterAdmin;

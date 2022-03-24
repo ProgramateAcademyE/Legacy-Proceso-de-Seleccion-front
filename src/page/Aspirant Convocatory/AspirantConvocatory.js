@@ -16,7 +16,7 @@ const AspirantConvocatorys = () => {
           console.log (error)
         }
       }, 
-      [setAspirantConvocatories])
+      [])
 return(
         
             <>

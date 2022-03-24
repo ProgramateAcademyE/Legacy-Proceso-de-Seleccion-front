@@ -22,26 +22,6 @@ const Convocatory = () => {
     getAllConvocatories().then((convocatory) => setConvocatories(convocatory));
   }, []);
 
-  console.log( convocatories);
-  const actions = [
-    {
-      status: true,
-      icon: (
-          <i className="far fa-edit"></i>
-        // </Link>
-      ),
-    },
-    {
-      status: true,
-      icon: <ModalConvocatory/>,
-    },
-    {
-      status: true,
-      icon: <DisableBtn />,
-    },
-  ];
-
-  // console.log(convocatories)
   const rows = convocatories.map((conv) => ({
     "Convocatoria": conv.name,
     "Cupos": conv.maxQuotas,
@@ -54,7 +34,7 @@ const Convocatory = () => {
   return (
     <>
       <div className="section__convocatory">
-        <div className="section__contentC">
+        {/* <div className="section__contentC">
           <span className="upperCase bold">Convocatorias</span>
           {rows.length > 0 ? (
             <Link to="/nuevacohorte">
@@ -64,14 +44,13 @@ const Convocatory = () => {
             </Link>
           ) : null}
           
-        </div>
+        </div> */}
         {rows.length > 0 ? (
           <Table
             className="table"
             convocatoryData={convocatories}
             key={rows.Id}
             rows={rows}
-            actions={actions}
           />
         ) : (
           <NewConvocatory />
