@@ -68,15 +68,12 @@ const App = () => {
             <>
               <Route path="/dashboard" component={DashboardAdmin} />
               <Route path="/users" component={ListOfUsers}/>
-
               <Route path="/dia-de-entrevista" component={InterviewDays} />
               <Route path="/calendario"><InterviewDay /></Route>
               <Route path="/convocatoria" component={Convocatory} />
-
               <Route path="/nuevacohorte" component={NewCohort} />
               <Route path="/editarcohorte" component={NewCohort} />
-              <Route path="/aspirantes" component={Aspirants} />
-              
+              <Route path="/aspirantes" component={Aspirants} /> 
               <Route path="/prueba" component={AdministerTechnicalTest} />
               <Route path="/agregar" component={AddTechTest}/>
               <Route path="/editarprueba" component={AddTechTest}/>
