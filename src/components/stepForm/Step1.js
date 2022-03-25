@@ -1,95 +1,66 @@
 import { ErrorMessage, Form, Field, Formik } from "formik";
-import React, { useState } from "react";
+import React from "react";
 
-const Step1 = ({ data, handeleChange }) => {
-	/*const textValidation = (formValue) => {
-    const error = {};
-      if(!formValues.formValue){
-        error.formValue = "Por favor escribe tu nombre"
-      } else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.formValue)){
-        error.formValue = "Por favor ingresa solo letras"
-      }
-      return error;
-  } */
-
-	/*  const validate = values => {
-
-  let errors = {}
-  if(!formValues.firstName){
-    error.firstName = "Este campo es obligatorio"
-  } else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.firstName)){
-    error.firstName = "Por favor ingresa solo letras"
-  }
-
-  if(!formValues.email){
-    error.email = "Este campo es obligatorio"
-  } else if(!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(formValues.email)){
-    error.email = "Por favor ingresa un correo válido"
-  }
-
-  return errors;
-}
-console.log('Errors' , formik.errors); */
-	const [stepData, setStepData] = useState({});
-
+const Step1 = ({ data, setDataToForm, myNext, myPrev }) => {
 	return (
 		<>
 			<Formik
 				initialValues={{
-					firstName: data.firstName,
-					secondName: "",
-					firstSurname: "",
-					secondSurname: "",
-					documentType: "",
-					documentNumber: "",
-					documentPdf: "",
-					profilePic: "",
-					dateOfBirth: "",
-					age: "",
-					sex: "",
-					maritalStatus: "",
-					email: "",
-					phone1: "",
-					phone2: "",
+					firstName: data?.firstName || "",
+					secondName: data?.secondName || "",
+					firstSurname: data?.firstSurname|| "",
+					secondSurname: data?.secondSurname || "",
+					documentType: data?.documentType || "",
+					documentNumber: data?.documentNumber || "",
+					documentPdf: data?.documentPdf || "",
+					profilePic: data?.profilePic || "",
+					dateOfBirth: data?.dateOfBirth || "",
+					age: data?.age || "",
+					sex: data?.sex || "",
+					maritalStatus: data?.maritalStatus || "",
+					email: data?.email || "",
+					phone1: data?.phone1 || "",
+					phone2: data?.phone2 || "",
 				}}
-				validate={(formValues) => {
-					const error = {};
-					if (!formValues.firstName) {
-						error.firstName = "Por favor ingresa tu nombre";
-					} else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.firstName)) {
-						error.firstName = "Por favor ingresa sólo letras";
-					}
+				// validate={(formValues) => {
+				// 	const error = {};
+				// 	if (!formValues.firstName) {
+				// 		error.firstName = "Por favor ingresa tu nombre";
+				// 	} else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.firstName)) {
+				// 		error.firstName = "Por favor ingresa sólo letras";
+				// 	}
 
-					if (!formValues.firstSurname) {
-						error.firstSurname = "Por favor ingresa tu apellido";
-					} else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.firstSurname)) {
-						error.firstSurname = "Por favor ingresa sólo letras";
-					}
+				// 	if (!formValues.firstSurname) {
+				// 		error.firstSurname = "Por favor ingresa tu apellido";
+				// 	} else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.firstSurname)) {
+				// 		error.firstSurname = "Por favor ingresa sólo letras";
+				// 	}
 
-					if (!formValues.phone1) {
-						error.phone1 = "Por favor ingresa tu número de contacto";
-					}
+				// 	if (!formValues.phone1) {
+				// 		error.phone1 = "Por favor ingresa tu número de contacto";
+				// 	}
 
-					if (!formValues.documentNumber) {
-						error.documentNumber = "Por favor ingresa tu número de documento";
-					}
+				// 	if (!formValues.documentNumber) {
+				// 		error.documentNumber = "Por favor ingresa tu número de documento";
+				// 	}
 
-					if (!formValues.email) {
-						error.email = "Por favor ingresa tu correo";
-					} else if (
-						!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(
-							formValues.email
-						)
-					) {
-						error.email = "Por favor ingresa un correo válido";
-					}
+				// 	if (!formValues.email) {
+				// 		error.email = "Por favor ingresa tu correo";
+				// 	} else if (
+				// 		!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(
+				// 			formValues.email
+				// 		)
+				// 	) {
+				// 		error.email = "Por favor ingresa un correo válido";
+				// 	}
 
-					return error;
-				}}
+				// 	return error;
+				// }}
 
 				/*  validate={(formValues) => {textValidation(firstName)}} */
         onSubmit={(allValues, { resetForm }) => {
-          console.log(allValues);
+					setDataToForm(allValues)
+					myNext()
         }}
 			>
 				{({ errors }) => (
@@ -105,8 +76,8 @@ console.log('Errors' , formik.errors); */
 									name='firstName'
 									placeholder=''
 									className='form-control'
-                  onChange={handeleChange}
-                  value={data.firstName}
+                  // // onChange={handeleChange}
+                  // value={data.firstName}
 								/>
 								<ErrorMessage
 									name='firstName'
@@ -125,8 +96,8 @@ console.log('Errors' , formik.errors); */
 									name='secondName'
 									placeholder=''
 									className='form-control'
-                  onChange={handeleChange}
-                  value={data.secondName}
+                  // onChange={handeleChange}
+                  // value={data.secondName}
 								/>
 							</div>
 						</div>
@@ -141,8 +112,8 @@ console.log('Errors' , formik.errors); */
 									name='firstSurname'
 									placeholder=''
 									className='form-control'
-                  onChange={handeleChange}
-                  value={data.firstSurname}
+                  // onChange={handeleChange}
+                  // value={data.firstSurname}
 								/>
 								<ErrorMessage
 									name='firstSurname'
@@ -161,8 +132,8 @@ console.log('Errors' , formik.errors); */
 									name='secondSurname'
 									placeholder=''
 									className='form-control'
-                  onChange={handeleChange}
-                  value={data.secondSurname}
+                  // onChange={handeleChange}
+                  // value={data.secondSurname}
 								/>
 							</div>
 						</div>
@@ -176,8 +147,8 @@ console.log('Errors' , formik.errors); */
 									name='documentType'
 									className='form-select'
 									as='select'
-                  onChange={handeleChange}
-                  value={data.documentType}
+                  // onChange={handeleChange}
+                  // value={data.documentType}
 								>
 									<option value='cc'>Selecciona el tipo de documento</option>
 									<option value='CC'>CC</option>
@@ -201,8 +172,8 @@ console.log('Errors' , formik.errors); */
 									name='documentNumber'
 									placeholder=''
 									className='form-control'
-                  onChange={handeleChange}
-                  value={data.documentNumber}
+                  // onChange={handeleChange}
+                  // value={data.documentNumber}
 								/>
 								<ErrorMessage
 									name='documentNumber'
@@ -223,8 +194,8 @@ console.log('Errors' , formik.errors); */
 									name='documentPdf'
 									placeholder=''
 									className='form-control'
-                  // onChange={handeleChange}
-                  // value={data.documentPdf}
+                  // // onChange={handeleChange}
+                  // // value={data.documentPdf}
 								/>
 							</div>
 							<div className='col-12 col-md-6'>
@@ -237,8 +208,8 @@ console.log('Errors' , formik.errors); */
 									name='dateOfBirth'
 									placeholder=''
 									className='form-control'
-                  onChange={handeleChange}
-                  value={data.dateOfBirth}
+                  // onChange={handeleChange}
+                  // value={data.dateOfBirth}
 								/>
 							</div>
 							<div className='row mt-4'>
@@ -251,8 +222,8 @@ console.log('Errors' , formik.errors); */
 										id='age'
 										className='form-control'
 										name='age'
-                    onChange={handeleChange}
-                    value={data.age}
+                    // onChange={handeleChange}
+                    // value={data.age}
 									/>
 								</div>
 								<div htmlFor='sex' className='col-12 col-md-6'>
@@ -264,8 +235,8 @@ console.log('Errors' , formik.errors); */
 										id='sex'
 										className='form-select'
 										name='sex'
-                    onChange={handeleChange}
-                    value={data.sex}
+                    // onChange={handeleChange}
+                    // value={data.sex}
 									>
 										<option value='cc'>Selecciona tu Sexo</option>
 										<option value='masculino'>Masculino</option>
@@ -284,8 +255,8 @@ console.log('Errors' , formik.errors); */
 									name='maritalStatus'
 									className='form-select'
 									as='select'
-                  onChange={handeleChange}
-                  value={data.maritalStatus}
+                  // onChange={handeleChange}
+                  // value={data.maritalStatus}
 								>
 									<option value='cc'>Selecciona tu Estado Civil</option>
 									<option value='Soltero'>Soltero</option>
@@ -322,8 +293,8 @@ console.log('Errors' , formik.errors); */
 									name='email'
 									placeholder=''
 									className='form-control'
-                  onChange={handeleChange}
-                  value={data.email}                  
+                  // onChange={handeleChange}
+                  // value={data.email}                  
 								/>
 								<ErrorMessage
 									name='email'
@@ -342,8 +313,8 @@ console.log('Errors' , formik.errors); */
 									name='phone1'
 									placeholder=''
 									className='form-control'
-                  onChange={handeleChange}
-                  value={data.phone1}
+                  // onChange={handeleChange}
+                  // value={data.phone1}
 								/>
 								<ErrorMessage
 									name='phone1'
@@ -364,11 +335,18 @@ console.log('Errors' , formik.errors); */
 									name='phone2'
 									placeholder=''
 									className='form-control'
-                  onChange={handeleChange}
-                  value={data.phone2}
+                  // onChange={handeleChange}
+                  // value={data.phone2}
 								/>
 							</div>
 						</div>
+						<button onClick={myPrev}>
+							Back
+						</button>
+						<Field type="submit" value="next"/>
+						{/* <button onClick={handleNext}>
+								Next
+						</button> */}
 					</Form>
 				)}
 			</Formik>

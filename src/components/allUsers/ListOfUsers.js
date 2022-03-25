@@ -14,7 +14,8 @@ const ListOfUsers = () => {
       axios.get('http://localhost:3001/api/user/all_info', {
         headers: {Authorization: token}
       }).then(res => {
-        setUsers(res.data)
+        console.log(res.data)
+        setUsers(res.data.profiles)
       })
     } catch (error) {
       return error
