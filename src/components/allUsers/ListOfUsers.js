@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import User from './User'
 import axios from 'axios';
+import usercss from "./User.module.css";
 
 const ListOfUsers = () => {
   const [users, setUsers] = useState([]);
@@ -21,7 +22,7 @@ const ListOfUsers = () => {
   }, [])
 
   return (
-    <div style={{margin: "60px auto"}}>
+    <div style={{margin:"105px 0px 0px 236px"}}>
       <User users={users}/>
     </div>
   )

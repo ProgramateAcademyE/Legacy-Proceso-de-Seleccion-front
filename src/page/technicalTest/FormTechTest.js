@@ -3,13 +3,14 @@ import { Formik, Field, Form, ErrorMessage } from "formik";
 import { PETITIONS } from "../../../requestUrl";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
+import  Styles from "./TechTest.css";
 
 const FormTechTest = (props) => {
 	let history = useHistory();
 	const { convocatory, query, data } = props;
 	console.log(data)
 	return (
-		<div style={{ margin: "165px auto" }}>
+		<div >
 			<h2>{query ? `Actualizar Prueba Tecnica` : "Nueva Prueba Tecnica"}</h2>
 			<Formik
 				initialValues={{
@@ -65,7 +66,7 @@ const FormTechTest = (props) => {
 					resetForm();
 				}}>
 				{({ errors }) => (
-					<Form>
+					<Form className="form_techtest">
 						{/* Technical Test */}
 						<div>
 							<div>
@@ -74,7 +75,7 @@ const FormTechTest = (props) => {
 								<ErrorMessage
 									name='titleTest'
 									component={() => (
-										<span style={{ color: "red" }}>{errors.titleTest}</span>
+										<span style={{ color: "red", display:"flex"}}>{errors.titleTest}</span>
 									)}
 								/>
 							</div>
@@ -84,7 +85,7 @@ const FormTechTest = (props) => {
 								<ErrorMessage
 									name='linkTest'
 									component={() => (
-										<span style={{ color: "red" }}>{errors.linkTest}</span>
+										<span style={{ color: "red",display:"flex" }}>{errors.linkTest}</span>
 									)}
 								/>
 							</div>
@@ -94,7 +95,7 @@ const FormTechTest = (props) => {
 								<ErrorMessage
 									name='pdfTest'
 									component={() => (
-										<span style={{ color: "red" }}>{errors.pdfTest}</span>
+										<span style={{ color: "red", display:"flex"}}>{errors.pdfTest}</span>
 									)}
 								/>
 							</div>
@@ -110,14 +111,14 @@ const FormTechTest = (props) => {
 								<ErrorMessage
 									name='convocatoryTest'
 									component={() => (
-										<span style={{ color: "red" }}>
+										<span style={{ color: "red", display:"flex" }}>
 											{errors.convocatoryTest}
 										</span>
 									)}
 								/>
 							</div>
 						</div>
-						<input type='submit' value={data ? "Actualizar" : "Guardar"} />
+						<input className='btn btn-success mt-3 mb-3' type='submit' value={data ? "Actualizar" : "Guardar"} />
 					</Form>
 				)}
 			</Formik>

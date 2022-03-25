@@ -57,6 +57,8 @@ const Results = () => {
                     background: checkScoreColor(result.finalScore),
                     width: "20px",
                     height: "20px",
+                    display: "flex",
+                    justifyContent: "center",
                 }}
             >
                 {result.finalScore}

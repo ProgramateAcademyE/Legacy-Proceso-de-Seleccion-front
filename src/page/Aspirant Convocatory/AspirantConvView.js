@@ -9,6 +9,9 @@ const AspirantConvView = (props) => {
     const { user } = useSelector(state => state.auth)
     const token = useSelector(state => state.token)
 
+  
+
+
 
     let {
         _id,
@@ -23,11 +26,7 @@ const AspirantConvView = (props) => {
         typePopulation
 } = data;
 
-
-    
-
-
-    const handleUserId = () => {
+const handleUserId = () => {
 
         axios.patch(`http://localhost:3001/api/admin/update-candidate/${_id}`, {
         usersRegistered:[user._id]
@@ -35,9 +34,7 @@ const AspirantConvView = (props) => {
   
     };
     
-
-
-    return (
+return (
         <>
         <div>
             <h1>{name}</h1>

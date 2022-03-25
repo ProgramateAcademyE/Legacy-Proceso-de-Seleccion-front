@@ -22,6 +22,7 @@ export const PETITIONS = {
   updateConcovatory: `${BASEURL}api/admin/update-conv/`,
   // Delete 
   deleteConvocatory: `${BASEURL}api/admin/convocatory/`,
+
   // ========================================
 
   // ============ Tech Test ================
@@ -36,5 +37,6 @@ export const PETITIONS = {
   // Delete tech test
   deleteTechTest: `${BASEURL}api/admin/test/`,
   // ========================================
+  
 
 }
