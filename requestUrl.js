@@ -10,7 +10,7 @@ export const PETITIONS = {
   // update user role
   updateRole: `${BASEURL}api/user/update_role/`,
   // Register Admin
-  registerAdmin: "http://localhost:3001/api/user/register_admin",
+  registerAdmin: `${BASEURL}api/user/register_admin`,
   // ========================================
 
   // ============ Convocatory ===============
@@ -22,7 +22,8 @@ export const PETITIONS = {
   updateConcovatory: `${BASEURL}api/admin/update-conv/`,
   // Delete 
   deleteConvocatory: `${BASEURL}api/admin/convocatory/`,
-
+  // Get one Convocatory
+  getOneConvocatory: `${BASEURL}api/admin/convocatory/` ,
   // ========================================
 
   // ============ Tech Test ================
@@ -39,4 +40,11 @@ export const PETITIONS = {
   // ========================================
   
 
+  // =========Convocatory Aspirant============
+  // update users in convocatory
+  addUsersToConvocatory: `${BASEURL}api/admin/update-candidate/`,
+
+  // ========== Form Aspirant ===============
+  // Get Information from the form 
+  GetAnswersFromForm: `${BASEURL}api/candidate/candidate-profile`,
 }

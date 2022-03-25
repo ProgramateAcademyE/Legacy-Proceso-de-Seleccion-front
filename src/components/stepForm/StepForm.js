@@ -41,6 +41,7 @@ function getStepContent(step) {
 
   const handeleChange = (e) => {
     const { name, value } = e.target;
+    console.log(data)
     setData({
       ...data,
       [name]: value,
@@ -62,37 +63,36 @@ function getStepContent(step) {
 
   const sendData = async () => {
     // Validation
-    if (
-      firstName.trim() === "" ||
-      documentType.trim() === "" ||
-      documentNumber.trim() === "" ||
-      email.trim() === "" ||
-      phone.trim() === "" ||
-      soloLearnProfile.trim() === "" ||
-      dreams.trim() === "" ||
-      motivation.trim() === ""
-    ) 
-    {return Swal.fire("Error", "Te quedaron campos vacios", "error");}
-
+    // if (
+    //   // firstName.trim() === "" ||
+    //   // documentType.trim() === "" ||
+    //   // documentNumber.trim() === "" ||
+    //   // email.trim() === "" ||
+    //   // phone.trim() === "" ||
+    //   // soloLearnProfile.trim() === "" ||
+    //   // dreams.trim() === "" ||
+    //   // motivation.trim() === ""
+    // ) 
+    // {return Swal.fire("Error", "Te quedaron campos vacios", "error");}
     try {
-        const res = await axios.post('http://localhost:3001/api/candidate/profile',
-        {...data, user_id : user?.id})
-        console.log('Aca lo envia', res)
+      axios.post('http://localhost:3001/api/candidate/profile', {...data, user_id : user?._id}).then(res => console.log(res))
     } catch (error) {
-        console.log(error)
+      console.log(error)
     }
+    console.log({data})
+    // console.log('Aca lo envia', res)
 
     dispatch(getProfileFull(user.id))
     dispatch(getData(user.id))
 
-    Swal.fire({
-      position: "top-end",
-      icon: "success",
-      title: "Enviado correctamente",
-      showConfirmButton: false,
-      timer: 1500,
-    });
-    history.push("/dashboard");
+    // Swal.fire({
+    //   position: "top-end",
+    //   icon: "success",
+    //   title: "Enviado correctamente",
+    //   showConfirmButton: false,
+    //   timer: 1500,
+    // });
+    // history.push("/dashboard");
   };
 
   const props = { data, handeleChange };
@@ -109,7 +109,7 @@ function getStepContent(step) {
           <button
             className="btn btn-primary send-data"
             type="submit"
-            onClick={() => sendData()}
+            onClick={sendData}
           >
             Enviar
           </button>
