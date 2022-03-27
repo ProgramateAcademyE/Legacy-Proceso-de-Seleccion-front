@@ -13,6 +13,7 @@ import axios from "axios";
 import { PETITIONS } from "../../../requestUrl";
 // import RequestService from "../../config/index";
 import { CSVLink } from "react-csv";
+import ModalConvocatory from "../modals/ModalConvocatory";
 
 const useStyles = makeStyles({
 	table: {
@@ -39,6 +40,11 @@ export default function BasicTable({ rows, convocatoryData }) {
 			console.log(error);
 		}
 	};
+
+	const convocatoryDetail = (id) => {
+		<ModalConvocatory idConvocatory={id}/>
+	}
+
 
 	return (
 		<>
@@ -100,19 +106,15 @@ export default function BasicTable({ rows, convocatoryData }) {
 														style={{ color: "blue" }}></i>
 												</div>
 											</Link>
-											<Link to={`/detail?idConvocatory=${prop._id}`}>
-												<div>
+											{/* <Link to={`/detail?idConvocatory=${prop._id}`}> */}
+												{/* <div>
 													<i
 														className='far fa-eye'
-														style={{ color: "green" }}></i>
-												</div>
-											</Link>
-											<Link to={`/editarcohorte?idConvocatory=${prop._id}`}>
-												<div>
-													<i className='fas fa-power-off'></i>
-												</div>
-											</Link>
-											{/* <Link to={`/delete?idConvocatory=${prop._id}?delete=true`}> */}
+														style={{ color: "green" }}
+														></i>
+												</div> */}
+											{/* </Link> */}
+											<ModalConvocatory data={prop}/>
 											<button onClick={() => handleDelete(prop._id)}>
 												<div>
 													<i
@@ -120,7 +122,6 @@ export default function BasicTable({ rows, convocatoryData }) {
 														style={{ color: "red" }}></i>
 												</div>
 											</button>
-											{/* </Link> */}
 										</TableCell>
 									</TableRow>
 								))}

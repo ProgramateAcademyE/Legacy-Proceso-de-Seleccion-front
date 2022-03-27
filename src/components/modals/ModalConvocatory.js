@@ -1,7 +1,22 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import modalcss  from "./Modal.module.css";
+import { PETITIONS } from "../../../requestUrl";
+import axios from "axios";
 
-const ModalConvocatory = () => {
+const ModalConvocatory = (props) => {
+    const { data } = props
+    // const [convocatory, setConvocatory] = useState([]);
+    // const { idConvocatory } = props;
+
+    // // console.log(idConvocatory)
+
+    // useEffect(() => {
+    //   axios.get(`${PETITIONS.getOneConvocatory}${idConvocatory}`).then( res => setConvocatory(res.data))
+    // }, [idConvocatory])
+    
+    // let oneConvocatory = convocatory[0]
+    // console.log(oneConvocatory)
+
     return (
         <div>
             <div className="btn">
@@ -21,7 +36,7 @@ const ModalConvocatory = () => {
                         <div className="row">
                             <div className="col-12 col-md-6 d-flex align-item-left item">
                                 <p>
-                                    <em>Nombre de la cohorte:</em> Cohorte1
+                                    <em>Nombre de la cohorte:</em> {data.name}
                                 </p>
                             </div>
                             <div className="col-12 col-md-6 d-flex align-item-left">
