@@ -1,31 +1,34 @@
 import React from "react";
 import { ErrorMessage, Form, Field, Formik } from "formik";
 
-const Step3 = ({data, handeleChange}) => {
+const Step3 = ({ data, setDataToForm, myNext, myPrev }) => {
 	return (
 		<>
 			<Formik
 				initialValues={{
-					degreeTitle: "",
-					academicLevel: "",
-					studiesPdf: "",
-					cvPdf: "",
-					unemployementTime: "",
-					currentOccupation: "",
-					contractWorker: "",
-					householder: "",
-					firstLanguage: "",
-					secondLanguage: "",
-					languageLevel: "",
-					soloLearnProfile: "",
+					degreeTitle: data?.degreeTitle || "",
+					academicLevel: data?.academicLevel || "",
+					studiesPdf: data?.studiesPdf || "",
+					cvPdf: data?.cvPdf || "",
+					unemployementTime: data?.unemployementTime || "",
+					currentOccupation: data?.currentOccupation || "",
+					contractWorker: data?.contractWorker || "",
+					householder: data?.householder || "",
+					firstLanguage: data?.firstLanguage || "",
+					secondLanguage: data?.secondLanguage || "",
+					languageLevel: data?.languageLevel || "",
+					soloLearnProfile: data?.soloLearnProfile || "",
 				}}
 				validate={(formValues) => {
-          console.log(formValues)
 					const error = {};
 					if (!formValues.soloLearnProfile) {
 						error.soloLearnProfile = "Por favor ingresa tu número de perfil";
 					}
 					return error;
+				}}
+				onSubmit={(allValues) => {
+          setDataToForm(allValues)
+					myNext()
 				}}
 			>
 				{({ errors }) => (
@@ -41,8 +44,8 @@ const Step3 = ({data, handeleChange}) => {
 									name='academicLevel'
 									className='form-select'
 									as='select'
-									onChange={handeleChange}
-									value={data.academicLevel}
+									// onChange={handeleChange}
+									// value={data.academicLevel}
 								>
 									<option value='cc'>Selecciona tu Nivel Académico</option>
 									<option value='Bachillerato inconcluso'>
@@ -67,8 +70,8 @@ const Step3 = ({data, handeleChange}) => {
 									className='form-control'
 									name='degreeTitle'
 									id='degreeTitle'
-									onChange={handeleChange}
-									value={data.degreeTitle}
+									// onChange={handeleChange}
+									// value={data.degreeTitle}
 								/>
 							</div>
 						</div>
@@ -108,8 +111,8 @@ const Step3 = ({data, handeleChange}) => {
 									name='currentOccupation'
 									className='form-select'
 									as='select'
-									onChange={handeleChange}
-									value={data.currentOccupation}
+									// onChange={handeleChange}
+									// value={data.currentOccupation}
 								>
 									<option value='cc'>Selecciona tu Ocupación</option>
 									<option value='Independiente'>Independiente</option>
@@ -142,8 +145,8 @@ const Step3 = ({data, handeleChange}) => {
 									name='unemployementTime'
 									className='form-select'
 									as='select'
-									onChange={handeleChange}
-									value={data.unemployementTime}
+									// onChange={handeleChange}
+									// value={data.unemployementTime}
 								>
 									<option value='cc'>Selecciona un tiempo</option>
 									<option value='Desempleado1'>1 a 2 meses</option>
@@ -171,8 +174,8 @@ const Step3 = ({data, handeleChange}) => {
 									name='householder'
 									className='form-select'
 									as='select'
-									onChange={handeleChange}
-									value={data.householder}
+									// onChange={handeleChange}
+									// value={data.householder}
 								>
 									<option value='cc'>Selecciona Si o No</option>
 									<option value='Si'>Si</option>
@@ -189,8 +192,8 @@ const Step3 = ({data, handeleChange}) => {
 									name='contractWorker'
 									className='form-select'
 									as='select'
-									onChange={handeleChange}
-									value={data.contractWorker}
+									// onChange={handeleChange}
+									// value={data.contractWorker}
 								>
 									<option value='cc'>Selecciona Si o No</option>
 									<option value='Si'>Si</option>
@@ -208,8 +211,8 @@ const Step3 = ({data, handeleChange}) => {
 									name='firstLanguage'
 									className='form-select'
 									as='select'
-									onChange={handeleChange}
-									value={data.firstLanguage}
+									// onChange={handeleChange}
+									// value={data.firstLanguage}
 								>
 									<option value='cc'>Selecciona un idioma</option>
 									<option value='Español'>Español</option>
@@ -237,8 +240,8 @@ const Step3 = ({data, handeleChange}) => {
 									name='secondLanguage'
 									className='form-select'
 									as='select'
-									onChange={handeleChange}
-									value={data.secondLanguage}
+									// onChange={handeleChange}
+									// value={data.secondLanguage}
 								>
 									<option value='cc'>Selecciona un idioma</option>
 									<option value='No'>No, sólo mi idioma nativo</option>
@@ -269,8 +272,8 @@ const Step3 = ({data, handeleChange}) => {
 									name='languageLevel'
 									className='form-select'
 									as='select'
-									onChange={handeleChange}
-									value={data.languageLevel}
+									// onChange={handeleChange}
+									// value={data.languageLevel}
 								>
 									<option value='cc'>Selecciona un nivel</option>
 									<option value='Bajo'>Bajo</option>
@@ -288,8 +291,8 @@ const Step3 = ({data, handeleChange}) => {
 									id='soloLearnProfile'
 									className='form-control'
 									name='soloLearnProfile'
-									onChange={handeleChange}
-									value={data.soloLearnProfile}
+									// onChange={handeleChange}
+									// value={data.soloLearnProfile}
 								/>
 								<ErrorMessage
 									name='soloLearnProfile'
@@ -299,6 +302,10 @@ const Step3 = ({data, handeleChange}) => {
 								/>
 							</div>
 						</div>
+						<button onClick={myPrev}>
+							Back
+						</button>
+						<Field type="submit" value="Enviar"/>
 					</Form>
 				)}
 			</Formik>
