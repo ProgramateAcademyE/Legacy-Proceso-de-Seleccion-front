@@ -548,7 +548,7 @@ const Step2 = () => {
           ¿De cuantas megas es tu plan hogar?
           </label>
           <Field
-            type="text"
+            type="number"
             id="mbCount"
             name="mbCount"
             placeholder=""
