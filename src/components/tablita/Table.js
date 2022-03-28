@@ -23,7 +23,7 @@ const useStyles = makeStyles({
 
 export default function BasicTable({ rows, convocatoryData }) {
 	const classes = useStyles();
-	const [convocatory, setConvocatory] = useState(convocatoryData)
+	const [convocatory, setConvocatory] = useState(convocatoryData);
 
 	const header = [];
 	for (const key in rows[0]) {
@@ -33,18 +33,17 @@ export default function BasicTable({ rows, convocatoryData }) {
 	const handleDelete = (id) => {
 		try {
 			axios.delete(`${PETITIONS.deleteConvocatory}${id}`);
-			setConvocatory(
-				convocatory.filter((oneConvocatory) => oneConvocatory._id !== id)
-			);
+			setConvocatory(convocatory.filter((oneConvocatory) => oneConvocatory._id !== id));
 		} catch (error) {
 			console.log(error);
 		}
 	};
 
+	const [convocatoryId, setConvocatoryId] = useState(null);
 	const convocatoryDetail = (id) => {
-		<ModalConvocatory idConvocatory={id}/>
-	}
-
+		console.log(id);
+		setConvocatoryId(id);
+	};
 
 	return (
 		<>
@@ -59,16 +58,17 @@ export default function BasicTable({ rows, convocatoryData }) {
 						</div>
 						<Link
 							to='/nuevacohorte'
-							className='containerButton btn btn-success mt-3 mb-3'>
+							className='containerButton btn btn-success mt-3 mb-3'
+						>
 							Crear
 						</Link>
 					</div>
 				</div>
 			) : (
 				<>
-          <div className="section__contentC">
-            <span className="upperCase bold">Convocatorias</span>
-          </div>
+					<div className='section__contentC'>
+						<span className='upperCase bold'>Convocatorias</span>
+					</div>
 					<Link to='/nuevacohorte' className='btn btn-success '>
 						Crear Convocatoria
 					</Link>
@@ -101,25 +101,21 @@ export default function BasicTable({ rows, convocatoryData }) {
 										<TableCell align='center'>
 											<Link to={`/editarcohorte?idConvocatory=${prop._id}`}>
 												<div>
-													<i
-														className='far fa-edit'
-														style={{ color: "blue" }}></i>
+													<i className='far fa-edit' style={{ color: "blue" }}></i>
 												</div>
 											</Link>
-											{/* <Link to={`/detail?idConvocatory=${prop._id}`}> */}
-												{/* <div>
-													<i
-														className='far fa-eye'
-														style={{ color: "green" }}
-														></i>
-												</div> */}
-											{/* </Link> */}
-											<ModalConvocatory data={prop}/>
+											<div className='btn'>
+												<a href='#convocatoria'>
+													<i className='far fa-eye' onClick={() => convocatoryDetail(prop._id)}></i>
+												</a>
+											</div>
+											<ModalConvocatory idConvocatory={convocatoryId} />
 											<button onClick={() => handleDelete(prop._id)}>
 												<div>
 													<i
 														className='far fa-trash-alt'
-														style={{ color: "red" }}></i>
+														style={{ color: "red" }}
+													></i>
 												</div>
 											</button>
 										</TableCell>
@@ -128,13 +124,13 @@ export default function BasicTable({ rows, convocatoryData }) {
 							</TableBody>
 						</Table>
 					</TableContainer>
-          <div className='containerButton'>
-            <div>
-              <CSVLink data={rows} filename='prueba CSV'>
-                <button className='btn btn-success'>Exportar</button>
-              </CSVLink>
-            </div>
-          </div>
+					<div className='containerButton'>
+						<div>
+							<CSVLink data={rows} filename='prueba CSV'>
+								<button className='btn btn-success'>Exportar</button>
+							</CSVLink>
+						</div>
+					</div>
 				</>
 			)}
 		</>
