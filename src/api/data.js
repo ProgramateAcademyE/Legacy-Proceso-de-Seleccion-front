@@ -107,24 +107,24 @@ export const ITEMS_ASPIRANTS = [
 
     {
         name: "Agenda de Entrevista y assessment",
-        icon: "fas fa-map-marker-alt",
+        icon: "fa fa-calendar-plus",
         items: [],
         pathname: "/entrevista",
         id: 9,
     },
     {
         name: "Aplicar a la convocatoria",
-        icon: "fas fa-map-marker-alt",
+        icon: "fa fa-bullhorn",
         items: [],
         pathname: "/Convocatoriasaspirante",
         id: 10,
     },
     {
         name: "Formulario de inscripcion",
-        icon: "fas fa-map-marker-alt",
+        icon: "far fa-file-alt",
         items: [],
         pathname: "/inscripcion",
-        id: 10,
+        id: 11,
     },
 
     {
@@ -132,7 +132,7 @@ export const ITEMS_ASPIRANTS = [
         icon: "fas fa-laptop-code",
         items: [],
         pathname: "/aspirante",
-        id: 11,
+        id: 12,
     },
 ];
 

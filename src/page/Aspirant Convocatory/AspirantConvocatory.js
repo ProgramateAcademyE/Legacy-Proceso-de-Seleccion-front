@@ -19,7 +19,7 @@ const AspirantConvocatorys = () => {
       [])
 return(
         
-            <>
+            <div className="AspirantConv_Box">
             {Aspirantconvocatories.map ((info) => (
               <AspirantConvView
               key= {info._id}
@@ -28,7 +28,7 @@ return(
              
             ))};
           
-            </>
+            </div>
         ); 
     
     };

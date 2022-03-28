@@ -27,7 +27,7 @@ import { getData } from "../actions/sololearnProfile";
 import SelectionResults from "../page/selection/SelectionResults";
 import Verify from "../components/verify/Verify";
 import RegisterAdmin from "../components/register/RegisterAdmin";
-
+import WhatsAppButton from "../components/Whatsapp Button/whatsAppButton";
 import Register from "../components/register/Register";
 import ListOfUsers from "../components/allUsers/ListOfUsers";
 import AspirantConvocatorys from "../page/Aspirant Convocatory/AspirantConvocatory";
@@ -101,6 +101,7 @@ const App = () => {
               <Route exact path="/Convocatoriasaspirante" component={AspirantConvocatorys}/>
               <Route exact path="/aspirante" component={ProofAspirant} />
               <Route exact path="/dashboard" component={DashboardAspirant} />
+              <WhatsAppButton/>
             </>
           )}
         </Switch>
