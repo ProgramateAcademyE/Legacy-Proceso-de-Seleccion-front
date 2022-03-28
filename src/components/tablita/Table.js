@@ -35,13 +35,12 @@ export default function BasicTable({ rows, convocatoryData }) {
 			axios.delete(`${PETITIONS.deleteConvocatory}${id}`);
 			setConvocatory(convocatory.filter((oneConvocatory) => oneConvocatory._id !== id));
 		} catch (error) {
-			console.log(error);
+			return error;
 		}
 	};
 
 	const [convocatoryId, setConvocatoryId] = useState(null);
 	const convocatoryDetail = (id) => {
-		console.log(id);
 		setConvocatoryId(id);
 	};
 
