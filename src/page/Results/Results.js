@@ -5,7 +5,7 @@ import MotivationLetterModal from "../../components/modals/MotivationLetterModal
 import results from "./Results.module.css"
 import AspirantsInfo from "../ApirantsInfo/Aspirantsinfo";
 
-const Results = ({data, user_id}) => {
+const Results = () => {
     const [results, setResults] = useState([]);
     const getResults = async () => {
         const { data } = await RequestService.get("/admin/results");
@@ -38,10 +38,10 @@ const Results = ({data, user_id}) => {
         }
         return color;
     };
-    const [userId, setuserId] = useState(null);
+    /* const [userId, setuserId] = useState(null);
     const UserDetail = (user_id) => {
         setuserId(user_id);
-    };
+    }; */
 
     const rows = results.map((result) => ({
 
@@ -74,8 +74,8 @@ const Results = ({data, user_id}) => {
         ),
         Info: (
         <div><a href='#convocatoria'>
-		<i className='far fa-eye' onClick={() => UserDetail(user_id)}></i></a>
-		<AspirantsInfo user_id={userId}/>
+		<i className='far fa-eye' ></i></a>
+		<AspirantsInfo/>
          </div>
 			
         ),

@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { PETITIONS } from '../../../requestUrl';
 import register from './Register.module.css';
 import programateacademycolor from '../../../dist/Assets/programateacademycolor.png';
-import programateacademycolorBN from '../../../dist/Assets/Programate-academy-negros.png';
+import programateacademycolorBN from '../../../dist/Assets/Programateacademynegros.png';
   
 import Spinner from "../auth/Spinner";
 import Swal from "sweetalert2";

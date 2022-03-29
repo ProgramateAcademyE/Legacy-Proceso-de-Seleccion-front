@@ -10,7 +10,7 @@ import auth from "./Auth.module.css";
 import { dispatchLogin } from "../../actions/authAction";
 import Spinner from "./Spinner";
 import programateacademycolor from '../../../dist/Assets/programateacademycolor.png';
-import programateacademycolorBN from '../../../dist/Assets/Programate-academy-negros.png';
+import programateacademycolorBN from '../../../dist/Assets/Programateacademynegros.png';
 
 import Swal from "sweetalert2";
 

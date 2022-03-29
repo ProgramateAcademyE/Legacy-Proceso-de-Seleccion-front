@@ -2,15 +2,17 @@ import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import AspirantConvView from "./AspirantConvView";
 import "./Aspirantconv.module.css"
+import { PETITIONS } from "../../../requestUrl";
 const AspirantConvocatorys = () => {
 
-    const [Aspirantconvocatories, setAspirantConvocatories] = useState([]);
-
+  const [Aspirantconvocatories, setAspirantConvocatories] = useState([]);
+  console.log(Aspirantconvocatories)
     useEffect(() => {
         try {
-          axios.get('http://localhost:3001/api/admin/convocatories', {
+          axios.get(`${PETITIONS.getConvocatories}`, {
           }).then(res => {
-            setAspirantConvocatories(res.data)
+           
+            setAspirantConvocatories(res)
           })
         } catch (error) {
           console.log (error)
