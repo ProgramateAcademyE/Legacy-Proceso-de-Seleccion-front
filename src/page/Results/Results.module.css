@@ -6,3 +6,7 @@
     margin: 3vw;
     padding: 47px 0px 267px 15px;
 }
+.MuiTableCell-alignRight {
+    text-align: center;
+    flex-direction: row-reverse;
+}

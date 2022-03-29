@@ -53,7 +53,9 @@ const AdministerTechnicalTest = () => {
 						Crear Prueba tecnica
 					</Link>
 				</div>
+				
 				<TableContainer>
+					<div className="Technical-test">
 					<Table aria-label='simple table'>
 						<TableHead>
 							<TableRow>
@@ -103,6 +105,7 @@ const AdministerTechnicalTest = () => {
 							))}
 						</TableBody>
 					</Table>
+			    </div>	
 				</TableContainer>
 			</div>
 			}

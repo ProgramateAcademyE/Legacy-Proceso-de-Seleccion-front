@@ -1,339 +1,383 @@
-import React from "react";
-import modalcss  from "./Modal.module.css";
 
-const ModalAspirants = (Data) => {
-let 
-{Primernombre,
-Segundonombre,
-Primerapellido,
-Segundoapellido,
-Tipodedocumento,
-Numerodedocumento,
-PDFdedocumento,
-Fotodeperfil,
-Fechadenacimiento,
-Edad,
-Sexo,
-Estadocivil,
-Correoelectronico,
-Telefonoprimario,
-Telefonoallterno,
-Paisdenacimiento,
-Paisderesidencia,
-Departamento,
-Municipio,
-Direccion,
-Localidad,
-Estrato,
-Tipodearea,
-PDFderecibo,
-Discapacidad,
-Ingresosfamiliares,
-Numerodeintegrantesdelhogar,
-Hijos,
-Poblacion,
-Accesoapc,
-Accesoainternet,
-Compañiadeinternet,
-Megas,
-Maximoestudioalcanzado,
-Título,
-PDFdelcertificadooacta,
-Situacionlaboral,
-Tiempodedesempleo,
-Personasdependeneconómicamente,
-Hatenidoempleoformal,
-Idiomanativo,
-Otroidioma,
-Niveldeidioma,
-Codigoperfilensololearn} = Data
+import modalcss from "./Modal.module.css";
+import  React from "react";
+
+const ModalAspirants = ({data}) => {
+
+let  {  
+            firstName,
+            secondName,
+            firstSurname,
+            secondSurname,
+            documentType,
+            documentNumber,
+            documentPdf,
+            age,
+            sex,
+            nacionality,
+            residencyDepartment,
+            municipalityOfResidency,
+            locationInBogota,
+            Stratum,
+            phone1,
+            phone2,
+            email,
+            dateOfBirth,
+            maritalStatus,
+            currentCountry,
+            address,
+            areaType,
+            billPdf,
+            disability,
+            pcAccess,
+            familyIncome,
+            householdMembers,
+            numberOfChildren,
+            internetCompany,
+            mbCount,
+            internetAccess,
+            vulnerablePopulation,
+            degreeTitle,
+            academicLevel,
+            studiesPdf,
+            cvPdf,
+            unemployementTime,
+            currentOccupation,
+            contractWorker,
+            householder,
+            firstLanguage,
+            secondLanguage,
+            languageLevel,
+            soloLearnProfile } 
+            = data
 
 
 
     return (
-        <div>
-            
-                <a href="#aspirante">
-                    <i className="far fa-eye"> </i>
-                </a>
         
-            <div id="aspirante" className="modalDialog">
-                <div className="content">
-                    <a href="#close" title="Close" className="close">
-                        X
-                    </a>
-                    <h2>Datos del estudiante</h2>
-                    <div className="row">
-                        <div className="col-12 col-md-6 d-flex align-item-left item">
-                            <p>
-                               {" Primer nombre:" + Primernombre}
-                            </p>
-                        </div>
-                        <div className="col-12 col-md-6 d-flex align-item-left">
-                            <p>
-                            {"Segundo nombre:" + Segundonombre}
-                            </p>
+        
+        <div>
+           
+              
+           <a href="#aspirante">
+                    <i className="far fa-eye"> </i>
+                </a><div id="aspirante" className="modalDialog">
+                        <div className="content">
+                            <a href="#close" title="Close" className="close">
+                                X
+                            </a>
+                            <h2>Datos del estudiante</h2>
+                            <div className="row">
+                                <div className="col-12 col-md-6 d-flex align-item-left item">
+                                    <p>
+                                        {" Primer nombre:" + 
+                                        firstName}
+                                    </p>
+                                </div>
+                                <div className="col-12 col-md-6 d-flex align-item-left">
+                                    <p>
+                                        {"Segundo nombre:" + 
+                                        secondName}
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="row mt-4">
+                                <div className="col-12 col-md-6 d-flex align-item-left item">
+                                    <p>
+                                        {" Primer Apellido:" + 
+                                        firstSurname}
+                                    </p>
+                                </div>
+                                <div className="col-12 col-md-6">
+                                    <p>
+                                        {"Segundo Apellido:" + 
+                                        secondSurname}
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="row mt-4">
+                                <div className="col-12 col-md-6">
+                                    <p>
+                                        {"Tipo de Docuemnto:" + 
+                                        documentType}
+                                    </p>
+                                </div>
+                                <div className="col-12 col-md-6">
+                                    <p>
+                                        {"Numero de documento:" + 
+                                        documentNumber}
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="row mt-4">
+                                <div className="col-12 col-md-6">
+                                    <p>
+                                        {"Pdf de el Documento:" + 
+                                        documentPdf}
+                                    </p>
+                                </div>
+                                <div className="col-12 col-md-6">
+                                    <p>
+                                        {"Edad:" + 
+                                        age}
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="row mt-4">
+                                <div className="col-12 col-md-6">
+                                    <p>
+                                        {"Sexo:" + 
+                                        sex}
+                                    </p>
+                                </div>
+                                <div className="col-12 col-md-6">
+                                    <p>
+                                        {"Nacionalidad:" + 
+                                        nacionality}
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="row mt-4">
+                                <div className="col-12 col-md-6">
+                                    <p>
+                                        {"Departamento de residencia:" + 
+                                        residencyDepartment}
+                                    </p>
+                                </div>
+                                <div className="col-12 col-md-6">
+                                    <p>
+                                        {"Municipio de residencia:" + 
+                                        municipalityOfResidency}
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="row mt-4">
+                                <div className="col-12 col-md-6">
+                                    <p>
+                                        {"Locacion en bogota:" + 
+                                        locationInBogota}
+                                    </p>
+                                </div>
+                                <div className="col-12 col-md-6">
+                                    <p>
+                                        {"Estrato:" + 
+                                        Stratum}
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="row mt-4">
+                                <div className="col-12 col-md-6">
+                                    <p>
+                                        {"Telefono 1:" + 
+                                        phone1}
+                                    </p>
+                                </div>
+                                <div className="col-12 col-md-6">
+                                    <p> {"Telefono Alterno:" + 
+                                    phone2}
+
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="row mt-4">
+                                <div className="col-12 col-md-6">
+                                    <p>
+                                        {"Email:" + 
+                                        email}
+                                    </p>
+                                </div>
+                                <div className="col-12 col-md-6">
+                                    <p>
+                                        {"Fecha de Nacimiento:" + 
+                                        dateOfBirth}
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="row mt-4">
+                                <div className="col-12 col-md-6">
+                                    <p>
+                                        {"Estado civil:" + 
+                                        maritalStatus}
+                                    </p>
+                                </div>
+                                <div className="col-12 col-md-6">
+                                    <p>
+                                        {"Pais de Residencia:" + 
+                                        currentCountry}
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="row mt-4">
+                                <div className="col-12 col-md-6">
+                                    <p>
+                                        {"Direccion:" + 
+                                        address}
+                                    </p>
+                                </div>
+                                <div className="col-12 col-md-6">
+                                    <p>
+                                        {"Tipo de area:" + 
+                                        areaType}
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="row mt-4">
+                                <div className="col-12 col-md-6">
+                                    <p>
+                                        {"Pdf de recibo:" + 
+                                        billPdf}
+                                    </p>
+                                </div>
+                                <div className="col-12 col-md-6">
+                                    <p>
+                                        {"Discapacidad:" + 
+                                        disability}
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="row mt-4">
+                                <div className="col-12 col-md-6">
+                                    <p>
+                                        {"Personas dependientes Economicamentes:" + 
+                                        householder}
+                                    </p>
+                                </div>
+                                <div className="col-12 col-md-6">
+                                    <p>
+                                        {"Ingresos Familiarias:" + 
+                                        familyIncome}
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="row mt-4">
+                                <div className="col-12 col-md-6">
+                                    <p>
+                                        {"N de personas dependientes:" + 
+                                        householdMembers}
+                                    </p>
+                                </div>
+                                <div className="col-12 col-md-6">
+                                    <p>
+                                        {"Hijos:" + 
+                                        numberOfChildren}
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="row mt-4">
+                                <div className="col-12 col-md-6">
+                                    <p>
+                                        {"Compañia de internet:" + 
+                                        internetCompany}
+                                    </p>
+                                </div>
+                                <div className="col-12 col-md-6">
+                                    <p>
+                                        {"Cantidad de Megas:" + 
+                                        mbCount}
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="row mt-4">
+                                <div className="col-12 col-md-6">
+                                    <p>
+                                        {"Acceso a Internet:" + 
+                                        internetAccess}
+                                    </p>
+                                </div>
+                                <div className="col-12 col-md-6">
+                                    <p>
+                                        {"Tipo de poblacion:" + 
+                                        vulnerablePopulation}
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="row mt-4">
+                                <div className="col-12 col-md-6">
+                                    <p>
+                                        {"Titulo:" + 
+                                        degreeTitle}
+                                    </p>
+                                </div>
+                                <div className="col-12 col-md-6">
+                                    <p>
+                                        {"Maximo Estudio alcanzado:" + 
+                                        academicLevel}
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="col-12 col-md-6">
+                                <p>
+                                    {"Pdf de el titulo:" + 
+                                    studiesPdf}
+                                </p>
+                            </div>
+                            <div className="row mt-4">
+                                <div className="col-12 col-md-6">
+                                    <p>
+                                        {"Hoja de vida:" + 
+                                        cvPdf}
+                                    </p>
+                                </div>
+                                <div className="col-12 col-md-6">
+                                    <p>
+                                        {"Situacion Laboral:" + 
+                                        currentOccupation}
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="row mt-4">
+                                <div className="col-12 col-md-6">
+                                    <p>
+                                        {"Tiempo de deseempleo:" + 
+                                        unemployementTime}
+                                    </p>
+                                </div>
+                                <div className="col-12 col-md-6">
+                                    <p>
+                                        {"?:" + 
+                                        contractWorker}
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="row mt-4">
+                                <div className="col-12 col-md-6">
+                                    <p>
+                                        {"Acceso a pc:" + 
+                                        pcAccess}
+                                    </p>
+                                </div>
+                                <div className="col-12 col-md-6">
+                                    <p>
+                                        {"Lenguaje Nativo:" + 
+                                        firstLanguage}
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="row mt-4">
+                                <div className="col-12 col-md-6">
+                                    <p>
+                                        {"Otro idioma:" + 
+                                        secondLanguage}
+                                    </p>
+                                </div>
+                                <div className="col-12 col-md-6">
+                                    <p>
+                                        {"Nivel de el idioma:" + 
+                                        languageLevel}
+                                    </p>
+                                </div>
+                            </div>
+                            <div className="row mt-4">
+                                <div className="col-12 col-md-6">
+                                    <p>
+                                        {"Perfil de soloLearn:" + 
+                                        soloLearnProfile}
+                                    </p>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                    <div className="row mt-4">
-                        <div className="col-12 col-md-6 d-flex align-item-left item">
-                            <p>
-                            {" Primer Apellido:" + Primerapellido}
-                            </p>
-                        </div>
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Segundo Apellido:" + Segundoapellido}
-                            </p>
-                        </div>
-                    </div>
-                    <div className="row mt-4">
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Tipo de Docuemnto:" + Tipodedocumento}
-                            </p>
-                        </div>
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Numero de documento:" + Numerodedocumento}
-                            </p>
-                        </div>
-                    </div>
-                    <div className="row mt-4">
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Pdf de el Documento:" + PDFdedocumento}                           
-                            </p>
-                        </div>
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Foto de perfil:" + Fotodeperfil}
-                            </p>
-                        </div>
-                    </div>
-                    <div className="row mt-4">
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Fecha de nacimiento:" + Fechadenacimiento}
-                            </p>
-                        </div>
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Edad:" + Edad}
-                            </p>
-                        </div>
-                    </div>
-                    <div className="row mt-4">
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Sexo:" + Sexo}
-                            </p>
-                        </div>
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Estado Civil:" + Estadocivil}
-                            </p>
-                        </div>
-                    </div>
-                    <div className="row mt-4">
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Email:" + Correoelectronico}
-                            </p>
-                        </div>
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Telefono Primario:" + Telefonoprimario}
-                            </p>
-                        </div>
-                    </div>
-                    <div className="row mt-4">
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Telefono Alterno:" + Telefonoallterno}
-                            </p>
-                        </div>
-                        <div className="col-12 col-md-6">
-                            <p> {"Pais de Nacimiento:" + Paisdenacimiento}
-                            
-                            </p>
-                        </div>
-                    </div>
-                    <div className="row mt-4">
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Pais de residencia:" + Paisderesidencia}
-                            </p>
-                        </div>
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Departamento:" + Departamento}
-                            </p>
-                        </div>
-                    </div>
-                    <div className="row mt-4">
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Municipio:" + Municipio}
-                            </p>
-                        </div>
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Direccion" + Direccion}
-                            </p>
-                        </div>
-                    </div>
-                    <div className="row mt-4">
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Localidad:" + Localidad}
-                            </p>
-                        </div>
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Estrato" + Estrato}
-                            </p>
-                        </div>
-                    </div>
-                    <div className="row mt-4">
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Tipo De Area:" + Tipodearea}
-                            </p>
-                        </div>
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Pdf de recibo:" + PDFderecibo}
-                            </p>
-                        </div>
-                    </div>
-                    <div className="row mt-4">
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Discapacidad:" + Discapacidad}
-                            </p>
-                        </div>
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Ingresos Familiarias:" + Ingresosfamiliares}
-                            </p>
-                        </div>
-                    </div>
-                    <div className="row mt-4">
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Numero de integrantes de el hogar:" + Numerodeintegrantesdelhogar}
-                            </p>
-                        </div>
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Hijos:" + Hijos}
-                            </p>
-                        </div>
-                    </div>
-                    <div className="row mt-4">
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Poblacion:" + Poblacion}
-                            </p>
-                        </div>
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Acceso a PC:" + Accesoapc}
-                            </p>
-                        </div>
-                    </div>
-                    <div className="row mt-4">
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Acceso a Internet:" + Accesoainternet}
-                            </p>
-                        </div>
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Compañia de internet:" + Compañiadeinternet}
-                            </p>
-                        </div>
-                    </div>
-                    <div className="row mt-4">
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Megas:" + Megas}
-                            </p>
-                        </div>
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Maximo Estudio alcanzado:" + Maximoestudioalcanzado}
-                            </p>
-                        </div>
-                    </div>
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Titulo:" + Título}
-                            </p>
-                        </div>
-                    <div className="row mt-4">
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Certificado De Acta:" + PDFdelcertificadooacta}
-                            </p>
-                        </div>
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Titulo:" + Título}
-                            </p>
-                        </div>
-                    </div>
-                    <div className="row mt-4">
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Situacion Laboral:" + Situacionlaboral}
-                            </p>
-                        </div>
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Tiempo de desempleo:" + Tiempodedesempleo}
-                            </p>
-                        </div>
-                    </div>
-                    <div className="row mt-4">
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Personas dependientes Economicamentes:" + Personasdependeneconómicamente}
-                            </p>
-                        </div>
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Ha tenido Empleo:" + Hatenidoempleoformal}
-                            </p>
-                        </div>
-                    </div>    
-                    <div className="row mt-4">  
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Idioma Nativo:" + Idiomanativo}
-                            </p>
-                        </div>
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Otro Idioma:" + Otroidioma}
-                            </p>
-                        </div>
-                    </div> 
-                    <div className="row mt-4">   
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Niveldeidioma:" + Niveldeidioma}
-                            </p>
-                        </div>
-                        <div className="col-12 col-md-6">
-                            <p>
-                            {"Codigoperfilensololearn:" + Codigoperfilensololearn}
-                            </p>
-                        </div>
-                     </div>
-                </div>
-            </div>
+
         </div>
     );
 };

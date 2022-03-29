@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { PETITIONS } from "../../../requestUrl";
 import axios from "axios";
-
+import  "./TechTest.css"
 import { useQuery } from "../../components/useQuery/useQuery";
 import { getOneTest } from "../../helpers/TechTestHelper";
 import FormTechTest from "./FormTechTest";
@@ -31,7 +31,7 @@ const AdministerTechnicalTestAdd = () => {
 	console.log(convocatory?.length <= 0)
 
 	return (
-		<div style={{ margin: "165px auto" }}>
+		<div className="FormTechTest" >
 			{data !== undefined && idTest ? (
 				<FormTechTest query={idTest} data={data} convocatory={convocatory} />
 			) : null}

@@ -76,24 +76,15 @@ const App = () => {
             <>
               <Route path="/dashboard" component={DashboardAdmin} />
               <Route path="/users" component={ListOfUsers}/>
-
               <Route path="/dia-de-entrevista" component={InterviewDays} />
               <Route path="/calendario"><InterviewDay /></Route>
               <Route path="/convocatoria" component={Convocatory} />
-
               <Route path="/nuevacohorte" component={NewCohort} />
               <Route path="/editarcohorte" component={NewCohort} />
-              <Route path="/aspirantes" component={Aspirants} />
-              <Route path="/convocatorias-aspirantes" component={ConvocatoryAspirants} />
-              
+              <Route path="/aspirantes" component={Aspirants} /> 
               <Route path="/prueba" component={AdministerTechnicalTest} />
               <Route path="/agregar" component={AddTechTest}/>
               <Route path="/editarprueba" component={AddTechTest}/>
-<<<<<<< HEAD
-              <Route path="/calificar" component={QualifyTechnicalTest} />
-              <Route path="/citaciones" component={Citations} />
-              <Route path="/nuevacitacion" component={NewCitation} />
-=======
               <Route path="/citation" component={Citations} />
 
               <Route path="/calificacion-sololearn" component={QualifySololearn} />
@@ -102,7 +93,6 @@ const App = () => {
               <Route path="/calificacion-entrevista" component={QualifyInterview} />
               <Route path="/calificacion-assessment" component={QualifyAssessment} />
 
->>>>>>> 168ba48b60bf31c4245695069eaaa34d61ae89e0
               <Route path="/register-admin" component={RegisterAdmin} />
               {/* <Route path="/inscripcion" component={Inscription} /> */}
               {/* <Route

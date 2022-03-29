@@ -12,7 +12,9 @@ export const ITEMS = [
             { name:" Administrador de Usuarios",
               pathname: "/Users"
 
-            }
+            },
+            { name:"Agregar Administradores",
+              pathname: "/register-admin"}
         ],
        
     },
@@ -79,7 +81,11 @@ export const ITEMS = [
             },
             {
                 name: "Carta de Motivacion",
+<<<<<<< HEAD
                 pathname: "/calificacion-carta-motivacional",
+=======
+                pathname: "/motivationLetter",
+>>>>>>> 4cff62c7b1d5470a9b9f9bef4258587a3b18ca8b
             },
             {
                 name: "Prueba Tecnica",
@@ -115,11 +121,26 @@ export const ITEMS_ASPIRANTS = [
         id: 9,
     },
     {
+        name: "Aplicar a la convocatoria",
+        icon: "fas fa-map-marker-alt",
+        items: [],
+        pathname: "/Convocatoriasaspirante",
+        id: 10,
+    },
+    {
+        name: "Formulario de inscripcion",
+        icon: "fas fa-map-marker-alt",
+        items: [],
+        pathname: "/inscripcion",
+        id: 10,
+    },
+
+    {
         name: "Prueba Técnica",
         icon: "fas fa-laptop-code",
         items: [],
         pathname: "/aspirante",
-        id: 10,
+        id: 11,
     },
 ];
 

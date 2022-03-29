@@ -3,8 +3,7 @@ import GeneralTable from "../../components/tablita/GeneralTable";
 import RequestService from "../../config/index";
 import MotivationLetterModal from "../../components/modals/MotivationLetterModal";
 import results from "./Results.module.css"
-import ModalAspirants from "../../components/modals/ModalAspirants"
-
+import AspirantsInfo from "../ApirantsInfo/Aspirantsinfo";
 
 const Results = () => {
     const [results, setResults] = useState([]);
@@ -37,7 +36,6 @@ const Results = () => {
         } else {
             color = "#23631F";
         }
-        console.log(color);
         return color;
     };
 
@@ -57,6 +55,8 @@ const Results = () => {
                     background: checkScoreColor(result.finalScore),
                     width: "20px",
                     height: "20px",
+                    display: "flex",
+                    justifyContent: "center",
                 }}
             >
                 {result.finalScore}
@@ -69,7 +69,7 @@ const Results = () => {
             </select>
         ),
         Info: (
-         <ModalAspirants/>
+         <AspirantsInfo/>
         ),
     }));
 

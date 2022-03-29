@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from 'axios';
 import AspirantConvView from "./AspirantConvView";
-
+import "./Aspirantconv.module.css"
 const AspirantConvocatorys = () => {
 
     const [Aspirantconvocatories, setAspirantConvocatories] = useState([]);
@@ -16,14 +16,15 @@ const AspirantConvocatorys = () => {
           console.log (error)
         }
       }, 
-      [setAspirantConvocatories])
+      [])
 return(
         
             <>
             {Aspirantconvocatories.map ((info) => (
               <AspirantConvView
               key= {info._id}
-              data = {info} />
+              data = {info} 
+              />
              
             ))};
           
