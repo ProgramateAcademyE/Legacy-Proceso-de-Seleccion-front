@@ -2,13 +2,6 @@ import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import convocatorycss from "./Convocatory.module.css";
 
 const ConvocatoryAspirants = () => {
   const [convAsp, setConvAsp] = useState([]);
@@ -59,5 +52,4 @@ const ConvocatoryAspirants = () => {
     </>
   );
 };
-
 export default ConvocatoryAspirants;

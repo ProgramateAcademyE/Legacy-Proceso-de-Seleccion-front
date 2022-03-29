@@ -8,7 +8,6 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Search from '../search/Search';
 import axios from 'axios';
-
 import { PETITIONS } from '../../../requestUrl';
 
 const User = (props) => {
@@ -71,5 +70,4 @@ const User = (props) => {
     </TableContainer>
   </div>
 }
-
 export default User
