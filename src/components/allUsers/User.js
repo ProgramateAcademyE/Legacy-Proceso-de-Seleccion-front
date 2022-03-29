@@ -71,5 +71,4 @@ const User = (props) => {
     </TableContainer>
   </div>
 }
-
 export default User
