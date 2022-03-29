@@ -13,7 +13,7 @@ const ListOfUsers = () => {
   useEffect(() => {
     async function fetchData() {
       const { data } = await axios.get(
-        "http://localhost:3001/api/user/all_info/",
+        "http://localhost:3001/api/user/all_info/:page",
         {
           headers: { Authorization: token },
         }
