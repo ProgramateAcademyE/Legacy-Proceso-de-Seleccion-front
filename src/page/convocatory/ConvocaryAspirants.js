@@ -29,7 +29,7 @@ const ConvocatoryAspirants = () => {
         }
       );
 
-      setApirantsConvocatory(data.users);
+      setApirantsConvocatory(data.profiles);
     }
     fetchData();
   }, []);
