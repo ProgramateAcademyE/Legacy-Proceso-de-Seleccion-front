@@ -1,30 +1,39 @@
-/* import React, { useEffect, useState } from "react";
 
-import RequestService from "../../config/index";
+import  React,{ useState, useEffect } from "react";
+import axios from "axios";
+import { PETITIONS } from "../../../requestUrl";
+import ModalAspirants from "../../components/modals/ModalAspirants"
+
 
 const AspirantsInfo= () => {
     const [Aspirants, setAspirants] = useState([]);
-    const getInfo = async () => {
-        const { data } = await RequestService.get("");
-        if (data) {
-            setAspirants(data.data);
-        }
-    };
+    
+    console.log(Aspirants)
     useEffect(() => {
-        getInfo();
-    }, []);
+      try {
+        axios.get (`${PETITIONS.GetAnswersFromForm}`, {
+        }).then((res) => {
+         
+          setAspirants(res.data)
+        })
+      } catch (error) {
+        return (error)
+      }
+    }, 
+    [])
+    
 
     return (
         <div>
           {Aspirants.map((Aspirant) => (
-            <Modal
-              key={Aspirant.id}
-              data ={Aspirant.data}
+          <ModalAspirants
+          
+          key={Aspirant.user_id}
+          data = {Aspirant}
+          />
 
-            />
           ))}
-          ;
         </div>
       );
     };
-   export default AspirantsInfo; */
+   export default AspirantsInfo; 

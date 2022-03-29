@@ -1,10 +1,6 @@
 import React, { useEffect, useState } from "react";
 import Table from "../../components/tablita/Table";
 import NewConvocatory from "../../components/newConvocatory/NewConvocatory";
-import DisableBtn from "../../components/disableBtn/DisableBtn";
-import RequestService from "../../config/index";
-import ModalConvocatory from "../../components/modals/ModalConvocatory";
-import { Link } from "react-router-dom";
 import convocatorycss from "./Convocatory.module.css";
 import { PETITIONS } from "../../../requestUrl";
 

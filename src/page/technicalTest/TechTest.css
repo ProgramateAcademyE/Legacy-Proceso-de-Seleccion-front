@@ -9,3 +9,12 @@
   align-items: center;
   justify-content: center;
 }
+
+.FormTechTest {
+  margin: 165px auto;
+  background: white;
+  padding: 2vw;
+  border-radius: 2em;
+  box-shadow: 5px 2px 1px -1px,
+  
+}

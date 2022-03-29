@@ -12,7 +12,9 @@ export const ITEMS = [
             { name:" Administrador de Usuarios",
               pathname: "/Users"
 
-            }
+            },
+            { name:"Agregar Administradores",
+              pathname: "/register-admin"}
         ],
        
     },
@@ -58,8 +60,8 @@ export const ITEMS = [
         id: 4,
         items: [
             {
-                name: "Consolidado Postulantes",
-                pathname: "/citation",
+                name: "Citaciones",
+                pathname: "/citaciones",
             },
             {
                 name: "Dias de Entrevista",
@@ -79,7 +81,7 @@ export const ITEMS = [
             },
             {
                 name: "Carta de Motivacion",
-                pathname: "/calificacion-carta-motivacional",
+                pathname: "/motivationLetter",
             },
             {
                 name: "Prueba Tecnica",
@@ -109,17 +111,32 @@ export const ITEMS_ASPIRANTS = [
 
     {
         name: "Agenda de Entrevista y assessment",
-        icon: "fas fa-map-marker-alt",
+        icon: "fa fa-calendar-plus",
         items: [],
         pathname: "/entrevista",
         id: 9,
     },
     {
+        name: "Aplicar a la convocatoria",
+        icon: "fa fa-bullhorn",
+        items: [],
+        pathname: "/Convocatoriasaspirante",
+        id: 10,
+    },
+    {
+        name: "Formulario de inscripcion",
+        icon: "far fa-file-alt",
+        items: [],
+        pathname: "/inscripcion",
+        id: 11,
+    },
+
+    {
         name: "Prueba Técnica",
         icon: "fas fa-laptop-code",
         items: [],
         pathname: "/aspirante",
-        id: 10,
+        id: 12,
     },
 ];
 

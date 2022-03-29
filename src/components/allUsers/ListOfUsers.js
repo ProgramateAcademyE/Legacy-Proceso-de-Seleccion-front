@@ -3,6 +3,7 @@ import { useSelector } from 'react-redux'
 import User from './User'
 import axios from 'axios';
 
+import usercss from "./User.module.css";
 
 const ListOfUsers = () => {
   const [users, setUsers] = useState([]);
@@ -12,7 +13,7 @@ const ListOfUsers = () => {
   useEffect(() => {
     async function fetchData() {
       const { data } = await axios.get(
-        "http://localhost:3001/api/user/all_info/:page",
+        "http://localhost:3001/api/user/all_info/",
         {
           headers: { Authorization: token },
         }

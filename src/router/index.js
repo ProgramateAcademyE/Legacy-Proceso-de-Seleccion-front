@@ -21,13 +21,14 @@ import LoginFull from "../components/auth/LoginFull";
 import WaitingList from "../page/waitingList/WaitingList";
 import { useDispatch, useSelector } from "react-redux";
 import Citations from "../page/citations/Citations";
+import NewCitation from "../components/citation/newCitation/NewCitation";
 import InterviewDays from "../page/interviewDays/InterviewDays";
 import Footer from "../components/footer/Footer";
 import { getData } from "../actions/sololearnProfile";
 import SelectionResults from "../page/selection/SelectionResults";
 import Verify from "../components/verify/Verify";
 import RegisterAdmin from "../components/register/RegisterAdmin";
-
+import WhatsAppButton from "../components/Whatsapp Button/whatsAppButton";
 import Register from "../components/register/Register";
 import ListOfUsers from "../components/allUsers/ListOfUsers";
 import AspirantConvocatorys from "../page/Aspirant Convocatory/AspirantConvocatory";
@@ -38,6 +39,8 @@ import QualifySololearn from "../page/Qualification/QualifySoloLearn";
 import QualifyMotivationLetter from "../page/Qualification/QualifyMotivationLetter";
 import QualifyInterview from "../page/Qualification/QualifyInterview";
 import ConvocatoryAspirants from "../page/convocatory/ConvocaryAspirants";
+
+
 
 const App = () => {
   const auth = useSelector((state) => state.auth);
@@ -73,20 +76,21 @@ const App = () => {
             <>
               <Route path="/dashboard" component={DashboardAdmin} />
               <Route path="/users" component={ListOfUsers}/>
-
               <Route path="/dia-de-entrevista" component={InterviewDays} />
               <Route path="/calendario"><InterviewDay /></Route>
               <Route path="/convocatoria" component={Convocatory} />
-
               <Route path="/nuevacohorte" component={NewCohort} />
               <Route path="/editarcohorte" component={NewCohort} />
-              <Route path="/aspirantes" component={Aspirants} />
               <Route path="/convocatorias-aspirantes" component={ConvocatoryAspirants} />
               
+              <Route path="/citation" component={Citations} />
+              <Route path="/aspirantes" component={Aspirants} /> 
               <Route path="/prueba" component={AdministerTechnicalTest} />
               <Route path="/agregar" component={AddTechTest}/>
               <Route path="/editarprueba" component={AddTechTest}/>
-              <Route path="/citation" component={Citations} />
+              <Route path="/citaciones" component={Citations} />
+              <Route path="/nuevacitacion" component={NewCitation} />
+
 
               <Route path="/calificacion-sololearn" component={QualifySololearn} />
               <Route path="/calificacion-carta-motivacional" component={QualifyMotivationLetter} />
@@ -102,7 +106,7 @@ const App = () => {
                 /> */}
               <Route path="/InfoAspirants" component={Results} />
               <Route path="/waiting-list" component={WaitingList} />
-              <Route path="/motivationLetter" component={MotivationLetter} />
+              {/* <Route path="/motivationLetter" component={MotivationLetter} /> */}
               <Route path="/parameterization" component={Parameterization} />
               <Route path="/selection-results" component={SelectionResults} />
             </>
@@ -116,6 +120,7 @@ const App = () => {
               <Route exact path="/Convocatoriasaspirante" component={AspirantConvocatorys}/>
               <Route exact path="/aspirante" component={ProofAspirant} />
               <Route exact path="/dashboard" component={DashboardAspirant} />
+              <WhatsAppButton/>
             </>
           )}
         </Switch>

@@ -8,6 +8,8 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Search from '../search/Search';
 import axios from 'axios';
+import Usercss from "./User.module.css"
+
 import { PETITIONS } from '../../../requestUrl';
 
 const User = (props) => {
@@ -29,8 +31,10 @@ const User = (props) => {
       return error
     }
   }
-  return <div className='mt-5'>
-      <Search/>
+  return (
+      <div className='User_list'>
+      <div className='Search_boxUser'><Search/></div>
+      
       <TableContainer>
       <Table aria-label='simple table'>
         <TableHead>
@@ -69,5 +73,6 @@ const User = (props) => {
       </Table>
     </TableContainer>
   </div>
+  )
 }
 export default User

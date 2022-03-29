@@ -40,12 +40,12 @@ export default function GeneralTable({ rows, actions = false }) {
                     <TableHead>
                         <TableRow>
                             {header.map((row, index) => (
-                                <TableCell key={index} align="right">
+                                <TableCell key={index} align="center">
                                     {row}
                                 </TableCell>
                             ))}
                             {actions && (
-                                <TableCell align="right">Acciones</TableCell>
+                                <TableCell align="center">Acciones</TableCell>
                             )}
                         </TableRow>
                     </TableHead>
@@ -53,11 +53,11 @@ export default function GeneralTable({ rows, actions = false }) {
                         {rows.map((prop) => (
                             <TableRow key={prop.id}>
                                 {header.map((row, index) => (
-                                    <TableCell key={index} align="right">
+                                    <TableCell key={index} align="center">
                                         {prop[row]}
                                     </TableCell>
                                 ))}
-                                <TableCell align="right">
+                                <TableCell align="center">
                                     {actions &&
                                         actions.map((action, index) =>
                                             action.status ? (

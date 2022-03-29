@@ -35,58 +35,29 @@ return ["Información Personal", "Datos sociodemográficos", "Información labor
 }
 
 function getStepContent(step) {
-  const [data, setData] = useState(initialData);
   const dispatch = useDispatch();
   const history = useHistory();
+  const [data, setData] = useState();
 
-  const handeleChange = (e) => {
-    const { name, value } = e.target;
-    setData({
-      ...data,
-      [name]: value,
-    });
-  };
-
-  const {
-    firstName,
-    documentType,
-    documentNumber,
-    email,
-    phone,
-    soloLearnProfile,
-    dreams,
-    motivation,
-  } = data;
+  const setDataToForm = (allValues) => {
+    setData({...data, ...allValues})
+  }
 
   const { user } = useSelector((state) => state.auth);
 
+  console.log(user)
   const sendData = async () => {
-    // Validation
-    if (
-      firstName.trim() === "" ||
-      documentType.trim() === "" ||
-      documentNumber.trim() === "" ||
-      email.trim() === "" ||
-      phone.trim() === "" ||
-      soloLearnProfile.trim() === "" ||
-      dreams.trim() === "" ||
-      motivation.trim() === ""
-    ) 
-    {return Swal.fire("Error", "Te quedaron campos vacios", "error");}
-
     try {
-        const res = await axios.post('http://localhost:3001/api/candidate/profile',
-        {...data, user_id : user?.id})
-        console.log('Aca lo envia', res)
+      axios.post('http://localhost:3001/api/candidate/profile', {...data, user_id : user?._id})
     } catch (error) {
-        console.log(error)
+      return(error)
     }
 
-    dispatch(getProfileFull(user.id))
-    dispatch(getData(user.id))
+    dispatch(getProfileFull(user._id))
+    dispatch(getData(user._id))
 
     Swal.fire({
-      position: "top-end",
+      position: "center-center",
       icon: "success",
       title: "Enviado correctamente",
       showConfirmButton: false,
@@ -95,9 +66,20 @@ function getStepContent(step) {
     history.push("/dashboard");
   };
 
-  const props = { data, handeleChange };
+  const [myStep, setMyStep] = useState(0)
 
-  switch (step) {
+  const myNext = () => {
+    setMyStep(myStep < 3 ? myStep + 1 : myStep)
+  }
+
+  const myPrev = () => {
+    setMyStep(myStep >= 0 ? myStep - 1 : myStep)
+    console.log(myStep)
+  }
+  const props = { data, setDataToForm, myNext, myPrev };
+
+
+  switch (myStep) {
     case 0:
       return <Step1 {...props} />;
     case 1:
@@ -109,7 +91,7 @@ function getStepContent(step) {
           <button
             className="btn btn-primary send-data"
             type="submit"
-            onClick={() => sendData()}
+            onClick={sendData}
           >
             Enviar
           </button>

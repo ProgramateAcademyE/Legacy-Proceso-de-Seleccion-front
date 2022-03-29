@@ -3,10 +3,9 @@ import GeneralTable from "../../components/tablita/GeneralTable";
 import RequestService from "../../config/index";
 import MotivationLetterModal from "../../components/modals/MotivationLetterModal";
 import results from "./Results.module.css"
-import ModalAspirants from "../../components/modals/ModalAspirants"
+import AspirantsInfo from "../ApirantsInfo/Aspirantsinfo";
 
-
-const Results = () => {
+const Results = ({data, user_id}) => {
     const [results, setResults] = useState([]);
     const getResults = async () => {
         const { data } = await RequestService.get("/admin/results");
@@ -37,26 +36,31 @@ const Results = () => {
         } else {
             color = "#23631F";
         }
-        console.log(color);
         return color;
+    };
+    const [userId, setuserId] = useState(null);
+    const UserDetail = (user_id) => {
+        setuserId(user_id);
     };
 
     const rows = results.map((result) => ({
-        
+
         Nombre: result.userFullName,
         Sololearn: result.soloLearnScore,
         "Perfil Personal": result.personalProfileScore,
         Motivación: result.motivationScore,
-        "Promedio 1era Fase": result.promedioprimerafase, 
-        "Prueba Tecnica": result.pruebatecnica, 
+        "Promedio 1era Fase": result.promedioprimerafase,
+        "Prueba Tecnica": result.pruebatecnica,
         Entrevista: result.Enrevista,
-        Assesment: result.Assesnment, 
+        Assesment: result.Assesnment,
         "Promedio 2da Fase": (
             <div
                 style={{
                     background: checkScoreColor(result.finalScore),
                     width: "20px",
                     height: "20px",
+                    display: "flex",
+                    justifyContent: "center",
                 }}
             >
                 {result.finalScore}
@@ -69,7 +73,11 @@ const Results = () => {
             </select>
         ),
         Info: (
-         <ModalAspirants/>
+        <div><a href='#convocatoria'>
+		<i className='far fa-eye' onClick={() => UserDetail(user_id)}></i></a>
+		<AspirantsInfo user_id={userId}/>
+         </div>
+			
         ),
     }));
 
