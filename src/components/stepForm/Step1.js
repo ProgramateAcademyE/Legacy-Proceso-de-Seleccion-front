@@ -340,7 +340,7 @@ const Step1 = ({ data, setDataToForm, myNext, myPrev }) => {
 								/>
 							</div>
 						</div>
-						<button onClick={myPrev}>
+						<button className="btn btn-success" onClick={myPrev}>
 							Back
 						</button>
 						<Field type="submit" value="next"/>

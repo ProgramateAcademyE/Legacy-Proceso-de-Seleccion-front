@@ -10,7 +10,7 @@ import DashboardAspirant from "../page/dasborardAspirant/DashboardAspirant";
 import DashboardAdmin from "../page/dashboardAdmin/DashboardAdmin";
 import AdministerTechnicalTest from "../page/technicalTest/AdministerTechnicalTest";
 import AddTechTest from "../page/technicalTest/AddTechTest";
-import QualifyTechnicalTest from "../page/technicalTest/QualifyTechnicalTest";
+import QualifyTechnicalTest from "../page/Qualification/QualifyTechnicalTest";
 import Results from "../page/Results/Results";
 import FormInscription from "../page/formAspirant/FormInscription";
 import InterviewAspirant from "../page/interviewAspirant/InterviewAspirant";
@@ -28,12 +28,17 @@ import { getData } from "../actions/sololearnProfile";
 import SelectionResults from "../page/selection/SelectionResults";
 import Verify from "../components/verify/Verify";
 import RegisterAdmin from "../components/register/RegisterAdmin";
-
+import WhatsAppButton from "../components/Whatsapp Button/whatsAppButton";
 import Register from "../components/register/Register";
 import ListOfUsers from "../components/allUsers/ListOfUsers";
 import AspirantConvocatorys from "../page/Aspirant Convocatory/AspirantConvocatory";
 
 import './style.css'
+import QualifyAssessment from "../page/Qualification/QualifyAssessment";
+import QualifySololearn from "../page/Qualification/QualifySoloLearn";
+import QualifyMotivationLetter from "../page/Qualification/QualifyMotivationLetter";
+import QualifyInterview from "../page/Qualification/QualifyInterview";
+import ConvocatoryAspirants from "../page/convocatory/ConvocaryAspirants";
 
 
 
@@ -71,21 +76,25 @@ const App = () => {
             <>
               <Route path="/dashboard" component={DashboardAdmin} />
               <Route path="/users" component={ListOfUsers}/>
-
               <Route path="/dia-de-entrevista" component={InterviewDays} />
               <Route path="/calendario"><InterviewDay /></Route>
               <Route path="/convocatoria" component={Convocatory} />
-
               <Route path="/nuevacohorte" component={NewCohort} />
               <Route path="/editarcohorte" component={NewCohort} />
               <Route path="/aspirantes" component={Aspirants} />
+              <Route path="/convocatorias-aspirantes" component={ConvocatoryAspirants} />
               
               <Route path="/prueba" component={AdministerTechnicalTest} />
               <Route path="/agregar" component={AddTechTest}/>
               <Route path="/editarprueba" component={AddTechTest}/>
-              <Route path="/calificar" component={QualifyTechnicalTest} />
-              <Route path="/citaciones" component={Citations} />
-              <Route path="/nuevacitacion" component={NewCitation} />
+              <Route path="/citation" component={Citations} />
+
+              <Route path="/calificacion-sololearn" component={QualifySololearn} />
+              <Route path="/calificacion-carta-motivacional" component={QualifyMotivationLetter} />
+              <Route path="/calificacion-prueba-tecnica" component={QualifyTechnicalTest} />
+              <Route path="/calificacion-entrevista" component={QualifyInterview} />
+              <Route path="/calificacion-assessment" component={QualifyAssessment} />
+
               <Route path="/register-admin" component={RegisterAdmin} />
               {/* <Route path="/inscripcion" component={Inscription} /> */}
               {/* <Route
@@ -94,7 +103,7 @@ const App = () => {
                 /> */}
               <Route path="/InfoAspirants" component={Results} />
               <Route path="/waiting-list" component={WaitingList} />
-              <Route path="/motivationLetter" component={MotivationLetter} />
+              {/* <Route path="/motivationLetter" component={MotivationLetter} /> */}
               <Route path="/parameterization" component={Parameterization} />
               <Route path="/selection-results" component={SelectionResults} />
             </>
@@ -108,6 +117,7 @@ const App = () => {
               <Route exact path="/Convocatoriasaspirante" component={AspirantConvocatorys}/>
               <Route exact path="/aspirante" component={ProofAspirant} />
               <Route exact path="/dashboard" component={DashboardAspirant} />
+              <WhatsAppButton/>
             </>
           )}
         </Switch>

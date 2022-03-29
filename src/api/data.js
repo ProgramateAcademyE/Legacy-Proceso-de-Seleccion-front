@@ -12,7 +12,9 @@ export const ITEMS = [
             { name:" Administrador de Usuarios",
               pathname: "/Users"
 
-            }
+            },
+            { name:"Agregar Administradores",
+              pathname: "/register-admin"}
         ],
        
     },
@@ -28,6 +30,10 @@ export const ITEMS = [
             {
                 name: "Pruebas Técnicas",
                 pathname: "/prueba",
+            },
+            {
+                name: "Convocatorias y aspirantes",
+                pathname: "/convocatorias-aspirantes",
             },],
        
     },
@@ -70,26 +76,26 @@ export const ITEMS = [
         items: [
             {
                 name: "SoloLearn",
-                pathname: "/",
+                pathname: "/calificacion-sololearn",
 
             },
             {
                 name: "Carta de Motivacion",
-                pathname: "/",
+                pathname: "/calificacion-carta-motivacional",
             },
             {
                 name: "Prueba Tecnica",
-                pathname: "/",
+                pathname: "/calificacion-prueba-tecnica",
             },
 
 
             {
                 name: "Entrevista",
-                pathname: "/",
+                pathname: "/calificacion-entrevista",
             },
             {
-                name: "Assesment",
-                pathname: "/",
+                name: "Assessment",
+                pathname: "/calificacion-assessment",
             },
         ],
     },
@@ -105,17 +111,32 @@ export const ITEMS_ASPIRANTS = [
 
     {
         name: "Agenda de Entrevista y assessment",
-        icon: "fas fa-map-marker-alt",
+        icon: "fa fa-calendar-plus",
         items: [],
         pathname: "/entrevista",
         id: 9,
     },
     {
+        name: "Aplicar a la convocatoria",
+        icon: "fa fa-bullhorn",
+        items: [],
+        pathname: "/Convocatoriasaspirante",
+        id: 10,
+    },
+    {
+        name: "Formulario de inscripcion",
+        icon: "far fa-file-alt",
+        items: [],
+        pathname: "/inscripcion",
+        id: 11,
+    },
+
+    {
         name: "Prueba Técnica",
         icon: "fas fa-laptop-code",
         items: [],
         pathname: "/aspirante",
-        id: 10,
+        id: 12,
     },
 ];
 

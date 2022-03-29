@@ -5,7 +5,7 @@ import MotivationLetterModal from "../../components/modals/MotivationLetterModal
 import results from "./Results.module.css"
 import AspirantsInfo from "../ApirantsInfo/Aspirantsinfo";
 
-const Results = () => {
+const Results = ({data, user_id}) => {
     const [results, setResults] = useState([]);
     const getResults = async () => {
         const { data } = await RequestService.get("/admin/results");
@@ -38,17 +38,21 @@ const Results = () => {
         }
         return color;
     };
+    const [userId, setuserId] = useState(null);
+    const UserDetail = (user_id) => {
+        setuserId(user_id);
+    };
 
     const rows = results.map((result) => ({
-        
+
         Nombre: result.userFullName,
         Sololearn: result.soloLearnScore,
         "Perfil Personal": result.personalProfileScore,
         Motivación: result.motivationScore,
-        "Promedio 1era Fase": result.promedioprimerafase, 
-        "Prueba Tecnica": result.pruebatecnica, 
+        "Promedio 1era Fase": result.promedioprimerafase,
+        "Prueba Tecnica": result.pruebatecnica,
         Entrevista: result.Enrevista,
-        Assesment: result.Assesnment, 
+        Assesment: result.Assesnment,
         "Promedio 2da Fase": (
             <div
                 style={{
@@ -69,7 +73,11 @@ const Results = () => {
             </select>
         ),
         Info: (
-         <AspirantsInfo/>
+        <div><a href='#convocatoria'>
+		<i className='far fa-eye' onClick={() => UserDetail(user_id)}></i></a>
+		<AspirantsInfo user_id={userId}/>
+         </div>
+			
         ),
     }));
 

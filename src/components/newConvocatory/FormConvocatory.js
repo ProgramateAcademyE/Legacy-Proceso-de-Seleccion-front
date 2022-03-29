@@ -5,6 +5,7 @@ import { PETITIONS } from "../../../requestUrl";
 import {
 	dataTypePopulation,
 } from "../../helpers/ConvocatoryHelper";
+import newconvocatory from "./NewConvocatory.module.css";
 
 import { useHistory } from "react-router-dom";
 
@@ -15,7 +16,7 @@ const FormConvocatory = (props) => {
   const { departments, data, query, stractus} = props
 	return (
 		<>
-			<div style={{ width: "50%", margin: " 0 auto" }}>
+			<div className="Convocatory_Form">
 				<h2>{query ? `Actualiza convocatoria` : 'Nueva Convocatoria'}</h2>
 				<Formik
 					initialValues={{
@@ -132,10 +133,10 @@ const FormConvocatory = (props) => {
 						resetForm();
 					}}>
 					{({ errors }) => (
-						<Form>
+						<Form className="Form_Container">
 							{/* Convocatory Creation */}
-							<div>
-								<div>
+							<div className="FormConvocatory_Container">
+								<div className="Input_Convocatory">
 									<label htmlFor='nameConvocatory'>Nombre Convocatoria</label>
 									<Field
 										type='text'
@@ -268,10 +269,13 @@ const FormConvocatory = (props) => {
 
 							{/* Parametrization of the evaluation profile */}
 							<div>
-								<h3>
-									Parametrizacion de la evaluacion del perfil (Para seleccionar
-									varios datos presione la telca Shift o Ctrl)
+								<div className="Paramentrizacion_text">
+									<h3>
+									Parametrizacion de la evaluacion del perfil
 								</h3>
+								<p> (Para seleccionar
+									varios datos presione la telca Shift o Ctrl)</p></div>
+								
 								<div>
 									<h4>Pais de residencia</h4>
 									<Field
@@ -400,7 +404,7 @@ const FormConvocatory = (props) => {
 									/>
 								</div>
 							</div>
-							<input type='submit' value='Guardar' />
+							<input type='submit' value='Guardar'  className="btn btn-success" style={{ margin:"18px 0px 0px 0px"}} />
 						</Form>
 					)}
 				</Formik>
