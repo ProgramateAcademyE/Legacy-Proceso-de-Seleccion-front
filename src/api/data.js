@@ -54,8 +54,8 @@ export const ITEMS = [
         id: 4,
         items: [
             {
-                name: "Consolidado Postulantes",
-                pathname: "/citation",
+                name: "Citaciones",
+                pathname: "/citaciones",
             },
             {
                 name: "Dias de Entrevista",

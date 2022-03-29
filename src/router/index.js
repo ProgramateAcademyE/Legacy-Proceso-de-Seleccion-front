@@ -21,6 +21,7 @@ import LoginFull from "../components/auth/LoginFull";
 import WaitingList from "../page/waitingList/WaitingList";
 import { useDispatch, useSelector } from "react-redux";
 import Citations from "../page/citations/Citations";
+import NewCitation from "../components/citation/newCitation/NewCitation";
 import InterviewDays from "../page/interviewDays/InterviewDays";
 import Footer from "../components/footer/Footer";
 import { getData } from "../actions/sololearnProfile";
@@ -33,6 +34,8 @@ import ListOfUsers from "../components/allUsers/ListOfUsers";
 import AspirantConvocatorys from "../page/Aspirant Convocatory/AspirantConvocatory";
 
 import './style.css'
+
+
 
 const App = () => {
   const auth = useSelector((state) => state.auth);
@@ -81,7 +84,8 @@ const App = () => {
               <Route path="/agregar" component={AddTechTest}/>
               <Route path="/editarprueba" component={AddTechTest}/>
               <Route path="/calificar" component={QualifyTechnicalTest} />
-              <Route path="/citation" component={Citations} />
+              <Route path="/citaciones" component={Citations} />
+              <Route path="/nuevacitacion" component={NewCitation} />
               <Route path="/register-admin" component={RegisterAdmin} />
               {/* <Route path="/inscripcion" component={Inscription} /> */}
               {/* <Route
