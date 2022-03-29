@@ -11,6 +11,10 @@ function DashboardAspirant() {
 
 
   const { profile } = useSelector((state) => state.sololearn);
+  // console.log(state)
+  // const { profile } = useSelector((state) => console.log(state));
+  // console.log(state)
+  
   return (
     <div className="dash">
       <div className="dash__content d-flex justify-content-between">

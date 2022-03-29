@@ -20,6 +20,7 @@ import axios from "axios";
 
 
 export const getData = (id) => {
+    console.log({id})
     return async (dispatch) => {
       try {
         const {data} = await axios.get(`http://localhost:3001/api/candidate/result/${id}`);
