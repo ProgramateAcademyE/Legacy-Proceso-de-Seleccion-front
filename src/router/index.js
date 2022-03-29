@@ -85,7 +85,9 @@ const App = () => {
               <Route path="/prueba" component={AdministerTechnicalTest} />
               <Route path="/agregar" component={AddTechTest}/>
               <Route path="/editarprueba" component={AddTechTest}/>
-              <Route path="/citation" component={Citations} />
+              <Route path="/citaciones" component={Citations} />
+              <Route path="/nuevacitacion" component={NewCitation} />
+
 
               <Route path="/calificacion-sololearn" component={QualifySololearn} />
               <Route path="/calificacion-carta-motivacional" component={QualifyMotivationLetter} />
