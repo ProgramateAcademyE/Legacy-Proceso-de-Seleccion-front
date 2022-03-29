@@ -49,13 +49,18 @@ function getStepContent(step) {
 
   const {
     firstName,
+    firstSurname,
     documentType,
     documentNumber,
     email,
-    phone,
-    soloLearnProfile,
-    dreams,
-    motivation,
+    phone1,
+    nacionality,
+    currentCountry,
+    residencyDepartment,
+    socialClass,
+    pcAccess,
+    internetAccess,
+    soloLearnProfile
   } = data;
 
   const { user } = useSelector((state) => state.auth);
@@ -64,13 +69,18 @@ function getStepContent(step) {
     // Validation
     if (
       firstName.trim() === "" ||
+      firstSurname.trim() === "" ||
       documentType.trim() === "" ||
       documentNumber.trim() === "" ||
       email.trim() === "" ||
-      phone.trim() === "" ||
-      soloLearnProfile.trim() === "" ||
-      dreams.trim() === "" ||
-      motivation.trim() === ""
+      phone1.trim() === "" ||
+      nacionality.trim() === "" ||
+      currentCountry.trim() === "" ||
+      residencyDepartment.trim() === "" ||
+      socialClass.trim() === "" ||
+      pcAccess.trim() === "" ||
+      internetAccess.trim() === "" ||
+      soloLearnProfile.trim() === ""
     ) 
     {return Swal.fire("Error", "Te quedaron campos vacios", "error");}
 
