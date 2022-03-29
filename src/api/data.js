@@ -30,6 +30,10 @@ export const ITEMS = [
             {
                 name: "Pruebas Técnicas",
                 pathname: "/prueba",
+            },
+            {
+                name: "Convocatorias y aspirantes",
+                pathname: "/convocatorias-aspirantes",
             },],
        
     },
@@ -72,26 +76,26 @@ export const ITEMS = [
         items: [
             {
                 name: "SoloLearn",
-                pathname: "/",
+                pathname: "/calificacion-sololearn",
 
             },
             {
                 name: "Carta de Motivacion",
-                pathname: "/motivationLetter",
+                pathname: "/calificacion-carta-motivacional",
             },
             {
                 name: "Prueba Tecnica",
-                pathname: "/",
+                pathname: "/calificacion-prueba-tecnica",
             },
 
 
             {
                 name: "Entrevista",
-                pathname: "/",
+                pathname: "/calificacion-entrevista",
             },
             {
-                name: "Assesment",
-                pathname: "/",
+                name: "Assessment",
+                pathname: "/calificacion-assessment",
             },
         ],
     },
