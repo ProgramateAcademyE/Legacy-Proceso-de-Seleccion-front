@@ -92,7 +92,6 @@ const FormConvocatory = (props) => {
 						return errors;
 					}}
 					onSubmit={(allValues, { resetForm }) => {
-						console.log(allValues);
 						const newConvocatory = {
 							name: allValues.nameConvocatory,
 							maxQuotas: allValues.maxQuotas,
@@ -128,7 +127,7 @@ const FormConvocatory = (props) => {
 									});
 							}
 						} catch (error) {
-							console.log(`Algo fallo ${error}`);
+							return error
 						}
 						resetForm();
 					}}>

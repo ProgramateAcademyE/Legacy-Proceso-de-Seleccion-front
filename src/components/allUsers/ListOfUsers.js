@@ -2,12 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import User from './User'
 import axios from 'axios';
-<<<<<<< HEAD
-import TablePagination from '@material-ui/core/TablePagination';
-
-=======
 import usercss from "./User.module.css";
->>>>>>> 4cff62c7b1d5470a9b9f9bef4258587a3b18ca8b
 
 const ListOfUsers = () => {
   const [users, setUsers] = useState([]);
@@ -15,15 +10,15 @@ const ListOfUsers = () => {
 
 
   useEffect(() => {
-    async function fetchData() {
-      const { data } = await axios.get(
-        "http://localhost:3001/api/user/all_info/:page",
-        {
-          headers: { Authorization: token },
-        }
-      );
-
-      setUsers(data.users);
+    try {
+      axios.get('http://localhost:3001/api/user/all_info', {
+        headers: {Authorization: token}
+      }).then(res => {
+        console.log(res.data)
+        setUsers(res.data.profiles)
+      })
+    } catch (error) {
+      return error
     }
     fetchData();
   }, []);
@@ -42,12 +37,8 @@ const ListOfUsers = () => {
 
 
   return (
-<<<<<<< HEAD
     <>
-    <div style={{margin: "60px auto"}}>
-=======
     <div style={{margin:"105px 0px 0px 236px"}}>
->>>>>>> 4cff62c7b1d5470a9b9f9bef4258587a3b18ca8b
       <User users={users}/>
       
     </div>

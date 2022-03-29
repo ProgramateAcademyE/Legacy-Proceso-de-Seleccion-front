@@ -1,94 +1,73 @@
 import React from "react";
 import { ErrorMessage, Form, Field, Formik } from "formik";
 
-const Step2 = ({ data, handeleChange }) => {
-	/*       const [countries, setCountries] = useState([]);
-      const getCountry = async () => {
-      const url = "https://restcountries.com/v3.1/all";
-      const request = await fetch(url);
-      const countrie = await request.json();
-      const countries = countrie.map((item) => item.name.common).sort();
-      setCountries(countries);
-    };
-    
-    useEffect(() => {
-    getCountry();
-    }, []); */
-
-	/*       const [departments, setDepartments] = useState([]);
-      const getDepartment = async () => {
-      const depUrl = 'https://raw.githubusercontent.com/marcovega/colombia-json/master/colombia.min.json';
-      const requestDep = await fetch(depUrl);
-      const department = await requestDep.json();
-      const departments = department.map((item) => item.departamento).sort();
-      setDepartments(departments);
-    };
-    
-    useEffect(() => {
-      getDepartment();
-    }, []); */
-
+const Step2 = ({ data, setDataToForm, myNext, myPrev }) => {
 	return (
 		<>
 			<Formik
 				initialValues={{
-					nacionality: "",
-					currentCountry: "",
-					residencyDepartment: "",
-					municipalityOfResidency: "",
-					address: "",
-					locationInBogota: "",
-					socialClass:"",
-					stratum: "",
-					areaType: "",
-					billPdf: "",
-					disability: [],
-					familyIncome: "",
-					householdMembers: "",
-					numberOfChildren: "",
-					vulnerablePopulation: "",
-					pcAccess: "",
-					internetAccess: "",
-					internetCompany: "",
-					mbCount: "",
+					nacionality: data?.nacionality || "",
+					currentCountry: data?.currentCountry || "",
+					residencyDepartment: data?.residencyDepartment || "",
+					municipalityOfResidency: data?.municipalityOfResidency || "",
+					address: data?.address || "",
+					locationInBogota: data?.locationInBogota || "",
+					socialClass: data?.socialClass ||"",
+					stratum: data?.stratum || "",
+					areaType: data?.areaType || "",
+					billPdf: data?.billPdf || "",
+					disability: data?.disability || [],
+					familyIncome: data?.familyIncome || "",
+					householdMembers: data?.householdMembers || "",
+					numberOfChildren: data?.numberOfChildren || "",
+					vulnerablePopulation: data?.vulnerablePopulation || "",
+					pcAccess: data?.pcAccess || "",
+					internetAccess: data?.internetAccess || "",
+					internetCompany: data?.internetCompany || "",
+					mbCount: data?.mbCount || "",
 				}}
-				validate={(formValues) => {
-					const error = {};
-					if (!formValues.nacionality) {
-						error.nacionality = "Por favor indica tu país de nacimiento";
-					} else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.nacionality)) {
-						error.nacionality = "Por favor ingresa sólo letras";
-					}
+				// validate={(formValues) => {
+				// 	const error = {};
+				// 	if (!formValues.nacionality) {
+				// 		error.nacionality = "Por favor indica tu país de nacimiento";
+				// 	} else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.nacionality)) {
+				// 		error.nacionality = "Por favor ingresa sólo letras";
+				// 	}
 
-					if (!formValues.currentCountry) {
-						error.currentCountry = "Por favor indica tu país de residencia";
-					} else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.currentCountry)) {
-						error.currentCountry = "Por favor ingresa sólo letras";
-					}
+				// 	if (!formValues.currentCountry) {
+				// 		error.currentCountry = "Por favor indica tu país de residencia";
+				// 	} else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.currentCountry)) {
+				// 		error.currentCountry = "Por favor ingresa sólo letras";
+				// 	}
 
-					if (!formValues.residencyDepartment) {
-						error.residencyDepartment =
-							"Por favor indica tu departamento de residencia";
-					} else if (
-						!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.residencyDepartment)
-					) {
-						error.residencyDepartment = "Por favor ingresa sólo letras";
-					}
+				// 	if (!formValues.residencyDepartment) {
+				// 		error.residencyDepartment =
+				// 			"Por favor indica tu departamento de residencia";
+				// 	} else if (
+				// 		!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.residencyDepartment)
+				// 	) {
+				// 		error.residencyDepartment = "Por favor ingresa sólo letras";
+				// 	}
 
-					if (!formValues.socialClass) {
-						error.socialClass = "Por favor selecciona tu estrato";
-					}
+				// 	if (!formValues.socialClass) {
+				// 		error.socialClass = "Por favor selecciona tu estrato";
+				// 	}
 
-					if (!formValues.pcAccess) {
-						error.pcAccess = "Por favor selecciona una respuesta";
-					}
+				// 	if (!formValues.pcAccess) {
+				// 		error.pcAccess = "Por favor selecciona una respuesta";
+				// 	}
 
-					if (!formValues.internetAccess) {
-						error.internetAccess = "Por favor selecciona una respuesta";
-					}
+				// 	if (!formValues.internetAccess) {
+				// 		error.internetAccess = "Por favor selecciona una respuesta";
+				// 	}
 
-					return error;
-				}}
+				// 	return error;
+				// }}
+
+				onSubmit={(allValues, { resetForm }) => {
+          setDataToForm(allValues)
+					myNext()
+        }}
 			>
 				{({ errors }) => (
 					<Form className='step2'>
@@ -137,8 +116,8 @@ const Step2 = ({ data, handeleChange }) => {
 									name='nacionality'
 									placeholder=''
 									className='form-control'
-									onChange={handeleChange}
-									value={data.nacionality}
+									// onChange={handeleChange}
+									// value={data.nacionality}
 								/>
 								<ErrorMessage
 									name='nacionality'
@@ -157,8 +136,8 @@ const Step2 = ({ data, handeleChange }) => {
 									name='currentCountry'
 									placeholder=''
 									className='form-control'
-									onChange={handeleChange}
-									value={data.currentCountry}
+									// onChange={handeleChange}
+									// value={data.currentCountry}
 								/>
 								<ErrorMessage
 									name='currentCountry'
@@ -180,8 +159,8 @@ const Step2 = ({ data, handeleChange }) => {
 									name='residencyDepartment'
 									placeholder=''
 									className='form-control'
-                  onChange={handeleChange}
-									value={data.residencyDepartment}
+                  // onChange={handeleChange}
+									// value={data.residencyDepartment}
 								/>
 								<ErrorMessage
 									name='residencyDepartment'
@@ -200,8 +179,8 @@ const Step2 = ({ data, handeleChange }) => {
 									name='municipalityOfResidency'
 									placeholder=''
 									className='form-control'
-                  onChange={handeleChange}
-									value={data.municipalityOfResidency}
+                  // onChange={handeleChange}
+									// value={data.municipalityOfResidency}
 								/>
 							</div>
 						</div>
@@ -215,8 +194,8 @@ const Step2 = ({ data, handeleChange }) => {
 									name='locationInBogota'
 									className='form-select'
 									as='select'
-                  onChange={handeleChange}
-									value={data.locationInBogota}
+                  // onChange={handeleChange}
+									// value={data.locationInBogota}
 								>
 									<option value='cc'>Selecciona tu localidad</option>
 									<option value='Usaquén'>Usaquén</option>
@@ -251,8 +230,8 @@ const Step2 = ({ data, handeleChange }) => {
 									name='address'
 									placeholder=''
 									className='form-control'
-									onChange={handeleChange}
-									value={data.address}
+									// onChange={handeleChange}
+									// value={data.address}
 								/>
 							</div>
 						</div>
@@ -266,8 +245,8 @@ const Step2 = ({ data, handeleChange }) => {
 									name='socialClass'
 									className='form-select'
 									as='select'
-									onChange={handeleChange}
-									value={data.socialClass}
+									// onChange={handeleChange}
+									// value={data.socialClass}
 								>
 									<option value='cc'>Selecciona tu Estrato</option>
 									<option value='1'>1</option>
@@ -293,8 +272,8 @@ const Step2 = ({ data, handeleChange }) => {
 									name='areaType'
 									className='form-select'
 									as='select'
-									onChange={handeleChange}
-									value={data.areaType}
+									// onChange={handeleChange}
+									// value={data.areaType}
 								>
 									<option value='cc'>Selecciona el tipo de área</option>
 									<option value='Rural'>Rural</option>
@@ -326,8 +305,8 @@ const Step2 = ({ data, handeleChange }) => {
 									placeholder=''
 									className='form-control'
 									as='select'
-									onChange={handeleChange}
-									value={data.householdMembers}
+									// onChange={handeleChange}
+									// value={data.householdMembers}
 								>
 									<option value='cc'>Selecciona el número de personas</option>
 									<option value='Vivo solo/a'>Vivo solo/a</option>
@@ -350,8 +329,8 @@ const Step2 = ({ data, handeleChange }) => {
 									name='numberOfChildren'
 									className='form-select'
 									as='select'
-									onChange={handeleChange}
-									value={data.numberOfChildren}
+									// onChange={handeleChange}
+									// value={data.numberOfChildren}
 								>
 									<option value='cc'>Selecciona el número de hijos</option>
 									<option value='No'>No</option>
@@ -371,8 +350,8 @@ const Step2 = ({ data, handeleChange }) => {
 									name='familyIncome'
 									className='form-select'
 									as='select'
-									onChange={handeleChange}
-									value={data.familyIncome}
+									// onChange={handeleChange}
+									// value={data.familyIncome}
 								>
 									<option value='cc'>Selecciona el rango de ingreso</option>
 									<option value='Menos de un salario mínimo'>
@@ -676,8 +655,8 @@ const Step2 = ({ data, handeleChange }) => {
 									name='pcAccess'
 									className='form-select'
 									as='select'
-									onChange={handeleChange}
-									value={data.pcAccess}
+									// onChange={handeleChange}
+									// value={data.pcAccess}
 								>
 									<option value='cc'>Selecciona Si o No</option>
 									<option value='Si'>Si</option>
@@ -700,8 +679,8 @@ const Step2 = ({ data, handeleChange }) => {
 									name='internetAccess'
 									className='form-select'
 									as='select'
-									onChange={handeleChange}
-									value={data.internetAccess}
+									// onChange={handeleChange}
+									// value={data.internetAccess}
 								>
 									<option value='cc'>Selecciona Si o No</option>
 									<option value='Si'>Si</option>
@@ -727,8 +706,8 @@ const Step2 = ({ data, handeleChange }) => {
 									name='internetCompany'
 									placeholder=''
 									className='form-control'
-									onChange={handeleChange}
-									value={data.internetCompany}
+									// onChange={handeleChange}
+									// value={data.internetCompany}
 								/>
 							</div>
 							<div className='col-12 col-md-6'>
@@ -741,11 +720,15 @@ const Step2 = ({ data, handeleChange }) => {
 									name='mbCount'
 									placeholder=''
 									className='form-control'
-									onChange={handeleChange}
-									value={data.mbCount}
+									// onChange={handeleChange}
+									// value={data.mbCount}
 								/>
 							</div>
 						</div>
+						<button onClick={myPrev}>
+							Back
+						</button>
+						<Field type="submit" value="next"/>
 					</Form>
 				)}
 			</Formik>

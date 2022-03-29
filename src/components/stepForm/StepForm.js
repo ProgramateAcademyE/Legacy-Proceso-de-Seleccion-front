@@ -35,74 +35,50 @@ return ["Información Personal", "Datos sociodemográficos", "Información labor
 }
 
 function getStepContent(step) {
-  const [data, setData] = useState(initialData);
   const dispatch = useDispatch();
   const history = useHistory();
+  const [data, setData] = useState();
 
-  const handeleChange = (e) => {
-    const { name, value } = e.target;
-    console.log(data)
-    setData({
-      ...data,
-      [name]: value,
-    });
-  };
-
-  const {
-    firstName,
-    firstSurname,
-    documentType,
-    documentNumber,
-    email,
-    phone1,
-    nacionality,
-    currentCountry,
-    residencyDepartment,
-    socialClass,
-    pcAccess,
-    internetAccess,
-    soloLearnProfile
-  } = data;
+  const setDataToForm = (allValues) => {
+    setData({...data, ...allValues})
+  }
 
   const { user } = useSelector((state) => state.auth);
 
   const sendData = async () => {
-    // Validation
-    // if (
-    //   // firstName.trim() === "" ||
-    //   // documentType.trim() === "" ||
-    //   // documentNumber.trim() === "" ||
-    //   // email.trim() === "" ||
-    //   // phone.trim() === "" ||
-    //   // soloLearnProfile.trim() === "" ||
-    //   // dreams.trim() === "" ||
-    //   // motivation.trim() === ""
-    // ) 
-    // {return Swal.fire("Error", "Te quedaron campos vacios", "error");}
     try {
-      axios.post('http://localhost:3001/api/candidate/profile', {...data, user_id : user?._id}).then(res => console.log(res))
+      axios.post('http://localhost:3001/api/candidate/profile', {...data, user_id : user?._id})
     } catch (error) {
-      console.log(error)
+      return(error)
     }
-    console.log({data})
-    // console.log('Aca lo envia', res)
 
     dispatch(getProfileFull(user.id))
     dispatch(getData(user.id))
 
-    // Swal.fire({
-    //   position: "top-end",
-    //   icon: "success",
-    //   title: "Enviado correctamente",
-    //   showConfirmButton: false,
-    //   timer: 1500,
-    // });
-    // history.push("/dashboard");
+    Swal.fire({
+      position: "center-center",
+      icon: "success",
+      title: "Enviado correctamente",
+      showConfirmButton: false,
+      timer: 1500,
+    });
+    history.push("/dashboard");
   };
 
-  const props = { data, handeleChange };
+  const [myStep, setMyStep] = useState(0)
 
-  switch (step) {
+  const myNext = () => {
+    setMyStep(myStep < 3 ? myStep + 1 : myStep)
+  }
+
+  const myPrev = () => {
+    setMyStep(myStep >= 0 ? myStep - 1 : myStep)
+    console.log(myStep)
+  }
+  const props = { data, setDataToForm, myNext, myPrev };
+
+
+  switch (myStep) {
     case 0:
       return <Step1 {...props} />;
     case 1:

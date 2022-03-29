@@ -81,11 +81,7 @@ export const ITEMS = [
             },
             {
                 name: "Carta de Motivacion",
-<<<<<<< HEAD
-                pathname: "/calificacion-carta-motivacional",
-=======
                 pathname: "/motivationLetter",
->>>>>>> 4cff62c7b1d5470a9b9f9bef4258587a3b18ca8b
             },
             {
                 name: "Prueba Tecnica",
