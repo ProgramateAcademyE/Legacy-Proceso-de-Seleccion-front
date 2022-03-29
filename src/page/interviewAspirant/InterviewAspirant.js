@@ -12,13 +12,13 @@ const InterviewAspirant = () => {
   // }, [])
   // console.log(profileT)
   return (
-    <div className={interviewaspirant.interview}>
-      <div className="section__content d-flex justify-content-between">
+    <div className="Interviewaspirant">
+      <div className="section__content">
         <span className="upperCase bold">
           Agenda de Entrevista y assessment
         </span>
       </div>
-      <div className="calendar mt-4">
+      <div className="calendar">
         <CalendarView />
       </div>
     </div>

@@ -26,7 +26,8 @@
     padding-left: 2vh;
   }
   .header__user {
-      width: 104px;
+    
+      width: 186px;
       display: flex;
       align-items: center;
   }

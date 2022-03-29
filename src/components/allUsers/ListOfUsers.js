@@ -11,6 +11,7 @@ const ListOfUsers = () => {
 
   useEffect(() => {
     try {
+      
       axios.get('http://localhost:3001/api/user/all_info', {
         headers: {Authorization: token}
       }).then(res => {

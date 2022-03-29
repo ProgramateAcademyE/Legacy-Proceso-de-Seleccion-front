@@ -93,10 +93,10 @@ const AdministerTechnicalTest = () => {
 									</TableCell>
 									<TableCell align='center'>
 										<Link to={`/editarprueba?idtest=${prop._id}`}>
-											<button>update</button>
+											<button className=" btn btn-success">update</button>
 										</Link>
 										<div>
-											<button onClick={() => handleDelete(prop._id)}>
+											<button  className=" btn btn-success" style= {{margin:"2px"}}onClick={() => handleDelete(prop._id)}>
 												delete
 											</button>
 										</div>

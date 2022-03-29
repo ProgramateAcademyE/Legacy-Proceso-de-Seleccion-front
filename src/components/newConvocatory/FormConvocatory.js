@@ -133,7 +133,7 @@ const FormConvocatory = (props) => {
 						resetForm();
 					}}>
 					{({ errors }) => (
-						<Form>
+						<Form className="Form_Container">
 							{/* Convocatory Creation */}
 							<div className="FormConvocatory_Container">
 								<div className="Input_Convocatory">

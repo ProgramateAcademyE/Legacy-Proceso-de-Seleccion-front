@@ -1,10 +1,24 @@
 
 import modalcss from "./Modal.module.css";
-import  React from "react";
+import  React from "react"
+import { PETITIONS } from "../../../requestUrl";
+import axios from "axios";
+import {useEffect, useState} from "react";
 
 const ModalAspirants = ({data}) => {
+	
+	const [ userId, setuserId] = useState([]);
+	useEffect(() => {
+    if(user_id){
+      axios.get(`${PETITIONS.GetAnswersFromForm}${user_id}`).then( res => setuserId(res.data[0]))
+    }
+	}, [user_id])
+    console.log (userId)
+
+	
 
 let  {  
+            user_id,
             firstName,
             secondName,
             firstSurname,
@@ -59,9 +73,7 @@ let  {
         <div>
            
               
-           <a href="#aspirante">
-                    <i className="far fa-eye"> </i>
-                </a><div id="aspirante" className="modalDialog">
+           <div id="aspirante" className="modalDialog">
                         <div className="content">
                             <a href="#close" title="Close" className="close">
                                 X
