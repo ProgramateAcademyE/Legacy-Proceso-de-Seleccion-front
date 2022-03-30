@@ -81,7 +81,7 @@ export const ITEMS = [
             },
             {
                 name: "Carta de Motivacion",
-                pathname: "/calificacion-carta-motivacional",
+                pathname: "/motivationLetter",
             },
             {
                 name: "Prueba Tecnica",

@@ -45,6 +45,7 @@ function getStepContent(step) {
 
   const { user } = useSelector((state) => state.auth);
 
+  console.log(user)
   const sendData = async () => {
     try {
       axios.post('http://localhost:3001/api/candidate/profile', {...data, user_id : user?._id})
@@ -52,8 +53,8 @@ function getStepContent(step) {
       return(error)
     }
 
-    dispatch(getProfileFull(user.id))
-    dispatch(getData(user.id))
+    dispatch(getProfileFull(user._id))
+    dispatch(getData(user._id))
 
     Swal.fire({
       position: "center-center",

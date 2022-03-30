@@ -2,13 +2,6 @@ import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import convocatorycss from "./Convocatory.module.css";
 
 const ConvocatoryAspirants = () => {
   const [convAsp, setConvAsp] = useState([]);
@@ -30,13 +23,13 @@ const ConvocatoryAspirants = () => {
   useEffect(() => {
     async function fetchData() {
       const { data } = await axios.get(
-        "http://localhost:3001/api/user/all_info/:page",
+        "http://localhost:3001/api/user/users_info",
         {
           headers: { Authorization: token },
         }
       );
 
-      setApirantsConvocatory(data.users);
+      setApirantsConvocatory(data);
     }
     fetchData();
   }, []);
@@ -59,5 +52,4 @@ const ConvocatoryAspirants = () => {
     </>
   );
 };
-
 export default ConvocatoryAspirants;
