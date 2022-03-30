@@ -8,12 +8,11 @@ import { useSelector } from "react-redux";
 import NotProfile from "../../components/notProfile/NotProfile";
 
 function DashboardAspirant() {
+  const { profile } = useSelector((state) => state) ;
 
-
-  const { profile } = useSelector((state) => state.sololearn);
   return (
     <div className="dash">
-      <div className="dash__content d-flex justify-content-between">
+      {/* <div className="dash__content d-flex justify-content-between">
         <span className="upperCase bold">Dashboard Aspirante</span>
         <div className="box__content">
           <span className="text-crumbs bold-500">Programate</span>
@@ -89,7 +88,7 @@ function DashboardAspirant() {
             ))}
           </div>
         </div>
-      </div> </> : <NotProfile/>}
+      </div> </> : <NotProfile/>} */}
     </div>
   );
 }
