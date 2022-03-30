@@ -5,26 +5,25 @@
   background-color: white;
   box-shadow: -3px -1px 5px 0px rgba(0, 0, 0, 0.555);
   box-shadow: 0px 2px 4px #0000004f;
-
   z-index: 100;
 }
-  #logo {
+#logo {
     width: auto;
     background-color: #FDC300;
     padding: 5px 0 0 3px;
     transition: .4s all;
   }
-  .Logo__A {
+.Logo__A {
     width: 71px;
     object-fit: cover;
   }
-  .header__search{
+.header__search{
     align-self: center;
     flex: 1;
     padding-top: 2vh;
     padding-left: 2vh;
   }
-  .header__user {
+.header__user {
     
       width: 115px;
       display: flex;

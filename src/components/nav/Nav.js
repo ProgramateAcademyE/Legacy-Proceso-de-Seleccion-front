@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { ITEMS, ITEMS_ASPIRANTS } from "../../api/data";
 import Item from "../item/Item";
 import navcss from "./Nav.module.css";
+import { Link } from "react-router-dom";
 
 const Nav = () => {
   const [activeItems, setActiveItems] = useState([]);
@@ -22,8 +23,15 @@ const Nav = () => {
 
   const isActive = ITEMS.findIndex(item => item.pathname === location.pathname)
   const isActiveAspirant = ITEMS_ASPIRANTS.findIndex(item => item.pathname === location.pathname)
-  return (
+  return (  
+  <><Link to="/dashboard">
+              <img className="Logo__A"
+                src="https://i.ibb.co/ZM3jGdB/logoeducamasimbolo.png"
+                alt="logo"
+              />
+            </Link>
     <div className="nav" id="menu">
+     
       <span className="nav__title">Menu</span>
       <div className="nav__items mt-2">
         <nav className="nav__fixed">
@@ -52,7 +60,8 @@ const Nav = () => {
             ))}
         </nav>
       </div>
-    </div>
+    </div></>
+  
   );
 };
 

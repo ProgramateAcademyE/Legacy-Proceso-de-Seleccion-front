@@ -7,13 +7,13 @@
   display: block;
   -webkit-transition: .4s all ease;
   transition: .4s all ease;
+  z-index: 1000;
   -webkit-box-shadow: -1px 1px 16px 3px #00000054;
           box-shadow: -1px 1px 16px 3px #00000054;
 }
 
 @media screen and (max-width: 991px) {
   .nav {
-    position: relative;
     left: -100%;
     width: 240px;
     position: fixed !important;

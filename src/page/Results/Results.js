@@ -17,6 +17,8 @@ const Results = () => {
         getResults();
     }, []);
 
+    
+
     const actions = [
         {
             status: true,
@@ -42,7 +44,7 @@ const Results = () => {
     const UserDetail = (user_id) => {
         setuserId(user_id);
     }; */
-
+    
     const rows = results.map((result) => ({
 
         Nombre: result.userFullName,
@@ -72,13 +74,7 @@ const Results = () => {
                 <option value="ListaDeespera">Lista de Espera</option>
             </select>
         ),
-        Info: (
-        <div><a href='#convocatoria'>
-		<i className='far fa-eye' ></i></a>
-		<AspirantsInfo/>
-         </div>
-			
-        ),
+       
     }));
 
     return (

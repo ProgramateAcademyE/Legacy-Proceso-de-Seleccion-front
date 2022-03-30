@@ -6,13 +6,12 @@ import { PETITIONS } from "../../../requestUrl";
 const AspirantConvocatorys = () => {
 
   const [Aspirantconvocatories, setAspirantConvocatories] = useState([]);
-  console.log(Aspirantconvocatories)
     useEffect(() => {
         try {
           axios.get(`${PETITIONS.getConvocatories}`, {
           }).then(res => {
            
-            setAspirantConvocatories(res)
+            setAspirantConvocatories(res.data)
           })
         } catch (error) {
           console.log (error)
