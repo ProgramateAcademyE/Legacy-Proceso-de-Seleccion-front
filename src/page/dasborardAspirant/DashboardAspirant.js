@@ -1,24 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import DoughtnutHtml from "../../components/doughnut/DoughtnutHtml";
 import DoughtnutCss from "../../components/doughnut/DoughtnutCss";
 import DoughtnutJavascript from "../../components/doughnut/DoughtnutJavascript";
 import DoughtnutPython from "../../components/doughnut/DoughtnutPython";
-import DashboardAspirantcss from "./DashboardAspirant.module.css";
-import { useSelector } from "react-redux";
 import NotProfile from "../../components/notProfile/NotProfile";
+import { useSelector } from "react-redux";
+
+
 
 function DashboardAspirant() {
-  // const { profile } = useSelector((state) => state) ;
-
-
   const { profile } = useSelector((state) => state.sololearn);
+
   // console.log(state)
   // const { profile } = useSelector((state) => console.log(state));
   // console.log(state)
   
   return (
     <div className="dash">
-      {/* <div className="dash__content d-flex justify-content-between">
+      <div className="dash__content d-flex justify-content-between">
         <span className="upperCase bold">Dashboard Aspirante</span>
         <div className="box__content">
           <span className="text-crumbs bold-500">Programate</span>
@@ -94,7 +93,7 @@ function DashboardAspirant() {
             ))}
           </div>
         </div>
-      </div> </> : <NotProfile/>} */}
+      </div> </> : <NotProfile/>}
     </div>
   );
 }

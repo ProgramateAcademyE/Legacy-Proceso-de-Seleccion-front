@@ -44,11 +44,12 @@ function getStepContent(step) {
   }
 
   const { user } = useSelector((state) => state.auth);
-
   console.log(user)
+
   const sendData = async () => {
+    console.log(data)
     try {
-      axios.post('http://localhost:3001/api/candidate/profile', {...data, user_id : user?._id})
+      axios.post('http://localhost:3001/api/candidate/profile', {...data, user_id : user?._id}).then(res => console.log(res))
     } catch (error) {
       return(error)
     }
@@ -60,11 +61,12 @@ function getStepContent(step) {
       position: "center-center",
       icon: "success",
       title: "Enviado correctamente",
-      showConfirmButton: false,
+      showConfirmButton: true,
       timer: 1500,
     });
-    history.push("/dashboard");
   };
+
+  
 
   const [myStep, setMyStep] = useState(0)
 
@@ -79,7 +81,7 @@ function getStepContent(step) {
   const props = { data, setDataToForm, myNext, myPrev };
 
 
-  switch (myStep) {
+  switch (step) {
     case 0:
       return <Step1 {...props} />;
     case 1:
