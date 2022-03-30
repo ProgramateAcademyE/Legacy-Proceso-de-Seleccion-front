@@ -15,7 +15,7 @@ const ConvocatoryAspirants = () => {
     }
     fetchData();
   }, []);
-  console.log(convAsp);
+ 
 
   const [apirantsConvocatory, setApirantsConvocatory] = useState([]);
   const token = useSelector((state) => state.token);
@@ -23,13 +23,13 @@ const ConvocatoryAspirants = () => {
   useEffect(() => {
     async function fetchData() {
       const { data } = await axios.get(
-        "http://localhost:3001/api/user/all_info/:page",
+        "http://localhost:3001/api/user/users_info",
         {
           headers: { Authorization: token },
         }
       );
 
-      setApirantsConvocatory(data.profiles);
+      setApirantsConvocatory(data);
     }
     fetchData();
   }, []);

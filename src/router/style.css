@@ -1,6 +1,13 @@
 .login{
+  width: 100%;
+  min-height: 74.8vh;
   display: flex;
-  /* flex-direction: column;
-  justify-content: space-between; */
-  min-height: 93.2vh;
+}
+
+@media only screen and (min-width: 800px) {
+  .login{
+    width: 100%;
+    min-height: 82.5vh;
+    display: flex;
+  }
 }

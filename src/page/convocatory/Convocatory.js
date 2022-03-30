@@ -30,17 +30,6 @@ const Convocatory = () => {
   return (
     <>
       <div className="section__convocatory">
-        {/* <div className="section__contentC">
-          <span className="upperCase bold">Convocatorias</span>
-          {rows.length > 0 ? (
-            <Link to="/nuevacohorte">
-              <button type="submit" className="btn btn-success ">
-                Crear Convocatoria
-              </button>
-            </Link>
-          ) : null}
-          
-        </div> */}
         {rows.length > 0 ? (
           <Table
             className="table"

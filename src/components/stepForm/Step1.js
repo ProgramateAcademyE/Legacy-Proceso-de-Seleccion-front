@@ -60,7 +60,7 @@ const Step1 = ({ data, setDataToForm, myNext, myPrev }) => {
 				/*  validate={(formValues) => {textValidation(firstName)}} */
         onSubmit={(allValues, { resetForm }) => {
 					setDataToForm(allValues)
-					myNext()
+					// myNext()
         }}
 			>
 				{({ errors }) => (
@@ -340,10 +340,7 @@ const Step1 = ({ data, setDataToForm, myNext, myPrev }) => {
 								/>
 							</div>
 						</div>
-						<button className="btn btn-success" onClick={myPrev}>
-							Back
-						</button>
-						<Field type="submit" value="next"/>
+						<Field type="submit" value="Validar"/>
 						{/* <button onClick={handleNext}>
 								Next
 						</button> */}

@@ -39,6 +39,8 @@ import QualifySololearn from "../page/Qualification/QualifySoloLearn";
 import QualifyMotivationLetter from "../page/Qualification/QualifyMotivationLetter";
 import QualifyInterview from "../page/Qualification/QualifyInterview";
 import ConvocatoryAspirants from "../page/convocatory/ConvocaryAspirants";
+import NavBarIndex from "../components/navBarIndex/NavBarIndex";
+import { ContactlessOutlined } from "@material-ui/icons";
 
 
 
@@ -46,9 +48,10 @@ const App = () => {
   const auth = useSelector((state) => state.auth);
 
   const dispatch = useDispatch();
+  console.log(auth)
 
   useEffect(() => {
-    dispatch(getData(auth.user.id));
+    dispatch(getData(auth.user._id));
   }, [dispatch, auth]);
 
   const { isLogged, isAdmin } = auth;
@@ -57,7 +60,7 @@ const App = () => {
   return (
     <>
       {/* {pathname !== "/login" && <Header user={user} adminstate={adminstate} />} */}
-      {pathname !== "/" && pathname !== "/register" && pathname !== '/verify' && <Header />}
+      {pathname !== "/" && pathname !== "/register" && pathname !== '/verify' && <Header /> || <NavBarIndex/>}
 
       <div className="login">
         {/* {pathname !== "/login" && <Nav user={user} adminstate={adminstate} />} */}

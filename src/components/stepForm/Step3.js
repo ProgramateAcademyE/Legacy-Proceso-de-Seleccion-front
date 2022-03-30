@@ -28,7 +28,7 @@ const Step3 = ({ data, setDataToForm, myNext, myPrev }) => {
 				}}
 				onSubmit={(allValues) => {
           setDataToForm(allValues)
-					myNext()
+					// myNext()
 				}}
 			>
 				{({ errors }) => (
@@ -302,10 +302,7 @@ const Step3 = ({ data, setDataToForm, myNext, myPrev }) => {
 								/>
 							</div>
 						</div>
-						<button onClick={myPrev}>
-							Back
-						</button>
-						<Field type="submit" value="Enviar"/>
+						<Field type="submit" value="Validar"/>
 					</Form>
 				)}
 			</Formik>

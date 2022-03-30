@@ -2,9 +2,13 @@ import React, { useState } from 'react'
 import axios from 'axios';
 import { Link } from "react-router-dom";
 import { PETITIONS } from '../../../requestUrl';
+<<<<<<< HEAD
 import register from './Register.module.css';
 import programateacademycolor from '../../../dist/Assets/programateacademycolor.png';
 import programateacademycolorBN from '../../../dist/Assets/Programateacademynegros.png';
+=======
+import './Register.css';
+>>>>>>> f6da3af64d82991fb1ccc0797dff700d61d79ccd
   
 import Spinner from "../auth/Spinner";
 import Swal from "sweetalert2";
