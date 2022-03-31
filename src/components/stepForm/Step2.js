@@ -26,43 +26,43 @@ const Step2 = ({ data, setDataToForm, myNext, myPrev }) => {
 					internetCompany: data?.internetCompany || "",
 					mbCount: data?.mbCount || "",
 				}}
-				// validate={(formValues) => {
-				// 	const error = {};
-				// 	if (!formValues.nacionality) {
-				// 		error.nacionality = "Por favor indica tu país de nacimiento";
-				// 	} else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.nacionality)) {
-				// 		error.nacionality = "Por favor ingresa sólo letras";
-				// 	}
+				validate={(formValues) => {
+					const error = {};
+					if (!formValues.nacionality) {
+						error.nacionality = "Por favor indica tu país de nacimiento";
+					} else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.nacionality)) {
+						error.nacionality = "Por favor ingresa sólo letras";
+					}
 
-				// 	if (!formValues.currentCountry) {
-				// 		error.currentCountry = "Por favor indica tu país de residencia";
-				// 	} else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.currentCountry)) {
-				// 		error.currentCountry = "Por favor ingresa sólo letras";
-				// 	}
+					if (!formValues.currentCountry) {
+						error.currentCountry = "Por favor indica tu país de residencia";
+					} else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.currentCountry)) {
+						error.currentCountry = "Por favor ingresa sólo letras";
+					}
 
-				// 	if (!formValues.residencyDepartment) {
-				// 		error.residencyDepartment =
-				// 			"Por favor indica tu departamento de residencia";
-				// 	} else if (
-				// 		!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.residencyDepartment)
-				// 	) {
-				// 		error.residencyDepartment = "Por favor ingresa sólo letras";
-				// 	}
+					if (!formValues.residencyDepartment) {
+						error.residencyDepartment =
+							"Por favor indica tu departamento de residencia";
+					} else if (
+						!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.residencyDepartment)
+					) {
+						error.residencyDepartment = "Por favor ingresa sólo letras";
+					}
 
-				// 	if (!formValues.socialClass) {
-				// 		error.socialClass = "Por favor selecciona tu estrato";
-				// 	}
+					if (!formValues.socialClass) {
+						error.socialClass = "Por favor selecciona tu estrato";
+					}
 
-				// 	if (!formValues.pcAccess) {
-				// 		error.pcAccess = "Por favor selecciona una respuesta";
-				// 	}
+					if (!formValues.pcAccess) {
+						error.pcAccess = "Por favor selecciona una respuesta";
+					}
 
-				// 	if (!formValues.internetAccess) {
-				// 		error.internetAccess = "Por favor selecciona una respuesta";
-				// 	}
+					if (!formValues.internetAccess) {
+						error.internetAccess = "Por favor selecciona una respuesta";
+					}
 
-				// 	return error;
-				// }}
+					return error;
+				}}
 
 				onSubmit={(allValues, { resetForm }) => {
           setDataToForm(allValues)
@@ -116,8 +116,6 @@ const Step2 = ({ data, setDataToForm, myNext, myPrev }) => {
 									name='nacionality'
 									placeholder=''
 									className='form-control'
-									// onChange={handeleChange}
-									// value={data.nacionality}
 								/>
 								<ErrorMessage
 									name='nacionality'
@@ -136,8 +134,6 @@ const Step2 = ({ data, setDataToForm, myNext, myPrev }) => {
 									name='currentCountry'
 									placeholder=''
 									className='form-control'
-									// onChange={handeleChange}
-									// value={data.currentCountry}
 								/>
 								<ErrorMessage
 									name='currentCountry'
@@ -159,8 +155,6 @@ const Step2 = ({ data, setDataToForm, myNext, myPrev }) => {
 									name='residencyDepartment'
 									placeholder=''
 									className='form-control'
-                  // onChange={handeleChange}
-									// value={data.residencyDepartment}
 								/>
 								<ErrorMessage
 									name='residencyDepartment'
@@ -179,8 +173,6 @@ const Step2 = ({ data, setDataToForm, myNext, myPrev }) => {
 									name='municipalityOfResidency'
 									placeholder=''
 									className='form-control'
-                  // onChange={handeleChange}
-									// value={data.municipalityOfResidency}
 								/>
 							</div>
 						</div>
@@ -194,8 +186,6 @@ const Step2 = ({ data, setDataToForm, myNext, myPrev }) => {
 									name='locationInBogota'
 									className='form-select'
 									as='select'
-                  // onChange={handeleChange}
-									// value={data.locationInBogota}
 								>
 									<option value='cc'>Selecciona tu localidad</option>
 									<option value='Usaquén'>Usaquén</option>
@@ -230,8 +220,6 @@ const Step2 = ({ data, setDataToForm, myNext, myPrev }) => {
 									name='address'
 									placeholder=''
 									className='form-control'
-									// onChange={handeleChange}
-									// value={data.address}
 								/>
 							</div>
 						</div>
@@ -245,8 +233,6 @@ const Step2 = ({ data, setDataToForm, myNext, myPrev }) => {
 									name='socialClass'
 									className='form-select'
 									as='select'
-									// onChange={handeleChange}
-									// value={data.socialClass}
 								>
 									<option value='cc'>Selecciona tu Estrato</option>
 									<option value='1'>1</option>
@@ -272,8 +258,6 @@ const Step2 = ({ data, setDataToForm, myNext, myPrev }) => {
 									name='areaType'
 									className='form-select'
 									as='select'
-									// onChange={handeleChange}
-									// value={data.areaType}
 								>
 									<option value='cc'>Selecciona el tipo de área</option>
 									<option value='Rural'>Rural</option>
@@ -288,7 +272,7 @@ const Step2 = ({ data, setDataToForm, myNext, myPrev }) => {
 									Fotocopia de recibo en PDF
 								</label>
 								<Field
-									type='file'
+									type='url'
 									id='billPdf'
 									name='billPdf'
 									placeholder=''
@@ -305,8 +289,6 @@ const Step2 = ({ data, setDataToForm, myNext, myPrev }) => {
 									placeholder=''
 									className='form-control'
 									as='select'
-									// onChange={handeleChange}
-									// value={data.householdMembers}
 								>
 									<option value='cc'>Selecciona el número de personas</option>
 									<option value='Vivo solo/a'>Vivo solo/a</option>
@@ -329,8 +311,6 @@ const Step2 = ({ data, setDataToForm, myNext, myPrev }) => {
 									name='numberOfChildren'
 									className='form-select'
 									as='select'
-									// onChange={handeleChange}
-									// value={data.numberOfChildren}
 								>
 									<option value='cc'>Selecciona el número de hijos</option>
 									<option value='No'>No</option>
@@ -350,8 +330,6 @@ const Step2 = ({ data, setDataToForm, myNext, myPrev }) => {
 									name='familyIncome'
 									className='form-select'
 									as='select'
-									// onChange={handeleChange}
-									// value={data.familyIncome}
 								>
 									<option value='cc'>Selecciona el rango de ingreso</option>
 									<option value='Menos de un salario mínimo'>
@@ -655,8 +633,6 @@ const Step2 = ({ data, setDataToForm, myNext, myPrev }) => {
 									name='pcAccess'
 									className='form-select'
 									as='select'
-									// onChange={handeleChange}
-									// value={data.pcAccess}
 								>
 									<option value='cc'>Selecciona Si o No</option>
 									<option value='Si'>Si</option>
@@ -679,8 +655,6 @@ const Step2 = ({ data, setDataToForm, myNext, myPrev }) => {
 									name='internetAccess'
 									className='form-select'
 									as='select'
-									// onChange={handeleChange}
-									// value={data.internetAccess}
 								>
 									<option value='cc'>Selecciona Si o No</option>
 									<option value='Si'>Si</option>
@@ -706,8 +680,6 @@ const Step2 = ({ data, setDataToForm, myNext, myPrev }) => {
 									name='internetCompany'
 									placeholder=''
 									className='form-control'
-									// onChange={handeleChange}
-									// value={data.internetCompany}
 								/>
 							</div>
 							<div className='col-12 col-md-6'>
@@ -720,8 +692,6 @@ const Step2 = ({ data, setDataToForm, myNext, myPrev }) => {
 									name='mbCount'
 									placeholder=''
 									className='form-control'
-									// onChange={handeleChange}
-									// value={data.mbCount}
 								/>
 							</div>
 						</div>

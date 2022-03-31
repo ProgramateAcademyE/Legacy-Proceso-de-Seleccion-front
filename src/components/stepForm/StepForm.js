@@ -11,7 +11,6 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import { makeStyles } from "@material-ui/core/styles";
 import { ContentContext } from "../../Context/status";
-import { initialData } from "./index";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import stepformcss from "./StepForm.module.css";

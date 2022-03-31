@@ -82,7 +82,7 @@ const Step3 = ({ data, setDataToForm, myNext, myPrev }) => {
 								</label>
 								<Field
 									className='form-control'
-									type='file'
+									type='url'
 									id='studiesPdf'
 									name='studiesPdf'
 								/>
@@ -93,7 +93,7 @@ const Step3 = ({ data, setDataToForm, myNext, myPrev }) => {
 								</label>
 								<Field
 									className='form-control'
-									type='file'
+									type='url'
 									id='cvPdf'
 									name='cvPdf'
 								/>

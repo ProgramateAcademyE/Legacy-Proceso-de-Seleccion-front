@@ -22,42 +22,41 @@ const Step1 = ({ data, setDataToForm, myNext, myPrev }) => {
 					phone1: data?.phone1 || "",
 					phone2: data?.phone2 || "",
 				}}
-				// validate={(formValues) => {
-				// 	const error = {};
-				// 	if (!formValues.firstName) {
-				// 		error.firstName = "Por favor ingresa tu nombre";
-				// 	} else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.firstName)) {
-				// 		error.firstName = "Por favor ingresa sólo letras";
-				// 	}
+				validate={(formValues) => {
+					const error = {};
+					if (!formValues.firstName) {
+						error.firstName = "Por favor ingresa tu nombre";
+					} else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.firstName)) {
+						error.firstName = "Por favor ingresa sólo letras";
+					}
 
-				// 	if (!formValues.firstSurname) {
-				// 		error.firstSurname = "Por favor ingresa tu apellido";
-				// 	} else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.firstSurname)) {
-				// 		error.firstSurname = "Por favor ingresa sólo letras";
-				// 	}
+					if (!formValues.firstSurname) {
+						error.firstSurname = "Por favor ingresa tu apellido";
+					} else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.firstSurname)) {
+						error.firstSurname = "Por favor ingresa sólo letras";
+					}
 
-				// 	if (!formValues.phone1) {
-				// 		error.phone1 = "Por favor ingresa tu número de contacto";
-				// 	}
+					if (!formValues.phone1) {
+						error.phone1 = "Por favor ingresa tu número de contacto";
+					}
 
-				// 	if (!formValues.documentNumber) {
-				// 		error.documentNumber = "Por favor ingresa tu número de documento";
-				// 	}
+					if (!formValues.documentNumber) {
+						error.documentNumber = "Por favor ingresa tu número de documento";
+					}
 
-				// 	if (!formValues.email) {
-				// 		error.email = "Por favor ingresa tu correo";
-				// 	} else if (
-				// 		!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(
-				// 			formValues.email
-				// 		)
-				// 	) {
-				// 		error.email = "Por favor ingresa un correo válido";
-				// 	}
+					if (!formValues.email) {
+						error.email = "Por favor ingresa tu correo";
+					} else if (
+						!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(
+							formValues.email
+						)
+					) {
+						error.email = "Por favor ingresa un correo válido";
+					}
 
-				// 	return error;
-				// }}
+					return error;
+				}}
 
-				/*  validate={(formValues) => {textValidation(firstName)}} */
         onSubmit={(allValues, { resetForm }) => {
 					setDataToForm(allValues)
 					// myNext()
@@ -189,7 +188,7 @@ const Step1 = ({ data, setDataToForm, myNext, myPrev }) => {
 									Documento de identidad en PDF
 								</label>
 								<Field
-									type='file'
+									type='url'
 									id='documentPdf'
 									name='documentPdf'
 									placeholder=''
@@ -274,7 +273,7 @@ const Step1 = ({ data, setDataToForm, myNext, myPrev }) => {
 									Foto de perfil
 								</label>
 								<Field
-									type='file'
+									type='url'
 									id='profilePic'
 									name='profilePic'
 									placeholder=''
