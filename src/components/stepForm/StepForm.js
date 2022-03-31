@@ -53,8 +53,8 @@ function getStepContent(step) {
       return(error)
     }
 
-    dispatch(getProfileFull(user._id))
-    dispatch(getData(user._id))
+    dispatch(getProfileFull(user.user_id))
+    dispatch(getData(user.user_id))
 
     Swal.fire({
       position: "center-center",

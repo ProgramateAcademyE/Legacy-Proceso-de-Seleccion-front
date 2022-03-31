@@ -2,6 +2,7 @@ import { types } from "../types/types";
 import axios from "axios";
 
   export const getProfileFull = (id) => {
+    console.log("jeje", id)
     return async (dispatch) => {
       try {
         const res = await axios.get(`http://localhost:3001/api/candidate/sololearm/${id}`);
@@ -12,7 +13,6 @@ import axios from "axios";
     }
   }
 
-
   const getResult = (resp) => ({
     type: types.getResult,
     payload: resp
@@ -20,11 +20,11 @@ import axios from "axios";
 
 
 export const getData = (id) => {
-    console.log({id})
+    console.log("holsaa", {id})
     return async (dispatch) => {
       try {
         const {data} = await axios.get(`http://localhost:3001/api/candidate/result/${id}`);
-      
+        console.log(data)
         dispatch(getProfile(data))
       } catch (error) {
            console.log('Este',error)

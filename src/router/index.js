@@ -48,7 +48,7 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getData(auth.user.id));
+    dispatch(getData(auth.user._id));
   }, [dispatch, auth]);
 
   const { isLogged, isAdmin } = auth;
