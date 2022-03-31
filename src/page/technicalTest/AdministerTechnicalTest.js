@@ -6,6 +6,7 @@ import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
+import Paper from "@material-ui/core/Paper";
 import axios from "axios";
 import { PETITIONS } from "../../../requestUrl";
 import "./TechTest.css";
@@ -49,17 +50,17 @@ const AdministerTechnicalTest = () => {
 			<div>
 				<div className='title'>
 					<h3>Crear Prueba Tecnica</h3>
-					<Link to='/agregar' className='btn btn-success mt-3 mb-3'>
-						Crear Prueba tecnica
-					</Link>
 				</div>
+				<Link to='/agregar' className='btn btn-warning mt-3 mb-3'>
+					Crear Prueba tecnica
+				</Link>
 				
-				<TableContainer>
-					<div className="Technical-test">
-					<Table aria-label='simple table'>
+				<TableContainer component={Paper}>
+					{/* <div className="Technical-test"> */}
+					<Table>
 						<TableHead>
 							<TableRow>
-								<TableCell align='center'>NOMBRE</TableCell>
+								<TableCell align='center'>Enlace</TableCell>
 								<TableCell align='center'>PDF</TableCell>
 								<TableCell align='center'>CONVOCATORIAS</TableCell>
 								<TableCell align='center'>Acciones</TableCell>
@@ -92,20 +93,28 @@ const AdministerTechnicalTest = () => {
 										))}
 									</TableCell>
 									<TableCell align='center'>
-										<Link to={`/editarprueba?idtest=${prop._id}`}>
-											<button className=" btn btn-success">update</button>
-										</Link>
-										<div>
-											<button  className=" btn btn-success" style= {{margin:"2px"}}onClick={() => handleDelete(prop._id)}>
-												delete
-											</button>
+										<div className="actions">
+											<Link to={`/editarprueba?idtest=${prop._id}`}>
+												<div>
+													<i className='far fa-edit edit'></i>
+												</div>
+											</Link>
+											<div>
+												<button onClick={() => handleDelete(prop._id)} className="trash-btn">
+													<div>
+														<i
+															className='far fa-trash-alt trash'
+														></i>
+													</div>
+												</button>
+											</div>
 										</div>
 									</TableCell>
 								</TableRow>
 							))}
 						</TableBody>
 					</Table>
-			    </div>	
+			    {/* </div>	 */}
 				</TableContainer>
 			</div>
 			}

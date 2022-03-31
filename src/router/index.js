@@ -48,7 +48,6 @@ const App = () => {
   const auth = useSelector((state) => state.auth);
 
   const dispatch = useDispatch();
-  console.log(auth)
 
   useEffect(() => {
     dispatch(getData(auth.user._id));

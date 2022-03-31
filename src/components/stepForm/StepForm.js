@@ -61,24 +61,13 @@ function getStepContent(step) {
       position: "center-center",
       icon: "success",
       title: "Enviado correctamente",
-      showConfirmButton: true,
+      showConfirmButton: false,
       timer: 1500,
     });
+    // history.push("/dashboard");
   };
 
-  
-
-  const [myStep, setMyStep] = useState(0)
-
-  const myNext = () => {
-    setMyStep(myStep < 3 ? myStep + 1 : myStep)
-  }
-
-  const myPrev = () => {
-    setMyStep(myStep >= 0 ? myStep - 1 : myStep)
-    console.log(myStep)
-  }
-  const props = { data, setDataToForm, myNext, myPrev };
+  const props = { data, setDataToForm };
 
 
   switch (step) {
