@@ -8,6 +8,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Search from '../search/Search';
 import axios from 'axios';
+import "./User.css"
 
 import { PETITIONS } from '../../../requestUrl';
 
@@ -30,7 +31,7 @@ const User = (props) => {
       return error
     }
   }
-  return <div className='mt-5'>
+  return <div className='table_user mt-5'>
       <Search/>
       <TableContainer>
       <Table aria-label='simple table'>

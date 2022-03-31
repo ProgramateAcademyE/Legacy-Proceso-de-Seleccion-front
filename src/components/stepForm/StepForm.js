@@ -11,7 +11,6 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import { makeStyles } from "@material-ui/core/styles";
 import { ContentContext } from "../../Context/status";
-import { initialData } from "./index";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import stepformcss from "./StepForm.module.css";
@@ -62,24 +61,13 @@ function getStepContent(step) {
       position: "center-center",
       icon: "success",
       title: "Enviado correctamente",
-      showConfirmButton: true,
+      showConfirmButton: false,
       timer: 1500,
     });
+    // history.push("/dashboard");
   };
 
-  
-
-  const [myStep, setMyStep] = useState(0)
-
-  const myNext = () => {
-    setMyStep(myStep < 3 ? myStep + 1 : myStep)
-  }
-
-  const myPrev = () => {
-    setMyStep(myStep >= 0 ? myStep - 1 : myStep)
-    console.log(myStep)
-  }
-  const props = { data, setDataToForm, myNext, myPrev };
+  const props = { data, setDataToForm };
 
 
   switch (step) {

@@ -1,0 +1,43 @@
+.User_list{
+    background: white;
+    margin: 100px auto;
+    margin-top: 2rem;
+}
+
+.User_Container{
+    margin: 90px 0px 0px 347px;
+    background: white;
+    padding: 16px;
+    border-radius: 43px;
+    height: 51vh;
+}
+
+.Search_boxUser{
+        display: flex;
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 1vw;
+    }
+
+    @media screen and (max-width: 1100px) {
+        .User_Container{
+    margin: 89px 0px 0px 221px;
+        }
+    } 
+
+    @media screen and (max-width: 991px) {
+        .User_Container{
+            margin: 90px 0px 0px 17vw;
+    }
+    }
+
+    @media screen and (max-width: 915px){
+.User_Container {
+    margin: 90px 0px 0px 9vw;
+}
+
+.table_user{
+    width: 76vw;
+
+}
+}

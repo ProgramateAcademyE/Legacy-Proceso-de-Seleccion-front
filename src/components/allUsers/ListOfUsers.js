@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react'
 import { useSelector } from 'react-redux'
 import User from './User'
 import axios from 'axios';
-import usercss from "./User.module.css";
+import "./User.css";
 
 const ListOfUsers = () => {
   const [users, setUsers] = useState([]);

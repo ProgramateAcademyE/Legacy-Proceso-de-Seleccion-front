@@ -15,7 +15,7 @@ const ConvocatoryAspirants = () => {
     }
     fetchData();
   }, []);
- 
+  console.log(convAsp);
 
   const [apirantsConvocatory, setApirantsConvocatory] = useState([]);
   const token = useSelector((state) => state.token);

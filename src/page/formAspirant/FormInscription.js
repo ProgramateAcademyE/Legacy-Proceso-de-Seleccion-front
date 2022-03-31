@@ -7,6 +7,7 @@ import forminscription from "./FormInscription.module.css";
 function FormInscription() {
 
     const {profile} = useSelector(state => state.sololearn)
+    console.log(profile)
 
     return (
         <div className="inscription">
