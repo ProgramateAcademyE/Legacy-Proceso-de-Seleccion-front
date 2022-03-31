@@ -5,12 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import "./Auth.css";
 import { dispatchLogin } from "../../actions/authAction";
 import Spinner from "./Spinner";
-<<<<<<< HEAD
-import programateacademycolor from '../../../dist/Assets/programateacademycolor.png';
 import programateacademycolorBN from '../../../dist/Assets/Programateacademynegros.png';
-=======
-import programateacademycolorBN from '../../../dist/Assets/Programate-academy-negros.png';
->>>>>>> f6da3af64d82991fb1ccc0797dff700d61d79ccd
 
 import Swal from "sweetalert2";
 

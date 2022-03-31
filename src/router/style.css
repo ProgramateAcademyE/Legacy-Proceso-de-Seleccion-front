@@ -1,13 +1,13 @@
 .login{
   width: 100%;
-  min-height: 74.8vh;
+  min-height: 105.5vh;
   display: flex;
 }
 
 @media only screen and (min-width: 800px) {
   .login{
     width: 100%;
-    min-height: 82.5vh;
+    min-height: 105.5vh;
     display: flex;
   }
 }

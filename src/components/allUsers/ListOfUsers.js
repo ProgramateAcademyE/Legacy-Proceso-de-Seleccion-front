@@ -26,7 +26,7 @@ const ListOfUsers = () => {
 
   return (
     <>
-    <div style={{margin: "60px auto"}}>
+    <div className='User_Container'>
       <User users={users}/>
       
     </div>

@@ -50,6 +50,9 @@
   height: 80px;
   background-color: #ffcc02;
   font-size: 14px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .cohorteGoal__container-graph,
@@ -75,3 +78,19 @@
 }
 
 
+@media screen and (max-width: 991px) {
+  .section__dash {
+    padding: 88px;
+  }
+  .graphcsAdmin {
+   padding-left: 0;
+  }
+  
+
+  .section__content {
+  margin: 0;
+}
+.Dashboard-title{
+  font-size: 32px;
+}
+}

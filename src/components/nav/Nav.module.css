@@ -1,15 +1,19 @@
 .nav {
   position: fixed;
   height: 100%;
-  padding: 81px 0;
+  padding: 8px 0;
   background-color: #fdc300;
   width: 75px;
   display: block;
   -webkit-transition: .4s all ease;
   transition: .4s all ease;
-  z-index: 1000;
   -webkit-box-shadow: -1px 1px 16px 3px #00000054;
           box-shadow: -1px 1px 16px 3px #00000054;
+}
+
+.Logo_Lapiz{
+  width:  74px;
+  object-fit: cover;
 }
 
 @media screen and (max-width: 991px) {
@@ -74,6 +78,7 @@
 
 .nav__title {
   font-size: 13px;
+  padding-top: 12px;
   text-transform: uppercase;
   padding-left: 18px;
   font-weight: 800;
