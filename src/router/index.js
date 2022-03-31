@@ -115,6 +115,7 @@ const App = () => {
           )}
           {!isAdmin && isLogged && (
             <>
+
               <Route exact path="/inscripcion" component={FormInscription} />
               <Route exact path="/entrevista">
                 <InterviewAspirant />
