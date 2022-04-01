@@ -14,7 +14,41 @@
   margin: 165px auto;
   background: white;
   padding: 2vw;
+  
+  height: fit-content;
+
   border-radius: 2em;
   box-shadow: 5px 2px 1px -1px,
   
+}
+
+.Pdf_Container, .Test_Container{
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+@media screen and (max-width: 450px) {
+ 
+  .FormTechTest {
+  
+    background: white;
+    padding: 5vw;
+    width: 87vw;
+    height: 75vh;
+    font-size: 23px;
+    border-radius: 2em;
+    box-shadow: 5px 2px 1px -1px;
+}
+}
+@media screen and (max-width: 330px){
+.FormTechTest {
+    background: white;
+    padding: 5vw;
+    width: 81vw;
+    height: 75vh;
+    font-size: 6vw;
+    border-radius: 2em;
+    box-shadow: 5px 2px 1px -1px;
+}
 }

@@ -89,17 +89,17 @@ const FormTechTest = (props) => {
 									)}
 								/>
 							</div>
-							<div>
+							<div className="Pdf_Container">
 								<label htmlFor='pdfTest'>PDF</label>
 								<Field type='file' name='pdfTest' id='pdfTest' />
 								<ErrorMessage
 									name='pdfTest'
 									component={() => (
-										<span style={{ color: "red", display:"flex"}}>{errors.pdfTest}</span>
+										<div style={{ color: "red", display:"flex"}}>{errors.pdfTest}</div>
 									)}
 								/>
 							</div>
-							<div>
+							<div className="Test_Container">
 								<label htmlFor='convocatoryTest'>Convocatoria</label>
 								<Field name='convocatoryTest' as='select' multiple>
 									{convocatory?.map((data) => (
@@ -118,7 +118,7 @@ const FormTechTest = (props) => {
 								/>
 							</div>
 						</div>
-						<input className='btn btn-success mt-3 mb-3' type='submit' value={data ? "Actualizar" : "Guardar"} />
+						<input className='btn btn-warning' style={{margin: "10px 0px 0px 0px"}}type='submit' value={data ? "Actualizar" : "Guardar"} />
 					</Form>
 				)}
 			</Formik>

@@ -79,9 +79,8 @@
 
 
 @media screen and (max-width: 991px) {
-  .section__dash {
-    padding: 88px;
-  }
+ 
+  
   .graphcsAdmin {
    padding-left: 0;
   }
