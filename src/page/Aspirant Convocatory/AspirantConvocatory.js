@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import AspirantConvView from "./AspirantConvView";
-import "./Aspirantconv.module.css";
+import "./Aspirantconv.css";
 import { PETITIONS } from "../../../requestUrl";
 
 const AspirantConvocatorys = () => {

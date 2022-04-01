@@ -13,7 +13,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import { ContentContext } from "../../Context/status";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
-import stepformcss from "./StepForm.module.css";
+import "./StepForm.css";
 import { getData, getProfileFull } from "../../actions/sololearnProfile";
 
 const useStyles = makeStyles((theme) => ({
@@ -124,7 +124,7 @@ export default function HorizontalLinearStepper() {
 
   return (
     <div className={classes.root}>
-      <Stepper activeStep={activeStep}>
+      <Stepper style={{display:"flex", flexDirection:"column"}} activeStep={activeStep}>
         {steps.map((label, index) => {
           const stepProps = {};
           const labelProps = {};

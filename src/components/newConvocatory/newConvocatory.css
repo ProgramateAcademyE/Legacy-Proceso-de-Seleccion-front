@@ -77,3 +77,13 @@
         margin-bottom: 4rem;
     }
 }
+
+@media screen and (max-width: 700px)
+{
+    .Convocatory_Form {
+    margin: 89px 19px 45px 19px;
+    width: 100%;
+    padding: 17px;
+    background-color: #fff;
+    border-radius: 37px;
+}}
