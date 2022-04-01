@@ -32,13 +32,14 @@ import WhatsAppButton from "../components/Whatsapp Button/whatsAppButton";
 import Register from "../components/register/Register";
 import ListOfUsers from "../components/allUsers/ListOfUsers";
 import AspirantConvocatorys from "../page/Aspirant Convocatory/AspirantConvocatory";
-
 import './style.css'
 import QualifyAssessment from "../page/Qualification/QualifyAssessment";
 import QualifySololearn from "../page/Qualification/QualifySoloLearn";
 import QualifyMotivationLetter from "../page/Qualification/QualifyMotivationLetter";
 import QualifyInterview from "../page/Qualification/QualifyInterview";
 import ConvocatoryAspirants from "../page/convocatory/ConvocaryAspirants";
+import NavBarIndex from "../components/navBarIndex/NavBarIndex";
+import { ContactlessOutlined } from "@material-ui/icons";
 
 
 
@@ -57,7 +58,7 @@ const App = () => {
   return (
     <>
       {/* {pathname !== "/login" && <Header user={user} adminstate={adminstate} />} */}
-      {pathname !== "/" && pathname !== "/register" && pathname !== '/verify' && <Header />}
+      {pathname !== "/" && pathname !== "/register" && pathname !== '/verify' && <Header /> || <NavBarIndex/>}
 
       <div className="login">
         {/* {pathname !== "/login" && <Nav user={user} adminstate={adminstate} />} */}
@@ -113,6 +114,7 @@ const App = () => {
           )}
           {!isAdmin && isLogged && (
             <>
+
               <Route exact path="/inscripcion" component={FormInscription} />
               <Route exact path="/entrevista">
                 <InterviewAspirant />

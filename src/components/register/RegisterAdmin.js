@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import { PETITIONS } from "../../../requestUrl";
-import "./Register.module.css";
+import "./Register.css";
 import Spinner from "../auth/Spinner";
 import Swal from "sweetalert2";
 
@@ -118,7 +118,7 @@ const RegisterAdmin = () => {
 
   return (
     <>
-      <div className="container">
+      <div className="container admin">
         <form className="form" onSubmit={handleSubmit}>
           {spinner ? <Spinner /> : null}
           <h1> Registro Admin </h1>

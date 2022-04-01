@@ -5,7 +5,7 @@ import { PETITIONS } from "../../../requestUrl";
 import {
 	dataTypePopulation,
 } from "../../helpers/ConvocatoryHelper";
-import newconvocatory from "./NewConvocatory.module.css";
+import "./newConvocatory.css";
 
 import { useHistory } from "react-router-dom";
 
@@ -17,7 +17,7 @@ const FormConvocatory = (props) => {
 	return (
 		<>
 			<div className="Convocatory_Form">
-				<h2>{query ? `Actualiza convocatoria` : 'Nueva Convocatoria'}</h2>
+				<h2 className="text-center">{query ? `Actualiza convocatoria` : 'Nueva Convocatoria'}</h2>
 				<Formik
 					initialValues={{
 						nameConvocatory: data?.name || '',
@@ -135,90 +135,94 @@ const FormConvocatory = (props) => {
 					{({ errors }) => (
 						<Form className="Form_Container">
 							{/* Convocatory Creation */}
-							<div className="FormConvocatory_Container">
-								<div className="Input_Convocatory">
-									<label htmlFor='nameConvocatory'>Nombre Convocatoria</label>
-									<Field
-										type='text'
-										name='nameConvocatory'
-										id='nameConvocatory'
-									/>
-									<ErrorMessage
-										name='nameConvocatory'
-										component={() => (
-											<span style={{ color: "red" }}>
-												{errors.nameConvocatory}
-											</span>
-										)}
-									/>
-								</div>
-								<div>
-									<label htmlFor='maxQuotas'>Cupos</label>
-									<Field type='number' name='maxQuotas' />
-									<ErrorMessage
-										name='maxQuotas'
-										component={() => (
-											<span style={{ color: "red" }}>
-												{errors.maxQuotas}
-											</span>
-										)}
-									/>
-								</div>
-								<div>
-									<label htmlFor='startDate'>Fecha inicio</label>
-									<Field type='date' name='startDate' id='startDate' />
-									<ErrorMessage
-										name='startDate'
-										component={() => (
-											<span style={{ color: "red" }}>
-												{errors.startDate}
-											</span>
-										)}
-									/>
-								</div>
-								<div>
-									<label htmlFor='endDate'>Fecha cierre</label>
-									<Field type='date' name='endDate' id='endDate' />
-									<ErrorMessage
-										name='endDate'
-										component={() => (
-											<span style={{ color: "red" }}>
-												{errors.endDate}
-											</span>
-										)}
-									/>
-								</div>
-								<div>
-									<label htmlFor='startDateBootcamp'>Inicio del Bootcamp</label>
-									<Field
-										type='date'
-										name='startDateBootcamp'
-										id='startDateBootcamp'
-									/>
-									<ErrorMessage
-										name='startDateBootcamp'
-										component={() => (
-											<span style={{ color: "red" }}>
-												{errors.startDateBootcamp}
-											</span>
-										)}
-									/>
-								</div>
-								<div>
-									<label htmlFor='endDateBootcamp'>Cierre del Bootcamp</label>
-									<Field
-										type='date'
-										name='endDateBootcamp'
-										id='endDateBootcamp'
-									/>
-									<ErrorMessage
-										name='endDateBootcamp'
-										component={() => (
-											<span style={{ color: "red" }}>
-												{errors.endDateBootcamp}
-											</span>
-										)}
-									/>
+							<div>
+								<h3 className="mt-3">Datos de la convocatoria</h3>
+								<div className="convocatory-data">
+									<div>
+										<label htmlFor='nameConvocatory'>Nombre Convocatoria</label>
+										<Field
+											type='text'
+											name='nameConvocatory'
+											id='nameConvocatory'
+										/>
+										<ErrorMessage
+											name='nameConvocatory'
+											component={() => (
+												<span>
+													{errors.nameConvocatory}
+												</span>
+											)}
+										/>
+									</div>
+									<div>
+										<label htmlFor='maxQuotas'>Cupos</label>
+										<Field type='number' name='maxQuotas' />
+										<ErrorMessage
+											name='maxQuotas'
+											component={() => (
+												<span>
+													{errors.maxQuotas}
+												</span>
+											)}
+										/>
+									</div>
+									<div>
+										<label htmlFor='startDate'>Fecha inicio</label>
+										<Field type='date' name='startDate' id='startDate' />
+										<ErrorMessage
+											name='startDate'
+											component={() => (
+												<span>
+													{errors.startDate}
+												</span>
+											)}
+										/>
+									</div>
+									<div>
+										<label htmlFor='endDate'>Fecha cierre</label>
+										<Field type='date' name='endDate' id='endDate' />
+										<ErrorMessage
+											name='endDate'
+											component={() => (
+												<span>
+													{errors.endDate}
+												</span>
+											)}
+										/>
+									</div>
+									<div>
+										<label htmlFor='startDateBootcamp'>Inicio del Bootcamp</label>
+										<Field
+											type='date'
+											name='startDateBootcamp'
+											id='startDateBootcamp'
+										/>
+										<ErrorMessage
+											name='startDateBootcamp'
+											component={() => (
+												<span>
+													{errors.startDateBootcamp}
+												</span>
+											)}
+										/>
+									</div>
+									<div>
+										<label htmlFor='endDateBootcamp'>Cierre del Bootcamp</label>
+										<Field
+											type='date'
+											name='endDateBootcamp'
+											id='endDateBootcamp'
+										/>
+										<ErrorMessage
+											name='endDateBootcamp'
+											component={() => (
+												<span>
+													{errors.endDateBootcamp}
+												</span>
+											)}
+										/>
+									</div>
+
 								</div>
 							</div>
 
@@ -231,7 +235,7 @@ const FormConvocatory = (props) => {
 									<ErrorMessage
 										name='letter'
 										component={() => (
-											<span style={{ color: "red" }}>
+											<span>
 												{errors.letter}
 											</span>
 										)}
@@ -243,7 +247,7 @@ const FormConvocatory = (props) => {
 									<ErrorMessage
 										name='sololearn'
 										component={() => (
-											<span style={{ color: "red" }}>
+											<span>
 												{errors.sololearn}
 											</span>
 										)}
@@ -259,7 +263,7 @@ const FormConvocatory = (props) => {
 									<ErrorMessage
 										name='personalProfile'
 										component={() => (
-											<span style={{ color: "red" }}>
+											<span>
 												{errors.personalProfile}
 											</span>
 										)}
@@ -282,7 +286,7 @@ const FormConvocatory = (props) => {
 										name='residenceCountry'
 										as='select'
 										multiple
-										className='form-control select picker'>
+										className='form-control select picker form-select'>
 										<option value='colombia'>Colombia</option>
 										<option value='venezuela'>Venezuela</option>
 										<option value='no-aplica'>No aplica</option>
@@ -290,7 +294,7 @@ const FormConvocatory = (props) => {
 									<ErrorMessage
 										name='residenceCountry'
 										component={() => (
-											<span style={{ color: "red" }}>
+											<span>
 												{errors.residenceCountry}
 											</span>
 										)}
@@ -315,7 +319,7 @@ const FormConvocatory = (props) => {
 									<ErrorMessage
 										name='residenceDepartment'
 										component={() => (
-											<span style={{ color: "red" }}>
+											<span>
 												{errors.residenceDepartment}
 											</span>
 										)}
@@ -334,7 +338,7 @@ const FormConvocatory = (props) => {
 									<ErrorMessage
 										name='age'
 										component={() => (
-											<span style={{ color: "red" }}>
+											<span>
 												{errors.age}
 											</span>
 										)}
@@ -353,7 +357,7 @@ const FormConvocatory = (props) => {
 									<ErrorMessage
 										name='gender'
 										component={() => (
-											<span style={{ color: "red" }}>
+											<span>
 												{errors.gender}
 											</span>
 										)}
@@ -375,7 +379,7 @@ const FormConvocatory = (props) => {
 									<ErrorMessage
 										name='typePopulation'
 										component={() => (
-											<span style={{ color: "red" }}>
+											<span>
 												{errors.typePopulation}
 											</span>
 										)}
@@ -397,14 +401,14 @@ const FormConvocatory = (props) => {
 									<ErrorMessage
 										name='stratus'
 										component={() => (
-											<span style={{ color: "red" }}>
+											<span>
 												{errors.stratus}
 											</span>
 										)}
 									/>
 								</div>
 							</div>
-							<input type='submit' value='Guardar'  className="btn btn-success" style={{ margin:"18px 0px 0px 0px"}} />
+							<input type='submit' value='Guardar'  className="btn btn-warning" style={{ margin:"18px 0px 0px 0px"}} />
 						</Form>
 					)}
 				</Formik>

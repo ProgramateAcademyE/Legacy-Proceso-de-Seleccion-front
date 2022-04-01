@@ -7,14 +7,14 @@ import {useEffect, useState} from "react";
 
 const ModalAspirants = ({data}) => {
 	
-	const [ userId, setuserId] = useState([]);
+	/* const [ userId, setuserId] = useState([]);
 	useEffect(() => {
     if(user_id){
       axios.get(`${PETITIONS.GetAnswersFromForm}${user_id}`).then( res => setuserId(res.data[0]))
     }
 	}, [user_id])
     console.log (userId)
-
+ */
 	
 
 let  {  

@@ -30,7 +30,7 @@ const StateContext = ({ children }) => {
   const getProfiles = async () => {
     try {
       const response = await axios.get(`${url}/candidate/candidate-profile`);
-      
+      console.log(response.data)
       dispatch({
         type: GET_PROFILES,
         payload: response.data
@@ -77,12 +77,12 @@ const StateContext = ({ children }) => {
   }
   const getAcept = async (id) => {
     try {
-      const response = await axios.get(`${url}/admin/acept`);
+      await axios.get(`${url}/admin/acept`);
       dispatch({
         type: GET_ACEPT,
-        payload: response.data,
+        payload: res.data,
       });
-      // console.log(response.data)
+      console.log(res.data)
     } catch (e) {
       console.log(e);
     }
