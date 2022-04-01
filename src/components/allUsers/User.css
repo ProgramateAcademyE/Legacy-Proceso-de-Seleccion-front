@@ -5,11 +5,11 @@
 }
 
 .User_Container{
-    margin: 90px 0px 0px 347px;
+    margin: 110px 0px 84px 320px;
     background: white;
     padding: 16px;
     border-radius: 43px;
-    height: 51vh;
+    height: fit-content;
 }
 
 .Search_boxUser{

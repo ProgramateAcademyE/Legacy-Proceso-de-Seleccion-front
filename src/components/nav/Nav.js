@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useSelector } from "react-redux";
 import { ITEMS, ITEMS_ASPIRANTS } from "../../api/data";
 import Item from "../item/Item";
-import navcss from "./Nav.module.css";
+import "./Nav.css";
 import { Link } from "react-router-dom";
 
 const Nav = () => {

@@ -1,0 +1,30 @@
+.section__convocatory {
+    width: 100%;
+    margin: 80px 9px 0px 97px;
+}
+
+.Aspirants_in_convocatory{
+margin: 6em;
+    background: white;
+    padding: 2em;
+    border-radius: 44px;
+    height: fit-content;
+}
+
+
+
+.section__contentC {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+
+@media screen and (max-width: 991px) {
+
+    .section__convocatory {
+    
+        margin: 80px 9px 0px 20px;
+    }
+}

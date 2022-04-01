@@ -94,3 +94,8 @@
   font-size: 32px;
 }
 }
+
+@media screen and (max-width: 530px)
+{.Dashboard-title {
+    font-size: 26px;
+}}
