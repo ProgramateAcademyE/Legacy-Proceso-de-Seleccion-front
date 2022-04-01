@@ -11,10 +11,6 @@ import { useSelector } from "react-redux";
 function DashboardAspirant() {
   const { profile } = useSelector((state) => state.sololearn);
 
-  // console.log(state)
-  // const { profile } = useSelector((state) => console.log(state));
-  // console.log(state)
-  console.log(profile)
   return (
     <div className="dash">
       <div className="dash__content d-flex justify-content-between">
@@ -43,7 +39,6 @@ function DashboardAspirant() {
               Perfil: {profile.map((item) => item.userFullName)}
             </span>
           </p>
-          <span>Aceptado</span>
         </div>
       </div>
       <div className="doughtnut d-flex flex-wrap justify-content-around gap-4">

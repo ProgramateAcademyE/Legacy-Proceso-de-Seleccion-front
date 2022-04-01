@@ -21,7 +21,7 @@ const TechnicalTestAspirant = () => {
 				.get(`${PETITIONS.verifyTechTest}${user._id}`)
 				.then((res) => setExistTechTest([res.data]));
 		} catch (error) {
-			console.log(error);
+			return error
 		}
 	}, [user]);
 

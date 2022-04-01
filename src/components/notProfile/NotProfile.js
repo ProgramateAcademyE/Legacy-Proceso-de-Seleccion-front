@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { Link } from 'react-router-dom'
 import Spinner from '../auth/Spinner'
-import notprofile from "./NotProfile.module.css"
+import "./NotProfile.css"
 
 const NotProfile = () => {
 

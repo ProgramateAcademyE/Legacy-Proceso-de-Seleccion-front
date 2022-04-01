@@ -31,7 +31,6 @@ import WhatsAppButton from "../components/Whatsapp Button/whatsAppButton";
 import Register from "../components/register/Register";
 import ListOfUsers from "../components/allUsers/ListOfUsers";
 import AspirantConvocatorys from "../page/Aspirant Convocatory/AspirantConvocatory";
-
 import './style.css'
 import QualifyAssessment from "../page/Qualification/QualifyAssessment";
 import QualifySololearn from "../page/Qualification/QualifySoloLearn";

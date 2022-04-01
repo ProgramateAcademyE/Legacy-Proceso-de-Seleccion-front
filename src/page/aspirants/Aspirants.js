@@ -10,9 +10,7 @@ const Aspirants = () => {
         const getUser = async () => {
             const { data } = await RequestService.get("/admin/candidatefull");
             if (data) {
-                console.log(data);
                 const res = data.filter((e) => e.user_id.role == 0);
-                console.log(res);
                 setAspirants(res);
             }
         };

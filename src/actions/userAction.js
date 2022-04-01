@@ -23,7 +23,7 @@ export const getFormAll = (id) => {
             const {data} = await axios.get(`http://localhost:3001/api/candidate/infoperfil/${id}`)
             dispatch(getForm(data))
           } catch (error) {
-            console.log(error)
+            return error
           }
     }
 }

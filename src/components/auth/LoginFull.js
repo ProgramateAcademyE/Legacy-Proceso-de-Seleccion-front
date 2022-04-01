@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import "./Auth.css";
 import { dispatchLogin } from "../../actions/authAction";
 import Spinner from "./Spinner";
-import programateacademycolorBN from '../../../dist/Assets/Programate-academy-negros.png';
+import programateacademycolorBN from '../../../dist/Assets/Programateacademynegros.png';
 
 import Swal from "sweetalert2";
 
@@ -90,7 +90,7 @@ const Login = () => {
           password,
         })
         .then((res) => {
-          console.log("res", res);
+         
           if (res.status === 200) {
             setUser({ ...user, err: "", success: res.data.msg });
             window.localStorage.setItem("firstLogin", true);
@@ -106,7 +106,6 @@ const Login = () => {
           }
         })
         .catch((err) => {
-          console.log(err);
           setIsFailing({
             email: true,
             password: true,
@@ -123,7 +122,7 @@ const Login = () => {
           }, 200);
         });
     } catch (err) {
-      console.log(err);
+      return err;
       guardarSpinner(false);
     }
   };

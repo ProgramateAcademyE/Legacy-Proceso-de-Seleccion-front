@@ -408,7 +408,7 @@ const FormConvocatory = (props) => {
 									/>
 								</div>
 							</div>
-							<input type='submit' value='Guardar'  className="btn btn-success" style={{ margin:"18px 0px 0px 0px"}} />
+							<input type='submit' value='Guardar'  className="btn btn-warning" style={{ margin:"18px 0px 0px 0px"}} />
 						</Form>
 					)}
 				</Formik>

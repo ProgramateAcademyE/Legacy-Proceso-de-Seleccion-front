@@ -1,10 +1,9 @@
 .Aspirants {
     display: flex;
     flex-direction: column;
-    justify-content: center;
     width: 90%;
     margin: 3vw;
-    padding: 50px 0px 26px 15px;
+    padding: 57px 0px 0px 16px
 }
 .MuiTableCell-alignRight {
     text-align: center;

@@ -12,7 +12,7 @@ export const eventStartAddNew = (event) => {
                 dispatch(eventAddnew(event));
             }
         } catch (error) {
-            console.log(error)
+            return error
         }
     }   
 }
@@ -39,11 +39,11 @@ export const updateEvents = (event) => {
         if(data.ok){
           dispatch(eventUpdated(event))
         }else{
-          console.log('No tienes permisos')
+          return 'No tienes permisos'
         }
       
     } catch (error) {
-      console.log('error', error)
+      return error
     }
   }
 }
@@ -61,7 +61,7 @@ export const DeletedEvent = () => {
         const {data} = await axios.delete(`http://localhost:3001/api/admin/calendar/${_id}`)
         dispatch(eventDeleted())
       } catch (error) {
-        console.log(error)
+        return error
       }
     }
 }

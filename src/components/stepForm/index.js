@@ -16,7 +16,6 @@ const index = () => {
   const history = useHistory();
   const dispatch = useDispatch();
 
-  console.log(user._id)
   const [step, setStep] = useState(1);
   if(step < 1 ){
     setStep(1)
