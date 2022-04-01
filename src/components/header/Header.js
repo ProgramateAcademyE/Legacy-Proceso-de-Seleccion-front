@@ -56,8 +56,8 @@ const Header = () => {
   };
 
   return (
-    <>
-      <header className="header d-flex justify-content-between">
+    
+      <div className="General_header">
         <div className="header__logo" id="logo">
           {auth ? 
             <Link to="/dashboard">
@@ -68,18 +68,16 @@ const Header = () => {
             </Link>:
             null
           }
-        </div>
-        <div className="menu-bar">
+          <div className="menu-bar">
           <i className="fas fa-bars pointer" onClick={moveNav} />
         </div>
-        <div className="header__search">
-          <Search />
         </div>
+        
         <div className="header__user">
           <User/>
         </div>
-      </header>
-    </>
+      
+    </div>
   );
 };
 

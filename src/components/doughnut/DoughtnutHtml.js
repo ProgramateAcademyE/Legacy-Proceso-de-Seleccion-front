@@ -11,6 +11,7 @@ defaults.plugins.legend.position = "bottom";
 
 const DoughtnutHtml = ({ item }) => {
     const { htmlScore } = item;
+    console.log(item)
     const html = htmlScore.toString().slice(2)
 
     let pendiente = 100 - html;

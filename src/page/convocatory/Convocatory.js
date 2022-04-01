@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Table from "../../components/tablita/Table";
 import NewConvocatory from "../../components/newConvocatory/NewConvocatory";
-import convocatorycss from "./Convocatory.module.css";
+import "./Convocatory.css";
 import { PETITIONS } from "../../../requestUrl";
 
 const Convocatory = () => {
@@ -30,17 +30,6 @@ const Convocatory = () => {
   return (
     <>
       <div className="section__convocatory">
-        {/* <div className="section__contentC">
-          <span className="upperCase bold">Convocatorias</span>
-          {rows.length > 0 ? (
-            <Link to="/nuevacohorte">
-              <button type="submit" className="btn btn-success ">
-                Crear Convocatoria
-              </button>
-            </Link>
-          ) : null}
-          
-        </div> */}
         {rows.length > 0 ? (
           <Table
             className="table"

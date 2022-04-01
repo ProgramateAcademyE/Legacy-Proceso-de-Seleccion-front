@@ -15,7 +15,7 @@ const ConvocatoryAspirants = () => {
     }
     fetchData();
   }, []);
- 
+  console.log(convAsp);
 
   const [apirantsConvocatory, setApirantsConvocatory] = useState([]);
   const token = useSelector((state) => state.token);
@@ -38,7 +38,8 @@ const ConvocatoryAspirants = () => {
   return (
     <>
       {convAsp?.map((item) => (
-        <div className="section__convocatory">
+        <div className="Aspirants_in_convocatory">  
+          <div >
           <h1 key={item._id}>{item.name}</h1>
             {" "}
             {item.usersRegistered.map((i) =>
@@ -47,6 +48,7 @@ const ConvocatoryAspirants = () => {
               )
             )}
         </div>
+      </div>
       ))}
       ;
     </>

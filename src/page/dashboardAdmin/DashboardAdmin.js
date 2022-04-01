@@ -4,7 +4,7 @@ import FunnelDos from "../../components/graphicsAdmin/FunnelDos";
 import DateMigrants from "../../components/graphicsAdmin/DateMigrants";
 import AmountPassing from "../../components/graphicsAdmin/AmountPassing";
 import LocationMigrants from "../../components/graphicsAdmin/LocationMigrants";
-import dashboardadmincss from "./DashboardAdmin.module.css";
+import "./DashboardAdmin.css";
 import { providerContext } from "../../Context/status";
 
 const DashboardAdmin = () => {
@@ -35,8 +35,8 @@ const DashboardAdmin = () => {
                 </div>
                 <div className="graphcsAdmin">
                     <div className="cohorteGoal__container">
-                        <div className="cohorteGoal__container-title d-flex justify-content-center align-items-center">
-                            <h2 className="m-0">Meta de la cohorte</h2>
+                        <div className="cohorteGoal__container-title">
+                            <h2 className="Dashboard-title">Meta de la cohorte</h2>
                         </div>
                         <div className="cohorteGoal__container-graph">
                             <select name="qualify" className="form-select" onChange={(e) => handleChange(e)}>
@@ -59,8 +59,8 @@ const DashboardAdmin = () => {
                         </div>
                     </div>
                     <div className="funnel__container">
-                        <div className="funnel__container-title d-flex justify-content-center align-items-center">
-                            <h2 className="m-0">Embudo de selección</h2>
+                        <div className="funnel__container-title">
+                            <h2 className="Dashboard-title">Embudo de selección</h2>
                         </div>
                         <div className="funnel__container-graph">
                             {convocatory.map((item) => (
@@ -69,8 +69,8 @@ const DashboardAdmin = () => {
                         </div>
                     </div>
                     <div className="funnel__container">
-                        <div className="funnel__container-title d-flex justify-content-center align-items-center">
-                            <h2 className="m-0">Porcentaje que van pasando</h2>
+                        <div className="funnel__container-title">
+                            <h2 className="Dashboard-title">Porcentaje que van pasando</h2>
                         </div>
                         <div className="funnel__container-graph">
                             {convocatory.map((item) => (
@@ -79,8 +79,8 @@ const DashboardAdmin = () => {
                         </div>
                     </div>
                     <div className="funnel__container">
-                        <div className="funnel__container-title d-flex justify-content-center align-items-center">
-                            <h2 className="m-0">Datos generales migrantes</h2>
+                        <div className="funnel__container-title">
+                            <h2 className="Dashboard-title">Datos generales migrantes</h2>
                         </div>
                         <div className="funnel__container-graph">
                             {convocatory.map((item) => (
@@ -89,8 +89,8 @@ const DashboardAdmin = () => {
                         </div>
                     </div>
                     {/* <div className="socialMedia__container">
-                        <div className="socialMedia__container-title d-flex justify-content-center align-items-center">
-                            <h2 className="m-0">
+                        <div className="socialMedia__container-title">
+                            <h2 className="Dashboard-title">
                                 ¿Dónde te enteraste de nosotros?
                             </h2>
                         </div>
@@ -102,7 +102,7 @@ const DashboardAdmin = () => {
                     </div> */}
                     <div className="socialMedia__container">
                         <div className="socialMedia__container-title">
-                            <h2 className="m-0">
+                            <h2 className="Dashboard-title">
                                 Departamento de residencia
                             </h2>
                         </div>

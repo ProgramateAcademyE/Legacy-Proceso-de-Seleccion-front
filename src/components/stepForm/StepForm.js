@@ -11,7 +11,6 @@ import Swal from "sweetalert2";
 import axios from "axios";
 import { makeStyles } from "@material-ui/core/styles";
 import { ContentContext } from "../../Context/status";
-import { initialData } from "./index";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router-dom";
 import stepformcss from "./StepForm.module.css";
@@ -44,17 +43,19 @@ function getStepContent(step) {
   }
 
   const { user } = useSelector((state) => state.auth);
-
   console.log(user)
+
   const sendData = async () => {
+    console.log(data)
     try {
-      axios.post('http://localhost:3001/api/candidate/profile', {...data, user_id : user?._id})
+      axios.post('http://localhost:3001/api/candidate/profile', {...data, user_id : user?._id}).then(res => console.log(res))
     } catch (error) {
       return(error)
     }
 
-    dispatch(getProfileFull(user._id))
-    dispatch(getData(user._id))
+    dispatch(getProfileFull(user.user_id))
+    dispatch(getData(user.user_id))
+    
 
     Swal.fire({
       position: "center-center",
@@ -63,23 +64,13 @@ function getStepContent(step) {
       showConfirmButton: false,
       timer: 1500,
     });
-    history.push("/dashboard");
+    // history.push("/dashboard");
   };
 
-  const [myStep, setMyStep] = useState(0)
-
-  const myNext = () => {
-    setMyStep(myStep < 3 ? myStep + 1 : myStep)
-  }
-
-  const myPrev = () => {
-    setMyStep(myStep >= 0 ? myStep - 1 : myStep)
-    console.log(myStep)
-  }
-  const props = { data, setDataToForm, myNext, myPrev };
+  const props = { data, setDataToForm };
 
 
-  switch (myStep) {
+  switch (step) {
     case 0:
       return <Step1 {...props} />;
     case 1:

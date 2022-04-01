@@ -4,6 +4,7 @@ import User from './User'
 import axios from 'axios';
 import Swal from "sweetalert2";
 
+import "./User.css";
 
 const ListOfUsers = () => {
   const [users, setUsers] = useState([]);
@@ -27,7 +28,7 @@ const ListOfUsers = () => {
 
   return (
     <>
-    <div style={{margin: "60px auto"}}>
+    <div className='User_Container'>
       <User users={users}/>
       <button onClick={() => {
         if(page > 1) {
