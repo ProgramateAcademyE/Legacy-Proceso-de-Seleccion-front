@@ -10,7 +10,6 @@ const InterviewAspirant = () => {
   //   getConvocatorys();
   //   // getProfile("618c352d3ad3f3933bfb3b59")
   // }, [])
-  // console.log(profileT)
   return (
     <div className="Interviewaspirant">
       <div className="section__content">

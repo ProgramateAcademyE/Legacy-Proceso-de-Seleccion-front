@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
+import { Link } from 'react-router-dom'
 import Spinner from '../auth/Spinner'
-import notprofile from "./NotProfile.module.css"
+import "./NotProfile.css"
 
 const NotProfile = () => {
 
@@ -22,7 +23,7 @@ const NotProfile = () => {
             border="0"
             width="400px"
           />
-            <p>Antes de empezar, registrate en la sección <span className='bold-500'>FORMULARIO DE INSCRIPCIÓN</span></p>
+            <p>Antes de empezar, registrate en la sección <span className='bold-500 text-decoration-underline'><Link to="/inscripcion">FORMULARIO DE INSCRIPCIÓN</Link></span></p>
             <p>Si ya te registraste oprime el boton</p>
             {
                 spinner && <Spinner />

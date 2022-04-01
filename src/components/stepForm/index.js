@@ -8,10 +8,12 @@ import { getData, getProfileFull } from "../../actions/sololearnProfile";
 import axios from 'axios';
 import FormSend from '../formSend/FormSend';
 import { PETITIONS } from '../../../requestUrl';
+import { useHistory } from 'react-router-dom';
 
-const index = () => {
+const Index = () => {
   const { profile } = useSelector((state) => state.sololearn);
   const { user } = useSelector((state) => state.auth);
+  const history = useHistory();
   const dispatch = useDispatch();
 
   const [step, setStep] = useState(1);
@@ -29,7 +31,6 @@ const index = () => {
   }
 
   useEffect(() =>{
-    console.log(user)
     try {
       axios.get(`${PETITIONS.getProfileById}${user._id}`).then(res => res)
     } catch (error) {
@@ -48,12 +49,15 @@ const index = () => {
       }
   
       Swal.fire({
-        position: "center-center",
-        icon: "success",
-        title: "Enviado correctamente",
-        showConfirmButton: false,
-        timer: 2000,
-      });
+        position: 'center-center',
+        icon: 'success',
+        title: 'Datos enviados exitosamente',
+        showConfirmButton: true,
+      }).then((result) => {
+        if (result.isConfirmed) {
+          history.push("/dashboard");
+        }
+      })
     }
     dispatch(getProfileFull(user._id))
     dispatch(getData(user._id))
@@ -73,4 +77,4 @@ const index = () => {
   )
 }
 
-export default index
+export default Index

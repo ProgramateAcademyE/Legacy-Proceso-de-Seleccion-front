@@ -12,7 +12,6 @@ import AdministerTechnicalTest from "../page/technicalTest/AdministerTechnicalTe
 import AddTechTest from "../page/technicalTest/AddTechTest";
 import QualifyTechnicalTest from "../page/Qualification/QualifyTechnicalTest";
 import Results from "../page/Results/Results";
-import FormInscription from "../page/formAspirant/FormInscription";
 import InterviewAspirant from "../page/interviewAspirant/InterviewAspirant";
 import ProofAspirant from "../page/proofAspirant/ProofAspirant";
 import InterviewDay from "../page/citation/InterviewDay";
@@ -32,7 +31,6 @@ import WhatsAppButton from "../components/Whatsapp Button/whatsAppButton";
 import Register from "../components/register/Register";
 import ListOfUsers from "../components/allUsers/ListOfUsers";
 import AspirantConvocatorys from "../page/Aspirant Convocatory/AspirantConvocatory";
-
 import './style.css'
 import QualifyAssessment from "../page/Qualification/QualifyAssessment";
 import QualifySololearn from "../page/Qualification/QualifySoloLearn";
@@ -40,7 +38,6 @@ import QualifyMotivationLetter from "../page/Qualification/QualifyMotivationLett
 import QualifyInterview from "../page/Qualification/QualifyInterview";
 import ConvocatoryAspirants from "../page/convocatory/ConvocaryAspirants";
 import NavBarIndex from "../components/navBarIndex/NavBarIndex";
-import { ContactlessOutlined } from "@material-ui/icons";
 import Index from "../components/stepForm";
 
 
@@ -67,6 +64,7 @@ const App = () => {
         {pathname !== "/" && pathname !== "/register" && pathname !== '/verify' && <Nav />}
 
         <Switch>
+          
           <Route exact path="/verify" component={Verify} />
           
           <Route exact path="/" component={LoginFull} />
@@ -117,14 +115,13 @@ const App = () => {
           {!isAdmin && isLogged && (
             <>
 
-              <Route exact path="/inscripcion" component={FormInscription} />
+              <Route exact path="/inscripcion" component={Index} />
               <Route exact path="/entrevista">
                 <InterviewAspirant />
               </Route>
               <Route exact path="/Convocatoriasaspirante" component={AspirantConvocatorys}/>
               <Route exact path="/aspirante" component={ProofAspirant} />
               <Route exact path="/dashboard" component={DashboardAspirant} />
-              <Route exact path="/form" component={Index} />
               <WhatsAppButton/>
             </>
           )}

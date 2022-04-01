@@ -1,5 +1,5 @@
 import React from 'react'
-import navLogo from './programate-academy-blancos.png'
+import navLogo from "../../../dist/Assets/programateacademycolor.png"
 import './navBarIndex.css'
 
 const NavBarIndex = () => {

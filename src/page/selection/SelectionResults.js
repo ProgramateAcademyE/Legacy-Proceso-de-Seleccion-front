@@ -34,7 +34,6 @@ const SelectionResults = () => {
         } else {
             color = "#23631F";
         }
-        console.log(color);
         return color;
     };
 
