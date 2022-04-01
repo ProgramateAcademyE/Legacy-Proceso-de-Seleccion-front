@@ -1,53 +1,76 @@
-export const initialData = {
-    firstName: "Jairo",
-    secondName: "valentin",
-    firstSurname: "solarte",
-    secondSurname: "rodriuez",
-    documentType: "CC",
-    documentNumber: "12345",
-    documentPdf: "./document.pdf",
-    email: "",
-    phone1: "123",
-    phone2: "456",
-    nacionality: "Colombia",
-    currentCountry: "Colombia",
-    residencyDepartment: "Bogota",
-    municipalityOfResidency: "Bogota",
-    locationInBogota: "Kennedy",
-    address: "1234",
-    stratum: "2",
-    dateOfBirth: "2022-12-12",
-    age: "23",
-    sex: "masculino",
-    maritalStatus: "",
-    academicLevel: "",
-    degreeTitle: "",
-    currentOccupation: "",
-    contractWorker: "",
-    pcAccess: "",
-    soloLearnProfile: "",
-    areaType: "",
-    billPdf:"",
-    disability: [],
-    familyIncome: 0,
-    householdMembers: "",
-    numberOfChildren: "",
-    internetCompany: "",
-    mbCount: 0,
-    internetAccess: "no",
-    vulnerablePopulation: [],
-    studiesPdf: "",
-    cvPdf: "",
-    unemployementTime: "",
-    currentOccupation: "",
-    householder: false,
-    firstLanguage: "",
-    secondLanguage: "",
-    languageLevel:"",
+import React, { useEffect, useState } from 'react'
+import Step1 from './Step1';
+import Step2 from './Step2';
+import Step3 from './Step3';
+import { useDispatch, useSelector } from "react-redux";
+import Swal from "sweetalert2";
+import { getData, getProfileFull } from "../../actions/sololearnProfile";
+import axios from 'axios';
+import FormSend from '../formSend/FormSend';
+import { PETITIONS } from '../../../requestUrl';
 
-};
+const index = () => {
+  const { profile } = useSelector((state) => state.sololearn);
+  const { user } = useSelector((state) => state.auth);
+  const dispatch = useDispatch();
+
+  const [step, setStep] = useState(1);
+  if(step < 1 ){
+    setStep(1)
+  }else if(step > 3){
+    setStep(3)
+  }
+
+  const [data, setData] = useState();
+  const [sendAllData, setSendAllData] = useState(false);
+  const setDataToForm = (allValues, send = sendAllData) => {
+    setData({...data, ...allValues})
+    setSendAllData(send)
+  }
+
+  useEffect(() =>{
+    console.log(user)
+    try {
+      axios.get(`${PETITIONS.getProfileById}${user._id}`).then(res => res)
+    } catch (error) {
+      return error
+    }
+  }, [user])
 
 
+  
+  useEffect(() => {
+    if(sendAllData){
+      try {
+        axios.post('http://localhost:3001/api/candidate/profile', {...data, user_id : user?._id})
+      } catch (error) {
+        return(error)
+      }
+  
+      Swal.fire({
+        position: "center-center",
+        icon: "success",
+        title: "Enviado correctamente",
+        showConfirmButton: false,
+        timer: 2000,
+      });
+    }
+    dispatch(getProfileFull(user._id))
+    dispatch(getData(user._id))
+  }, [ sendAllData, dispatch, getData, user ])
+  
 
+  return (<>
+    {profile.length ? <FormSend /> :
+      <div style={{margin: "100px"}}>
+        {step === 1 ? <Step1 setStep={setStep} data={data} setDataToForm={setDataToForm} step={step}/>
+          : step === 2 ? <Step2 setStep={setStep} data={data} setDataToForm={setDataToForm} step={step}/>
+          : step === 3 ? <Step3 setStep={setStep} data={data} setDataToForm={setDataToForm} step={step}/> : null
+        }
+      </div>
+    }
+  </>
+  )
+}
 
-
+export default index

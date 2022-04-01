@@ -21,9 +21,7 @@ export const getFormAll = (id) => {
     return async (dispatch) => {
         try {
             const {data} = await axios.get(`http://localhost:3001/api/candidate/infoperfil/${id}`)
-            console.log(data)
             dispatch(getForm(data))
-    
           } catch (error) {
             console.log(error)
           }

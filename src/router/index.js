@@ -41,6 +41,7 @@ import QualifyInterview from "../page/Qualification/QualifyInterview";
 import ConvocatoryAspirants from "../page/convocatory/ConvocaryAspirants";
 import NavBarIndex from "../components/navBarIndex/NavBarIndex";
 import { ContactlessOutlined } from "@material-ui/icons";
+import Index from "../components/stepForm";
 
 
 
@@ -123,6 +124,7 @@ const App = () => {
               <Route exact path="/Convocatoriasaspirante" component={AspirantConvocatorys}/>
               <Route exact path="/aspirante" component={ProofAspirant} />
               <Route exact path="/dashboard" component={DashboardAspirant} />
+              <Route exact path="/form" component={Index} />
               <WhatsAppButton/>
             </>
           )}

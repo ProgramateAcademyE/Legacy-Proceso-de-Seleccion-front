@@ -25,15 +25,9 @@ const AspirantConvocatorys = () => {
     }
 	}, []);
 
-  // techTest.map(({convocatories}) => convocatories.map((id) => console.log(id)))
-
 	return (
 		<div className='AspirantConv_Box'>
-			{/* {Aspirantconvocatories.map((info, index) => (
-        techTest.map(({convocatories, title}) => (convocatories.includes(info._id) ?
-          <AspirantConvView key={index} data={info} title={title}/>
-        : null))
-			))}; */}
+
       <AspirantConvView data={Aspirantconvocatories} test={techTest}/>
 		</div>
 	);

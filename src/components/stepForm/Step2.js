@@ -1,7 +1,7 @@
 import React from "react";
 import { ErrorMessage, Form, Field, Formik } from "formik";
 
-const Step2 = ({ data, setDataToForm, myNext, myPrev }) => {
+const Step2 = ({ data, setDataToForm, setStep }) => {
 	return (
 		<>
 			<Formik
@@ -26,46 +26,47 @@ const Step2 = ({ data, setDataToForm, myNext, myPrev }) => {
 					internetCompany: data?.internetCompany || "",
 					mbCount: data?.mbCount || "",
 				}}
-				validate={(formValues) => {
-					const error = {};
-					if (!formValues.nacionality) {
-						error.nacionality = "Por favor indica tu país de nacimiento";
-					} else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.nacionality)) {
-						error.nacionality = "Por favor ingresa sólo letras";
-					}
+				// validate={(formValues) => {
+				// 	const error = {};
+				// 	if (!formValues.nacionality) {
+				// 		error.nacionality = "Por favor indica tu país de nacimiento";
+				// 	} else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.nacionality)) {
+				// 		error.nacionality = "Por favor ingresa sólo letras";
+				// 	}
 
-					if (!formValues.currentCountry) {
-						error.currentCountry = "Por favor indica tu país de residencia";
-					} else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.currentCountry)) {
-						error.currentCountry = "Por favor ingresa sólo letras";
-					}
+				// 	if (!formValues.currentCountry) {
+				// 		error.currentCountry = "Por favor indica tu país de residencia";
+				// 	} else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.currentCountry)) {
+				// 		error.currentCountry = "Por favor ingresa sólo letras";
+				// 	}
 
-					if (!formValues.residencyDepartment) {
-						error.residencyDepartment =
-							"Por favor indica tu departamento de residencia";
-					} else if (
-						!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.residencyDepartment)
-					) {
-						error.residencyDepartment = "Por favor ingresa sólo letras";
-					}
+				// 	if (!formValues.residencyDepartment) {
+				// 		error.residencyDepartment =
+				// 			"Por favor indica tu departamento de residencia";
+				// 	} else if (
+				// 		!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.residencyDepartment)
+				// 	) {
+				// 		error.residencyDepartment = "Por favor ingresa sólo letras";
+				// 	}
 
-					if (!formValues.socialClass) {
-						error.socialClass = "Por favor selecciona tu estrato";
-					}
+				// 	if (!formValues.socialClass) {
+				// 		error.socialClass = "Por favor selecciona tu estrato";
+				// 	}
 
-					if (!formValues.pcAccess) {
-						error.pcAccess = "Por favor selecciona una respuesta";
-					}
+				// 	if (!formValues.pcAccess) {
+				// 		error.pcAccess = "Por favor selecciona una respuesta";
+				// 	}
 
-					if (!formValues.internetAccess) {
-						error.internetAccess = "Por favor selecciona una respuesta";
-					}
+				// 	if (!formValues.internetAccess) {
+				// 		error.internetAccess = "Por favor selecciona una respuesta";
+				// 	}
 
-					return error;
-				}}
+				// 	return error;
+				// }}
 
 				onSubmit={(allValues, { resetForm }) => {
           setDataToForm(allValues)
+					setStep(prev=> prev < 3 ? prev + 1 : prev)
 					// myNext()
         }}
 			>
@@ -695,7 +696,10 @@ const Step2 = ({ data, setDataToForm, myNext, myPrev }) => {
 								/>
 							</div>
 						</div>
-						<Field type="submit" value="Validar"/>
+						<button onClick={() => setStep(prev => prev -1)} className="btn btn-secondary me-4 mt-3">
+								back
+						</button>
+						<Field type="submit" value="Next" className="btn btn-warning mt-3"/>
 					</Form>
 				)}
 			</Formik>
