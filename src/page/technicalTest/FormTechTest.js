@@ -8,7 +8,6 @@ import  Styles from "./TechTest.css";
 const FormTechTest = (props) => {
 	let history = useHistory();
 	const { convocatory, query, data } = props;
-	console.log(data)
 	return (
 		<div >
 			<h2>{query ? `Actualizar Prueba Tecnica` : "Nueva Prueba Tecnica"}</h2>

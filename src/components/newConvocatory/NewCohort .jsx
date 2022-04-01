@@ -15,11 +15,7 @@ const NewCohort = () => {
   // get Query from url params whit custom hook
   let param = useQuery();
   let query = param.get("idConvocatory");
-	let del = param.get("delete");
 
-	console.log(del)
-	
-	
 	let stractus = [];
 	for (let i = 1; i <= 6; i++) {
 		stractus.push(i);

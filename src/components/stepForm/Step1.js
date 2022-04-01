@@ -1,7 +1,7 @@
 import { ErrorMessage, Form, Field, Formik } from "formik";
 import React from "react";
 
-const Step1 = ({ data, setDataToForm, myNext, myPrev }) => {
+const Step1 = ({ data, setDataToForm, setStep, step }) => {
 	return (
 		<>
 			<Formik
@@ -57,10 +57,10 @@ const Step1 = ({ data, setDataToForm, myNext, myPrev }) => {
 				// 	return error;
 				// }}
 
-				/*  validate={(formValues) => {textValidation(firstName)}} */
         onSubmit={(allValues, { resetForm }) => {
 					setDataToForm(allValues)
-					myNext()
+					setStep(prev=> prev < 3 ? prev + 1 : prev)
+					// myNext()
         }}
 			>
 				{({ errors }) => (
@@ -189,7 +189,7 @@ const Step1 = ({ data, setDataToForm, myNext, myPrev }) => {
 									Documento de identidad en PDF
 								</label>
 								<Field
-									type='file'
+									type='url'
 									id='documentPdf'
 									name='documentPdf'
 									placeholder=''
@@ -274,7 +274,7 @@ const Step1 = ({ data, setDataToForm, myNext, myPrev }) => {
 									Foto de perfil
 								</label>
 								<Field
-									type='file'
+									type='url'
 									id='profilePic'
 									name='profilePic'
 									placeholder=''
@@ -340,13 +340,12 @@ const Step1 = ({ data, setDataToForm, myNext, myPrev }) => {
 								/>
 							</div>
 						</div>
-						<button className="btn btn-success" onClick={myPrev}>
-							Back
-						</button>
-						<Field type="submit" value="next"/>
-						{/* <button onClick={handleNext}>
-								Next
-						</button> */}
+						{step === 1 ? 
+							<button onClick={() => setStep(prev => prev -1)} disabled className="btn btn-secondary me-4 mt-3">back</button>
+							: 
+							<button onClick={() => setStep(prev => prev -1)}>back</button>
+						}
+						<Field type="submit" value="Next" className="btn btn-warning mt-3"/>
 					</Form>
 				)}
 			</Formik>

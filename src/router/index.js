@@ -12,7 +12,6 @@ import AdministerTechnicalTest from "../page/technicalTest/AdministerTechnicalTe
 import AddTechTest from "../page/technicalTest/AddTechTest";
 import QualifyTechnicalTest from "../page/Qualification/QualifyTechnicalTest";
 import Results from "../page/Results/Results";
-import FormInscription from "../page/formAspirant/FormInscription";
 import InterviewAspirant from "../page/interviewAspirant/InterviewAspirant";
 import ProofAspirant from "../page/proofAspirant/ProofAspirant";
 import InterviewDay from "../page/citation/InterviewDay";
@@ -21,6 +20,7 @@ import LoginFull from "../components/auth/LoginFull";
 import WaitingList from "../page/waitingList/WaitingList";
 import { useDispatch, useSelector } from "react-redux";
 import Citations from "../page/citations/Citations";
+import NewCitation from "../components/citation/newCitation/NewCitation";
 import InterviewDays from "../page/interviewDays/InterviewDays";
 import Footer from "../components/footer/Footer";
 import { getData } from "../actions/sololearnProfile";
@@ -31,13 +31,16 @@ import WhatsAppButton from "../components/Whatsapp Button/whatsAppButton";
 import Register from "../components/register/Register";
 import ListOfUsers from "../components/allUsers/ListOfUsers";
 import AspirantConvocatorys from "../page/Aspirant Convocatory/AspirantConvocatory";
-
 import './style.css'
 import QualifyAssessment from "../page/Qualification/QualifyAssessment";
 import QualifySololearn from "../page/Qualification/QualifySoloLearn";
 import QualifyMotivationLetter from "../page/Qualification/QualifyMotivationLetter";
 import QualifyInterview from "../page/Qualification/QualifyInterview";
 import ConvocatoryAspirants from "../page/convocatory/ConvocaryAspirants";
+import NavBarIndex from "../components/navBarIndex/NavBarIndex";
+import Index from "../components/stepForm";
+
+
 
 const App = () => {
   const auth = useSelector((state) => state.auth);
@@ -45,7 +48,7 @@ const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getData(auth.user.id));
+    dispatch(getData(auth.user._id));
   }, [dispatch, auth]);
 
   const { isLogged, isAdmin } = auth;
@@ -54,13 +57,14 @@ const App = () => {
   return (
     <>
       {/* {pathname !== "/login" && <Header user={user} adminstate={adminstate} />} */}
-      {pathname !== "/" && pathname !== "/register" && pathname !== '/verify' && <Header />}
+      {pathname !== "/" && pathname !== "/register" && pathname !== '/verify' && <Header /> || <NavBarIndex/>}
 
       <div className="login">
         {/* {pathname !== "/login" && <Nav user={user} adminstate={adminstate} />} */}
         {pathname !== "/" && pathname !== "/register" && pathname !== '/verify' && <Nav />}
 
         <Switch>
+          
           <Route exact path="/verify" component={Verify} />
           
           <Route exact path="/" component={LoginFull} />
@@ -78,13 +82,16 @@ const App = () => {
               <Route path="/convocatoria" component={Convocatory} />
               <Route path="/nuevacohorte" component={NewCohort} />
               <Route path="/editarcohorte" component={NewCohort} />
-              <Route path="/aspirantes" component={Aspirants} />
               <Route path="/convocatorias-aspirantes" component={ConvocatoryAspirants} />
               
+              <Route path="/citation" component={Citations} />
+              <Route path="/aspirantes" component={Aspirants} /> 
               <Route path="/prueba" component={AdministerTechnicalTest} />
               <Route path="/agregar" component={AddTechTest}/>
               <Route path="/editarprueba" component={AddTechTest}/>
-              <Route path="/citation" component={Citations} />
+              <Route path="/citaciones" component={Citations} />
+              <Route path="/nuevacitacion" component={NewCitation} />
+
 
               <Route path="/calificacion-sololearn" component={QualifySololearn} />
               <Route path="/calificacion-carta-motivacional" component={QualifyMotivationLetter} />
@@ -100,14 +107,15 @@ const App = () => {
                 /> */}
               <Route path="/InfoAspirants" component={Results} />
               <Route path="/waiting-list" component={WaitingList} />
-              <Route path="/motivationLetter" component={MotivationLetter} />
+              {/* <Route path="/motivationLetter" component={MotivationLetter} /> */}
               <Route path="/parameterization" component={Parameterization} />
               <Route path="/selection-results" component={SelectionResults} />
             </>
           )}
           {!isAdmin && isLogged && (
             <>
-              <Route exact path="/inscripcion" component={FormInscription} />
+
+              <Route exact path="/inscripcion" component={Index} />
               <Route exact path="/entrevista">
                 <InterviewAspirant />
               </Route>

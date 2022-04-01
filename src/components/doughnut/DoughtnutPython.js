@@ -10,9 +10,10 @@ Chart.defaults.plugins.datalabels;
 defaults.plugins.legend.position = "bottom";
 
 const DoughtnutPython = ({ item }) => {
-    //console.log(item);
-    const { pythonScore } = item;
-    const python = pythonScore.toString().slice(2)
+    let { pythonScore } = item;
+    pythonScore = pythonScore === 1 ? 100 : pythonScore
+    const python = pythonScore === 100 ? 100 : pythonScore.toString().slice(2)
+
     let pendiente = 100 - python;
     const data = {
         datasets: [

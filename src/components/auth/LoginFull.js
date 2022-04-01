@@ -1,16 +1,11 @@
 import React, { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import axios from "axios";
-// import {
-//   showErrMsg,
-//   showSuccessMsg
-// } from '../../notification/Notification'
 import { useDispatch, useSelector } from "react-redux";
-import auth from "./Auth.module.css";
+import "./Auth.css";
 import { dispatchLogin } from "../../actions/authAction";
 import Spinner from "./Spinner";
-import programateacademycolor from '../../../dist/Assets/programateacademycolor.png';
-import programateacademycolorBN from '../../../dist/Assets/Programate-academy-negros.png';
+import programateacademycolorBN from '../../../dist/Assets/Programateacademynegros.png';
 
 import Swal from "sweetalert2";
 
@@ -95,7 +90,7 @@ const Login = () => {
           password,
         })
         .then((res) => {
-          console.log("res", res);
+         
           if (res.status === 200) {
             setUser({ ...user, err: "", success: res.data.msg });
             window.localStorage.setItem("firstLogin", true);
@@ -111,7 +106,6 @@ const Login = () => {
           }
         })
         .catch((err) => {
-          console.log(err);
           setIsFailing({
             email: true,
             password: true,
@@ -128,22 +122,18 @@ const Login = () => {
           }, 200);
         });
     } catch (err) {
-      console.log(err);
+      return err;
       guardarSpinner(false);
     }
   };
 
   return (
     <>
-    <div className='Logo__Programate'><img src={programateacademycolor} alt='Logo'/></div> 
     {/* <div className='Logo__Programate'><img src={programateacademycolorBN} alt='Logo'/></div>  */}
       <div className="cardLoggin">
         <div className="mensajes">{spinner ? <Spinner /> : null}</div>
         <div className="login_page">
           <h2>Iniciar Sesión</h2>
-          <img src={programateacademycolorBN} alt='Logo' className="main-logo"/>
-          {/* {err && showErrMsg(err)}
-      {success && showSuccessMsg(success)} */}
 
           <form onSubmit={handleSubmit}>
             <div>
@@ -194,7 +184,7 @@ const Login = () => {
             </div>
 
             <div className="row">
-              <Link to="" ><p>Olvidaste tu contraseña?</p></Link>
+              {/* <Link to="" ><p>Olvidaste tu contraseña?</p></Link> */}
               <button type="submit">Iniciar Sesión</button>
             </div>
           </form>

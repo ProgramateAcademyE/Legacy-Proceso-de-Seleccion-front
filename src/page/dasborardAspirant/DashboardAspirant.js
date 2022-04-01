@@ -1,16 +1,16 @@
-import React from "react";
+import React, { useEffect } from "react";
 import DoughtnutHtml from "../../components/doughnut/DoughtnutHtml";
 import DoughtnutCss from "../../components/doughnut/DoughtnutCss";
 import DoughtnutJavascript from "../../components/doughnut/DoughtnutJavascript";
 import DoughtnutPython from "../../components/doughnut/DoughtnutPython";
-import DashboardAspirantcss from "./DashboardAspirant.module.css";
-import { useSelector } from "react-redux";
 import NotProfile from "../../components/notProfile/NotProfile";
+import { useSelector } from "react-redux";
+
+
 
 function DashboardAspirant() {
-
-
   const { profile } = useSelector((state) => state.sololearn);
+
   return (
     <div className="dash">
       <div className="dash__content d-flex justify-content-between">
@@ -39,7 +39,6 @@ function DashboardAspirant() {
               Perfil: {profile.map((item) => item.userFullName)}
             </span>
           </p>
-          <span>Aceptado</span>
         </div>
       </div>
       <div className="doughtnut d-flex flex-wrap justify-content-around gap-4">

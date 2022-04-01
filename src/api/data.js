@@ -13,12 +13,12 @@ export const ITEMS = [
     ],
   },
   {
-    name: "Administrar Convocatorias",
+    name: "Convocatorias",
     icon: "fab fa-connectdevelop",
     id: 2,
     items: [
       {
-        name: "Convocatorias",
+        name: "Administrar Convocatorias",
         pathname: "/convocatoria",
       },
       {
@@ -26,42 +26,24 @@ export const ITEMS = [
         pathname: "/prueba",
       },
       {
-        name: "Convocatorias y aspirantes",
+        name: "Aspirantes Inscritos",
         pathname: "/convocatorias-aspirantes",
       },
     ],
   },
-  {
-    name: "Aspirantes",
-    icon: "far fa-user",
-    id: 3,
-    items: [
-      {
-        name: "Informacion Aspirantes",
-        pathname: "/InfoAspirants",
-      },
-      {
-        name: "Lista de espera",
-        pathname: "/waiting-list",
-      },
-    ],
-  },
+  // {
+  //     name: "Aspirantes",
+  //     icon: "far fa-user",
+  //     id: 3,
+  //     items: [
+  //         {
+  //             name: "Informacion Aspirantes",
+  //             pathname: "/InfoAspirants",
+  //         },
+  //     ],
 
-  {
-    name: "Citación",
-    icon: "fas fa-map-marker-alt",
-    id: 4,
-    items: [
-      {
-        name: "Consolidado Postulantes",
-        pathname: "/citation",
-      },
-      {
-        name: "Dias de Entrevista",
-        pathname: "/dia-de-entrevista",
-      },
-    ],
-  },
+  // },
+
   {
     name: "Calificaciones",
     icon: "fas fa-user-edit",
@@ -73,20 +55,11 @@ export const ITEMS = [
       },
       {
         name: "Carta de Motivacion",
-        pathname: "/calificacion-carta-motivacional",
+        pathname: "/motivationLetter",
       },
       {
         name: "Prueba Tecnica",
         pathname: "/calificacion-prueba-tecnica",
-      },
-
-      {
-        name: "Entrevista",
-        pathname: "/calificacion-entrevista",
-      },
-      {
-        name: "Assessment",
-        pathname: "/calificacion-assessment",
       },
     ],
   },
@@ -98,14 +71,6 @@ export const ITEMS_ASPIRANTS = [
     items: [],
     pathname: "/dashboard",
     id: 7,
-  },
-
-  {
-    name: "Agenda de Entrevista y assessment",
-    icon: "fa fa-calendar-plus",
-    items: [],
-    pathname: "/entrevista",
-    id: 9,
   },
   {
     name: "Aplicar a la convocatoria",

@@ -33,7 +33,7 @@ const Header = () => {
           );
           dispatch({ type: "getToken", payload: res.data.access_token });
         } catch (error) {
-          console.log(error);
+          return error;
         }
       };
       getToken();
@@ -58,28 +58,26 @@ const Header = () => {
   };
 
   return (
-    <>
-      <header className="header d-flex justify-content-between">
-        <div className="header__logo" id="logo">
-          {auth ? (
-            <Link to="/dashboard">
-              <img
-                className="Logo__A"
-                src="https://i.ibb.co/ZM3jGdB/logoeducamasimbolo.png"
-                alt="logo"
-              />
-            </Link>
-          ) : null}
-        </div>
+    <div className="General_header">
+      <div className="header__logo" id="logo">
+        {auth ? (
+          <Link to="/dashboard">
+            <img
+              className="Logo__A"
+              src="https://i.ibb.co/ZM3jGdB/logoeducamasimbolo.png"
+              alt="logo"
+            />
+          </Link>
+        ) : null}
         <div className="menu-bar">
           <i className="fas fa-bars pointer" onClick={moveNav} />
         </div>
+      </div>
 
-        <div className="header__user">
-          <User />
-        </div>
-      </header>
-    </>
+      <div className="header__user">
+        <User />
+      </div>
+    </div>
   );
 };
 

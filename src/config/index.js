@@ -290,7 +290,6 @@ export default new RequestService();
 //     };
 
 //     const handleSubmit = async (event) => {
-//       console.log(body);
 //       event.preventDefault();
 //       const res = await RequestService.post('/user', body);
 //       if (res.status === 201) {

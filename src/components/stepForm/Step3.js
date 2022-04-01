@@ -1,7 +1,7 @@
 import React from "react";
 import { ErrorMessage, Form, Field, Formik } from "formik";
 
-const Step3 = ({ data, setDataToForm, myNext, myPrev }) => {
+const Step3 = ({ data, setDataToForm, setStep}) => {
 	return (
 		<>
 			<Formik
@@ -19,16 +19,17 @@ const Step3 = ({ data, setDataToForm, myNext, myPrev }) => {
 					languageLevel: data?.languageLevel || "",
 					soloLearnProfile: data?.soloLearnProfile || "",
 				}}
-				validate={(formValues) => {
-					const error = {};
-					if (!formValues.soloLearnProfile) {
-						error.soloLearnProfile = "Por favor ingresa tu número de perfil";
-					}
-					return error;
-				}}
+				// validate={(formValues) => {
+				// 	const error = {};
+				// 	if (!formValues.soloLearnProfile) {
+				// 		error.soloLearnProfile = "Por favor ingresa tu número de perfil";
+				// 	}
+				// 	return error;
+				// }}
 				onSubmit={(allValues) => {
-          setDataToForm(allValues)
-					myNext()
+          setDataToForm(allValues, true)
+					setStep(prev=> prev < 3 ? prev + 1 : prev)
+					// myNext()
 				}}
 			>
 				{({ errors }) => (
@@ -82,7 +83,7 @@ const Step3 = ({ data, setDataToForm, myNext, myPrev }) => {
 								</label>
 								<Field
 									className='form-control'
-									type='file'
+									type='url'
 									id='studiesPdf'
 									name='studiesPdf'
 								/>
@@ -93,7 +94,7 @@ const Step3 = ({ data, setDataToForm, myNext, myPrev }) => {
 								</label>
 								<Field
 									className='form-control'
-									type='file'
+									type='url'
 									id='cvPdf'
 									name='cvPdf'
 								/>
@@ -302,10 +303,10 @@ const Step3 = ({ data, setDataToForm, myNext, myPrev }) => {
 								/>
 							</div>
 						</div>
-						<button onClick={myPrev}>
-							Back
+						<button onClick={() => setStep(prev => prev -1)} className="btn btn-secondary me-4 mt-3">
+								back
 						</button>
-						<Field type="submit" value="Enviar"/>
+						<Field type="submit" value="Enviar" className="mt-3 btn btn-warning"/>
 					</Form>
 				)}
 			</Formik>

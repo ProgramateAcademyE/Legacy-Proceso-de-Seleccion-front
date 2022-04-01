@@ -57,8 +57,6 @@ const FormAspirant = () => {
 
   const sendData = (e) => {
     e.preventDefault();
-    console.log(data)
-
     setData({
       firstName: "",
       secondName: "",

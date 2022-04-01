@@ -1,21 +1,20 @@
 import React from "react";
-import "./newConvocatory.css";
 import { Link } from "react-router-dom";
 
-const NewConvocatory = () => {
+const NoCitations = () => {
   return (
     <>
       <div className="mainContainer">
         <div className="containerFirstView">
           <div className="containerP">
             <p>
-              No hay convocatorias <br></br>
-              ¿Deseas crear una nueva convocatoria?
+              No hay citaciones <br></br>
+              ¿Deseas crear una nueva citación?
             </p>
           </div>
           <div className="containerButton">
-            <Link to="/nuevacohorte">
-             <button type="submit" className="btn btn-warning">
+            <Link to="/nuevacitacion">
+             <button type="submit" className="btn btn-success">
                 Crear
               </button>
             </Link>
@@ -26,4 +25,4 @@ const NewConvocatory = () => {
   );
 };
 
-export default NewConvocatory;
+export default NoCitations;

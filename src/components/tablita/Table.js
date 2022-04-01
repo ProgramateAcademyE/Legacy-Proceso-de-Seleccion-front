@@ -11,9 +11,10 @@ import Paper from "@material-ui/core/Paper";
 import SearchBar from "material-ui-search-bar";
 import axios from "axios";
 import { PETITIONS } from "../../../requestUrl";
-// import RequestService from "../../config/index";
 import { CSVLink } from "react-csv";
 import ModalConvocatory from "../modals/ModalConvocatory";
+
+import "./table.css"
 
 const useStyles = makeStyles({
   table: {
@@ -50,6 +51,7 @@ export default function BasicTable({ rows, convocatoryData }) {
     setRowsTable(filteredRows);
   };
 
+<<<<<<< HEAD
   const [convocatoryId, setConvocatoryId] = useState(null);
 
   const convocatoryDetail = (id) => {
@@ -157,4 +159,97 @@ export default function BasicTable({ rows, convocatoryData }) {
       )}
     </>
   );
+=======
+	return (
+		<>
+			{convocatoryData.length <= 0 || convocatory.length <= 0 ? (
+				<div className='mainContainer'>
+					<div className='containerFirstView'>
+						<div className='containerP'>
+							<p>
+								No hay convocatorias<br></br>
+								¿Deseas crear una nueva convocatoria?
+							</p>
+						</div>
+						<Link
+							to='/nuevacohorte'
+							className='containerButton btn btn-warning mt-3 mb-3'
+						>
+							Crear
+						</Link>
+					</div>
+				</div>
+			) : (
+				<>
+					<div className='section__contentC'>
+						<span className='upperCase bold'>Convocatorias</span>
+					</div>
+					<Link to='/nuevacohorte' className='btn btn-warning '>
+						Crear Convocatoria
+					</Link>
+					<Search />
+					<TableContainer component={Paper}>
+						<Table className={classes.table} aria-label='simple table'>
+							<TableHead>
+								<TableRow>
+									{header.map((row, index) => (
+										<TableCell key={index} align='center'>
+											{row}
+										</TableCell>
+									))}
+									<TableCell align='center'>Acciones</TableCell>
+								</TableRow>
+							</TableHead>
+							<TableBody>
+								{convocatory?.map((prop, index) => (
+									<TableRow key={index}>
+										<TableCell align='center'>{prop.name}</TableCell>
+										<TableCell align='center'>{prop.maxQuotas}</TableCell>
+										<TableCell align='center'>{prop.initialDate}</TableCell>
+										<TableCell align='center'>{prop.finalDate}</TableCell>
+										<TableCell align='center'>
+											{prop.initialBootcampDate}
+										</TableCell>
+										<TableCell align='center'>
+											{prop.finalBootcampDate}
+										</TableCell>
+										<TableCell align='center'>
+											<div className="actions">
+												<Link to={`/editarcohorte?idConvocatory=${prop._id}`}>
+													<div>
+														<i className='far fa-edit edit'></i>
+													</div>
+												</Link>
+												<div className='btn'>
+													<a href='#convocatoria'>
+														<i className='far fa-eye eye' onClick={() => convocatoryDetail(prop._id)}></i>
+													</a>
+												</div>
+												<ModalConvocatory idConvocatory={convocatoryId} />
+												<button onClick={() => handleDelete(prop._id)} className="trash-btn">
+													<div>
+														<i
+															className='far fa-trash-alt trash'
+														></i>
+													</div>
+												</button>
+											</div>
+										</TableCell>
+									</TableRow>
+								))}
+							</TableBody>
+						</Table>
+					</TableContainer>
+					<div className='containerButton'>
+						<div>
+							<CSVLink data={rows} filename='prueba CSV'>
+								<button className='btn btn-warning'>Exportar</button>
+							</CSVLink>
+						</div>
+					</div>
+				</>
+			)}
+		</>
+	);
+>>>>>>> c153dd8a910329caeb19602b7a906263fe1eb82f
 }

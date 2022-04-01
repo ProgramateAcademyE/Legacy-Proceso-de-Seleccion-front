@@ -36,13 +36,6 @@ const QualifyTechnicalTest = () => {
                     <span className="upperCase bold">
                         Calificar prueba técnica
                     </span>
-                    <div className="box__content">
-                        <span>Programate</span>
-                        <i className="fas fa-chevron-right subtitle" />
-                        <span>Prueba técnica</span>
-                        <i className="fas fa-chevron-right subtitle" />
-                        <span>Calificar prueba técnica</span>
-                    </div>
                 </div>
                 <div className="form">
                     <div className="section__table">

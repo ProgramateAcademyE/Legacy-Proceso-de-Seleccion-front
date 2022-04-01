@@ -15,7 +15,7 @@ export const fetchUser = async (token) => {
             return res
             
         } catch (error) {
-            console.log('error', error)
+            return error
         }
 }
 
