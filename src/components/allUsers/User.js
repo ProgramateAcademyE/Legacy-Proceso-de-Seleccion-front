@@ -8,7 +8,6 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import SearchBar from "material-ui-search-bar";
 import axios from "axios";
-import Usercss from "./User.module.css";
 
 import { PETITIONS } from "../../../requestUrl";
 
