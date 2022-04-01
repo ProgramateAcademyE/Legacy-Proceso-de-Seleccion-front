@@ -64,6 +64,7 @@ const App = () => {
         {pathname !== "/" && pathname !== "/register" && pathname !== '/verify' && <Nav />}
 
         <Switch>
+          
           <Route exact path="/verify" component={Verify} />
           
           <Route exact path="/" component={LoginFull} />

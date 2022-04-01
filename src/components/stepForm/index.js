@@ -10,7 +10,7 @@ import FormSend from '../formSend/FormSend';
 import { PETITIONS } from '../../../requestUrl';
 import { useHistory } from 'react-router-dom';
 
-const index = () => {
+const Index = () => {
   const { profile } = useSelector((state) => state.sololearn);
   const { user } = useSelector((state) => state.auth);
   const history = useHistory();
@@ -77,4 +77,4 @@ const index = () => {
   )
 }
 
-export default index
+export default Index
