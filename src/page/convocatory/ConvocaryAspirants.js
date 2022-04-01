@@ -46,13 +46,12 @@ const ConvocatoryAspirants = () => {
     <>
       {convAsp?.map((item) => (
         <div className="section__convocatory">
-          <h1 key={item._id}>{item.name}</h1>
-            {" "}
-            {item.usersRegistered.map((i) =>
-              apirantsConvocatory?.map((aspirant) =>
-                i === aspirant._id ? <p>{aspirant.names}</p> : ""
-              )
-            )}
+          <h1 key={item._id}>{item.name}</h1>{" "}
+          {item.usersRegistered.map((i) =>
+            apirantsConvocatory?.map((aspirant) =>
+              i === aspirant._id ? <p>{aspirant.names}</p> : ""
+            )
+          )}
         </div>
       ))}
       ;
