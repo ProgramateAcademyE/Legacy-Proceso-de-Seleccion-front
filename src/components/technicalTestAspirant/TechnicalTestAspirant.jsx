@@ -68,8 +68,9 @@ const TechnicalTestAspirant = () => {
 		dispatch(getFormAll(user?.id));
 	}, [dispatch, user]);
 
-  let registrado = false;
-  userInConvocatory.map(({usersRegistered}) => usersRegistered.includes(user._id) ? registrado = true : registrado = false)
+	let registrado = [];
+
+	userInConvocatory.map(({usersRegistered}) => usersRegistered.includes(user._id) ? registrado.push(true) : registrado.push(false))
 
 	return (
 		<>
@@ -77,17 +78,17 @@ const TechnicalTestAspirant = () => {
 				<div className='technical__test-upload test'>
 					<h4 className='title__test'>Descargar prueba tecnica</h4>
 					<div className='content__test download'>
-						<p className='text__download'>
+						<p className='mb-4'>
 							Dale clic en el boton para descargar la prueba técnica, y recuerda
 							subir la solucion en el tiempo estipulado.
 						</p>
 						<div>
+							{!registrado.includes(true) ? <p>Antes de enviar una prueba técnica porfavor registrese en una convocatoria <Link to="/Convocatoriasaspirante">AQUI</Link> recuerde que solo tiene una oportunidad de enviar el enlace</p>: null}
 							{userInConvocatory.map(({ usersRegistered, _id }) =>
-                !usersRegistered.includes(user._id) ? <p key={_id}>Antes de enviar una prueba técnica porfavor registrese en una convocatoria <Link to="/Convocatoriasaspirante">AQUI</Link> recuerde que solo tiene una oportunidad de enviar el enlace</p>:
 								testToUser.map(({ convocatories, title, url }, index) =>
 									usersRegistered.includes(user._id) &&
 									convocatories.includes(_id)
-										? <a key={index} href={url} target='_blank' className="btn btn-warning mb-2">
+										? <a key={index} href={url} target='_blank' className="btn btn-warning mb-3">
                         Prueba tecnica: { title }
                       </a>
 										: null
@@ -113,7 +114,7 @@ const TechnicalTestAspirant = () => {
 						</p>
 					</div>
 					<div className='form__upload'>
-            {registrado ?      
+            {registrado.includes(true) ?      
               <form onSubmit={onSubmit}>
                 <p>Ingresa la URL:</p>
                 <div className='input-group mb-3'>
