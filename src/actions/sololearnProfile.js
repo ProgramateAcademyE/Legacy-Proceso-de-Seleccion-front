@@ -4,13 +4,12 @@ import axios from "axios";
 export const getProfileFull = (id) => {
 	return async (dispatch) => {
 		try {
-      // console.log(id)
 			const res = await axios.get(
 				`http://localhost:3001/api/candidate/sololearm/${id}`
 			);
 			dispatch(getResult(res));
 		} catch (error) {
-			console.log("o este :v", error);
+			return error;
 		}
 	};
 };
@@ -23,18 +22,15 @@ const getResult = (resp) => ({
 export const getData = (id) => {
 	return async (dispatch) => {
 		try {
-      // console.log(id)
 			const { data } = await axios.get(
 				`http://localhost:3001/api/candidate/result/${id}`
 			);
-
 			dispatch(getProfile(data));
 		} catch (error) {
-			console.log("Este", error);
+			return error;
 		}
 	};
 };
-
 export const getProfile = (profile) => ({
 	type: types.getProfile,
 	payload: profile,

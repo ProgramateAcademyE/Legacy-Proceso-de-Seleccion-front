@@ -27,8 +27,10 @@ const AspirantConvocatorys = () => {
 
 	return (
 		<div className='AspirantConv_Box'>
-
-      <AspirantConvView data={Aspirantconvocatories} test={techTest}/>
+			{Aspirantconvocatories.length !== 0 ?
+			 <AspirantConvView data={Aspirantconvocatories} test={techTest}/>
+			 : <p style={{marginLeft: "100px"}}>Aun no hay convocatorias activas, por favor revisar en otro momento</p>
+			}
 		</div>
 	);
 };

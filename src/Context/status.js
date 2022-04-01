@@ -29,7 +29,7 @@ const StateContext = ({ children }) => {
 
   const getProfiles = async () => {
     try {
-      const response = await axios.get(`${url}/candidate-profile`);
+      const response = await axios.get(`${url}/candidate/candidate-profile`);
       
       dispatch({
         type: GET_PROFILES,
