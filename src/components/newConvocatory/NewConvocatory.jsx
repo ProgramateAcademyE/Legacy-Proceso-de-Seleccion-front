@@ -1,5 +1,5 @@
 import React from "react";
-import "./NewConvocatory.scss";
+import "./newConvocatory.css";
 import { Link } from "react-router-dom";
 
 const NewConvocatory = () => {
@@ -15,7 +15,7 @@ const NewConvocatory = () => {
           </div>
           <div className="containerButton">
             <Link to="/nuevacohorte">
-             <button type="submit" class="btn btn-success">
+             <button type="submit" className="btn btn-warning">
                 Crear
               </button>
             </Link>

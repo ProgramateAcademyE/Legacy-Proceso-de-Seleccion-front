@@ -2,15 +2,17 @@ import React from "react";
 import { Chart } from "chart.js";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 import { Doughnut, defaults } from "react-chartjs-2";
-import "./Doughtnut.scss";
 
 Chart.register(ChartDataLabels);
 Chart.defaults.plugins.datalabels;
 defaults.plugins.legend.position = "bottom";
 
 const DoughtnutHtml = ({ item }) => {
-    const { cssScore } = item;
-    const css = cssScore.toString().slice(2)
+
+    let { cssScore } = item;
+    cssScore = cssScore === 1 ? 100 : cssScore
+    const css = cssScore === 100 ? 100 : cssScore.toString().slice(2)
+
     let pendiente = 100 - css;
     const data = {
         datasets: [

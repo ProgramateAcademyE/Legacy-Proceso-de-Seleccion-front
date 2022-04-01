@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
-import Tablita from "../../components/tablita/Tablita";
+import GeneralTable from "../../components/tablita/GeneralTable";
 import RequestService from "../../config/index";
 import MotivationLetterModal from "../../components/modals/MotivationLetterModal";
+import results from "./Results.module.css"
+import AspirantsInfo from "../ApirantsInfo/Aspirantsinfo";
 
 const Results = () => {
     const [results, setResults] = useState([]);
@@ -14,6 +16,8 @@ const Results = () => {
     useEffect(() => {
         getResults();
     }, []);
+
+    
 
     const actions = [
         {
@@ -34,26 +38,31 @@ const Results = () => {
         } else {
             color = "#23631F";
         }
-        console.log(color);
         return color;
     };
-
+    /* const [userId, setuserId] = useState(null);
+    const UserDetail = (user_id) => {
+        setuserId(user_id);
+    }; */
+    
     const rows = results.map((result) => ({
-        ID: result.user_id,
+
         Nombre: result.userFullName,
-        // HTML: result.htmlScore,
-        // CSS: result.cssScore,
-        // Javascript: result.javascriptScore,
-        // Python: result.pythonScore,
         Sololearn: result.soloLearnScore,
         "Perfil Personal": result.personalProfileScore,
         Motivación: result.motivationScore,
-        "Promedio Final": (
+        "Promedio 1era Fase": result.promedioprimerafase,
+        "Prueba Tecnica": result.pruebatecnica,
+        Entrevista: result.Enrevista,
+        Assesment: result.Assesnment,
+        "Promedio 2da Fase": (
             <div
                 style={{
                     background: checkScoreColor(result.finalScore),
                     width: "20px",
                     height: "20px",
+                    display: "flex",
+                    justifyContent: "center",
                 }}
             >
                 {result.finalScore}
@@ -61,24 +70,20 @@ const Results = () => {
         ),
         Estado: (
             <select>
-                <option value="pasa">Pasa</option>
-                <option value="nopasa">No pasa</option>
+                <option value="Aceptado">Aceptado</option>
+                <option value="ListaDeespera">Lista de Espera</option>
             </select>
         ),
+       
     }));
 
     return (
         <div className="Aspirants">
-            <div className="section__content d-flex justify-content-between">
-                <span className="upperCase bold">Resultados</span>
-                <div className="box__content">
-                    <span className="text-crumbs bold-500"> Programate </span>
-                    <i className="fas fa-chevron-right subtitle" />
-                    <span className="text-crumbs">Aspirantes</span>
-                </div>
+            <div className="section__content">
+                <span className="upperCase bold">Aspirantes</span>
             </div>
             <div className="table mt-4">
-                <Tablita key={rows.length} rows={rows} />
+                <GeneralTable key={rows.length} rows={rows} />
             </div>
         </div>
     );

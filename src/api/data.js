@@ -3,84 +3,71 @@ export const ITEMS = [
         name: "Dashboard",
         icon: "fas fa-th-large",
         id: 1,
-        items: [],
-        pathname: "/dashboard",
+        items: [
+            {
+                name: "Estadisticas",
+                pathname: "/dashboard"
+
+            },
+            { name:" Administrador de Usuarios",
+              pathname: "/Users"
+
+            },
+            { name:"Agregar Administradores",
+              pathname: "/register-admin"}
+        ],
+       
     },
     {
-        name: "Convocatoria",
+        name: "Convocatorias",
         icon: "fab fa-connectdevelop",
-        id: 28,
-        items: [],
-        pathname: "/convocatoria",
-    },
-    {
-        name: "Aspirantes",
-        icon: "far fa-user",
         id: 2,
-        items: [],
-        pathname: "/aspirantes",
-    },
-    {
-        name: "Inscripcion",
-        icon: "far fa-id-card",
-        id: 3,
         items: [
             {
-                name: "Resultados",
-                pathname: "/resultsInscription",
+                name: "Administrar Convocatorias",
+                pathname: "/convocatoria",
             },
             {
-                name: "Lista de espera",
-                pathname: "/waiting-list",
-            },
-            {
-                name: "Calificación de la carta de motivación",
-                pathname: "/motivationLetter",
-            },
-            {
-                name: "Parametrización",
-                pathname: "/parameterization",
-            },
-        ],
-    },
-    {
-        name: "Citación",
-        icon: "fas fa-map-marker-alt",
-        id: 4,
-        items: [
-            {
-                name: "Consolidado Postulantes",
-                pathname: "/citation",
-            },
-            {
-                name: "Dias de Entrevista",
-                pathname: "/dia-de-entrevista",
-            },
-        ],
-    },
-    {
-        name: "Prueba Técnica",
-        icon: "fas fa-laptop-code",
-        id: 5,
-        items: [
-            {
-                name: "Administrar Pruebas Técnicas",
+                name: "Pruebas Técnicas",
                 pathname: "/prueba",
             },
             {
-                name: "Calificar Pruebas Tecnicas",
-                pathname: "/calificar",
+                name: "Aspirantes Inscritos",
+                pathname: "/convocatorias-aspirantes",
             },
         ],
+       
     },
+    // {
+    //     name: "Aspirantes",
+    //     icon: "far fa-user",
+    //     id: 3,
+    //     items: [
+    //         {
+    //             name: "Informacion Aspirantes",
+    //             pathname: "/InfoAspirants",
+    //         },
+    //     ],
+        
+    // },
+
     {
-        name: "Selección",
-        icon: "fas fa-vote-yea",
-        id: 6,
+        name: "Calificaciones",
+        icon: "fas fa-user-edit",
+        id: 5,
         items: [
             {
-                name: "Resultados",
-                pathname: "/selection-results",
+                name: "SoloLearn",
+                pathname: "/calificacion-sololearn",
+
+            },
+            {
+                name: "Carta de Motivacion",
+                pathname: "/motivationLetter",
+            },
+            {
+                name: "Prueba Tecnica",
+                pathname: "/calificacion-prueba-tecnica",
             },
         ],
     },
@@ -94,25 +81,26 @@ export const ITEMS_ASPIRANTS = [
         id: 7,
     },
     {
-        name: "Formulario de inscripción",
-        icon: "fas fa-bullhorn",
+        name: "Aplicar a la convocatoria",
+        icon: "fa fa-bullhorn",
         items: [],
-        pathname: "/inscripcion",
-        id: 8,
+        pathname: "/Convocatoriasaspirante",
+        id: 10,
     },
     {
-        name: "Agenda de Entrevista y assessment",
-        icon: "fas fa-map-marker-alt",
+        name: "Formulario de inscripcion",
+        icon: "far fa-file-alt",
         items: [],
-        pathname: "/entrevista",
-        id: 9,
+        pathname: "/inscripcion",
+        id: 11,
     },
+
     {
         name: "Prueba Técnica",
         icon: "fas fa-laptop-code",
         items: [],
         pathname: "/aspirante",
-        id: 10,
+        id: 12,
     },
 ];
 

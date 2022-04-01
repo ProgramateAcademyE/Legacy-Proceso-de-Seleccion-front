@@ -1,81 +1,48 @@
 import React, { useEffect, useState } from "react";
-import Tablita from "../../components/tablita/Tablita";
+import Table from "../../components/tablita/Table";
 import NewConvocatory from "../../components/newConvocatory/NewConvocatory";
-import "../../components/newConvocatory/EditCohort.jsx";
-import DisableBtn from "../../components/disableBtn/DisableBtn";
-import RequestService from "../../config/index";
-import ModalConvocatory from "../../components/modals/ModalConvocatory";
-import { Link } from "react-router-dom";
-import "./Convocatory.scss";
+import "./Convocatory.css";
+import { PETITIONS } from "../../../requestUrl";
 
 const Convocatory = () => {
-    const [convocatories, setConvocatories] = useState([]);
-    const getUser = async () => {
-        const { data } = await RequestService.get("/admin/convocatories");
-        if (data) {
-            setConvocatories(data);
-        }
-    };
+  const [convocatories, setConvocatories] = useState([]);
 
-    useEffect(() => {
-        getUser();
-    }, []);
+  const getAllConvocatories = async () => {
+    const res = await fetch(PETITIONS.getConvocatories);
+    const response = await res.json();
+  
+    return response;
+  }
 
-    const actions = [
-        {
-            status: true,
-            icon: (
-                <Link to="/editarcohorte">
-                    <i className="far fa-edit"></i>
-                </Link>
-            ),
-        },
-        {
-            status: true,
-            icon: <ModalConvocatory />,
-        },
-        {
-            status: true,
-            icon: <DisableBtn />,
-        },
-    ];
+  useEffect(() => {
+    getAllConvocatories().then((convocatory) => setConvocatories(convocatory));
+  }, []);
 
-    const fixDate = (date) => {
-        return date.split("T")[0];
-    };
+  const rows = convocatories.map((conv) => ({
+    "Convocatoria": conv.name,
+    "Cupos": conv.maxQuotas,
+    "Fecha Inicio": conv.initialDate,
+    "Fecha Fin": conv.finalDate,
+    "Inicio Bootcamp": conv.initialBootcampDate,
+    "Fin Bootcamp": conv.finalBootcampDate
+  }));
 
-    const rows = convocatories.map((conv, idx) => ({
-        ID: idx,
-        Nombre: conv.name,
-        Cupos: conv.maxQuotas,
-        "Fecha de Inicio": fixDate(conv.initialDate),
-    }));
-
-    return (
-        <>
-            <div className="section__convocatory">
-                <div className="section__content mb-5 d-flex justify-content-between">
-                    <span className="upperCase bold">Convocatorias</span>
-                    <div className="box__content">
-                        <span className="text-crumbs bold-500">Programate</span>
-                        <i class="fas fa-chevron-right subtitle" />
-                        <span className="text-crumbs">Convocatoria</span>
-                    </div>
-                </div>
-                <Link to="/nuevacohorte">Nueva Convocatoria</Link>
-                {rows.length > 0 ? (
-                    <Tablita
-                        className="table"
-                        key={rows.length}
-                        rows={rows}
-                        actions={actions}
-                    />
-                ) : (
-                    <NewConvocatory />
-                )}
-            </div>
-        </>
-    );
+  return (
+    <>
+      <div className="section__convocatory">
+        {rows.length > 0 ? (
+          <Table
+            className="table"
+            convocatoryData={convocatories}
+            key={rows.Id}
+            rows={rows}
+          />
+        ) : (
+          <NewConvocatory />
+        )}
+      </div>
+    </>
+  );
 };
 
 export default Convocatory;

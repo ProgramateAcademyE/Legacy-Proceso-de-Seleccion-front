@@ -1,23 +1,10 @@
-html, body {
-  height: 100vh;
-  width: 100vw;
-  overflow-x: hidden;
-}
 
-.calendar-screen {
-  display: -webkit-box;
-  display: -ms-flexbox;
+.calendar-screen{
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: column;
-          flex-flow: column;
+  flex-flow: column;
   height: 100vh;
-}
-
-@media screen and (max-width: 440px) {
-  .calendar-screen {
-    height: 70vh !important;
+  @media screen and (max-width: 440px) {
+  height: 70vh !important;
   }
 }
 
@@ -29,24 +16,19 @@ html, body {
   margin: 0;
   padding: 0;
   font-family: "Gilroy";
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
-
 body {
   background-color: #f1f5f7;
 }
 
-.top {
-  padding-top: 70px;
-}
+
 
 .pointer {
   cursor: pointer;
 }
 
 .transition {
-  -webkit-transition: .4s all !important;
   transition: .4s all !important;
 }
 
@@ -56,7 +38,6 @@ a {
 
 .ripple {
   background-position: center;
-  -webkit-transition: background 0.8s;
   transition: background 0.8s;
 }
 
@@ -67,7 +48,6 @@ a {
 }
 
 .ripple:active {
-  -webkit-transition: background 0s;
   transition: background 0s;
   background-color: #caa10c;
   background-size: 100%;
@@ -76,27 +56,31 @@ a {
 .upperCase {
   text-transform: uppercase;
 }
-
 .bold {
   font-weight: 700;
 }
-
-.bold-500 {
+.bold-500{
   font-weight: 500;
 }
-
-.ligth {
+.ligth{
   font-weight: 400;
 }
-
 .subtitle {
   position: relative;
   bottom: 1px;
   font-size: 9px;
   margin: 0 15px 0 10px;
 }
-
-.text-crumbs {
+.text-crumbs{
   font-size: 14px;
 }
-/*# sourceMappingURL=app.css.map */
+
+.swal2-styled.swal2-confirm{
+  background-color: #fdc300 !important;
+}
+.swal2-styled.swal2-confirm:focus {
+  box-shadow: 0 0 0 3px #ffc500 !important;
+}
+.btn-check:focus+.btn-primary, .btn-primary:focus {
+  box-shadow: 0 0 0 0.25rem #ebb30b !important;
+}

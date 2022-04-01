@@ -1,5 +1,5 @@
 import React from "react";
-import "./Modal.scss";
+import modalcss  from "./Modal.module.css";
 
 const MotivationLetterModal = () => {
     const aspirante1 = [
@@ -13,7 +13,8 @@ const MotivationLetterModal = () => {
             numberDocument: "",
             pdf: "",
             email: "",
-            phone: "",
+            phone1: "",
+            phone2: "",
             nationality: "",
             migrant: "",
             liveColombia: "",

@@ -1,8 +1,9 @@
 .nav {
-  position: relative;
-  padding: 20px 0;
+  position: fixed;
+  height: 100%;
+  padding: 8px 0;
   background-color: #fdc300;
-  width: 74px;
+  width: 75px;
   display: block;
   -webkit-transition: .4s all ease;
   transition: .4s all ease;
@@ -10,9 +11,13 @@
           box-shadow: -1px 1px 16px 3px #00000054;
 }
 
+.Logo_Lapiz{
+  width:  74px;
+  object-fit: cover;
+}
+
 @media screen and (max-width: 991px) {
   .nav {
-    position: relative;
     left: -100%;
     width: 240px;
     position: fixed !important;
@@ -49,7 +54,7 @@
     width: 294px;
   }
   .nav:hover .nav__fixed {
-    width: 240px;
+    width: 294px;
     overflow-y: scroll !important;
     overflow-x: hidden !important;
   }
@@ -73,6 +78,7 @@
 
 .nav__title {
   font-size: 13px;
+  padding-top: 12px;
   text-transform: uppercase;
   padding-left: 18px;
   font-weight: 800;
@@ -95,8 +101,8 @@
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  width: 70px;
-  height: 450px;
+  width: 75px;
+  height: 78%;
   -webkit-transition: 0.4s all;
   transition: 0.4s all;
   background: #fdc300;
@@ -111,4 +117,3 @@
   background: #d8a602;
   border-radius: 5px;
 }
-/*# sourceMappingURL=Nav.css.map */

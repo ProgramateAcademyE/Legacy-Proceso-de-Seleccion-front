@@ -1,12 +1,10 @@
 import React, { useContext, useEffect } from "react";
 import CohorteGoal from "../../components/graphicsAdmin/CohorteGoal";
-import SocialMedia from "../../components/graphicsAdmin/SocialMedia";
 import FunnelDos from "../../components/graphicsAdmin/FunnelDos";
 import DateMigrants from "../../components/graphicsAdmin/DateMigrants";
 import AmountPassing from "../../components/graphicsAdmin/AmountPassing";
 import LocationMigrants from "../../components/graphicsAdmin/LocationMigrants";
-
-import "./DashboardAdmin.scss";
+import "./DashboardAdmin.css";
 import { providerContext } from "../../Context/status";
 
 const DashboardAdmin = () => {
@@ -30,22 +28,15 @@ const DashboardAdmin = () => {
     return (
         <>
             <div className="section__dash">
-                <div className="section__content d-flex justify-content-between">
+                <div className="section__content">
                     <span className="upperCase bold">
                         Dashboard Administrador
                     </span>
-                    <div className="box__content">
-                        <span className="text-crumbs bold-500">Programate</span>
-                        <i className="fas fa-chevron-right subtitle" />
-                        <span className="text-crumbs">
-                            Dashboard Administrador
-                        </span>
-                    </div>
                 </div>
-                <div className="graphcsAdmin d-flex flex-wrap justify-content-around">
+                <div className="graphcsAdmin">
                     <div className="cohorteGoal__container">
-                        <div className="cohorteGoal__container-title d-flex justify-content-center align-items-center">
-                            <h2 className="m-0">Meta de la cohorte</h2>
+                        <div className="cohorteGoal__container-title">
+                            <h2 className="Dashboard-title">Meta de la cohorte</h2>
                         </div>
                         <div className="cohorteGoal__container-graph">
                             <select name="qualify" className="form-select" onChange={(e) => handleChange(e)}>
@@ -68,8 +59,8 @@ const DashboardAdmin = () => {
                         </div>
                     </div>
                     <div className="funnel__container">
-                        <div className="funnel__container-title d-flex justify-content-center align-items-center">
-                            <h2 className="m-0">Embudo de selección</h2>
+                        <div className="funnel__container-title">
+                            <h2 className="Dashboard-title">Embudo de selección</h2>
                         </div>
                         <div className="funnel__container-graph">
                             {convocatory.map((item) => (
@@ -78,8 +69,8 @@ const DashboardAdmin = () => {
                         </div>
                     </div>
                     <div className="funnel__container">
-                        <div className="funnel__container-title d-flex justify-content-center align-items-center">
-                            <h2 className="m-0">Porcentaje que van pasando</h2>
+                        <div className="funnel__container-title">
+                            <h2 className="Dashboard-title">Porcentaje que van pasando</h2>
                         </div>
                         <div className="funnel__container-graph">
                             {convocatory.map((item) => (
@@ -88,8 +79,8 @@ const DashboardAdmin = () => {
                         </div>
                     </div>
                     <div className="funnel__container">
-                        <div className="funnel__container-title d-flex justify-content-center align-items-center">
-                            <h2 className="m-0">Datos generales migrantes</h2>
+                        <div className="funnel__container-title">
+                            <h2 className="Dashboard-title">Datos generales migrantes</h2>
                         </div>
                         <div className="funnel__container-graph">
                             {convocatory.map((item) => (
@@ -98,8 +89,8 @@ const DashboardAdmin = () => {
                         </div>
                     </div>
                     {/* <div className="socialMedia__container">
-                        <div className="socialMedia__container-title d-flex justify-content-center align-items-center">
-                            <h2 className="m-0">
+                        <div className="socialMedia__container-title">
+                            <h2 className="Dashboard-title">
                                 ¿Dónde te enteraste de nosotros?
                             </h2>
                         </div>
@@ -110,8 +101,8 @@ const DashboardAdmin = () => {
                         </div>
                     </div> */}
                     <div className="socialMedia__container">
-                        <div className="socialMedia__container-title d-flex justify-content-center align-items-center">
-                            <h2 className="m-0">
+                        <div className="socialMedia__container-title">
+                            <h2 className="Dashboard-title">
                                 Departamento de residencia
                             </h2>
                         </div>

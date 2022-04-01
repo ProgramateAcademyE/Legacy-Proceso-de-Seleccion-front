@@ -2,7 +2,7 @@ import React from "react";
 import { Chart } from "chart.js";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 import { Doughnut, defaults } from "react-chartjs-2";
-import "./Doughtnut.scss";
+import doughtnut from"./Doughtnut.module.css";
 //import "chart.piecelabel.js";
 
 Chart.register(ChartDataLabels);
@@ -10,8 +10,9 @@ Chart.defaults.plugins.datalabels;
 defaults.plugins.legend.position = "bottom";
 
 const DoughtnutHtml = ({ item }) => {
-    const { htmlScore } = item;
-    const html = htmlScore.toString().slice(2)
+    let { htmlScore } = item;
+    htmlScore = htmlScore === 1 ? 100 : htmlScore
+    const html = htmlScore === 100 ? 100 : htmlScore.toString().slice(2)
 
     let pendiente = 100 - html;
     const data = {
@@ -25,7 +26,6 @@ const DoughtnutHtml = ({ item }) => {
         ],
         labels: ["Progreso", "Pendiente"],
     };
-
     const options = {
         maintainAspectRatio: true,
         responsive: false,

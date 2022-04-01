@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import Tablita from "../../components/tablita/Tablita";
+import Tablita from "../../components/tablita/Table";
 import RequestService from "../../config/index";
+import WaitingListcss from "./WaitingList.module.css"
 
 const WaitingList = () => {
     const [waitList, setWaitList] = useState([]);
@@ -76,16 +77,9 @@ const WaitingList = () => {
     }));
 
     return (
-        <div className="spirants">
-            <div className="spirants__content d-flex justify-content-between">
+        <div className="WaitingList">
+            <div className="WaitingList__content">
                 <span className="upperCase bold">Lista de espera</span>
-                <div className="box__content">
-                    <span className="text-crumbs bold-500"> Programate </span>
-                    <i className="fas fa-chevron-right subtitle" />
-                    <span className="text-crumbs">Inscripción</span>
-                    <i className="fas fa-chevron-right subtitle" />
-                    <span className="text-crumbs">Lista de espera</span>
-                </div>
             </div>
             <div className="mt-4">
                 <Tablita key={rows.length} rows={rows} actions={actions} />

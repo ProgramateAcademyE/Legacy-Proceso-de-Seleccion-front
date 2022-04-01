@@ -54,7 +54,7 @@ const CalendarView = () => {
   };
 
   return (
-    <div className="calendar-screen mt-4">
+    <div className="calendar-screen">
       <Calendar
         localizer={localizer}
         events={events}

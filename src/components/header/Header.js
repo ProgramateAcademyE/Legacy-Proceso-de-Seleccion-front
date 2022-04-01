@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { Link } from "react-router-dom";
 import Search from "../search/Search";
 import User from "../user/User";
-import "./Header.scss";
+import header from "./Header.module.css";
 import { dispatchGetUser, dispatchLogin, fetchUser } from "../../actions/authAction";
 
 const Header = () => {
@@ -29,7 +29,7 @@ const Header = () => {
           dispatch({type:'getToken', payload: res.data.access_token})
           
         } catch (error) {
-            console.log(error)
+            return error
         }
 
       }
@@ -56,27 +56,28 @@ const Header = () => {
   };
 
   return (
-    <>
-      <header className="header d-flex justify-content-between">
+    
+      <div className="General_header">
         <div className="header__logo" id="logo">
-          <Link to="/">
-            <img
-              src="https://i.ibb.co/ZM3jGdB/logoeducamasimbolo.png"
-              alt="logo"
-            />
-          </Link>
-        </div>
-        <div className="menu-bar">
+          {auth ? 
+            <Link to="/dashboard">
+              <img className="Logo__A"
+                src="https://i.ibb.co/ZM3jGdB/logoeducamasimbolo.png"
+                alt="logo"
+              />
+            </Link>:
+            null
+          }
+          <div className="menu-bar">
           <i className="fas fa-bars pointer" onClick={moveNav} />
         </div>
-        <div className="header__search">
-          <Search />
         </div>
+        
         <div className="header__user">
           <User/>
         </div>
-      </header>
-    </>
+      
+    </div>
   );
 };
 

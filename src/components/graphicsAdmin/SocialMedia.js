@@ -2,7 +2,7 @@ import React, { useContext } from "react";
 import { Chart } from "chart.js";
 //import ChartDataLabels from "chartjs-plugin-datalabels";
 import { Bar } from "react-chartjs-2";
-import "./GraphicsAdmin.scss";
+
 import { providerContext } from "../../Context/status";
 //import "chart.piecelabel.js";
 
