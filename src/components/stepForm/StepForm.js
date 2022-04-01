@@ -53,17 +53,31 @@ function getStepContent(step) {
       return(error)
     }
 
-    dispatch(getProfileFull(user._id))
-    dispatch(getData(user._id))
+    dispatch(getProfileFull(user.user_id))
+    dispatch(getData(user.user_id))
 
+    // Swal.fire({
+    //   icon: 'success',
+    //   title: 'Datos enviados correctamente',
+    //   confirmButtonText: 'OK',
+    // }).then((result) => {
+    //   /* Read more about isConfirmed, isDenied below */
+    //   if (result.isConfirmed) {
+    //     Swal.fire('Saved!', '', 'success')
+    //   } else if (result.isDenied) {
+    //     Swal.fire('Changes are not saved', '', 'info')
+    //   }
+    // })
     Swal.fire({
-      position: "center-center",
-      icon: "success",
-      title: "Enviado correctamente",
-      showConfirmButton: false,
-      timer: 1500,
-    });
-    // history.push("/dashboard");
+      position: 'center-center',
+      icon: 'success',
+      title: 'Datos enviados exitosamente',
+      showConfirmButton: true,
+    }).then((result) => {
+      if (result.isConfirmed) {
+        history.push("/dashboard");
+      }
+    })
   };
 
   const props = { data, setDataToForm };
