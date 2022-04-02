@@ -19,27 +19,40 @@ const ListOfUsers = () => {
         headers: { Authorization: token },
       }
     );
+    console.log(data);
+    setPage(data.page);
     setUsers(data.profiles);
+
   }
+  console.log(users);
+  console.log(page);
 
   useEffect(() => {
     fetchData(page);
   }, []);
 
+  const pages = Math.ceil(page.total / page.perPage);
+
   return (
     <>
     <div className='User_Container'>
       <User users={users}/>
-      <button onClick={() => {
-        if(page > 1) {
-          fetchData(page - 1)
-          setPage(page - 1);
-        }
-      }}>Atras</button>
-      <button onClick={() => {
-        fetchData(page + 1)
-        setPage(page + 1)
-      }}>Siguiente</button>
+      <button 
+        onClick={() => {
+          fetchData(page.page - 1)
+        }}
+        disabled={page.page == 1}
+      >
+        Anterior
+      </button>
+      <button 
+        onClick={() => {
+          fetchData(page.page + 1)
+        }}
+        disabled={page.page == pages}
+      >
+        Siguiente
+      </button>
     </div>
     </>
   )
