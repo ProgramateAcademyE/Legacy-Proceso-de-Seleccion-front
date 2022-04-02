@@ -1,6 +1,7 @@
 
 .General_header{
   display: flex;
+  z-index: 99999999;
   justify-content: flex-end;
   position: fixed;
   width: 100%;
