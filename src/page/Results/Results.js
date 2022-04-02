@@ -40,11 +40,7 @@ const Results = () => {
         }
         return color;
     };
-    /* const [userId, setuserId] = useState(null);
-    const UserDetail = (user_id) => {
-        setuserId(user_id);
-    }; */
-    
+
     const rows = results.map((result) => ({
 
         Nombre: result.userFullName,
