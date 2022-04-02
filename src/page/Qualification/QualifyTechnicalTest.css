@@ -1,13 +1,32 @@
 .qualify {
   display: flex;
   width: 100%;
- 
   padding: 93px 40px 0px 104px;
   height: 600px;
-  flex-direction: column;
   flex-wrap: wrap;
   align-items: center;
+  justify-content: center;
 }
+.good{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: green;
+  color: #fff;
+}
+
+.bad{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background-color: red;
+  color: #fff;
+}
+
 @media screen and (max-width: 1400px) {
   .qualify {
     height: 100vh;

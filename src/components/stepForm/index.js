@@ -14,6 +14,7 @@ import './StepForm.css'
 
 const Index = () => {
   const { profile } = useSelector((state) => state.sololearn);
+  
   const { user } = useSelector((state) => state.auth);
   const history = useHistory();
   const dispatch = useDispatch();
@@ -49,7 +50,7 @@ const Index = () => {
       } catch (error) {
         return(error)
       }
-  
+
       Swal.fire({
         position: 'center-center',
         icon: 'success',
@@ -57,7 +58,7 @@ const Index = () => {
         showConfirmButton: true,
       }).then((result) => {
         if (result.isConfirmed) {
-          history.push("/dashboard");
+          window.location.reload();
         }
       })
     }

@@ -8,6 +8,8 @@ const QualifyTechnicalTest = () => {
 	const [convocatories, setConvocatories] = useState([]);
 	const [allProfiles, setAllProfiles] = useState([]);
 
+	const data = convocatories
+
 	useEffect(() => {
 		// Get all Profiles
 		try {
@@ -15,8 +17,7 @@ const QualifyTechnicalTest = () => {
 				.get(PETITIONS.getAllCandidates)
 				.then((res) => setAllProfiles(res.data));
 		} catch (error) {
-			console.log(error);
-			// return error
+			return error
 		}
 		// Get all Convocatories
 		try {
@@ -24,8 +25,7 @@ const QualifyTechnicalTest = () => {
 				.get(PETITIONS.getConvocatories)
 				.then((res) => setConvocatories(res.data));
 		} catch (error) {
-			console.log(error);
-			// return error
+			return error
 		}
 	}, []);
 
@@ -48,9 +48,9 @@ const QualifyTechnicalTest = () => {
 								</tr>
 							</thead>
 							<tbody>
-								{allProfiles.map((oneProfile) =>
+								{allProfiles?.map((oneProfile) =>
 									oneProfile.techTest
-										? convocatories.map((convocatory, index) =>
+										? convocatories?.map((convocatory, index) =>
 												convocatory.usersRegistered?.includes(
 													oneProfile.user_id
 												) ? (
@@ -90,11 +90,11 @@ const QualifyTechnicalTest = () => {
 						</table>
 					</div>
 				</div>
-				{/* <div>
-					<CSVLink data={pruebas1} filename='prueba CSV'>
+				<div>
+					<CSVLink data={data} filename='prueba CSV'>
 						<button className='btn btn-success'>Exportar CSV</button>
 					</CSVLink>
-				</div> */}
+				</div>
 			</div>
 		</>
 	);

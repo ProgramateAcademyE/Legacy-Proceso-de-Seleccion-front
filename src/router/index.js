@@ -94,7 +94,7 @@ const App = () => {
 
 
               <Route path="/calificacion-sololearn" component={QualifySololearn} />
-              <Route path="/calificacion-carta-motivacional" component={QualifyMotivationLetter} />
+              <Route path="/motivationLetter" component={QualifyMotivationLetter} />
               <Route path="/calificacion-prueba-tecnica" component={QualifyTechnicalTest} />
               <Route path="/calificacion-entrevista" component={QualifyInterview} />
               <Route path="/calificacion-assessment" component={QualifyAssessment} />

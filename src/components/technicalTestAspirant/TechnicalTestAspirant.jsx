@@ -9,6 +9,7 @@ import { PETITIONS } from "../../../requestUrl";
 
 const TechnicalTestAspirant = () => {
 	const { user } = useSelector((state) => state.auth);
+
 	const [spinner, setSpinner] = useState(false);
 	const [existTechTest, setExistTechTest] = useState([]);
 	const dispatch = useDispatch();
@@ -104,8 +105,7 @@ const TechnicalTestAspirant = () => {
 					<div className='content__test'>
 						<p className='text__upload mb-3'>
 							Por favor ingresa el enlace del drive de tu prueba tecnica y
-							asegurate que se encuentre publico. Solo tiene una oportunidad de
-							enviar el enlace
+							asegurate que se encuentre publico.
 						</p>
 						<p>
 							Recuerda que para enviar la prueba tecnica primero debes de
@@ -124,7 +124,7 @@ const TechnicalTestAspirant = () => {
                   <input
                     onChange={handleChange}
                     name='linktest'
-                    type='text'
+                    type='url'
                     className='form-control'
                     placeholder='https://drive.google.com/drive'
                     aria-label='Username'
