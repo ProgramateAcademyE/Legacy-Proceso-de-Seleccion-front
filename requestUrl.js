@@ -37,8 +37,16 @@ export const PETITIONS = {
   updateTechTest: `${BASEURL}api/admin/test/`,
   // Delete tech test
   deleteTechTest: `${BASEURL}api/admin/test/`,
+  // Send Tech Test
+  sendTechTest: `${BASEURL}api/candidate/tech-test/`,
+  // Verify if exist tech test
+  verifyTechTest: `${BASEURL}api/candidate/candidate/`,
   // ========================================
-  
+  // ============== Candidate ==============
+  // Get profile
+  getProfileById: `${BASEURL}api/candidate/candidate/`,
+
+  // =======================================
 
   // =========Convocatory Aspirant============
   // update users in convocatory

@@ -28,7 +28,6 @@ const AdministerTechnicalTestAdd = () => {
 		return data;
 	});
 
-	console.log(convocatory?.length <= 0)
 
 	return (
 		<div className="FormTechTest" >

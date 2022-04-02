@@ -106,7 +106,6 @@ const Login = () => {
           }
         })
         .catch((err) => {
-          console.log(err);
           setIsFailing({
             email: true,
             password: true,
@@ -123,7 +122,7 @@ const Login = () => {
           }, 200);
         });
     } catch (err) {
-      console.log(err);
+      return err;
       guardarSpinner(false);
     }
   };

@@ -7,8 +7,7 @@ import ModalAspirants from "../../components/modals/ModalAspirants"
 
 const AspirantsInfo= () => {
     const [Aspirants, setAspirants] = useState([]);
-    console.log(Aspirants)
-    console.log(Aspirants)
+
     useEffect(() => {
       try {
         axios.get (`${PETITIONS.GetAnswersFromForm}`, {
