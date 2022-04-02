@@ -132,24 +132,13 @@ const TechnicalTestAspirant = () => {
                     required
                   />
                 </div>
-                {existTechTest?.map((element, index) =>
-                  !element.techTest ||
-                  element.techTest === undefined ||
-                  element.techTest === null ? (
                     <button
-                      key={index}
                       className='btn btn-warning'
                       type='submit'
                       value='Enviar prueba'
                     >
                       Enviar
                     </button>
-                  ) : (
-                    <p key={index} className='sendProof'>
-                      Ya enviaste la prueba
-                    </p>
-                  )
-                )}
               </form>
               :
               <p>Este campo se habilitara cuando usted se registre en una convocatoria <Link to="/Convocatoriasaspirante">Clic aqui para registrarse</Link> recuerde que solo tiene una oportunidad de enviar el enlace</p>

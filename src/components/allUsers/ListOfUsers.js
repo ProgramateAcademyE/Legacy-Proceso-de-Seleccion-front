@@ -19,13 +19,10 @@ const ListOfUsers = () => {
         headers: { Authorization: token },
       }
     );
-    console.log(data);
     setPage(data.page);
     setUsers(data.profiles);
 
   }
-  console.log(users);
-  console.log(page);
 
   useEffect(() => {
     fetchData(page);
