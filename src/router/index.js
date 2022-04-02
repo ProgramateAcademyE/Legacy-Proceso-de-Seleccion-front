@@ -60,7 +60,6 @@ const App = () => {
       {/* {pathname !== "/login" && <Header user={user} adminstate={adminstate} />} */}
       {pathname !== "/" && pathname !== "/register" && pathname !== '/verify' && <Header /> || <NavBarIndex/>}
 
-      <div className="login">
         {/* {pathname !== "/login" && <Nav user={user} adminstate={adminstate} />} */}
         {pathname !== "/" && pathname !== "/register" && pathname !== '/verify' && <Nav />}
 
@@ -127,7 +126,6 @@ const App = () => {
             </>
           )}
         </Switch>
-      </div>
       {pathname !== '/verify' && <Footer />}
     </>
   );
