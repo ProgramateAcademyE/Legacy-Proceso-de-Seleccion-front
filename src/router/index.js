@@ -100,14 +100,10 @@ const App = () => {
               <Route path="/calificacion-assessment" component={QualifyAssessment} />
 
               <Route path="/register-admin" component={RegisterAdmin} />
-              {/* <Route path="/inscripcion" component={Inscription} /> */}
-              {/* <Route
-                  path="/resultsInscription"
-                  component={ResultsInscription}
-                /> */}
+      
               <Route path="/InfoAspirants" component={Results} />
               <Route path="/waiting-list" component={WaitingList} />
-              {/* <Route path="/motivationLetter" component={MotivationLetter} /> */}
+
               <Route path="/parameterization" component={Parameterization} />
               <Route path="/selection-results" component={SelectionResults} />
             </>

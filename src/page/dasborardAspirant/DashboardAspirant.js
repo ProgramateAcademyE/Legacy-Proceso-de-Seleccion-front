@@ -5,7 +5,7 @@ import DoughtnutJavascript from "../../components/doughnut/DoughtnutJavascript";
 import DoughtnutPython from "../../components/doughnut/DoughtnutPython";
 import NotProfile from "../../components/notProfile/NotProfile";
 import { useSelector } from "react-redux";
-
+import './dashboardaspirant.css'
 
 
 function DashboardAspirant() {

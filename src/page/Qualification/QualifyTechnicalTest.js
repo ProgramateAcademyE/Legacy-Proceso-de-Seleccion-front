@@ -3,6 +3,11 @@ import "./QualifyTechnicalTest.css";
 import { CSVLink } from "react-csv";
 
 const QualifyTechnicalTest = () => {
+
+    // Get all Profiles
+
+    // Get all Convocatories
+
     const pruebas1 = [
         {
             id: 1,

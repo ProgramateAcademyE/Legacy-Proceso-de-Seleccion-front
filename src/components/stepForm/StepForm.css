@@ -3,6 +3,9 @@
   color: #fdc300 !important;
   border: none !important;
 }
+.error{
+  color: red;
+}
 
 .MuiSvgIcon-root {
   font-size: 2.5rem !important;

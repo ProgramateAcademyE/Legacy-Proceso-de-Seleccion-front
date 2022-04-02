@@ -23,49 +23,48 @@ const Step1 = ({ data, setDataToForm, setStep, step }) => {
 					phone1: data?.phone1 || "",
 					phone2: data?.phone2 || "",
 				}}
-				// validate={(formValues) => {
-				// 	const error = {};
-				// 	if (!formValues.firstName) {
-				// 		error.firstName = "Por favor ingresa tu nombre";
-				// 	} else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.firstName)) {
-				// 		error.firstName = "Por favor ingresa sólo letras";
-				// 	}
+				validate={(formValues) => {
+					const error = {};
+					if (!formValues.firstName) {
+						error.firstName = "Por favor ingresa tu nombre";
+					} else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.firstName)) {
+						error.firstName = "Por favor ingresa sólo letras";
+					}
 
-				// 	if (!formValues.firstSurname) {
-				// 		error.firstSurname = "Por favor ingresa tu apellido";
-				// 	} else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.firstSurname)) {
-				// 		error.firstSurname = "Por favor ingresa sólo letras";
-				// 	}
+					if (!formValues.firstSurname) {
+						error.firstSurname = "Por favor ingresa tu apellido";
+					} else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.firstSurname)) {
+						error.firstSurname = "Por favor ingresa sólo letras";
+					}
 
-				// 	if (!formValues.phone1) {
-				// 		error.phone1 = "Por favor ingresa tu número de contacto";
-				// 	}
+					if (!formValues.phone1) {
+						error.phone1 = "Por favor ingresa tu número de contacto";
+					}
 
-				// 	if (!formValues.documentNumber) {
-				// 		error.documentNumber = "Por favor ingresa tu número de documento";
-				// 	}
+					if (!formValues.documentNumber) {
+						error.documentNumber = "Por favor ingresa tu número de documento";
+					}
 
-				// 	if (!formValues.email) {
-				// 		error.email = "Por favor ingresa tu correo";
-				// 	} else if (
-				// 		!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(
-				// 			formValues.email
-				// 		)
-				// 	) {
-				// 		error.email = "Por favor ingresa un correo válido";
-				// 	}
+					if (!formValues.email) {
+						error.email = "Por favor ingresa tu correo";
+					} else if (
+						!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(
+							formValues.email
+						)
+					) {
+						error.email = "Por favor ingresa un correo válido";
+					}
 
-				// 	return error;
-				// }}
+					return error;
+				}}
 
         onSubmit={(allValues, { resetForm }) => {
 					setDataToForm(allValues)
 					setStep(prev=> prev < 3 ? prev + 1 : prev)
-					// myNext()
         }}
 			>
 				{({ errors }) => (
-					<Form className='step1'>
+					<Form className='step1' style={{margin: "100px"}}>
 						<div className='row mt-4'>
 							<div className='col-12 col-md-6'>
 								<label htmlFor='firstName' className='form-label'>
@@ -171,7 +170,7 @@ const Step1 = ({ data, setDataToForm, setStep, step }) => {
 						<div className='row mt-4'>
 							<div className='col-12 col-md-6'>
 								<label htmlFor='documentPdf' className='form-label'>
-									Documento de identidad en PDF
+									Enlace del documento de identidad en Google Drive
 								</label>
 								<Field
 									type='url'
@@ -310,9 +309,9 @@ const Step1 = ({ data, setDataToForm, setStep, step }) => {
 							</div>
 						</div>
 						{step === 1 ? 
-							<button onClick={() => setStep(prev => prev -1)} disabled className="btn btn-secondary me-4 mt-3">back</button>
+							<button onClick={() => setStep(prev => prev -1)} disabled className="btn btn-secondary me-4 mt-3">Back</button>
 							: 
-							<button onClick={() => setStep(prev => prev -1)}>back</button>
+							<button onClick={() => setStep(prev => prev -1)}>Back</button>
 						}
 						<Field type="submit" value="Next" className="btn btn-warning mt-3"/>
 					</Form>

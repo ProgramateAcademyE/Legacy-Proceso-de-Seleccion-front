@@ -9,6 +9,8 @@ import axios from 'axios';
 import FormSend from '../formSend/FormSend';
 import { PETITIONS } from '../../../requestUrl';
 import { useHistory } from 'react-router-dom';
+import MotivationLetter from './MotivationLetter';
+import './StepForm.css'
 
 const Index = () => {
   const { profile } = useSelector((state) => state.sololearn);
@@ -19,8 +21,8 @@ const Index = () => {
   const [step, setStep] = useState(1);
   if(step < 1 ){
     setStep(1)
-  }else if(step > 3){
-    setStep(3)
+  }else if(step > 4){
+    setStep(4)
   }
 
   const [data, setData] = useState();
@@ -66,10 +68,13 @@ const Index = () => {
 
   return (<>
     {profile.length ? <FormSend /> :
-      <div style={{margin: "100px"}}>
-        {step === 1 ? <Step1 setStep={setStep} data={data} setDataToForm={setDataToForm} step={step}/>
+      <div>
+        {
+          step === 1 ? <Step1 setStep={setStep} data={data} setDataToForm={setDataToForm} step={step}/>
           : step === 2 ? <Step2 setStep={setStep} data={data} setDataToForm={setDataToForm} step={step}/>
-          : step === 3 ? <Step3 setStep={setStep} data={data} setDataToForm={setDataToForm} step={step}/> : null
+          : step === 3 ? <Step3 setStep={setStep} data={data} setDataToForm={setDataToForm} step={step}/>
+          : step === 4 ? <MotivationLetter setStep={setStep} data={data} setDataToForm={setDataToForm} step={step}/>
+          : null
         }
       </div>
     }

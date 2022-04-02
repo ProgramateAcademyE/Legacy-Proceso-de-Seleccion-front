@@ -27,52 +27,51 @@ const Step2 = ({ data, setDataToForm, setStep }) => {
 					internetCompany: data?.internetCompany || "",
 					mbCount: data?.mbCount || "",
 				}}
-				// validate={(formValues) => {
-				// 	const error = {};
-				// 	if (!formValues.nacionality) {
-				// 		error.nacionality = "Por favor indica tu país de nacimiento";
-				// 	} else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.nacionality)) {
-				// 		error.nacionality = "Por favor ingresa sólo letras";
-				// 	}
+				validate={(formValues) => {
+					const error = {};
+					if (!formValues.nacionality) {
+						error.nacionality = "Por favor indica tu país de nacimiento";
+					} else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.nacionality)) {
+						error.nacionality = "Por favor ingresa sólo letras";
+					}
 
-				// 	if (!formValues.currentCountry) {
-				// 		error.currentCountry = "Por favor indica tu país de residencia";
-				// 	} else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.currentCountry)) {
-				// 		error.currentCountry = "Por favor ingresa sólo letras";
-				// 	}
+					if (!formValues.currentCountry) {
+						error.currentCountry = "Por favor indica tu país de residencia";
+					} else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.currentCountry)) {
+						error.currentCountry = "Por favor ingresa sólo letras";
+					}
 
-				// 	if (!formValues.residencyDepartment) {
-				// 		error.residencyDepartment =
-				// 			"Por favor indica tu departamento de residencia";
-				// 	} else if (
-				// 		!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.residencyDepartment)
-				// 	) {
-				// 		error.residencyDepartment = "Por favor ingresa sólo letras";
-				// 	}
+					if (!formValues.residencyDepartment) {
+						error.residencyDepartment =
+							"Por favor indica tu departamento de residencia";
+					} else if (
+						!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.residencyDepartment)
+					) {
+						error.residencyDepartment = "Por favor ingresa sólo letras";
+					}
 
-				// 	if (!formValues.socialClass) {
-				// 		error.socialClass = "Por favor selecciona tu estrato";
-				// 	}
+					if (!formValues.socialClass) {
+						error.socialClass = "Por favor selecciona tu estrato";
+					}
 
-				// 	if (!formValues.pcAccess) {
-				// 		error.pcAccess = "Por favor selecciona una respuesta";
-				// 	}
+					if (!formValues.pcAccess) {
+						error.pcAccess = "Por favor selecciona una respuesta";
+					}
 
-				// 	if (!formValues.internetAccess) {
-				// 		error.internetAccess = "Por favor selecciona una respuesta";
-				// 	}
+					if (!formValues.internetAccess) {
+						error.internetAccess = "Por favor selecciona una respuesta";
+					}
 
-				// 	return error;
-				// }}
+					return error;
+				}}
 
 				onSubmit={(allValues, { resetForm }) => {
           setDataToForm(allValues)
 					setStep(prev=> prev < 3 ? prev + 1 : prev)
-					// myNext()
         }}
 			>
 				{({ errors }) => (
-					<Form className='step2'>
+					<Form className='step2' style={{margin: "100px"}}>
 						<div className='row mt-4'>
 							<div className='col-12 col-md-6'>
 								<label htmlFor='nacionality' className='form-label'>
@@ -237,7 +236,7 @@ const Step2 = ({ data, setDataToForm, setStep }) => {
 						<div className='row mt-4'>
 							<div className='col-12 col-md-6'>
 								<label htmlFor='billPdf' className='form-label'>
-									Fotocopia de recibo en PDF
+									Enlace de fotocopia de recibo en Google Drive
 								</label>
 								<Field
 									type='url'
@@ -613,7 +612,7 @@ const Step2 = ({ data, setDataToForm, setStep }) => {
 							</div>
 						</div>
 						<button onClick={() => setStep(prev => prev -1)} className="btn btn-secondary me-4 mt-3">
-								back
+								Back
 						</button>
 						<Field type="submit" value="Next" className="btn btn-warning mt-3"/>
 					</Form>

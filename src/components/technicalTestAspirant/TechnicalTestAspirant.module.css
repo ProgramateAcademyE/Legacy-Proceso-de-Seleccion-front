@@ -1,9 +1,8 @@
 
 .technical__test {
-
+  margin-top: 100px;
   display: flex;
   flex-direction: column;
-  width: 95%;
   background-color: #f1f5f7;
   justify-content: space-evenly;
   padding-bottom: 40px;
