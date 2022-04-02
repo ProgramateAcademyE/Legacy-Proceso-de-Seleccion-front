@@ -4,6 +4,7 @@ import React from "react";
 const Step1 = ({ data, setDataToForm, setStep, step }) => {
 	return (
 		<>
+			<h4>Información Personal 1/4 </h4>
 			<Formik
 				initialValues={{
 					firstName: data?.firstName || "",
@@ -74,10 +75,7 @@ const Step1 = ({ data, setDataToForm, setStep, step }) => {
 									type='text'
 									id='firstName'
 									name='firstName'
-									placeholder=''
 									className='form-control'
-                  // // onChange={handeleChange}
-                  // value={data.firstName}
 								/>
 								<ErrorMessage
 									name='firstName'
@@ -96,8 +94,6 @@ const Step1 = ({ data, setDataToForm, setStep, step }) => {
 									name='secondName'
 									placeholder=''
 									className='form-control'
-                  // onChange={handeleChange}
-                  // value={data.secondName}
 								/>
 							</div>
 						</div>
@@ -112,8 +108,6 @@ const Step1 = ({ data, setDataToForm, setStep, step }) => {
 									name='firstSurname'
 									placeholder=''
 									className='form-control'
-                  // onChange={handeleChange}
-                  // value={data.firstSurname}
 								/>
 								<ErrorMessage
 									name='firstSurname'
@@ -132,8 +126,6 @@ const Step1 = ({ data, setDataToForm, setStep, step }) => {
 									name='secondSurname'
 									placeholder=''
 									className='form-control'
-                  // onChange={handeleChange}
-                  // value={data.secondSurname}
 								/>
 							</div>
 						</div>
@@ -147,19 +139,14 @@ const Step1 = ({ data, setDataToForm, setStep, step }) => {
 									name='documentType'
 									className='form-select'
 									as='select'
-                  // onChange={handeleChange}
-                  // value={data.documentType}
 								>
 									<option value='cc'>Selecciona el tipo de documento</option>
 									<option value='CC'>CC</option>
 									<option value='TI'>TI</option>
 									<option value='CC'>Cédula de extranjería</option>
-									<option value='PEP'>
-										Permiso Especial de Permanencia - PEP
-									</option>
-									<option value='PEP'>
-										Permiso de proteccion temporal - PPT
-									</option>
+									<option value='PEP'>Permiso Especial de Permanencia - PEP</option>
+									<option value='PEP'>Permiso de proteccion temporal - PPT</option>
+									<option value='PEP'>Pasaporte</option>
 								</Field>
 							</div>
 							<div className='col-12 col-md-6'>
@@ -172,8 +159,6 @@ const Step1 = ({ data, setDataToForm, setStep, step }) => {
 									name='documentNumber'
 									placeholder=''
 									className='form-control'
-                  // onChange={handeleChange}
-                  // value={data.documentNumber}
 								/>
 								<ErrorMessage
 									name='documentNumber'
@@ -194,8 +179,6 @@ const Step1 = ({ data, setDataToForm, setStep, step }) => {
 									name='documentPdf'
 									placeholder=''
 									className='form-control'
-                  // // onChange={handeleChange}
-                  // // value={data.documentPdf}
 								/>
 							</div>
 							<div className='col-12 col-md-6'>
@@ -208,8 +191,6 @@ const Step1 = ({ data, setDataToForm, setStep, step }) => {
 									name='dateOfBirth'
 									placeholder=''
 									className='form-control'
-                  // onChange={handeleChange}
-                  // value={data.dateOfBirth}
 								/>
 							</div>
 							<div className='row mt-4'>
@@ -222,8 +203,6 @@ const Step1 = ({ data, setDataToForm, setStep, step }) => {
 										id='age'
 										className='form-control'
 										name='age'
-                    // onChange={handeleChange}
-                    // value={data.age}
 									/>
 								</div>
 								<div htmlFor='sex' className='col-12 col-md-6'>
@@ -235,8 +214,6 @@ const Step1 = ({ data, setDataToForm, setStep, step }) => {
 										id='sex'
 										className='form-select'
 										name='sex'
-                    // onChange={handeleChange}
-                    // value={data.sex}
 									>
 										<option value='cc'>Selecciona tu Sexo</option>
 										<option value='masculino'>Masculino</option>
@@ -255,8 +232,6 @@ const Step1 = ({ data, setDataToForm, setStep, step }) => {
 									name='maritalStatus'
 									className='form-select'
 									as='select'
-                  // onChange={handeleChange}
-                  // value={data.maritalStatus}
 								>
 									<option value='cc'>Selecciona tu Estado Civil</option>
 									<option value='Soltero'>Soltero</option>
@@ -293,8 +268,6 @@ const Step1 = ({ data, setDataToForm, setStep, step }) => {
 									name='email'
 									placeholder=''
 									className='form-control'
-                  // onChange={handeleChange}
-                  // value={data.email}                  
 								/>
 								<ErrorMessage
 									name='email'
@@ -313,8 +286,6 @@ const Step1 = ({ data, setDataToForm, setStep, step }) => {
 									name='phone1'
 									placeholder=''
 									className='form-control'
-                  // onChange={handeleChange}
-                  // value={data.phone1}
 								/>
 								<ErrorMessage
 									name='phone1'
@@ -335,8 +306,6 @@ const Step1 = ({ data, setDataToForm, setStep, step }) => {
 									name='phone2'
 									placeholder=''
 									className='form-control'
-                  // onChange={handeleChange}
-                  // value={data.phone2}
 								/>
 							</div>
 						</div>

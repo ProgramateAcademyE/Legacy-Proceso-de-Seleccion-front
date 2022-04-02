@@ -4,6 +4,7 @@ import { ErrorMessage, Form, Field, Formik } from "formik";
 const Step2 = ({ data, setDataToForm, setStep }) => {
 	return (
 		<>
+			<h4>Datos Sociodemográficos 2/4 </h4>
 			<Formik
 				initialValues={{
 					nacionality: data?.nacionality || "",
@@ -72,40 +73,6 @@ const Step2 = ({ data, setDataToForm, setStep }) => {
 			>
 				{({ errors }) => (
 					<Form className='step2'>
-						{/*       <div className="row mt-4">
-      <div className="col-12 col-md-6">
-          <label htmlFor="nacionality" className="form-label">País de nacimiento</label>
-          <Field
-            id="nacionality"
-            name="nacionality"
-            className="form-select"
-            as="select"
-          >
-            <option value="cc">Selecciona un país</option>
-            {countries.map((countrie) => (
-              <option key={countrie} value={countrie}>
-                {countrie}
-              </option>
-            ))}
-          </Field>
-        </div> */}
-						{/*        <div className="col-12 col-md-6">
-          <label htmlFor="currentCountry" className="form-label">País de residencia</label>
-          <Field
-            id="currentCountry"
-            name="currentCountry"
-            className="form-select"
-            as="select"
-          >
-            <option value="select">Selecciona un país</option>
-            {countries.map((countrie) => (
-              <option key={countrie} value={countrie}>
-                {countrie}
-              </option>
-            ))}
-          </Field>
-        </div>
-      </div> */}
 						<div className='row mt-4'>
 							<div className='col-12 col-md-6'>
 								<label htmlFor='nacionality' className='form-label'>
@@ -361,57 +328,6 @@ const Step2 = ({ data, setDataToForm, setStep }) => {
 								</Field>
 							</div>
 						</div>
-						{/*        <div className="row mt-4">
-        <div className="col-12 col-md-6">
-          <label htmlFor="vulnerablePopulation" className="form-label">
-          ¿Perteneces a alguna de las siguientes poblaciones?
-          </label>
-          <Field
-            id="vulnerablePopulation"
-            name="vulnerablePopulation"
-            className="form-select"
-            as="select"
-          >
-            <option value="cc">Selecciona el tipo de población</option>
-            <option value="Indígena">Indígena</option>
-            <option value="Afrocolombiano">Afrocolombiano</option>
-            <option value="Raizal">Raizal</option>
-            <option value="Palenquero">Palenquero</option>
-            <option value="Gitano">Gitano</option>
-            <option value="Migrante">Migrante</option>
-            <option value="Desplazado por la violencia">Desplazado por la violencia</option>
-            <option value="Víctima del conflicto armado">Víctima del conflicto armado</option>
-            <option value="Desmovilizado">Desmovilizado</option>
-            <option value="Desplazado por fenómenos naturales">Desplazado por fenómenos naturales</option>
-            <option value="Persona privadas de libertad o INPEC">Persona privadas de libertad o INPEC</option>
-            <option value="Adolescentes en conflicto con la ley penal">Adolescentes en conflicto con la ley penal</option>
-            <option value="LGBTIQ+">LGBTIQ+</option>
-            <option value="Otro">Otro</option>
-          </Field>
-        </div>
-        <div className="col-12 col-md-6">
-          <label htmlFor="disability" className="form-label">
-          ¿Tienes alguna de las siguientes discapacidades?
-          </label>
-          <Field
-            id="disability"
-            name="disability"
-            className="form-select"
-            as="select"
-          >
-            <option value="cc">Selecciona el tipo de discapacidad</option>
-            <option value="Discapacidad física">Discapacidad física</option>
-            <option value="Discapacidad auditiva">Discapacidad auditiva</option>
-            <option value="Discapacidad visual">Discapacidad visual</option>
-            <option value="Sordoceguera">Sordoceguera</option>
-            <option value="Discapacidad intelectual">Discapacidad intelectual</option>
-            <option value="Discapacidad psicosocial">Discapacidad psicosocial</option>
-            <option value="Discapacidad múltiple">Discapacidad múltiple</option>
-            <option value="Ninguna">Ninguna</option>
-            <option value="Otra">Otra</option>
-          </Field>
-        </div>
-      </div> */}
 						<div className='row mt-4'>
 							<label htmlFor='vulnerablePopulation' className='form-label'>
 								Selecciona el/los tipos de población a los que perteneces
