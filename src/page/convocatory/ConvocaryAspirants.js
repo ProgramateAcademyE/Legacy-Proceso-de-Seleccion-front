@@ -44,9 +44,6 @@ const ConvocatoryAspirants = () => {
     fetchData();
   }, []);
 
-
-
-
   return (
     <>
       {convAsp?.map((item) => (

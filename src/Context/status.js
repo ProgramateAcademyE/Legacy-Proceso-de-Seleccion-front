@@ -30,13 +30,13 @@ const StateContext = ({ children }) => {
   const getProfiles = async () => {
     try {
       const response = await axios.get(`${url}/candidate/candidate-profile`);
-      console.log(response.data)
+      
       dispatch({
         type: GET_PROFILES,
         payload: response.data
       })
     } catch (e) {
-      console.log(e)
+      return e
     }
   }
   const getConvocatorys = async () => {
@@ -46,9 +46,9 @@ const StateContext = ({ children }) => {
         type: GET_CONVOCATORYS,
         payload: response.data
       })
-      // console.log(response)
+      // return response
     } catch (e) {
-      console.log(e)
+      return e
     }
   }
   const getConvocatory = async (id) => {
@@ -58,9 +58,9 @@ const StateContext = ({ children }) => {
         type: GET_CONVOCATORY,
         payload: response.data
       })
-      // console.log(response)
+      // return response
     } catch (e) {
-      console.log(e)
+      return e
     }
   }
   const putParameterization = async (id, data) => {
@@ -70,9 +70,9 @@ const StateContext = ({ children }) => {
         type: PUT_PARAMETERIZATION,
         payload: response.data
       })
-      // console.log(response)
+      // return response
     } catch (e) {
-      console.log(e)
+      return e
     }
   }
   const getAcept = async (id) => {
@@ -82,9 +82,8 @@ const StateContext = ({ children }) => {
         type: GET_ACEPT,
         payload: res.data,
       });
-      console.log(res.data)
     } catch (e) {
-      console.log(e);
+      return e
     }
   };
   return (

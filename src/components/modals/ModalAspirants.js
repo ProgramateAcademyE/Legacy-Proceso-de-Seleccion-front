@@ -13,7 +13,6 @@ const ModalAspirants = ({data}) => {
       axios.get(`${PETITIONS.GetAnswersFromForm}${user_id}`).then( res => setuserId(res.data[0]))
     }
 	}, [user_id])
-    console.log (userId)
  */
 	
 

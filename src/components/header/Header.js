@@ -29,7 +29,7 @@ const Header = () => {
           dispatch({type:'getToken', payload: res.data.access_token})
           
         } catch (error) {
-            console.log(error)
+            return error
         }
 
       }
