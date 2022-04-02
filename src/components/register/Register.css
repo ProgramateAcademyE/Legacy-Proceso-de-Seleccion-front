@@ -19,6 +19,7 @@
   border: 2px solid #f00 !important;
 }
 .container {
+  margin-top: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -48,3 +49,4 @@ a {
   color: #111;
   font-weight: 600;
 }
+

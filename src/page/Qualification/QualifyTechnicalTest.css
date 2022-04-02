@@ -1,0 +1,28 @@
+.qualify {
+  display: flex;
+  width: 100%;
+ 
+  padding: 93px 40px 0px 104px;
+  height: 600px;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+}
+@media screen and (max-width: 1400px) {
+  .qualify {
+    height: 100vh;
+  }
+ 
+.section__content {
+    margin: 15px;
+}
+}
+
+
+/* .qualify {
+  display: flex;
+  width: 99%;
+  /* max-width: 1800px; */
+/*   padding: 95px 40px 0px 41px;
+}
+  */

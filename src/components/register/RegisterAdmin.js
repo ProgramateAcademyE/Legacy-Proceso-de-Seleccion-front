@@ -118,7 +118,7 @@ const RegisterAdmin = () => {
 
   return (
     <>
-      <div className="container admin">
+      <div className="container">
         <form className="form" onSubmit={handleSubmit}>
           {spinner ? <Spinner /> : null}
           <h1> Registro Admin </h1>

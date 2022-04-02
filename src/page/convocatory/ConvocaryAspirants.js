@@ -38,11 +38,11 @@ const ConvocatoryAspirants = () => {
       {convAsp?.map((item) => (
         <div className="Aspirants_in_convocatory">  
           <div >
-          <h1 key={item._id}>{item.name}</h1>
+          <h1 key={item._id} className="Aspirants_conv_title">{item.name}</h1>
             {" "}
             {item.usersRegistered.map((i) =>
               apirantsConvocatory?.map((aspirant) =>
-                i === aspirant._id ? <p>{aspirant.names}</p> : ""
+                i === aspirant._id ? <p className="Aspirant_inconv_name">{aspirant.names}</p> : ""
               )
             )}
         </div>

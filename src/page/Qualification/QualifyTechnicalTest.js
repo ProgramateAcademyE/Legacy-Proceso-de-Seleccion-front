@@ -1,5 +1,5 @@
 import React from "react";
-import QualifyTcss from "./QualifyTechnicalTest.module.css";
+import "./QualifyTechnicalTest.css";
 import { CSVLink } from "react-csv";
 
 const QualifyTechnicalTest = () => {
