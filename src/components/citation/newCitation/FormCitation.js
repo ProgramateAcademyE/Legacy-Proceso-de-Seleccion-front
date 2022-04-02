@@ -6,10 +6,8 @@ import {
 	KeyboardTimePicker
 } from '@material-ui/pickers'
 import { Grid, TextField } from '@material-ui/core';
-/* import { MenuItem } from '@mui/material/MenuItem'; */
 import { Container } from '@material-ui/core';
-/* import { createTheme } from "@mater";
-import { ThemeProvider } from "@material-ui/styles"; */
+
 
 const FormCitation = () => {
 
@@ -29,26 +27,9 @@ const handleDateChange2 = (date) => {
 	setSelectedDate2(date)
 }
 
-/* const [convocatory, setConvocatory] = React.useState('');
-
-const titleConvocatory = [
-	{
-		value: 'GOYN',
-		label: 'GOYN'
-	},
-	{
-		value: 'Regional',
-		label: 'Regional'
-	},
-]; */
-
-/* const defaultMaterialTheme = createTheme({
-	palette: {
-	  primary: '#FFCC02',
-	  secondary: '#000000'
-	},
-  }); */
-
+/* const [maxQuota, setMaxQuota] = React.useState("");
+const [textError, setTextError] = React.useState("");
+const [errorQuota, setErrorQuota] = React.useState(false); */
 
   return (
 	<>
@@ -60,7 +41,6 @@ const titleConvocatory = [
     <div className="col-12 col-md-6">
 		<label htmlFor='' className="form-label">Fecha de inicio de la citacion</label>
 <MuiPickersUtilsProvider utils={DateFnsUtils}>
-{/* <ThemeProvider theme={defaultMaterialTheme}> */}
 	<KeyboardDatePicker
 	variant='dialog'
 	format='MM/dd/yyyy'
@@ -73,7 +53,6 @@ const titleConvocatory = [
 	}}
 	className="form-control"
 	/>
-{/* 	</ThemeProvider> */}
 	</MuiPickersUtilsProvider>
 </div>
 <div className="col-12 col-md-6">
@@ -128,30 +107,26 @@ const titleConvocatory = [
 </div>
 <div className="row mt-4">
     <div className="col-12 col-md-6">
-{/* <TextField
-          id="titleConvocatory"
-          select
-          label="Select"
-          value={convocatory}
-          onChange={handleChange}
-          helperText="Please select your currency"
-        >
-	{titleConvocatory.map((option) => (
-    <MenuItem key={option.value} value={option.value}>
-        {option.label}
-    </MenuItem>
-    ))}
-</TextField> */}
-</div>
-<div className="col-12 col-md-6">
-<label htmlFor='' className="form-label">Número máximo de cupos</label>
+	<label htmlFor='' className="form-label">Convocatoria</label>
 <TextField
           id="outlined-multiline-flexible"
-          label="Indica # de cupos"
+          label="Convocatoria"
           maxRows={4}
 		  className="form-control"
 /*           value={value}
           onChange={handleChange} */
+        />
+</div>
+<div className="col-12 col-md-6">
+<label htmlFor='' className="form-label">Número máximo de cupos</label>
+<TextField
+/* 	onChange={(e) => } */
+    id="outlined-multiline-flexible"
+    label="Indica # de cupos"
+    maxRows={4}
+	className="form-control"
+/*         value={value}
+    onChange={handleChange} */
         />
 </div>
 </div>

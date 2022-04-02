@@ -13,6 +13,7 @@
     border-radius: 1em;
     padding-top: 1em;
 }
+
 .AspirantConv_Box{
     display: flex;
     flex-direction: row;
@@ -22,6 +23,15 @@
     flex-wrap: wrap;
 }
 
-p{
-    font-size: 19px;
+.convocatoryCard{
+    text-align: center;
+}
+
+.convocatoryCardTitle{
+    background-color: #FFCC02;
+    padding: 1em 0 1em 0;
+}
+
+.convocatoryCardBody{
+    padding: 2vw;
 }
