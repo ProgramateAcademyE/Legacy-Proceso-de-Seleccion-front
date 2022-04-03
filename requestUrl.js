@@ -45,6 +45,10 @@ export const PETITIONS = {
   // ============== Candidate ==============
   // Get profile
   getProfileById: `${BASEURL}api/candidate/candidate/`,
+  // get all profiles
+  getAllCandidates: `${BASEURL}api/candidate/candidate-profile`,
+  // get all sololearn califications
+  getAllCalifications: `${BASEURL}api/candidate/calification`,
 
   // =======================================
 

@@ -4,6 +4,7 @@ import { ErrorMessage, Form, Field, Formik } from "formik";
 const Step2 = ({ data, setDataToForm, setStep }) => {
 	return (
 		<>
+			<h4>Datos Sociodemográficos 2/4 </h4>
 			<Formik
 				initialValues={{
 					nacionality: data?.nacionality || "",
@@ -26,86 +27,51 @@ const Step2 = ({ data, setDataToForm, setStep }) => {
 					internetCompany: data?.internetCompany || "",
 					mbCount: data?.mbCount || "",
 				}}
-				// validate={(formValues) => {
-				// 	const error = {};
-				// 	if (!formValues.nacionality) {
-				// 		error.nacionality = "Por favor indica tu país de nacimiento";
-				// 	} else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.nacionality)) {
-				// 		error.nacionality = "Por favor ingresa sólo letras";
-				// 	}
+				validate={(formValues) => {
+					const error = {};
+					if (!formValues.nacionality) {
+						error.nacionality = "Por favor indica tu país de nacimiento";
+					} else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.nacionality)) {
+						error.nacionality = "Por favor ingresa sólo letras";
+					}
 
-				// 	if (!formValues.currentCountry) {
-				// 		error.currentCountry = "Por favor indica tu país de residencia";
-				// 	} else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.currentCountry)) {
-				// 		error.currentCountry = "Por favor ingresa sólo letras";
-				// 	}
+					if (!formValues.currentCountry) {
+						error.currentCountry = "Por favor indica tu país de residencia";
+					} else if (!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.currentCountry)) {
+						error.currentCountry = "Por favor ingresa sólo letras";
+					}
 
-				// 	if (!formValues.residencyDepartment) {
-				// 		error.residencyDepartment =
-				// 			"Por favor indica tu departamento de residencia";
-				// 	} else if (
-				// 		!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.residencyDepartment)
-				// 	) {
-				// 		error.residencyDepartment = "Por favor ingresa sólo letras";
-				// 	}
+					if (!formValues.residencyDepartment) {
+						error.residencyDepartment =
+							"Por favor indica tu departamento de residencia";
+					} else if (
+						!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(formValues.residencyDepartment)
+					) {
+						error.residencyDepartment = "Por favor ingresa sólo letras";
+					}
 
-				// 	if (!formValues.socialClass) {
-				// 		error.socialClass = "Por favor selecciona tu estrato";
-				// 	}
+					if (!formValues.socialClass) {
+						error.socialClass = "Por favor selecciona tu estrato";
+					}
 
-				// 	if (!formValues.pcAccess) {
-				// 		error.pcAccess = "Por favor selecciona una respuesta";
-				// 	}
+					if (!formValues.pcAccess) {
+						error.pcAccess = "Por favor selecciona una respuesta";
+					}
 
-				// 	if (!formValues.internetAccess) {
-				// 		error.internetAccess = "Por favor selecciona una respuesta";
-				// 	}
+					if (!formValues.internetAccess) {
+						error.internetAccess = "Por favor selecciona una respuesta";
+					}
 
-				// 	return error;
-				// }}
+					return error;
+				}}
 
 				onSubmit={(allValues, { resetForm }) => {
           setDataToForm(allValues)
 					setStep(prev=> prev < 3 ? prev + 1 : prev)
-					// myNext()
         }}
 			>
 				{({ errors }) => (
-					<Form className='step2'>
-						{/*       <div className="row mt-4">
-      <div className="col-12 col-md-6">
-          <label htmlFor="nacionality" className="form-label">País de nacimiento</label>
-          <Field
-            id="nacionality"
-            name="nacionality"
-            className="form-select"
-            as="select"
-          >
-            <option value="cc">Selecciona un país</option>
-            {countries.map((countrie) => (
-              <option key={countrie} value={countrie}>
-                {countrie}
-              </option>
-            ))}
-          </Field>
-        </div> */}
-						{/*        <div className="col-12 col-md-6">
-          <label htmlFor="currentCountry" className="form-label">País de residencia</label>
-          <Field
-            id="currentCountry"
-            name="currentCountry"
-            className="form-select"
-            as="select"
-          >
-            <option value="select">Selecciona un país</option>
-            {countries.map((countrie) => (
-              <option key={countrie} value={countrie}>
-                {countrie}
-              </option>
-            ))}
-          </Field>
-        </div>
-      </div> */}
+					<Form className='step2' style={{margin: "100px"}}>
 						<div className='row mt-4'>
 							<div className='col-12 col-md-6'>
 								<label htmlFor='nacionality' className='form-label'>
@@ -270,7 +236,7 @@ const Step2 = ({ data, setDataToForm, setStep }) => {
 						<div className='row mt-4'>
 							<div className='col-12 col-md-6'>
 								<label htmlFor='billPdf' className='form-label'>
-									Fotocopia de recibo en PDF
+									Enlace de fotocopia de recibo en Google Drive
 								</label>
 								<Field
 									type='url'
@@ -361,57 +327,6 @@ const Step2 = ({ data, setDataToForm, setStep }) => {
 								</Field>
 							</div>
 						</div>
-						{/*        <div className="row mt-4">
-        <div className="col-12 col-md-6">
-          <label htmlFor="vulnerablePopulation" className="form-label">
-          ¿Perteneces a alguna de las siguientes poblaciones?
-          </label>
-          <Field
-            id="vulnerablePopulation"
-            name="vulnerablePopulation"
-            className="form-select"
-            as="select"
-          >
-            <option value="cc">Selecciona el tipo de población</option>
-            <option value="Indígena">Indígena</option>
-            <option value="Afrocolombiano">Afrocolombiano</option>
-            <option value="Raizal">Raizal</option>
-            <option value="Palenquero">Palenquero</option>
-            <option value="Gitano">Gitano</option>
-            <option value="Migrante">Migrante</option>
-            <option value="Desplazado por la violencia">Desplazado por la violencia</option>
-            <option value="Víctima del conflicto armado">Víctima del conflicto armado</option>
-            <option value="Desmovilizado">Desmovilizado</option>
-            <option value="Desplazado por fenómenos naturales">Desplazado por fenómenos naturales</option>
-            <option value="Persona privadas de libertad o INPEC">Persona privadas de libertad o INPEC</option>
-            <option value="Adolescentes en conflicto con la ley penal">Adolescentes en conflicto con la ley penal</option>
-            <option value="LGBTIQ+">LGBTIQ+</option>
-            <option value="Otro">Otro</option>
-          </Field>
-        </div>
-        <div className="col-12 col-md-6">
-          <label htmlFor="disability" className="form-label">
-          ¿Tienes alguna de las siguientes discapacidades?
-          </label>
-          <Field
-            id="disability"
-            name="disability"
-            className="form-select"
-            as="select"
-          >
-            <option value="cc">Selecciona el tipo de discapacidad</option>
-            <option value="Discapacidad física">Discapacidad física</option>
-            <option value="Discapacidad auditiva">Discapacidad auditiva</option>
-            <option value="Discapacidad visual">Discapacidad visual</option>
-            <option value="Sordoceguera">Sordoceguera</option>
-            <option value="Discapacidad intelectual">Discapacidad intelectual</option>
-            <option value="Discapacidad psicosocial">Discapacidad psicosocial</option>
-            <option value="Discapacidad múltiple">Discapacidad múltiple</option>
-            <option value="Ninguna">Ninguna</option>
-            <option value="Otra">Otra</option>
-          </Field>
-        </div>
-      </div> */}
 						<div className='row mt-4'>
 							<label htmlFor='vulnerablePopulation' className='form-label'>
 								Selecciona el/los tipos de población a los que perteneces
@@ -697,7 +612,7 @@ const Step2 = ({ data, setDataToForm, setStep }) => {
 							</div>
 						</div>
 						<button onClick={() => setStep(prev => prev -1)} className="btn btn-secondary me-4 mt-3">
-								back
+								Back
 						</button>
 						<Field type="submit" value="Next" className="btn btn-warning mt-3"/>
 					</Form>

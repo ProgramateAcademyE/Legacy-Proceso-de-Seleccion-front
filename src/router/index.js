@@ -60,7 +60,6 @@ const App = () => {
       {/* {pathname !== "/login" && <Header user={user} adminstate={adminstate} />} */}
       {pathname !== "/" && pathname !== "/register" && pathname !== '/verify' && <Header /> || <NavBarIndex/>}
 
-      <div className="login">
         {/* {pathname !== "/login" && <Nav user={user} adminstate={adminstate} />} */}
         {pathname !== "/" && pathname !== "/register" && pathname !== '/verify' && <Nav />}
 
@@ -95,20 +94,16 @@ const App = () => {
 
 
               <Route path="/calificacion-sololearn" component={QualifySololearn} />
-              <Route path="/calificacion-carta-motivacional" component={QualifyMotivationLetter} />
+              <Route path="/motivationLetter" component={QualifyMotivationLetter} />
               <Route path="/calificacion-prueba-tecnica" component={QualifyTechnicalTest} />
               <Route path="/calificacion-entrevista" component={QualifyInterview} />
               <Route path="/calificacion-assessment" component={QualifyAssessment} />
 
               <Route path="/register-admin" component={RegisterAdmin} />
-              {/* <Route path="/inscripcion" component={Inscription} /> */}
-              {/* <Route
-                  path="/resultsInscription"
-                  component={ResultsInscription}
-                /> */}
+      
               <Route path="/InfoAspirants" component={Results} />
               <Route path="/waiting-list" component={WaitingList} />
-              {/* <Route path="/motivationLetter" component={MotivationLetter} /> */}
+
               <Route path="/parameterization" component={Parameterization} />
               <Route path="/selection-results" component={SelectionResults} />
             </>
@@ -127,7 +122,6 @@ const App = () => {
             </>
           )}
         </Switch>
-      </div>
       {pathname !== '/verify' && <Footer />}
     </>
   );

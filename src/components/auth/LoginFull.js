@@ -128,7 +128,7 @@ const Login = () => {
   };
 
   return (
-    <>
+    <div className="login">
     {/* <div className='Logo__Programate'><img src={programateacademycolorBN} alt='Logo'/></div>  */}
       <div className="cardLoggin">
         <div className="mensajes">{spinner ? <Spinner /> : null}</div>
@@ -193,7 +193,7 @@ const Login = () => {
           </p>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
