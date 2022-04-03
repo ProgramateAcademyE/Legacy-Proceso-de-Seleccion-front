@@ -1,5 +1,5 @@
 import React from "react";
-import searchcss from "./Search.module.css";
+import  "./Search.css";
 const Search = () => {
   return (
     <form action="" className="Search__Box">

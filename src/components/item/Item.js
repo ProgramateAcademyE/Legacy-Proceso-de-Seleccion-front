@@ -1,6 +1,6 @@
 import React,{useState} from 'react'
 import { Link } from 'react-router-dom';
-import item from './Item.module.css'
+import './Item.css'
 
 const Item = ({ item, toggleItem, activeItems, active }) => {
 

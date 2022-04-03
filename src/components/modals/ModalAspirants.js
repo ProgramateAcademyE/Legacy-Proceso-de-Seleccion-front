@@ -1,5 +1,5 @@
 
-import modalcss from "./Modal.module.css";
+import "./Modal.css";
 import  React from "react"
 import { PETITIONS } from "../../../requestUrl";
 import axios from "axios";

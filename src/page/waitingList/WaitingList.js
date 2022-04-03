@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import Tablita from "../../components/tablita/Table";
 import RequestService from "../../config/index";
-import WaitingListcss from "./WaitingList.module.css"
+import"./WaitingList.css"
 
 const WaitingList = () => {
     const [waitList, setWaitList] = useState([]);

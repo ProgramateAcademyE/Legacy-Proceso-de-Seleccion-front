@@ -1,5 +1,5 @@
 import React from "react";
-import motivationletter from"./MotivationLetter.module.css";
+import "./MotivationLetter.css";
 
 const MotivationLetterTable = () => {
     const pruebas1 = [

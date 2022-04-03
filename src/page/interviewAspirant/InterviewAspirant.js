@@ -1,5 +1,5 @@
 import React, { useContext, useEffect } from "react";
-import interviewaspirant from "./InterviewAspirant.module.css"
+import"./InterviewAspirant.css"
 import { providerContext } from '../../Context/status'
 import CalendarView from "../../components/calendar/CalendarView";
 

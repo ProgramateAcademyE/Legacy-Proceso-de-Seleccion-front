@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import modalcss from "./Modal.module.css";
+import "./Modal.css";
 import { PETITIONS } from "../../../requestUrl";
 import axios from "axios";
 
