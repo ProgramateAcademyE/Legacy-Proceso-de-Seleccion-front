@@ -36,11 +36,10 @@ const AspirantConvView = (props) => {
 			);
 			alert("Inscrito");
 		} else {
-			alert("No se puede inscribir mas");
+			alert("No se puede inscribir más");
 		}
 		window.location.reload()
 	};
-
 
 	return (
 		<>
@@ -60,12 +59,16 @@ const AspirantConvView = (props) => {
 							typePopulation,
 						}) => (
 							<div style={{ marginTop: "1rem" }} key={_id}>
-								<Card sx={{ maxWidth: 345 }}>
+							<Paper elevation={5} className="convocatoryCard">
+{/* 								<Card sx={{ maxWidth: 345 }}>
 									<CardActionArea>
-										<CardContent>
+										<CardContent> */}
+										<Box className="convocatoryCardTitle">
 											<Typography gutterBottom variant='h4' component='div'>
 												{name}
 											</Typography>
+											</Box>
+											<Box className="convocatoryCardBody">
 											<Typography variant='body1' color='inherit'>
 												<em>Inicio Bootcamp:</em> {initialBootcampDate}
 												<br />
@@ -77,13 +80,15 @@ const AspirantConvView = (props) => {
 													<br />
 												</Typography>
 												<em>Ciudad o pais de residencia:</em>{" "}
-												{residenceCountry.map((country) => `${country} `)}
+												{residenceCountry.map((country) => ` ${country} `)}
 												<br />
-												<em>Departamento de residencia:</em>{" "}
+												<em>Departamento de residencia:</em>
+												<div className="convocatoryListFlex">
+												{" "}
 												{residencyDepartment.map(
-													(department) => `${department} `
+													(department) => <div> {department} </div>
 												)}
-												<br />
+												</div>
 												<em>Edad:</em>{" "}
 												{maxAge.map((age) =>
 													age === "18-"
@@ -99,15 +104,18 @@ const AspirantConvView = (props) => {
 												)}
 												<br />
 												<em>Genero segun ID:</em>{" "}
-												{gender.map((gender) => `${gender} `)}
+												{gender.map((gender) => ` ${gender} `)}
 												<br />
-												<em>Tipo de población:</em>{" "}
-												{typePopulation.map((population) => `${population} `)}
-												<br />
+												<em>Tipo de población:</em>
+												<div className="convocatoryListFlex">
+												{" "}
+												{typePopulation.map((population) => <div> {population} </div> )}
+												</div>
+												{/* <br /> */}
 											</Typography>
 											<em>Pruebas Tecnica:</em>
 											<br />
-											<ul>
+											<ul className="convocatoryCardsUl">
 												{test.map(({ convocatories, title, url }) =>
 													convocatories.map((id) =>
 														id === _id ? (
@@ -121,26 +129,29 @@ const AspirantConvView = (props) => {
 													)
 												)}
 											</ul>
-										</CardContent>
+{/* 										</CardContent>
 									</CardActionArea>
-									<CardActions>
-										<Button
-											size='large'
-											color='primary'
+									<CardActions> */}
+										<button  className='btn btn-warning'
+/* 											size='large'
+											color='primary' */
 											onClick={() => handleUserId(_id)}
 										>
 											Postularse
-										</Button>
-									</CardActions>
-								</Card>
+										</button>
+{/* 									</CardActions>
+								</Card> */}
+							</Box>
+							</Paper>
 							</div>
 						))
 				:
 					<>
 						<p>Ya esta inscrito en una convocatoria, por favor espere respuesta</p>
-						<p>Para ver la prueba tecnica correspondiente a la convocatoria <Link to="aspirante">Clic aqui</Link></p>
+						<p>Para ver la prueba tecnica correspondiente a la convocatoria <Link to="aspirante">Clic aquí</Link></p>
 					</>
 				}
+				
 			</div>
 		</>
 	);

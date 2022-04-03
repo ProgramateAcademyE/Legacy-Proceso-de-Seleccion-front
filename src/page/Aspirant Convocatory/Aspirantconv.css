@@ -35,3 +35,7 @@
 .convocatoryCardBody{
     padding: 2vw;
 }
+
+.convocatoryCardsUl{
+    list-style: none;
+}
