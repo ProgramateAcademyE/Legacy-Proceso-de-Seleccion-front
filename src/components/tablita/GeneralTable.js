@@ -62,10 +62,6 @@ export default function GeneralTable({ rows, actions = false }) {
                         <span key={index}>{action.icon}</span>
                       ) : null
                     )}
-                  {/* <i className="far fa-check-square"> </i>
-                                    <i className="far fa-edit"> </i>
-                                    <i className="far fa-eye"> </i>
-                                    <i className="far fa-trash-alt"> </i> */}
                 </TableCell>
               </TableRow>
             ))}

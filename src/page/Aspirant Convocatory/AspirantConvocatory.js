@@ -34,7 +34,6 @@ const AspirantConvocatorys = () => {
 			? registrado.push(true)
 			: registrado.push(false)
 	);
-	console.log(profile)
 	return (
 		<>
 			{profile.length === 0 ? (

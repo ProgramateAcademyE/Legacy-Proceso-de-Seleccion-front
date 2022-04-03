@@ -6,7 +6,7 @@ import { types } from "../types/types";
 export const eventStartAddNew = (event) => {
     return async(dispatch) => {
         try {
-            const {data} = await axios.post('http://localhost:3001/api/admin/calendar',event)
+            const {data} = await axios.post('http://165.227.220.15/api/admin/calendar',event)
             if(data.ok){
               event._id = data._id
                 dispatch(eventAddnew(event));
@@ -35,7 +35,7 @@ export const updateEvents = (event) => {
   const {_id} = event
   return async (dispatch) => {
     try {
-        const {data} = await axios.put(`http://localhost:3001/api/admin/calendar/${_id}`,event)
+        const {data} = await axios.put(`http://165.227.220.15/api/admin/calendar/${_id}`,event)
         if(data.ok){
           dispatch(eventUpdated(event))
         }else{
@@ -58,7 +58,7 @@ export const DeletedEvent = () => {
     return async (dispatch, getState) => {
       const {_id} = getState().calendar.activeEvent;
       try {
-        const {data} = await axios.delete(`http://localhost:3001/api/admin/calendar/${_id}`)
+        const {data} = await axios.delete(`http://165.227.220.15/api/admin/calendar/${_id}`)
         dispatch(eventDeleted())
       } catch (error) {
         return error
@@ -76,7 +76,7 @@ export const setError = (error) => ({
 export const getEvents = () => {
   return async (dispatch) => {
     try {
-      const {data} = await axios.get("http://localhost:3001/api/candidate/calendar");
+      const {data} = await axios.get("http://165.227.220.15/api/candidate/calendar");
       const events = prepareEvents(data)
       
       dispatch(setCalendarEvents(events))

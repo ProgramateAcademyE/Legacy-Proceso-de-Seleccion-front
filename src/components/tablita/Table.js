@@ -48,6 +48,7 @@ export default function BasicTable({ rows, convocatoryData }) {
     const filteredRows = convocatory.filter((row) => {
       return row.name.toLowerCase().includes(searchedVal.toLowerCase());
     });
+    
     setRowsTable(filteredRows);
   };
 
@@ -70,7 +71,7 @@ export default function BasicTable({ rows, convocatoryData }) {
             </div>
             <Link
               to="/nuevacohorte"
-              className="containerButton btn btn-success mt-3 mb-3"
+              className="containerButton btn btn-warning mt-3 mb-3"
             >
               Crear
             </Link>
@@ -81,7 +82,7 @@ export default function BasicTable({ rows, convocatoryData }) {
           <div className="section__contentC">
             <span className="upperCase bold">Convocatorias</span>
           </div>
-          <Link to="/nuevacohorte" className="btn btn-success ">
+          <Link to="/nuevacohorte" className="btn btn-warning ">
             Crear Convocatoria
           </Link>
           <SearchBar
@@ -116,31 +117,32 @@ export default function BasicTable({ rows, convocatoryData }) {
                       {prop.finalBootcampDate}
                     </TableCell>
                     <TableCell align="center">
-                      <Link to={`/editarcohorte?idConvocatory=${prop._id}`}>
-                        <div>
-                          <i
-                            className="far fa-edit"
-                            style={{ color: "blue" }}
-                          ></i>
+                      <div className="actions">
+                        <Link to={`/editarcohorte?idConvocatory=${prop._id}`}>
+                          <div>
+                            <i
+                              className="far fa-edit edit"
+                            ></i>
+                          </div>
+                        </Link>
+                        <div className="btn">
+                          <a href="#convocatoria">
+                            <i
+                              className="far fa-eye eye"
+                              onClick={() => convocatoryDetail(prop._id)}
+                            ></i>
+                          </a>
                         </div>
-                      </Link>
-                      <div className="btn">
-                        <a href="#convocatoria">
-                          <i
-                            className="far fa-eye"
-                            onClick={() => convocatoryDetail(prop._id)}
-                          ></i>
-                        </a>
+                        <ModalConvocatory idConvocatory={convocatoryId} />
+                        <button onClick={() => handleDelete(prop._id)} className="trash-btn">
+                          <div>
+                            <i
+                              className="far fa-trash-alt trash"
+                              style={{ color: "red" }}
+                            ></i>
+                          </div>
+                        </button>
                       </div>
-                      <ModalConvocatory idConvocatory={convocatoryId} />
-                      <button onClick={() => handleDelete(prop._id)}>
-                        <div>
-                          <i
-                            className="far fa-trash-alt"
-                            style={{ color: "red" }}
-                          ></i>
-                        </div>
-                      </button>
                     </TableCell>
                   </TableRow>
                 ))}
@@ -150,7 +152,7 @@ export default function BasicTable({ rows, convocatoryData }) {
           <div className="containerButton">
             <div>
               <CSVLink data={rows} filename="prueba CSV">
-                <button className="btn btn-success">Exportar</button>
+                <button className="btn btn-warning">Exportar</button>
               </CSVLink>
             </div>
           </div>

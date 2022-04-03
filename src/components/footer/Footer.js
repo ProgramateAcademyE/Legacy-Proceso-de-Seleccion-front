@@ -1,7 +1,8 @@
 import React from "react";
-import headerF from "./headerF.module.css";
 import logo from "./img/programate-blanco-alta.svg";
 import educamas from "./img/programate 1 (1).svg";
+import "./HeaderF.css";
+
 
 export default function Footer() {
   return (

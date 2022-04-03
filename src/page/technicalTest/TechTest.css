@@ -1,7 +1,10 @@
-.table-container{
-  margin: 137px auto;
-  width: 85%;
-}
+.table-container { 
+  width: 83%; 
+  display: flex; 
+  flex-direction: column;
+  padding: 87px 9px 128px 147px;
+   justify-content: center; 
+   align-items: center; }
 
 .title{
   display: flex;

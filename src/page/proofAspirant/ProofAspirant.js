@@ -1,7 +1,7 @@
 import React from "react";
 import TechnicalTestAspirant from "../../components/technicalTestAspirant/TechnicalTestAspirant";
 
-import ProofAspirantcss from "./ProofAspirant.module.css";
+import "./ProofAspirant.css";
 
 const ProofAspirant = () => {
     return (

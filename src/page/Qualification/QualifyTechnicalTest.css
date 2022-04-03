@@ -1,11 +1,13 @@
 .qualify {
   display: flex;
-  width: 100%;
-  padding: 93px 40px 0px 104px;
-  height: 600px;
+  width: 90%;
+  padding: 4rem 0 0 7rem;
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
+  margin-left: 4rem;
+  height: auto;
+  /* padding-left: 11rem; */
 }
 .good{
   display: flex;
@@ -27,14 +29,9 @@
   color: #fff;
 }
 
-@media screen and (max-width: 1400px) {
-  .qualify {
-    height: 100vh;
-  }
- 
+
 .section__content {
     margin: 15px;
-}
 }
 
 

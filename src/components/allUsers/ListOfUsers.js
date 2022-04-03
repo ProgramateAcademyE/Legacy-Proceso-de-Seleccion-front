@@ -14,7 +14,7 @@ const ListOfUsers = () => {
 
   async function fetchData(page) {
     const { data } = await axios.get(
-      "http://localhost:3001/api/user/all_info/" + page,
+      "http://165.227.220.15/api/user/all_info/" + page,
       {
         headers: { Authorization: token },
       }
@@ -39,6 +39,7 @@ const ListOfUsers = () => {
           fetchData(page.page - 1)
         }}
         disabled={page.page == 1}
+        className="btn btn-warning"
       >
         Anterior
       </button>
@@ -47,6 +48,7 @@ const ListOfUsers = () => {
           fetchData(page.page + 1)
         }}
         disabled={page.page == pages}
+        className="btn btn-warning"
       >
         Siguiente
       </button>

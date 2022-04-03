@@ -1,7 +1,10 @@
-.section__convocatory {
-    width: 83%;
-    margin: 87px 9px 0px 147px;
-}
+.section__convocatory { 
+    width: 83%; 
+    display: flex; 
+    flex-direction: column;
+    margin: 87px 9px 197px 210px;
+     justify-content: center; 
+     align-items: center; }
 
 .Aspirants_conv_title{
     border-bottom: groove;
@@ -12,14 +15,18 @@
 }
 
 .Aspirants_in_convocatory{
-    margin: 6em;
+    padding-top: 7rem;
+    margin-left: 10rem;
     background: white;  
-    padding: 2em;
+    /* padding: 2em; */
     border-radius: 44px;
     height: fit-content;
 }
 
 
+.table-convocatory{
+    padding: 7rem;
+}
 
 .section__contentC {
     display: flex;

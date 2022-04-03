@@ -1,5 +1,22 @@
 import React from "react";
-import "./Search.module.css";
+import  "./Search.css";
+
+const Search = () => {
+  return (
+    <form action="" className="Search__Box">
+      <div className="wrap-input100 validate-input mb-3 d-flex align-items-center">
+        <i className="fas fa-search" />
+        <input
+          className="input100"
+          type="text"
+          name="search"
+          placeholder="Buscar.."
+        />
+        <span className="focus-input100"></span>
+      </div>
+    </form>
+  );
+};
 
 function SearchBar(props) {
   const { value, setValue } = props;
@@ -20,4 +37,4 @@ function SearchBar(props) {
   );
 }
 
-export default SearchBar;
+export default Search;

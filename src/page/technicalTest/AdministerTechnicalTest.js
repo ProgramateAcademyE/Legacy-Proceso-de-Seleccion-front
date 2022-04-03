@@ -43,7 +43,7 @@ const AdministerTechnicalTest = () => {
 							¿Deseas crear una nueva prueba técnica?
 						</p>
 					</div>
-					<Link to="/agregar" className='containerButton btn btn-success mt-3 mb-3'>Crear</Link>
+					<Link to="/agregar" className='btn btn-warning'>Crear</Link>
 				</div>
 			</div>
 			:

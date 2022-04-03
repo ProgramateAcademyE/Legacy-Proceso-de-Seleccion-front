@@ -6,6 +6,9 @@ import {
 	dataTypePopulation,
 } from "../../helpers/ConvocatoryHelper";
 import "./newConvocatory.css";
+import Swal from "sweetalert2";
+
+
 
 import { useHistory } from "react-router-dom";
 
@@ -123,7 +126,11 @@ const FormConvocatory = (props) => {
 								axios.post(PETITIONS.createConvocatory, newConvocatory)
 									.then((res) => {
 										const msg = res.data.msg;
-										alert(msg);
+										Swal.fire({
+											icon: "success",
+											title: "Convocatoria creada exitosamente!",
+											text: msg,
+										  });
 										history.push("/convocatoria")
 									});
 							}

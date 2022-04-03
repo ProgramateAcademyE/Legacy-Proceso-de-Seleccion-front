@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import GeneralTable from "../../components/tablita/GeneralTable";
 import RequestService from "../../config/index";
 import MotivationLetterModal from "../../components/modals/MotivationLetterModal";
-import results from "./Results.module.css"
+import "./Results.css"
 import AspirantsInfo from "../ApirantsInfo/Aspirantsinfo";
 
 const Results = () => {
@@ -40,11 +40,7 @@ const Results = () => {
         }
         return color;
     };
-    /* const [userId, setuserId] = useState(null);
-    const UserDetail = (user_id) => {
-        setuserId(user_id);
-    }; */
-    
+
     const rows = results.map((result) => ({
 
         Nombre: result.userFullName,

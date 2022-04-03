@@ -19,7 +19,7 @@
   border: 2px solid #f00 !important;
 }
 .container {
-  margin-top: 60px;
+  padding-top: 11.95rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,3 +50,8 @@ a {
   font-weight: 600;
 }
 
+@media screen and (max-width: 480px){
+  .container {
+    font-size: 15px;
+  }
+}

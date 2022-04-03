@@ -4,6 +4,7 @@ import { PETITIONS } from "../../../requestUrl";
 import axios from "axios";
 import { useHistory } from "react-router-dom";
 import  Styles from "./TechTest.css";
+import Swal from "sweetalert2";
 
 const FormTechTest = (props) => {
 	let history = useHistory();
@@ -55,7 +56,11 @@ const FormTechTest = (props) => {
 						} else {
 							axios.post(PETITIONS.createTechTest, newTest).then((res) => {
 								const msg = res.data.msg;
-								alert(msg);
+								Swal.fire({
+									icon: "success",
+									title: "Prueba creada exitosamente!",
+									text: msg,
+								  })
 								history.push("/prueba");
 							});
 						}

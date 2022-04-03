@@ -6,6 +6,8 @@
 .trash{
   color: red;
   font-size: 18px;
+  border: none;
+  background: none;
 }
 
 .eye{

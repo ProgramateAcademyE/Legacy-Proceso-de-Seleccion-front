@@ -1,62 +1,62 @@
 // Endpoints
-const BASEURL = 'http://localhost:3001/'
+const BASEURL = 'http://165.227.220.15/api/'
 
 export const PETITIONS = {
   // ============ User ======================
   // Register candidate
-  register: `${BASEURL}api/user/register`,
+  register: `${BASEURL}user/register`,
   // Activate user
-  activateUser: `${BASEURL}api/user/activation/`,
+  activateUser: `${BASEURL}user/activation/`,
   // update user role
-  updateRole: `${BASEURL}api/user/update_role/`,
+  updateRole: `${BASEURL}user/update_role/`,
   // Register Admin
-  registerAdmin: `${BASEURL}api/user/register_admin`,
+  registerAdmin: `${BASEURL}user/register_admin`,
   // ========================================
 
   // ============ Convocatory ===============
   // Create convocatory
-  createConvocatory: `${BASEURL}api/admin/new-conv`,
+  createConvocatory: `${BASEURL}admin/new-conv`,
   // Get all Convocatories
-  getConvocatories: `${BASEURL}api/admin/convocatories`,
+  getConvocatories: `${BASEURL}admin/convocatories`,
   // Update convocatory
-  updateConcovatory: `${BASEURL}api/admin/update-conv/`,
+  updateConcovatory: `${BASEURL}admin/update-conv/`,
   // Delete 
-  deleteConvocatory: `${BASEURL}api/admin/convocatory/`,
+  deleteConvocatory: `${BASEURL}admin/convocatory/`,
   // Get one Convocatory
-  getOneConvocatory: `${BASEURL}api/admin/convocatory/` ,
+  getOneConvocatory: `${BASEURL}admin/convocatory/` ,
   // ========================================
 
   // ============ Tech Test ================
   // Create tech test
-  createTechTest: `${BASEURL}api/admin/new-test`,
+  createTechTest: `${BASEURL}admin/new-test`,
   // Get all tech test
-  getTechTest: `${BASEURL}api/admin/test`,
+  getTechTest: `${BASEURL}admin/test`,
   // Get one tech test
-  getOneTechTest: `${BASEURL}api/admin/test/`,
+  getOneTechTest: `${BASEURL}admin/test/`,
   // Update tech test
-  updateTechTest: `${BASEURL}api/admin/test/`,
+  updateTechTest: `${BASEURL}admin/test/`,
   // Delete tech test
-  deleteTechTest: `${BASEURL}api/admin/test/`,
+  deleteTechTest: `${BASEURL}admin/test/`,
   // Send Tech Test
-  sendTechTest: `${BASEURL}api/candidate/tech-test/`,
+  sendTechTest: `${BASEURL}candidate/tech-test/`,
   // Verify if exist tech test
-  verifyTechTest: `${BASEURL}api/candidate/candidate/`,
+  verifyTechTest: `${BASEURL}candidate/candidate/`,
   // ========================================
   // ============== Candidate ==============
   // Get profile
-  getProfileById: `${BASEURL}api/candidate/candidate/`,
+  getProfileById: `${BASEURL}candidate/candidate/`,
   // get all profiles
-  getAllCandidates: `${BASEURL}api/candidate/candidate-profile`,
+  getAllCandidates: `${BASEURL}candidate/candidate-profile`,
   // get all sololearn califications
-  getAllCalifications: `${BASEURL}api/candidate/calification`,
+  getAllCalifications: `${BASEURL}candidate/calification`,
 
   // =======================================
 
   // =========Convocatory Aspirant============
   // update users in convocatory
-  addUsersToConvocatory: `${BASEURL}api/admin/update-candidate/`,
+  addUsersToConvocatory: `${BASEURL}admin/update-candidate/`,
 
   // ========== Form Aspirant ===============
   // Get Information from the form 
-  GetAnswersFromForm: `${BASEURL}api/candidate/candidate-profile`,
+  GetAnswersFromForm: `${BASEURL}candidate/candidate-profile`,
 }

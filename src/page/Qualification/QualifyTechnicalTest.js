@@ -90,11 +90,11 @@ const QualifyTechnicalTest = () => {
 						</table>
 					</div>
 				</div>
-				<div>
+				{/* <div>
 					<CSVLink data={data} filename='prueba CSV'>
 						<button className='btn btn-success'>Exportar CSV</button>
 					</CSVLink>
-				</div>
+				</div> */}
 			</div>
 		</>
 	);

@@ -29,7 +29,7 @@ const Convocatory = () => {
 
   return (
     <>
-      <div className="section__convocatory">
+      <div className="table-convocatory">
         {rows.length > 0 ? (
           <Table
             className="table"
