@@ -30,13 +30,13 @@ const ListOfUsers = () => {
     <>
     <div className='User_Container'>
       <User users={users}/>
-      <button onClick={() => {
+      <button className="btn btn-warning" style={{margin:"1em"}} onClick={() => {
         if(page > 1) {
           fetchData(page - 1)
           setPage(page - 1);
         }
       }}>Atras</button>
-      <button onClick={() => {
+      <button className="btn btn-warning" onClick={() => {
         fetchData(page + 1)
         setPage(page + 1)
       }}>Siguiente</button>
