@@ -27,11 +27,7 @@ const Nav = () => {
   <> 
   
     <div className="nav" id="menu">
-      <Link to="/dashboard">
-    <img className="Logo_Lapiz"
-          src="https://i.ibb.co/ZM3jGdB/logoeducamasimbolo.png"
-          alt="logo"/>
-            </Link>
+
      
       <span className="nav__title">Menu</span>
       <div className="nav__items mt-2">

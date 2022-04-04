@@ -3,6 +3,15 @@
   padding: 0;
   box-sizing: border-box;
 }
+.logoAndSocialNetworksContainer {
+  display: flex;
+  padding: 0 22px 0 81px;
+  width: 100%;
+  flex-direction: row-reverse;
+  align-items: center;
+  align-content: center;
+  justify-content: space-between;
+}
 /*:::::Pie de Pagina*/
 .pie-pagina {
   width: 100%;
@@ -46,6 +55,9 @@
   display: flex;
   justify-content: flex-end;
 }
+.grupo-2{
+  margin-left: 5vw;
+}
 .pie-pagina .grupo-2 {
   background-color: black;
   padding: 15px 10px;
@@ -65,14 +77,20 @@
 }
 .logoAndSocialNetworksContainer {
   display: flex;
+  padding: 0;
   width: 100%;
   flex-direction: row-reverse;
   align-items: center;
   align-content: center;
+  justify-content: space-between;
 }
+
+
+
 
 @media screen and (max-width: 768px) {
   .Educamas {
     width: 100px !important;
   }
 }
+
