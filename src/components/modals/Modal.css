@@ -48,10 +48,10 @@
     background: #606061;
     color: #ffffff;
     line-height: 25px;
-    position: fixed;
-    right: 22%;
+    position: absolute;
+    right: 93%;
     text-align: center;
-    top: 4%;
+    top: 3%;
     width: 24px;
     text-decoration: none;
     font-weight: bold;
@@ -91,7 +91,7 @@ p {
         width: 70%;
     }
     .close {
-        position: fixed;
+        position: absolute;
         right: 12%;
         text-align: center;
         top: 3%;
@@ -103,7 +103,7 @@ p {
         width: 70%;
     }
     .close {
-        position: fixed;
+        position: absolute;
         right: 10%;
         text-align: center;
         top: 0%;

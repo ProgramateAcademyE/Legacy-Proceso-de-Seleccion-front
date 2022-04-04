@@ -7,8 +7,25 @@
 	align-items: center;
 }
 
-.Aspirants_conv_title {
-	border-bottom: groove;
+.Aspirants_conv_title{
+  display: flex;
+  justify-content: center;
+}
+
+.table_aspirant_in{
+    background: white;  
+    padding: 2em;
+    border-radius: 44px;
+    height: fit-content;
+    overflow: auto;
+    margin: 7em 3em 0 7em;
+}
+
+
+.row_aspirants_in_conv{
+padding: 0 3em 0 3em;
+border-bottom: groove;
+ 
 }
 .ForwardRef-root-2 {
 	height: 48px;
@@ -22,8 +39,9 @@
     padding-left: 6rem;
 }
 
-.Aspirant_inconv_name {
-	border-bottom: groove;
+.Aspirants_in_convocatory{
+    
+    overflow: auto;
 }
 
 .Aspirants_in_convocatory {
@@ -52,3 +70,13 @@
 		margin-left: 4em;
 	}
 }
+.table_aspirant_in{
+    background: white;  
+    padding: 2em;
+    border-radius: 44px;
+    height: fit-content;
+    overflow: auto;
+    margin: 7em 3em 0 3em;
+}
+
+

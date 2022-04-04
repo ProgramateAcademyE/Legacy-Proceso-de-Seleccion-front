@@ -2,6 +2,11 @@
   
     overflow: auto;
 }
+
+.Button_qualification{
+  display: flex;
+  justify-content: center;
+}
 .section__qualification {
   overflow: auto;
   background-color: white;

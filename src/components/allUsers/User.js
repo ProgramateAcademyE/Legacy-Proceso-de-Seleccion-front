@@ -17,7 +17,7 @@ const User = ({ users, requestSearch }) => {
   const [searched, setSearched] = useState("");
 
   useEffect(() => {
-    console.log({ users });
+   
     setRowsTable(users);
   }, [users]);
 
