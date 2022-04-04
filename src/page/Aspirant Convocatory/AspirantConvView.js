@@ -3,13 +3,6 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { PETITIONS } from "../../../requestUrl";
 import {Link} from "react-router-dom"
-import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
 import { Box, Paper } from '@material-ui/core';
 
@@ -34,9 +27,9 @@ const AspirantConvView = (props) => {
 				},
 				{ headers: { Authorization: token } }
 			);
-			alert("Inscrito");
+			alert("¡Te has inscrito a la convocatoria!");
 		} else {
-			alert("No se puede inscribir más");
+			alert("No te puedes inscribir a más convocatorias");
 		}
 		window.location.reload()
 	};
@@ -61,9 +54,6 @@ const AspirantConvView = (props) => {
 						}) => (
 							<div style={{ marginTop: "1rem" }} key={_id}>
 							<Paper elevation={5} className="convocatoryCard">
-{/* 								<Card sx={{ maxWidth: 345 }}>
-									<CardActionArea>
-										<CardContent> */}
 										<Box className="convocatoryCardTitle">
 											<Typography gutterBottom variant='h4' component='div'>
 												{name}
@@ -76,8 +66,8 @@ const AspirantConvView = (props) => {
 												<em>Fin Bootcamp:</em> {finalBootcampDate}
 												<br />
 												<Typography variant='overline' color='error'>
-													Recuerde tener en cuenta que para aplicar debe de
-													cumplir con los siguientes parametros
+													Recuerda tener en cuenta que para aplicar debes de
+													cumplir con los siguientes parámetros
 													<br />
 												</Typography>
 												<em>Ciudad o pais de residencia:</em>{" "}
@@ -112,9 +102,8 @@ const AspirantConvView = (props) => {
 												{" "}
 												{typePopulation.map((population) => <div> {population} </div> )}
 												</div>
-												{/* <br /> */}
 											</Typography>
-											<em>Pruebas Tecnica:</em>
+											<em>Prueba Técnica:</em>
 											<br />
 											<ul className="convocatoryCardsUl">
 												{test.map(({ convocatories, title, url }) =>
@@ -130,26 +119,19 @@ const AspirantConvView = (props) => {
 													)
 												)}
 											</ul>
-{/* 										</CardContent>
-									</CardActionArea>
-									<CardActions> */}
 										<button  className='btn btn-warning'
-/* 											size='large'
-											color='primary' */
 											onClick={() => handleUserId(_id)}
 										>
 											Postularse
 										</button>
-{/* 									</CardActions>
-								</Card> */}
 							</Box>
 							</Paper>
 							</div>
 						))
 				:
 					<>
-						<p>Ya esta inscrito en una convocatoria, por favor espere respuesta</p>
-						<p>Para ver la prueba tecnica correspondiente a la convocatoria <Link to="aspirante">Clic aquí</Link></p>
+						<p>Ya estás inscrito en una convocatoria, por favor espera más información</p>
+						<p>Para ver la prueba técnica correspondiente a la convocatoria haz <Link to="aspirante">CLICK AQUÍ</Link></p>
 					</>
 				}
 				
