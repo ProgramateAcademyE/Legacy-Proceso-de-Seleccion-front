@@ -2,7 +2,7 @@ import React from "react";
 import { Chart } from "chart.js";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 import { Doughnut, defaults } from "react-chartjs-2";
-import doughtnut from"./Doughtnut.module.css";
+import"./Doughtnut.css";
 
 Chart.register(ChartDataLabels);
 Chart.defaults.plugins.datalabels;

@@ -6,6 +6,9 @@ import {
 	dataTypePopulation,
 } from "../../helpers/ConvocatoryHelper";
 import "./newConvocatory.css";
+import Swal from "sweetalert2";
+
+
 
 import { useHistory } from "react-router-dom";
 
@@ -15,8 +18,8 @@ const FormConvocatory = (props) => {
 
   const { departments, data, query, stractus} = props
 	return (
-		<>
-			<div className="Convocatory_Form">
+		<div className="Convocatory_Form">
+			<div className="Convocatory_Form_container">
 				<h2 className="text-center">{query ? `Actualiza convocatoria` : 'Nueva Convocatoria'}</h2>
 				<Formik
 					initialValues={{
@@ -123,7 +126,11 @@ const FormConvocatory = (props) => {
 								axios.post(PETITIONS.createConvocatory, newConvocatory)
 									.then((res) => {
 										const msg = res.data.msg;
-										alert(msg);
+										Swal.fire({
+											icon: "success",
+											title: "Convocatoria creada exitosamente!",
+											text: msg,
+										  });
 										history.push("/convocatoria")
 									});
 							}
@@ -413,7 +420,7 @@ const FormConvocatory = (props) => {
 					)}
 				</Formik>
 			</div>
-		</>
+		</div>
 	);
 };
 

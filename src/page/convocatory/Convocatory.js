@@ -10,26 +10,26 @@ const Convocatory = () => {
   const getAllConvocatories = async () => {
     const res = await fetch(PETITIONS.getConvocatories);
     const response = await res.json();
-  
+
     return response;
-  }
+  };
 
   useEffect(() => {
     getAllConvocatories().then((convocatory) => setConvocatories(convocatory));
   }, []);
 
   const rows = convocatories.map((conv) => ({
-    "Convocatoria": conv.name,
-    "Cupos": conv.maxQuotas,
+    Convocatoria: conv.name,
+    Cupos: conv.maxQuotas,
     "Fecha Inicio": conv.initialDate,
     "Fecha Fin": conv.finalDate,
     "Inicio Bootcamp": conv.initialBootcampDate,
-    "Fin Bootcamp": conv.finalBootcampDate
+    "Fin Bootcamp": conv.finalBootcampDate,
   }));
 
   return (
     <>
-      <div className="section__convocatory">
+      <div className="table-convocatory">
         {rows.length > 0 ? (
           <Table
             className="table"

@@ -1,6 +1,6 @@
 import { Grid, Paper, Box, Button } from '@material-ui/core';
 import React from 'react';
-import './citation.module.css';
+import './citation.css';
 
 const CitationCard = () => {
   return (

@@ -1,24 +1,36 @@
 import React from "react";
-import headerF from "./HeaderF.module.css";
-
+import"./headerF.css";
+import logo from "./img/programate-blanco-alta.svg";
+import educamas from "./img/programate 1 (1).svg";
 
 export default function Footer() {
   return (
-    <>
-      <footer>
-    
-        <div className="footerContainer">
-          
-            <p>Todos los derechos reservados @2021</p>
-
-          <div className="socialNetworksContainer">
-            <i className="fab fa-facebook"></i>
-            <i className="fab fa-youtube"></i>
-            <i className="fab fa-instagram"></i>
-            
+    <footer className="pie-pagina">
+      <div className="grupo-1">
+        <div className="logoAndSocialNetworksContainer">
+          <div className="box">
+            <figure>
+              <a href="#">
+                <picture>
+                  <source srcSet={educamas} media="(max-width: 760px)" />
+                  <img src={logo} alt="Logo Educamás" className="Educamas" />
+                </picture>
+              </a>
+            </figure>
+          </div>
+          <div className="box2">
+            <div className="socialNetworksContainer">
+              <i className="fab fa-facebook"></i>
+              <i className="fab fa-youtube"></i>
+              <i className="fab fa-instagram"></i>
+              <i className="logo programte"></i>
+            </div>
           </div>
         </div>
-      </footer>
-    </>
+      </div>
+      <div className="grupo-2">
+        <small>&copy; 2022 - Todos los Derechos Reservados.</small>
+      </div>
+    </footer>
   );
 }

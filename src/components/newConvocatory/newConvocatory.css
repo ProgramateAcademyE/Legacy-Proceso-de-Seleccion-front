@@ -1,11 +1,14 @@
 
-
 .Convocatory_Form {
-    margin: 103px 39px 45px 104px;
-    width: 100%;
-    padding: 39px;
+    width: 84vw;
+    padding: 3vw;
+    margin: 0px 7px 37px 150px;
     background-color: #fff;
-    border-radius: 37px;
+    border-radius: 15px;
+    box-shadow: 0px -1px 8px 0px black;
+}
+.Convocatory_Form_container{
+    margin-top: 3em;   
 }
 
 .convocatory-data{
@@ -42,16 +45,49 @@
     padding: 10px;
     margin: 1rem 0;
     background: #fff;
+
 }
 
-@media screen and (max-width: 991px) {
+.mainContainer{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height:70vh;
+}
 
+
+
+.containerFirstView{
+    display: flex;
+    flex-direction: column;
+    justify-content:center;
+    align-items:center;
+}
+
+.containerP{
+    text-align: center;
+    font-size: 30px;
+}
+
+.containerButton{
+    display: flex;
+    justify-content:center;
+    padding: 1em;
+   
+}
+
+.select {
+    margin: 9px 0px 9px 0px;
+    box-shadow: 0px 0px 4px 0px black;
+    border-radius: 5px;
+}
+@media screen and (max-width: 991px) {
+    .Convocatory_Form_container{
+        margin-top: 5em;
+    }
     .Convocatory_Form {
-        margin: 101px 39px 45px 38px;
-        width: 100%;
-        padding: 38px;
-        background-color: #fff;
-        border-radius: 37px;
+        margin: 0 39px 45px 38px;
+      
     }
     .convocatory-data{
         display: grid;
@@ -64,11 +100,8 @@
 @media screen and (max-width: 700px) {
 
     .Convocatory_Form {
-        margin: 101px 39px 45px 20px;
-        width: 100%;
-        padding: 38px;
-        background-color: #fff;
-        border-radius: 37px;
+        margin: 0 39px 45px 20px;
+    
     }
     .convocatory-data{
         display: grid;
@@ -81,9 +114,5 @@
 @media screen and (max-width: 700px)
 {
     .Convocatory_Form {
-    margin: 89px 19px 45px 19px;
-    width: 100%;
-    padding: 17px;
-    background-color: #fff;
-    border-radius: 37px;
+    margin: 0 19px 45px 19px;
 }}

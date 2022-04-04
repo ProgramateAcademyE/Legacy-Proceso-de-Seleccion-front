@@ -3,12 +3,13 @@ import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Spinner from "../auth/Spinner";
 import { getFormAll } from "../../actions/userAction";
-import Technincaltest from "./TechnicalTestAspirant.module.css";
+import"./TechnicalTestAspirant.css";
 import { Link } from "react-router-dom";
 import { PETITIONS } from "../../../requestUrl";
 
 const TechnicalTestAspirant = () => {
 	const { user } = useSelector((state) => state.auth);
+
 	const [spinner, setSpinner] = useState(false);
 	const [existTechTest, setExistTechTest] = useState([]);
 	const dispatch = useDispatch();
@@ -104,8 +105,7 @@ const TechnicalTestAspirant = () => {
 					<div className='content__test'>
 						<p className='text__upload mb-3'>
 							Por favor ingresa el enlace del drive de tu prueba tecnica y
-							asegurate que se encuentre publico. Solo tiene una oportunidad de
-							enviar el enlace
+							asegurate que se encuentre publico.
 						</p>
 						<p>
 							Recuerda que para enviar la prueba tecnica primero debes de
@@ -124,7 +124,7 @@ const TechnicalTestAspirant = () => {
                   <input
                     onChange={handleChange}
                     name='linktest'
-                    type='text'
+                    type='url'
                     className='form-control'
                     placeholder='https://drive.google.com/drive'
                     aria-label='Username'
@@ -132,24 +132,13 @@ const TechnicalTestAspirant = () => {
                     required
                   />
                 </div>
-                {existTechTest?.map((element, index) =>
-                  !element.techTest ||
-                  element.techTest === undefined ||
-                  element.techTest === null ? (
                     <button
-                      key={index}
                       className='btn btn-warning'
                       type='submit'
                       value='Enviar prueba'
                     >
                       Enviar
                     </button>
-                  ) : (
-                    <p key={index} className='sendProof'>
-                      Ya enviaste la prueba
-                    </p>
-                  )
-                )}
               </form>
               :
               <p>Este campo se habilitara cuando usted se registre en una convocatoria <Link to="/Convocatoriasaspirante">Clic aqui para registrarse</Link> recuerde que solo tiene una oportunidad de enviar el enlace</p>

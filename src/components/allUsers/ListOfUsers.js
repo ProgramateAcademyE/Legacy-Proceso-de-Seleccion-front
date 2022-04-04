@@ -14,34 +14,45 @@ const ListOfUsers = () => {
 
   async function fetchData(page) {
     const { data } = await axios.get(
-      "http://localhost:3001/api/user/all_info/" + page,
+      "http://165.227.220.15/api/user/all_info/" + page,
       {
         headers: { Authorization: token },
       }
     );
+    setPage(data.page);
     setUsers(data.profiles);
+
   }
 
   useEffect(() => {
     fetchData(page);
   }, []);
 
+  const pages = Math.ceil(page.total / page.perPage);
+
   return (
-    <>
+   
     <div className='User_Container'>
       <User users={users}/>
-      <button className="btn btn-warning" onClick={() => {
-        if(page > 1) {
-          fetchData(page - 1)
-          setPage(page - 1);
-        }
-      }}>Atras</button>
-      <button className="btn btn-warning" onClick={() => {
-        fetchData(page + 1)
-        setPage(page + 1)
-      }}>Siguiente</button>
+      <div className='Button_User_Container'>
+      <button  className="btn btn-warning"
+        onClick={() => {
+          fetchData(page.page - 1)
+        }}
+        disabled={page.page == 1}
+      >
+        Anterior
+      </button>
+      <button   className="btn btn-warning"
+        onClick={() => {
+          fetchData(page.page + 1)
+        }}
+        disabled={page.page == pages}
+      >
+        Siguiente
+      </button></div>
     </div>
-    </>
+  
   )
 }
 

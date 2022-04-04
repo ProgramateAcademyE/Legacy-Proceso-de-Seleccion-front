@@ -7,7 +7,7 @@ export const setCitationData = (iduSER, idEvent) => {
 
     return async (dispatch) => {
         try {   
-            const {data} = await axios.post(`http://localhost:3001/api/candidate/attendevent/${iduSER}/${idEvent}`)
+            const {data} = await axios.post(`http://165.227.220.15/api/candidate/attendevent/${iduSER}/${idEvent}`)
     
             dispatch(setCitation(data))
         } catch (error) {

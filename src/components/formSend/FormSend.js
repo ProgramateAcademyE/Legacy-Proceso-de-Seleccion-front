@@ -1,5 +1,5 @@
 import React from 'react'
-import formsend from './FormSend.module.css'
+import './FormSend.css'
 
 const FormSend = () => {
     return (

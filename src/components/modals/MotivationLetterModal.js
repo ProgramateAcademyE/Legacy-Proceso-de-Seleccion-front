@@ -1,5 +1,5 @@
 import React from "react";
-import modalcss  from "./Modal.module.css";
+import "./Modal.css";
 
 const MotivationLetterModal = () => {
     const aspirante1 = [

@@ -85,7 +85,7 @@ const Login = () => {
     }
     try {
       await axios
-        .post("http://localhost:3001/api/user/login", {
+        .post("http://165.227.220.15/api/user/login", {
           email,
           password,
         })
@@ -128,7 +128,7 @@ const Login = () => {
   };
 
   return (
-    <>
+    <div className="login">
     {/* <div className='Logo__Programate'><img src={programateacademycolorBN} alt='Logo'/></div>  */}
       <div className="cardLoggin">
         <div className="mensajes">{spinner ? <Spinner /> : null}</div>
@@ -193,7 +193,7 @@ const Login = () => {
           </p>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 

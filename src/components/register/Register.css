@@ -5,7 +5,8 @@
   background: #ffcc02;
   box-sizing: border-box;
   border-radius: 10px;
-  padding: 30px;
+  padding: 31px;
+  margin-top: 8em;
 }
 
 .admin{
@@ -19,7 +20,6 @@
   border: 2px solid #f00 !important;
 }
 .container {
-  margin-top: 60px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -50,3 +50,8 @@ a {
   font-weight: 600;
 }
 
+@media screen and (max-width: 480px){
+  .container {
+  font-size: 15px;
+}
+}

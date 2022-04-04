@@ -41,6 +41,7 @@ const AspirantConvView = (props) => {
 		window.location.reload()
 	};
 
+	
 	return (
 		<>
 			<div style={{ margin: "100px" }}>

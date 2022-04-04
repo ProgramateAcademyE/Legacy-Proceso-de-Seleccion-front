@@ -3,7 +3,7 @@ import { useSelector } from "react-redux";
 import AddNewFab from "../../components/calendar/AddNewFab";
 import CalendarView from "../../components/calendar/CalendarView";
 import DeleteEventFab from "../../components/calendar/DeleteEventFab";
-import interviewdaycss from "./InterviewDay.module.css";
+import "./InterviewDay.css";
 const InterviewDay = () => {
     const { activeEvent } = useSelector((state) => state.calendar);
     return (

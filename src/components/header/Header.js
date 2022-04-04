@@ -1,54 +1,56 @@
 import React, { useEffect } from "react";
-import axios from 'axios'
-import { useDispatch, useSelector } from 'react-redux'
+import axios from "axios";
+import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import Search from "../search/Search";
+// import SearchBar from "../search/Search";
 import User from "../user/User";
-import header from "./Header.module.css";
-import { dispatchGetUser, dispatchLogin, fetchUser } from "../../actions/authAction";
+import "./Header.css";
+import {
+  dispatchGetUser,
+  dispatchLogin,
+  fetchUser,
+} from "../../actions/authAction";
 
 const Header = () => {
   // Menu hamburguesa CODE
 
-  const dispatch = useDispatch()
-  const token = useSelector(state => state.token)
-  const auth = useSelector(state => state.auth)
+  const dispatch = useDispatch();
+  const token = useSelector((state) => state.token);
+  const auth = useSelector((state) => state.auth);
 
+  useEffect(() => {
+    const loggedUserJSON = window.localStorage.getItem("loggedAgoraUser");
+    const firstLogin = localStorage.getItem("firstLogin");
+    if (firstLogin && loggedUserJSON) {
+      const user = JSON.parse(loggedUserJSON);
+      const refreshtoken = user.refresh_token;
 
-  useEffect(()=> {
-    const loggedUserJSON = window.localStorage.getItem('loggedAgoraUser')
-    const firstLogin = localStorage.getItem('firstLogin')
-    if(firstLogin && loggedUserJSON){
-      const user = JSON.parse(loggedUserJSON)
-      const refreshtoken = user.refresh_token
-      
-      const getToken = async () =>{
-
+      const getToken = async () => {
         try {
-          const res = await axios.post('http://localhost:3001/api/user/refresh_token',{refreshtoken})
-          dispatch({type:'getToken', payload: res.data.access_token})
-          
+          const res = await axios.post(
+            "http://165.227.220.15/api/user/refresh_token",
+            { refreshtoken }
+          );
+          dispatch({ type: "getToken", payload: res.data.access_token });
         } catch (error) {
-            return error
+          return error;
         }
-
-      }
-      getToken()
-      
+      };
+      getToken();
     }
-  }, [auth.isLogged, dispatch])
+  }, [auth.isLogged, dispatch]);
 
-  useEffect(()=> {
-    if(token){
+  useEffect(() => {
+    if (token) {
       const getUser = () => {
-        dispatch(dispatchLogin())
-        return fetchUser(token).then(res => {
-          dispatch(dispatchGetUser(res))
-        })
-      }
-      getUser()
-    } 
-  }, [token, dispatch])
+        dispatch(dispatchLogin());
+        return fetchUser(token).then((res) => {
+          dispatch(dispatchGetUser(res));
+        });
+      };
+      getUser();
+    }
+  }, [token, dispatch]);
 
   const moveNav = () => {
     const bar = document.querySelector("#menu");
@@ -56,27 +58,25 @@ const Header = () => {
   };
 
   return (
-    
-      <div className="General_header">
-        <div className="header__logo" id="logo">
-          {auth ? 
-            <Link to="/dashboard">
-              <img className="Logo__A"
-                src="https://i.ibb.co/ZM3jGdB/logoeducamasimbolo.png"
-                alt="logo"
-              />
-            </Link>:
-            null
-          }
-          <div className="menu-bar">
+    <div className="General_header">
+      <div className="header__logo" id="logo">
+        {auth ? (
+          <Link to="/dashboard">
+            <img
+              className="Logo__A"
+              src="https://i.ibb.co/ZM3jGdB/logoeducamasimbolo.png"
+              alt="logo"
+            />
+          </Link>
+        ) : null}
+        <div className="menu-bar">
           <i className="fas fa-bars pointer" onClick={moveNav} />
         </div>
-        </div>
-        
-        <div className="header__user">
-          <User/>
-        </div>
-      
+      </div>
+
+      <div className="header__user">
+        <User />
+      </div>
     </div>
   );
 };
