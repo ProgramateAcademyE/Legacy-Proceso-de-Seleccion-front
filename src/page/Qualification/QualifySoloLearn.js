@@ -35,7 +35,7 @@ function QualifySololearn() {
               <tr>
                 <th scope='col'>Nombre aspirante</th>
                 <th scope='col'>Nombre en sololearn</th>
-                <th scope='col'>Correo electronico</th>
+                <th scope='col'>Correo electrónico</th>
                 <th scope='col'>Puntaje de sololearn</th>
                 <th scope='col'>Convocatoria</th>
                 <th scope='col'>Calificación</th>

@@ -28,7 +28,7 @@ const NotProfile = () => {
             {
                 spinner && <Spinner />
             }
-            <button onClick={refreshPage} className='btn btn-success mt-2'>Continuar</button>
+            <button onClick={refreshPage} className='btn btn-warning'>Continuar</button>
             </div>
         </div>
     )
