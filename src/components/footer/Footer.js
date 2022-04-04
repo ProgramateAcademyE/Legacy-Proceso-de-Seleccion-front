@@ -18,19 +18,18 @@ export default function Footer() {
               </a>
             </figure>
           </div>
-          <div className="box2">
             <div className="socialNetworksContainer">
               <i className="fab fa-facebook"></i>
               <i className="fab fa-youtube"></i>
               <i className="fab fa-instagram"></i>
               <i className="logo programte"></i>
-            </div>
           </div>
-        </div>
-      </div>
-      <div className="grupo-2">
+           <div className="grupo-2">
         <small>&copy; 2022 - Todos los Derechos Reservados.</small>
       </div>
+        </div>
+      </div>
+     
     </footer>
   );
 }

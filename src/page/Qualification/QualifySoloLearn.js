@@ -29,7 +29,7 @@ function QualifySololearn() {
 	return (<>
     <div className='qualification' >
       <div className='section__qualification' >
-        <span className='upperCase bold'>Calificar prueba técnica</span>
+        <span className='upperCase bold'>Calificar Sololearn</span>
           <table  className='table_qualification'  id='prueba'>
             <thead>
               <tr>
