@@ -45,12 +45,16 @@ const ConvocatoryAspirants = () => {
   }, []);
 
   return (
-    <>
+    <div className="Container_Aspirant_in">
       {convAsp?.map((item) => (
-        <div className="Aspirants_in_convocatory">
-          <div className='table_user mt-5'>
+         <div className="Aspirants_in_convocatory">
+          <div className='table_aspirant_in'>
+           
             <h1 key={item._id} className="Aspirants_conv_title">{item.name}</h1>
             {" "} 
+            <TableContainer component={Paper}>
+            <div>
+            
             <TableHead>
                           <TableCell align='center'>Nombre</TableCell>
                           <TableCell align='center'>Apellido</TableCell>
@@ -61,11 +65,12 @@ const ConvocatoryAspirants = () => {
                           <TableCell align='center'>Nacionalidad</TableCell>
                           <TableCell align='center'>Estrato</TableCell>
                         </TableHead>
+                       </div> 
             {item.usersRegistered.map((i) =>
               apirantsConvocatory?.map((aspirant) =>
                 i === aspirant.user_id ?
                   <div>
-                    <TableContainer component={Paper}>
+                   
                       <Table aria-label='simple table'>
                        <TableBody>
                             <TableRow key={aspirant.user_id}>
@@ -80,17 +85,17 @@ const ConvocatoryAspirants = () => {
                           </TableRow>
                         </TableBody>
                       </Table>
-                    </TableContainer>
+                   
                   </div>
                   : ""
               )
             )}
-
+ </TableContainer>
           </div>
         </div>
       ))}
       ;
-    </>
+    </div >
   );
 };
 export default ConvocatoryAspirants;

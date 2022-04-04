@@ -1,13 +1,18 @@
 .section__convocatory { 
-    width: 83%; 
-    display: flex; 
+    width: 75vw;
+    margin-left: 13em;    display: flex; 
     flex-direction: column;
-    margin: 87px 9px 197px 210px;
      justify-content: center; 
      align-items: center; }
 
 .Aspirants_conv_title{
     border-bottom: groove;
+}
+.ForwardRef-root-2 {
+    height: 48px;
+    display: flex;
+    justify-content: space-between;
+    margin: 1em;
 }
 
 .Aspirant_inconv_name{
@@ -15,7 +20,7 @@
 }
 
 .Aspirants_in_convocatory{
-    margin: 6em;
+    margin: 6em 0 0 6em;
     background: white;  
     padding: 2em;
     border-radius: 44px;
@@ -25,6 +30,7 @@
 
 
 .section__contentC {
+    margin-top: 6em;
     display: flex;
     flex-direction: column;
     align-content: center;
@@ -34,8 +40,9 @@
 
 
 @media screen and (max-width: 991px) {
-.section__convocatory {
-    margin: 90px 9px 0px 41px;
+    .section__convocatory {
+        width: 74vw;
+        margin-left: 4em;
 }
 }
 

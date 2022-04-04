@@ -13,7 +13,7 @@ const NewConvocatory = () => {
               ¿Deseas crear una nueva convocatoria?
             </p>
           </div>
-          <div className="containerButton">
+          <div >
             <Link to="/nuevacohorte">
              <button type="submit" className="btn btn-warning">
                 Crear

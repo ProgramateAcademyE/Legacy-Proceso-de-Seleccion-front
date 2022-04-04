@@ -10,7 +10,7 @@ const FormTechTest = (props) => {
 	let history = useHistory();
 	const { convocatory, query, data } = props;
 	return (
-		<div >
+		<div className="Create_Form_Test">
 			<h2>{query ? `Actualizar Prueba Tecnica` : "Nueva Prueba Tecnica"}</h2>
 			<Formik
 				initialValues={{

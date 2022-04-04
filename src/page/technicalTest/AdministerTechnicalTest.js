@@ -47,7 +47,7 @@ const AdministerTechnicalTest = () => {
 				</div>
 			</div>
 			:
-			<div>
+			<div className="Create_TEST" >
 				<div className='title'>
 					<h3>Crear Prueba Tecnica</h3>
 				</div>
