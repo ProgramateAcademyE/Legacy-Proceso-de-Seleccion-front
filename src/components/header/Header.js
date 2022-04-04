@@ -2,15 +2,14 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import SearchBar from "../search/Search";
+// import SearchBar from "../search/Search";
 import User from "../user/User";
-
+import "./Header.css";
 import {
   dispatchGetUser,
   dispatchLogin,
   fetchUser,
 } from "../../actions/authAction";
-import "./Header.css";
 
 const Header = () => {
   // Menu hamburguesa CODE

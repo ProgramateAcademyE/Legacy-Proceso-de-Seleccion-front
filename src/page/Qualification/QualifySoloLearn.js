@@ -27,13 +27,10 @@ function QualifySololearn() {
 
 
 	return (<>
-    <div className='qualify'>
-      <div className='section__content d-flex justify-content-between'>
+    <div className='qualification' >
+      <div className='section__qualification' >
         <span className='upperCase bold'>Calificar prueba técnica</span>
-      </div>
-      <div className='form'>
-        <div className='section__table'>
-          <table className='table' id='prueba'>
+          <table  className='table_qualification'  id='prueba'>
             <thead>
               <tr>
                 <th scope='col'>Nombre aspirante</th>
@@ -70,7 +67,7 @@ function QualifySololearn() {
                           </td>
                           <td key={convocatory._id}>{convocatory.name}</td>
                           <td>
-                            <select name='qualify' className='form-select'>
+                            <select name='qualify' >
                               <option value='select'>
                                 Selecione una opción
                               </option>
@@ -96,7 +93,7 @@ function QualifySololearn() {
           <button className='btn btn-success'>Exportar CSV</button>
         </CSVLink>
       </div> */}
-    </div>
+    
   </>)
 }
 

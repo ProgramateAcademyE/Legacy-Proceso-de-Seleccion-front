@@ -31,29 +31,28 @@ const ListOfUsers = () => {
   const pages = Math.ceil(page.total / page.perPage);
 
   return (
-    <>
+   
     <div className='User_Container'>
       <User users={users}/>
-      <button 
+      <div className='Button_User_Container'>
+      <button  className="btn btn-warning"
         onClick={() => {
           fetchData(page.page - 1)
         }}
         disabled={page.page == 1}
-        className="btn btn-warning"
       >
         Anterior
       </button>
-      <button 
+      <button   className="btn btn-warning"
         onClick={() => {
           fetchData(page.page + 1)
         }}
         disabled={page.page == pages}
-        className="btn btn-warning"
       >
         Siguiente
-      </button>
+      </button></div>
     </div>
-    </>
+  
   )
 }
 

@@ -1,14 +1,18 @@
-.qualify {
-  display: flex;
-  width: 90%;
-  padding: 4rem 0 0 7rem;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  margin-left: 4rem;
-  height: auto;
-  /* padding-left: 11rem; */
+.qualification {
+  
+    overflow: auto;
 }
+.section__qualification {
+  overflow: auto;
+  background-color: white;
+  margin: 7em 5em 5em 10em;
+  padding: 2em;
+  width: 82vw;
+  border-radius: 2em;
+  box-shadow: 0px -1px 8px 0px black;
+}
+
+
 .good{
   display: flex;
   align-items: center;
@@ -29,16 +33,15 @@
   color: #fff;
 }
 
+@media screen and (max-width: 991px) {
+  .section__qualification {
+    
+    margin: 7em 1em 0 2em;
 
-.section__content {
-    margin: 15px;
+    width: 85vw;
+
+  }
+
 }
 
 
-/* .qualify {
-  display: flex;
-  width: 99%;
-  /* max-width: 1800px; */
-/*   padding: 95px 40px 0px 41px;
-}
-  */

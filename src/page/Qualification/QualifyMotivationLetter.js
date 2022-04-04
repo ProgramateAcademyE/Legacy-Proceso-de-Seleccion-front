@@ -29,13 +29,10 @@ const QualifyMotivationLetter = () => {
 
 	return (
 		<>
-			<div className='qualify'>
-				<div className='section__content d-flex justify-content-between'>
-					<span className='upperCase bold'>Calificar prueba técnica</span>
-				</div>
-				<div className='form'>
-					<div className='section__table'>
-						<table className='table' id='prueba'>
+			<div className='qualification'>
+					<div className='section__qualification'>
+						<span className='upperCase bold'>Calificar Carta de motivacion</span>
+						<table className='table_qualification' id='prueba'>
 							<thead>
 								<tr>
 									<th scope='col'>Nombre aspirante</th>
@@ -89,7 +86,7 @@ const QualifyMotivationLetter = () => {
 						<button className='btn btn-success'>Exportar CSV</button>
 					</CSVLink>
 				</div> */}
-			</div>
+			
 		</>
 	);
 };

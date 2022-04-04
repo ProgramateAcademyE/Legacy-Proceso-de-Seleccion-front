@@ -18,8 +18,8 @@ const FormConvocatory = (props) => {
 
   const { departments, data, query, stractus} = props
 	return (
-		<>
-			<div className="Convocatory_Form">
+		<div className="Convocatory_Form">
+			<div className="Convocatory_Form_container">
 				<h2 className="text-center">{query ? `Actualiza convocatoria` : 'Nueva Convocatoria'}</h2>
 				<Formik
 					initialValues={{
@@ -420,7 +420,7 @@ const FormConvocatory = (props) => {
 					)}
 				</Formik>
 			</div>
-		</>
+		</div>
 	);
 };
 
