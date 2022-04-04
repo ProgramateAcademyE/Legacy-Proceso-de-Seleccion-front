@@ -2,7 +2,7 @@
   position: fixed;
   z-index: 99999999;
   height: 100%;
-  padding: 8px 0;
+  padding: 5em 0;
   background-color: #fdc300;
   width: 75px;
   display: block;
@@ -21,6 +21,9 @@
   left: 0 !important;
 }
 
+.nav__subitem-label{
+  display: inline-block;
+}
 @media screen and (max-width: 991px) {
   .nav {
     left: -100%;
