@@ -20,7 +20,7 @@ const NotProfile = () => {
             <img
             src="https://i.ibb.co/MMvzd4z/sololearn-logo.png"
             alt="sololearn-logo"
-            border="0"
+            border="1"
             width="400px"
           />
             <p>Antes de empezar, registrate en la sección <span className='bold-500 text-decoration-underline'><Link to="/inscripcion">FORMULARIO DE INSCRIPCIÓN</Link></span></p>

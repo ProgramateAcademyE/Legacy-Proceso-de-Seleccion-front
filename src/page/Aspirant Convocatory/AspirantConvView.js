@@ -3,14 +3,8 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { PETITIONS } from "../../../requestUrl";
 import {Link} from "react-router-dom"
-import { makeStyles } from "@material-ui/core/styles";
-import Card from "@material-ui/core/Card";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import { Box, Paper } from '@material-ui/core';
 
 const AspirantConvView = (props) => {
 	let { data, test } = props;
@@ -33,9 +27,9 @@ const AspirantConvView = (props) => {
 				},
 				{ headers: { Authorization: token } }
 			);
-			alert("Inscrito");
+			alert("¡Te has inscrito a la convocatoria!");
 		} else {
-			alert("No se puede inscribir mas");
+			alert("No te puedes inscribir a más convocatorias");
 		}
 		window.location.reload()
 	};
@@ -59,30 +53,33 @@ const AspirantConvView = (props) => {
 							typePopulation,
 						}) => (
 							<div style={{ marginTop: "1rem" }} key={_id}>
-								<Card sx={{ maxWidth: 345 }}>
-									<CardActionArea>
-										<CardContent>
+							<Paper elevation={5} className="convocatoryCard">
+										<Box className="convocatoryCardTitle">
 											<Typography gutterBottom variant='h4' component='div'>
 												{name}
 											</Typography>
+											</Box>
+											<Box className="convocatoryCardBody">
 											<Typography variant='body1' color='inherit'>
 												<em>Inicio Bootcamp:</em> {initialBootcampDate}
 												<br />
 												<em>Fin Bootcamp:</em> {finalBootcampDate}
 												<br />
 												<Typography variant='overline' color='error'>
-													Recuerde tener en cuenta que para aplicar debe de
-													cumplir con los siguientes parametros
+													Recuerda tener en cuenta que para aplicar debes de
+													cumplir con los siguientes parámetros
 													<br />
 												</Typography>
 												<em>Ciudad o pais de residencia:</em>{" "}
-												{residenceCountry.map((country) => `${country} `)}
+												{residenceCountry.map((country) => ` ${country} `)}
 												<br />
-												<em>Departamento de residencia:</em>{" "}
+												<em>Departamento de residencia:</em>
+												<div className="convocatoryListFlex">
+												{" "}
 												{residencyDepartment.map(
-													(department) => `${department} `
+													(department) => <div> {department} </div>
 												)}
-												<br />
+												</div>
 												<em>Edad:</em>{" "}
 												{maxAge.map((age) =>
 													age === "18-"
@@ -98,15 +95,17 @@ const AspirantConvView = (props) => {
 												)}
 												<br />
 												<em>Genero segun ID:</em>{" "}
-												{gender.map((gender) => `${gender} `)}
+												{gender.map((gender) => ` ${gender} `)}
 												<br />
-												<em>Tipo de población:</em>{" "}
-												{typePopulation.map((population) => `${population} `)}
-												<br />
+												<em>Tipo de población:</em>
+												<div className="convocatoryListFlex">
+												{" "}
+												{typePopulation.map((population) => <div> {population} </div> )}
+												</div>
 											</Typography>
-											<em>Pruebas Tecnica:</em>
+											<em>Prueba Técnica:</em>
 											<br />
-											<ul>
+											<ul className="convocatoryCardsUl">
 												{test.map(({ convocatories, title, url }) =>
 													convocatories.map((id) =>
 														id === _id ? (
@@ -120,26 +119,22 @@ const AspirantConvView = (props) => {
 													)
 												)}
 											</ul>
-										</CardContent>
-									</CardActionArea>
-									<CardActions>
-										<Button
-											size='large'
-											color='primary'
+										<button  className='btn btn-warning'
 											onClick={() => handleUserId(_id)}
 										>
 											Postularse
-										</Button>
-									</CardActions>
-								</Card>
+										</button>
+							</Box>
+							</Paper>
 							</div>
 						))
 				:
 					<>
-						<p>Ya esta inscrito en una convocatoria, por favor espere respuesta</p>
-						<p>Para ver la prueba tecnica correspondiente a la convocatoria <Link to="aspirante">Clic aqui</Link></p>
+						<p>Ya estás inscrito en una convocatoria, por favor espera más información</p>
+						<p>Para ver la prueba técnica correspondiente a la convocatoria haz <Link to="aspirante">CLICK AQUÍ</Link></p>
 					</>
 				}
+				
 			</div>
 		</>
 	);

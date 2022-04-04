@@ -77,20 +77,20 @@ const TechnicalTestAspirant = () => {
 		<>
 			<div className='technical__test'>
 				<div className='technical__test-upload test'>
-					<h4 className='title__test'>Descargar prueba tecnica</h4>
+					<h4 className='title__test'>Descargar prueba técnica</h4>
 					<div className='content__test download'>
 						<p className='mb-4'>
-							Dale clic en el boton para descargar la prueba técnica, y recuerda
-							subir la solucion en el tiempo estipulado.
+							Dale clic en el botón para descargar la prueba técnica, y recuerda
+							subir la solución en el tiempo estipulado.
 						</p>
 						<div>
-							{!registrado.includes(true) ? <p>Antes de enviar una prueba técnica porfavor registrese en una convocatoria <Link to="/Convocatoriasaspirante">AQUI</Link> recuerde que solo tiene una oportunidad de enviar el enlace</p>: null}
+							{!registrado.includes(true) ? <p>Antes de enviar una prueba técnica porfavor regístrate en una convocatoria <Link to="/Convocatoriasaspirante">AQUI</Link> recuerde que solo tiene una oportunidad de enviar el enlace</p>: null}
 							{userInConvocatory.map(({ usersRegistered, _id }) =>
 								testToUser.map(({ convocatories, title, url }, index) =>
 									usersRegistered.includes(user._id) &&
 									convocatories.includes(_id)
 										? <a key={index} href={url} target='_blank' className="btn btn-warning mb-3">
-                        Prueba tecnica: { title }
+                        Prueba técnica: { title }
                       </a>
 										: null
 								)
@@ -101,16 +101,16 @@ const TechnicalTestAspirant = () => {
 				{spinner && <Spinner />}
 
 				<div className='technical__test-download test'>
-					<h4 className='mb-3'>Cargar tu prueba tecnica</h4>
+					<h4 className='mb-3'>Cargar tu prueba técnica</h4>
 					<div className='content__test'>
 						<p className='text__upload mb-3'>
-							Por favor ingresa el enlace del drive de tu prueba tecnica y
-							asegurate que se encuentre publico.
+							Por favor ingresa el enlace del drive de tu prueba técnica y
+							asegúrate de que se encuentre público.
 						</p>
 						<p>
-							Recuerda que para enviar la prueba tecnica primero debes de
-							diligenciar el formulario de aspirante{" "}
-							<Link to='inscripcion'>Clic aqui para hacerlo</Link>
+							Recuerda que para enviar la prueba técnica primero debes 
+							diligenciar el formulario de aspirante{" "} <br />
+							<Link to='inscripcion'>⟶ Clic aquí para hacerlo ⟵</Link>
 						</p>
 					</div>
 					<div className='form__upload'>

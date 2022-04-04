@@ -15,3 +15,14 @@
     text-align: center;
     padding: 1vw;
 }
+
+.convocatoryListFlex{
+    display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.convocatoryCardUl{
+    list-style: none;
+}

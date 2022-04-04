@@ -52,11 +52,11 @@ const AspirantConvocatorys = () => {
 					) : (
 						<div style={{ padding: "100px" }}>
 							<p>
-								Ya esta inscrito en una convocatoria, por favor espere respuesta{" "}
+							Ya estás inscrito en una convocatoria, por favor espera más información{" "}
 							</p>
 							<p>
-								Para ver la prueba tecnica correspondiente a la convocatoria{" "}
-								<Link to='aspirante'>Clic aqui</Link>
+							Para ver la prueba técnica correspondiente a la convocatoria haz {" "}
+								<Link to='aspirante'>CLICK AQUÍ</Link>
 							</p>
 						</div>
 					)}
