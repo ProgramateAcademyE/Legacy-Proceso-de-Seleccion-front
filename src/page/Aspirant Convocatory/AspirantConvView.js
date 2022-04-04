@@ -11,6 +11,7 @@ import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
+import Swal from "sweetalert2";
 
 const AspirantConvView = (props) => {
 	let { data, test } = props;
@@ -33,9 +34,15 @@ const AspirantConvView = (props) => {
 				},
 				{ headers: { Authorization: token } }
 			);
-			alert("Inscrito");
+			Swal.fire({
+				icon: "success",
+				title: "Inscrito exitosamente",
+			  });
 		} else {
-			alert("No se puede inscribir mas");
+			Swal.fire({
+				icon: "success",
+				title: "Ya estás inscrito",
+			  });
 		}
 		window.location.reload()
 	};

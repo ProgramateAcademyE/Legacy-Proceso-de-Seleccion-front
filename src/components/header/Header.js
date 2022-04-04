@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import axios from "axios";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
-import SearchBar from "../search/Search";
+// import SearchBar from "../search/Search";
 import User from "../user/User";
 import "./Header.css";
 import {
@@ -28,7 +28,7 @@ const Header = () => {
       const getToken = async () => {
         try {
           const res = await axios.post(
-            "http://localhost:3001/api/user/refresh_token",
+            "http://165.227.220.15/api/user/refresh_token",
             { refreshtoken }
           );
           dispatch({ type: "getToken", payload: res.data.access_token });

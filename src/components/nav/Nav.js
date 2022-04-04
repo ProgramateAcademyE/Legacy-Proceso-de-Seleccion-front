@@ -20,6 +20,11 @@ const Nav = () => {
       setActiveItems([...activeItems, id]);
     }
   };
+  const moveNav = () => {
+    const bar = document.querySelector("#menu");
+    bar.classList.toggle("move");
+  };
+
 
   const isActive = ITEMS.findIndex(item => item.pathname === location.pathname)
   const isActiveAspirant = ITEMS_ASPIRANTS.findIndex(item => item.pathname === location.pathname)
@@ -27,7 +32,11 @@ const Nav = () => {
   <> 
   
     <div className="nav" id="menu">
-
+      <Link to="/dashboard">
+    <img className="Logo_Lapiz"
+          src="https://i.ibb.co/ZM3jGdB/logoeducamasimbolo.png"
+          alt="logo"/>
+            </Link>
      
       <span className="nav__title">Menu</span>
       <div className="nav__items mt-2">
@@ -55,9 +64,14 @@ const Nav = () => {
                 active={index === isActiveAspirant} 
               />
             ))}
+            <div>
+              <a href='#close' title="close" className='close' style={{margin:"-56px -163px 0 0"}} onClick={moveNav}>X</a>
+            </div>
         </nav>
       </div>
-    </div></>
+    </div>
+     
+    </>
   
   );
 };

@@ -25,7 +25,7 @@ export const dataTypePopulation = [
 ]
 
 export const getOneConvocatory = async (id) => {
-  const APIURL = `http://localhost:3001/api/admin/convocatory/${id}`;
+  const APIURL = `http://165.227.220.15/api/admin/convocatory/${id}`;
 
   // Fetching data...
   const res = await fetch(APIURL);

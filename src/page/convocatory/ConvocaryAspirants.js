@@ -4,45 +4,33 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { PETITIONS } from "../../../requestUrl";
 import { makeStyles } from "@material-ui/core/styles";
-/* import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import Paper from "@material-ui/core/Paper"; */
 
 const ConvocatoryAspirants = () => {
-  const [convAsp, setConvAsp] = useState([]);
+	const [convAsp, setConvAsp] = useState([]);
 
-  useEffect(() => {
-    async function fetchData() {
-      const { data } = await axios.get(
-        "http://localhost:3001/api/admin/convocatories"
-      );
-      setConvAsp(data);
-    }
-    fetchData();
-  }, []);
+	useEffect(() => {
+		async function fetchData() {
+			const { data } = await axios.get(
+				"http://165.227.220.15/api/admin/convocatories"
+			);
+			setConvAsp(data);
+		}
+		fetchData();
+	}, []);
 
-  const [apirantsConvocatory, setApirantsConvocatory] = useState([]);
-  const token = useSelector((state) => state.token);
+	const [apirantsConvocatory, setApirantsConvocatory] = useState([]);
+	const token = useSelector((state) => state.token);
 
+	useEffect(() => {
+		async function fetchData() {
+			const { data } = await axios.get(PETITIONS.GetAnswersFromForm, {
+				headers: { Authorization: token },
+			});
 
-
-  useEffect(() => {
-    async function fetchData() {
-      const { data } = await axios.get(PETITIONS.GetAnswersFromForm,
-        {
-          headers: { Authorization: token },
-        }
-      );
-
-
-      setApirantsConvocatory(data);
-    }
-    fetchData();
-  }, []);
+			setApirantsConvocatory(data);
+		}
+		fetchData();
+	}, []);
 
   return (
     <>

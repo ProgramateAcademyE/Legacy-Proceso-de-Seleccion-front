@@ -19,9 +19,9 @@ export default function Footer() {
             </figure>
           </div>
             <div className="socialNetworksContainer">
-              <i className="fab fa-facebook"></i>
-              <i className="fab fa-youtube"></i>
-              <i className="fab fa-instagram"></i>
+             <a href="https://www.facebook.com/somoseducamas"><i className="fab fa-facebook"></i></a>
+             <a href="https://www.youtube.com/channel/UCmnr_sLPZ1E8H1VgUtaHGPQ"><i className="fab fa-youtube"></i></a>
+             <a href="https://www.instagram.com/somoseducamas/"><i className="fab fa-instagram"></i></a>
               <i className="logo programte"></i>
           </div>
            <div className="grupo-2">
