@@ -24,7 +24,7 @@ const StateContext = ({ children }) => {
 
 
   // const url = REACT_API_URL
-  const url = 'http://localhost:3001/api';
+  const url = 'https://selectprocess.herokuapp.com/api';
   const [state, dispatch] = useReducer(Reducer, initialState);
 
   const getProfiles = async () => {

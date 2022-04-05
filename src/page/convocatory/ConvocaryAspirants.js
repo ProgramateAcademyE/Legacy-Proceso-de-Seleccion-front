@@ -34,8 +34,8 @@ const ConvocatoryAspirants = () => {
 
   return (
     <>
-      {convAsp?.map((item) => (
-        <div className="Aspirants_in_convocatory">
+      {convAsp?.map((item, index) => (
+        <div className="Aspirants_in_convocatory" key={index}>
           <div className='table_aspirant_in'>
 
             <h1 key={item._id} className="Aspirants_conv_title">{item.name}</h1>
