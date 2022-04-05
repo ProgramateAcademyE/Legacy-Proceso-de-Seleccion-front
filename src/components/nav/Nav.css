@@ -12,6 +12,10 @@
           box-shadow: -1px 1px 16px 3px #00000054;
 }
 
+.close{
+  display: none;
+}
+
 .Logo_Lapiz{
   width:  74px;
   object-fit: cover;
@@ -25,6 +29,11 @@
   display: inline-block;
 }
 @media screen and (max-width: 991px) {
+  .close{
+    display: flex;
+    justify-content: center;
+  }
+
   .nav {
     left: -100%;
     width: 240px;
