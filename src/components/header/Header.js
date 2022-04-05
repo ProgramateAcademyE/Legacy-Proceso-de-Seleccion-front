@@ -28,9 +28,10 @@ const Header = () => {
       const getToken = async () => {
         try {
           const res = await axios.post(
-            "http://165.227.220.15/api/user/refresh_token",
+            "https://selectprocess.herokuapp.com/api/user/refresh_token",
             { refreshtoken }
           );
+          console.log(res)
           dispatch({ type: "getToken", payload: res.data.access_token });
         } catch (error) {
           return error;

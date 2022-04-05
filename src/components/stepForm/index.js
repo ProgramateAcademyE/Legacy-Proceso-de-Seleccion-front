@@ -46,7 +46,7 @@ const Index = () => {
   useEffect(() => {
     if(sendAllData){
       try {
-        axios.post('http://165.227.220.15/api/candidate/profile', {...data, user_id : user?._id})
+        axios.post('https://selectprocess.herokuapp.com/api/candidate/profile', {...data, user_id : user?._id})
       } catch (error) {
         return(error)
       }

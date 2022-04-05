@@ -1,5 +1,5 @@
 // Endpoints
-const BASEURL = 'http://165.227.220.15/api/'
+const BASEURL = 'https://selectprocess.herokuapp.com/api/'
 
 export const PETITIONS = {
   // ============ User ======================

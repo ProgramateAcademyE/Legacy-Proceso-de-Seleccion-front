@@ -18,7 +18,7 @@ const ConvocatoryAspirants = () => {
 	useEffect(() => {
 		async function fetchData() {
 			const { data } = await axios.get(
-				"http://165.227.220.15/api/admin/convocatories"
+				"https://selectprocess.herokuapp.com/api/admin/convocatories"
 			);
 			setConvAsp(data);
 		}

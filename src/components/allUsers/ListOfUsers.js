@@ -14,7 +14,7 @@ const ListOfUsers = () => {
 
   async function fetchData(page) {
     const { data } = await axios.get(
-      "http://165.227.220.15/api/user/all_info/" + page,
+      "https://selectprocess.herokuapp.com/api/user/all_info/" + page,
       {
         headers: { Authorization: token },
       }
