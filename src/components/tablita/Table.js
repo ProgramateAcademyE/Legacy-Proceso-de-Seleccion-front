@@ -85,7 +85,9 @@ export default function BasicTable({ rows, convocatoryData }) {
           <Link to="/nuevacohorte" className="btn btn-warning ">
             Crear Convocatoria
           </Link>
+          <br />
           <SearchBar
+            placeholder="Buscar"
             value={searched}
             onChange={(searchVal) => {
               requestSearch(searchVal);

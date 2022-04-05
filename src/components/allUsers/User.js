@@ -45,6 +45,7 @@ const User = ({ users, requestSearch }) => {
     <div className="User_list">
       <div className="Search_boxUser">
         <SearchBar
+          placeholder="Buscar"
           value={searched}
           onChange={(searchVal) => {
             requestSearch(searchVal);

@@ -189,7 +189,7 @@ const Login = () => {
             </div>
           </form>
           <p>
-            Nuevo usuario? <Link to="/register">Registrate</Link>
+            ¿Nuevo usuario? <Link to="/register">Regístrate</Link>
           </p>
         </div>
       </div>

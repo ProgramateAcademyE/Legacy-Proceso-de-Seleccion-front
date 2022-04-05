@@ -11,7 +11,7 @@ const FormTechTest = (props) => {
 	const { convocatory, query, data } = props;
 	return (
 		<div className="Create_Form_Test">
-			<h2>{query ? `Actualizar Prueba Tecnica` : "Nueva Prueba Tecnica"}</h2>
+			<h2>{query ? `Actualizar Prueba Tecnica` : "Nueva Prueba Técnica"}</h2>
 			<Formik
 				initialValues={{
 					titleTest: data?.title || "",
@@ -22,10 +22,10 @@ const FormTechTest = (props) => {
 				validate={(allValues) => {
 					let errors = {};
 					if (!allValues.titleTest) {
-						errors.titleTest = "Ingrese un titulo";
+						errors.titleTest = "Ingrese un título";
 					}
 					if (!allValues.linkTest) {
-						errors.linkTest = "Introduzca un link valido";
+						errors.linkTest = "Introduzca un link válido";
 					}
 					if (!allValues.pdfTest) {
 						errors.pdfTest = "Por favor agregue un archivo";
@@ -74,7 +74,7 @@ const FormTechTest = (props) => {
 						{/* Technical Test */}
 						<div>
 							<div>
-								<label htmlFor='titleTest'>Titulo</label>
+								<label htmlFor='titleTest'>Título</label>
 								<Field type='text' name='titleTest' id='titleTest' />
 								<ErrorMessage
 									name='titleTest'

@@ -45,7 +45,7 @@ const AspirantConvocatorys = () => {
 							<AspirantConvView data={Aspirantconvocatories} test={techTest} />
 						) : (
 							<p style={{ marginLeft: "100px" }}>
-								Aun no hay convocatorias activas, por favor revisar en otro
+								Aun no hay convocatorias activas, por favor revisa en otro
 								momento
 							</p>
 						)
