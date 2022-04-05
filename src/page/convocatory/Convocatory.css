@@ -7,25 +7,23 @@
 	align-items: center;
 }
 
-.Aspirants_conv_title{
-  display: flex;
-  justify-content: center;
+.Aspirants_conv_title {
+	display: flex;
+	justify-content: center;
 }
 
-.table_aspirant_in{
-    background: white;  
-    padding: 2em;
-    border-radius: 44px;
-    height: fit-content;
-    overflow: auto;
-    margin: 7em 3em 0 7em;
+.table_aspirant_in {
+	background: white;
+	padding: 2em;
+	border-radius: 44px;
+	height: fit-content;
+	overflow: auto;
+	margin: 7em 3em 0 7em;
 }
 
-
-.row_aspirants_in_conv{
-padding: 0 3em 0 3em;
-border-bottom: groove;
- 
+.row_aspirants_in_conv {
+	padding: 0 3em 0 3em;
+	border-bottom: groove;
 }
 .ForwardRef-root-2 {
 	height: 48px;
@@ -34,14 +32,13 @@ border-bottom: groove;
 	margin: 1em;
 }
 
-.Container_Aspirant_in{
-    padding-top: 6rem;
-    padding-left: 6rem;
+.Container_Aspirant_in {
+	padding-top: 6rem;
+	padding-left: 6rem;
 }
 
-.Aspirants_in_convocatory{
-    
-    overflow: auto;
+.Aspirants_in_convocatory {
+	overflow: auto;
 }
 
 .Aspirants_in_convocatory {
@@ -69,14 +66,12 @@ border-bottom: groove;
 		width: 74vw;
 		margin-left: 4em;
 	}
+	.table_aspirant_in {
+		background: white;
+		padding: 2em;
+		border-radius: 44px;
+		height: fit-content;
+		overflow: auto;
+		margin: 7em 3em 0 3em;
+	}
 }
-.table_aspirant_in{
-    background: white;  
-    padding: 2em;
-    border-radius: 44px;
-    height: fit-content;
-    overflow: auto;
-    margin: 7em 3em 0 3em;
-}
-
-

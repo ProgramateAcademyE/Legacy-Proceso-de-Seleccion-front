@@ -4,7 +4,7 @@ import { useSelector } from "react-redux";
 import { PETITIONS } from "../../../requestUrl";
 import {Link} from "react-router-dom"
 import Typography from "@material-ui/core/Typography";
-import { Box, Paper } from '@material-ui/core';
+import Swal from "sweetalert2";
 
 const AspirantConvView = (props) => {
 	let { data, test } = props;
@@ -27,9 +27,15 @@ const AspirantConvView = (props) => {
 				},
 				{ headers: { Authorization: token } }
 			);
-			alert("¡Te has inscrito a la convocatoria!");
+			Swal.fire({
+				icon: "success",
+				title: "Inscrito exitosamente",
+			  });
 		} else {
-			alert("No te puedes inscribir a más convocatorias");
+			Swal.fire({
+				icon: "success",
+				title: "Ya estás inscrito",
+			  });
 		}
 		window.location.reload()
 	};
