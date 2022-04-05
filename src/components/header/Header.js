@@ -31,7 +31,6 @@ const Header = () => {
             "https://selectprocess.herokuapp.com/api/user/refresh_token",
             { refreshtoken }
           );
-          console.log(res)
           dispatch({ type: "getToken", payload: res.data.access_token });
         } catch (error) {
           return error;

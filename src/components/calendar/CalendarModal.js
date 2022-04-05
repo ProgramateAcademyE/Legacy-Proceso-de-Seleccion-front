@@ -115,7 +115,6 @@ const CalendarModal = () => {
 
     const sendDataUser = () => {
             dispatch(setCitationData(user.id, activeEvent._id))
-            console.log(citation)
     }
 
 
