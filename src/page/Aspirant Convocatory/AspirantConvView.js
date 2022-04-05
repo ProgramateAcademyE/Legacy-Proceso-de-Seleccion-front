@@ -5,6 +5,9 @@ import { PETITIONS } from "../../../requestUrl";
 import {Link} from "react-router-dom"
 import Typography from "@material-ui/core/Typography";
 import Swal from "sweetalert2";
+import { Paper } from "@material-ui/core";
+import { Box } from "@material-ui/core";
+
 
 const AspirantConvView = (props) => {
 	let { data, test } = props;
@@ -26,7 +29,7 @@ const AspirantConvView = (props) => {
 					usersRegistered: usersInConvo,
 				},
 				{ headers: { Authorization: token } }
-			);
+			).then(res => console.log(res));
 			Swal.fire({
 				icon: "success",
 				title: "Inscrito exitosamente",
@@ -37,7 +40,9 @@ const AspirantConvView = (props) => {
 				title: "Ya estás inscrito",
 			  });
 		}
-		window.location.reload()
+		setTimeout(() => {
+			window.location.reload()
+		}, 2000);
 	};
 
 	

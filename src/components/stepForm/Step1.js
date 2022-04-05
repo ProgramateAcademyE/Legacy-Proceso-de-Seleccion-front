@@ -243,7 +243,7 @@ const Step1 = ({ data, setDataToForm, setStep, step }) => {
 									<option value='Viudo'>Viudo</option>
 								</Field>
 							</div>
-							<div className='col-12 col-md-6'>
+							{/* <div className='col-12 col-md-6'>
 								<label htmlFor='profilePic' className='form-label'>
 									Foto de perfil
 								</label>
@@ -254,7 +254,7 @@ const Step1 = ({ data, setDataToForm, setStep, step }) => {
 									placeholder=''
 									className='form-control'
 								/>
-							</div>
+							</div> */}
 						</div>
 						<div className='row mt-4'>
 							<div className='col-12 col-md-6'>

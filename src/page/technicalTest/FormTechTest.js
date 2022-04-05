@@ -16,7 +16,7 @@ const FormTechTest = (props) => {
 				initialValues={{
 					titleTest: data?.title || "",
 					linkTest: data?.url || "",
-					pdfTest: "",
+					// pdfTest: "",
 					convocatoryTest: data?.convocatories || [],
 				}}
 				validate={(allValues) => {
@@ -27,9 +27,9 @@ const FormTechTest = (props) => {
 					if (!allValues.linkTest) {
 						errors.linkTest = "Introduzca un link válido";
 					}
-					if (!allValues.pdfTest) {
-						errors.pdfTest = "Por favor agregue un archivo";
-					}
+					// if (!allValues.pdfTest) {
+					// 	errors.pdfTest = "Por favor agregue un archivo";
+					// }
 					if (
 						!allValues.convocatoryTest ||
 						allValues.convocatoryTest.length <= 0
@@ -93,7 +93,7 @@ const FormTechTest = (props) => {
 									)}
 								/>
 							</div>
-							<div className="Pdf_Container">
+							{/* <div className="Pdf_Container">
 								<label htmlFor='pdfTest'>PDF</label>
 								<Field type='file' name='pdfTest' id='pdfTest' />
 								<ErrorMessage
@@ -102,7 +102,7 @@ const FormTechTest = (props) => {
 										<div style={{ color: "red", display:"flex"}}>{errors.pdfTest}</div>
 									)}
 								/>
-							</div>
+							</div> */}
 							<div className="Test_Container">
 								<label htmlFor='convocatoryTest'>Convocatoria</label>
 								<Field name='convocatoryTest' as='select' multiple>
