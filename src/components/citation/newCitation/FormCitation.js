@@ -7,7 +7,17 @@ import {
 } from '@material-ui/pickers'
 import { Grid, TextField } from '@material-ui/core';
 import { Container } from '@material-ui/core';
+import { createTheme } from '@material-ui/core/styles';
+import { ThemeProvider } from '@material-ui/core';
 
+const defaultMaterialTheme = createTheme({
+	palette: {
+	  primary: {
+	  main: '#FFCC02',		  
+	  },
+	  
+	},
+  });
 
 const FormCitation = () => {
 
@@ -33,14 +43,20 @@ const [errorQuota, setErrorQuota] = React.useState(false); */
 
   return (
 	<>
-		<div>Nueva citación</div>
+        <span className="upperCase bold"> NUEVA CITACIÓN </span>
+
 <Container>
 
 <Grid>
 <div className="row mt-4">
     <div className="col-12 col-md-6">
+
+	<ThemeProvider theme={defaultMaterialTheme}>
+
 		<label htmlFor='' className="form-label">Fecha de inicio de la citacion</label>
+
 <MuiPickersUtilsProvider utils={DateFnsUtils}>
+
 	<KeyboardDatePicker
 	variant='dialog'
 	format='MM/dd/yyyy'
@@ -53,11 +69,14 @@ const [errorQuota, setErrorQuota] = React.useState(false); */
 	}}
 	className="form-control"
 	/>
+
 	</MuiPickersUtilsProvider>
+	</ThemeProvider>
 </div>
 <div className="col-12 col-md-6">
 	<label htmlFor='' className="form-label">Hora de inicio de la citacion</label>
 	<MuiPickersUtilsProvider utils={DateFnsUtils}>
+	<ThemeProvider theme={defaultMaterialTheme}>
 	<KeyboardTimePicker
 		id='citationStartTime'
 		label='Selecciona la hora de inicio'
@@ -68,6 +87,7 @@ const [errorQuota, setErrorQuota] = React.useState(false); */
 		}}
 		className="form-control"
 		/>
+	</ThemeProvider>
 </MuiPickersUtilsProvider>
 </div>
 </div>
@@ -75,6 +95,7 @@ const [errorQuota, setErrorQuota] = React.useState(false); */
     <div className="col-12 col-md-6">
 		<label htmlFor='' className="form-label">Fecha de finalización de la citacion</label>
 <MuiPickersUtilsProvider utils={DateFnsUtils}>
+<ThemeProvider theme={defaultMaterialTheme}>
 	<KeyboardDatePicker
 	variant='dialog'
 	format='MM/dd/yyyy'
@@ -87,14 +108,16 @@ const [errorQuota, setErrorQuota] = React.useState(false); */
 	}}
 	className="form-control"
 	/>
+	</ThemeProvider>
 	</MuiPickersUtilsProvider>
 </div>
 <div className="col-12 col-md-6">
 	<label htmlFor='' className="form-label">Hora de finalización de la citacion</label>
 	<MuiPickersUtilsProvider utils={DateFnsUtils}>
+	<ThemeProvider theme={defaultMaterialTheme}>
 	<KeyboardTimePicker
 		id='citationEndTime'
-		label='Selecciona la hora de inicio'
+		label='Selecciona la hora de finalización'
 		value={selectedDate2}
 		onChange={handleDateChange2}
 		KeyboardButtonProps={{
@@ -102,6 +125,7 @@ const [errorQuota, setErrorQuota] = React.useState(false); */
 		}}
 		className="form-control"
 		/>
+	</ThemeProvider>
 </MuiPickersUtilsProvider>
 </div>
 </div>
@@ -110,7 +134,7 @@ const [errorQuota, setErrorQuota] = React.useState(false); */
 	<label htmlFor='' className="form-label">Convocatoria</label>
 <TextField
           id="outlined-multiline-flexible"
-          label="Convocatoria"
+          label="Indica el nombre de la convocatoria"
           maxRows={4}
 		  className="form-control"
 /*           value={value}

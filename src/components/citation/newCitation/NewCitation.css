@@ -1,0 +1,11 @@
+.newCitationForm{
+    padding-top: 10vw;
+    padding-left: 7vw;
+    text-align: center;
+}
+
+@media screen and (max-width: 991px) {
+    .newCitationForm{
+        padding-top: 20vw;
+    }
+}

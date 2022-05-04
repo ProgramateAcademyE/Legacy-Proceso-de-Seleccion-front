@@ -1,12 +1,12 @@
 import React from "react";
 import FormCitation from "./FormCitation";
+import "./NewCitation.css";
 
 const NewCitation = () => {
 
 	return (
 		<>
-		 <br/>
-  		 <div  style={{margin: "7vw auto" }}>
+  		 <div className="newCitationForm">
 
 	<FormCitation />
 	</div>

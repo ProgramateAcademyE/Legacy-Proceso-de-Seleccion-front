@@ -2,7 +2,7 @@ import { Container, Grid } from "@material-ui/core";
 import React/* , { useEffect, useState }  */from "react";
 import { Link } from "react-router-dom";
 import CitationCard from "../../components/citation/CitationCard";
-
+import "./Citations.css";
 
 
 /* import RequestService from "../../config/index";
@@ -53,9 +53,10 @@ export default Citations; */
 function Citations() {
     return(
         <>
-        <div className="section__convocatory">
-        <div /* className="d-flex justify-content-between" */>
-
+        <div className="citationsContainer">
+        <div>
+        <span className="upperCase bold"> CITACIONES </span>
+        <br/></div>
         <Container>
             <Grid container spacing={5}>
                 <CitationCard />
@@ -68,9 +69,8 @@ function Citations() {
             </Grid>
         </Container>
 
-        </div>
         <div className="containerButton">
-        <Link to='/nuevacitacion' className='btn btn-success'>
+        <Link to='/nuevacitacion' className='btn btn-warning'>
         Crear Nueva Citación
 		</Link>
         </div>
