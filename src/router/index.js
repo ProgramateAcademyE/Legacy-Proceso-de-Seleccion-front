@@ -84,14 +84,13 @@ const App = () => {
               <Route path="/editarcohorte" component={NewCohort} />
               <Route path="/convocatorias-aspirantes" component={ConvocatoryAspirants} />
               
-              <Route path="/citation" component={Citations} />
+              <Route path="/citacion" component={Citations} />
               <Route path="/aspirantes" component={Aspirants} /> 
               <Route path="/prueba" component={AdministerTechnicalTest} />
               <Route path="/agregar" component={AddTechTest}/>
               <Route path="/editarprueba" component={AddTechTest}/>
               <Route path="/citaciones" component={Citations} />
               <Route path="/nuevacitacion" component={NewCitation} />
-
 
               <Route path="/calificacion-sololearn" component={QualifySololearn} />
               <Route path="/motivationLetter" component={QualifyMotivationLetter} />
