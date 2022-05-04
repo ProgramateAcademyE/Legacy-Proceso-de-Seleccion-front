@@ -31,18 +31,22 @@ export const ITEMS = [
       },
     ],
   },
-  // {
-  //     name: "Aspirantes",
-  //     icon: "far fa-user",
-  //     id: 3,
-  //     items: [
-  //         {
-  //             name: "Informacion Aspirantes",
-  //             pathname: "/InfoAspirants",
-  //         },
-  //     ],
+   {
+      name: "Citaciones",
+      icon: "far fa-calendar-check",
+      id: 3,
+      items: [
+           {
+      name: "Ver citaciones",
+      pathname: "/Citacion",
+          },
+          {
+      name: "Nueva citación",
+      pathname: "/nuevacitacion",
+       },
+       ],
 
-  // },
+   },
 
   {
     name: "Calificaciones",

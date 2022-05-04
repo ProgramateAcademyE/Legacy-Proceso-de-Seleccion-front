@@ -15,7 +15,7 @@ const defaultMaterialTheme = createTheme({
 	  primary: {
 	  main: '#FFCC02',		  
 	  },
-	  
+
 	},
   });
 
@@ -134,7 +134,7 @@ const [errorQuota, setErrorQuota] = React.useState(false); */
 	<label htmlFor='' className="form-label">Convocatoria</label>
 <TextField
           id="outlined-multiline-flexible"
-          label="Indica el nombre de la convocatoria"
+          label="Indica nombre de convocatoria"
           maxRows={4}
 		  className="form-control"
 /*           value={value}

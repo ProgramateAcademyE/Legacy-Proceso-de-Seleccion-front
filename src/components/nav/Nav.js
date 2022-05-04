@@ -65,7 +65,9 @@ const Nav = () => {
               />
             ))}
             <div>
-              <a href='#close' title="close" className='close' style={{margin:"-56px -163px 0 0"}} onClick={moveNav}>X</a>
+              <a href='#close' title="close" className='close' style={{margin:"-56px -163px 0 0"}} onClick={moveNav}>
+               <i class="fas fa-times-circle"></i>
+              </a>
             </div>
         </nav>
       </div>
