@@ -6,7 +6,7 @@ const ModeratorInterviewer = () => {
     <>
     <div className="moderatorContainer">
         <div className="moderatorInterviewerContainer">
-     <h1 className="moderatorInterviewerTitle">MODERADOR - ENTREVISTADOR</h1>
+     <h1 className="moderatorInterviewerTitle">MODERADOR - ENTREVISTADOR mhj</h1>
      </div>
      </div>
     </>
