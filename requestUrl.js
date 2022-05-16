@@ -1,5 +1,5 @@
 // Endpoints
-const BASEURL = 'https://selectprocess.herokuapp.com/api/'
+const BASEURL = "http://localhost:3001/api/";
 
 export const PETITIONS = {
   // ============ User ======================
@@ -20,10 +20,10 @@ export const PETITIONS = {
   getConvocatories: `${BASEURL}admin/convocatories`,
   // Update convocatory
   updateConcovatory: `${BASEURL}admin/update-conv/`,
-  // Delete 
+  // Delete
   deleteConvocatory: `${BASEURL}admin/convocatory/`,
   // Get one Convocatory
-  getOneConvocatory: `${BASEURL}admin/convocatory/` ,
+  getOneConvocatory: `${BASEURL}admin/convocatory/`,
   // ========================================
 
   // ============ Tech Test ================
@@ -57,6 +57,6 @@ export const PETITIONS = {
   addUsersToConvocatory: `${BASEURL}admin/update-candidate/`,
 
   // ========== Form Aspirant ===============
-  // Get Information from the form 
+  // Get Information from the form
   GetAnswersFromForm: `${BASEURL}candidate/candidate-profile`,
-}
+};
