@@ -6,7 +6,7 @@ const ModeratorApplicantsCited = () => {
     <>
     <div className="moderatorContainer">
         <div className="moderatorApplicantsCitedContainer">
-     <h1 className="moderatorApplicantsCitedTitle">MODERADOR - APLICANTES CITADOS</h1>
+     <h3 className="moderatorApplicantsCitedTitle">MODERADOR - APLICANTES CITADOS</h3>
      </div>
      </div>
     </>
