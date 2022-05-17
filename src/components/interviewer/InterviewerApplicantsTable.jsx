@@ -13,7 +13,7 @@ const InterviewerApplicantsTable = () => {
     const [users, setUsers] =useState([])
 
     //fetch API
-    const URL = "https://gorest.co.in/public/v2/users"
+    const URL = "http://localhost:3001/entrevistados"
     const showData = async ()=>{
      const response = await fetch(URL)
      const data     = await response.json()
@@ -29,19 +29,19 @@ const InterviewerApplicantsTable = () => {
     const columns =[
         {
             name: "ID",
-            selector: row => row.id,
+            selector: (row) => row.id,
             sortable: true,
             reorder: true
         },
         {
             name: "NAME",
-            selector: row => row.name,
+            selector: (row) => row.name,
             sortable: true,
             reorder: true
         },
         {
             name: "EMAIL",
-            selector: row => row.email,
+            selector: (row) => row.email,
             sortable: true,
             reorder: true
         },
@@ -62,6 +62,7 @@ const InterviewerApplicantsTable = () => {
       defaultSortFieldId={1}
       defaultSortAsc={false}
       sortIcon={<SortIcon />}          
+      selectableRowsHighlight
       />
 
     </div>
