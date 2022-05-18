@@ -27,7 +27,7 @@ const ModeratorDashboard = () => {
 
   ]
   return (
-    <>
+    
       <div className="moderatorContainer44">
           <div className="moderatorDashboard">
                 <h1 className="moderatorDashboardTitle">INICIO - MODERAD1R </h1>
@@ -47,7 +47,7 @@ const ModeratorDashboard = () => {
           </div>
 
       </div>
-    </>
+    
   )
 }
 
