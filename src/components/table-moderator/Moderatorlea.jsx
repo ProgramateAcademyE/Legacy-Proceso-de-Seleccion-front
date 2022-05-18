@@ -3,30 +3,61 @@ import DataTable from 'react-data-table-component';
 import './moderatorlea.css';
 
 const tablaCampeones = [
-  {Plataforma:"Sala Principal",Selectores:"Karina Sanabria Jonathan Mosquera Jorge Andrés Rojas Karol Neiza Maria Alejandra Fajardo",Candidatos:"Sofía Peláez Arias Geraldine Johanna Medina Herrera Andrés Felipe Castaño Pinilla Frank Sebastián Uricochea Andrade"},
-  {Plataforma:"Sala entrevista 1",Selectores:"2001",Candidatos:"bayern",},
-  {Plataforma:"Sala Assessment",Selectores:"2002",Candidatos:"rela-madrid"},
-  {Plataforma:"Sala Principal",Selectores:"2003",Candidatos:"milan"},
-  {Plataforma:"Sala entrevista 1",Selectores:"2004",Candidatos:"porto"},
-  {Plataforma:"Sala Principal",Selectores:"2005",Candidatos:"liverpool"},
-  {Plataforma:"Sala Assessment",Selectores:"2006",Candidatos:"barcelona"},
-  {Plataforma:"Sala entrevista 1",Selectores:"2007",Candidatos:"milan"}
+  {Fecha:"6 junio",Horario:"9 am",Entrevistador:"Sofía Peláez",Observador:"juanito",Observador:"pepito",Aspirante:"mirian",Id_aspirante:412,Sala:"2"},
+  {Fecha:"1 agosto",Horario:"2001",Entrevistador:"Margarita",Observador:"juanito",Observador:"pepito",Aspirante:"mirian",Id_aspirante:412,Sala:"2"},
+  {Fecha:"2 julio",Horario:"2002",Entrevistador:"Margarita",Observador:"juanito",Observador:"pepito",Aspirante:"mirian",Id_aspirante:412,Sala:"2"},
+  {Fecha:"1 agosto",Horario:"2003",Entrevistador:"milan",Observador:"juanito",Observador:"pepito",Aspirante:"mirian",Id_aspirante:412,Sala:"2"},
+  {Fecha:"6 junio",Horario:"2004",Entrevistador:"Margarita",Observador:"juanito",Observador:"pepito",Aspirante:"mirian",Id_aspirante:412,Sala:"2"},
+  {Fecha:"3 agosto",Horario:"2005",Entrevistador:"Margarita",Observador:"juanito",Observador:"pepito",Aspirante:"mirian",Id_aspirante:412,Sala:"2"},
+  {Fecha:"3 agosto",Horario:"2006",Entrevistador:"Margarita",Observador:"juanito",Observador:"pepito",Aspirante:"mirian",Id_aspirante:412,Sala:"2"},
+  {Fecha:"7 junio",Horario:"2007",Entrevistador:"Margarita",Observador:"juanito",Observador:"pepito",Aspirante:"mirian",Id_aspirante:412,Sala:"2"}
 ]
 
 const columnas = [
   {
-    name:'PLATAFORMA',
-    selector:'Plataforma',
+    name:'FECHA',
+    selector:'Fecha',
     sortable:true
   },
   {
-    name:'SELECTORES',
-    selector:'Selectores',
+    name:'HORARIO',
+    selector:'Horario',
     sortable:true
   },
   {
-    name:'CANDIDATOS',
-    selector:'Candidatos',
+    name:'ENTREVISTADOR',
+    selector:'Entrevistador',
+    sortable:true,
+    
+  }
+  ,
+  {
+    name:'OBSERVADOR',
+    selector:'Observador',
+    sortable:true,
+    
+  },
+  {
+    name:'ENTREVISTADOR',
+    selector:'Entrevistador',
+    sortable:true,
+    
+  },
+  {
+    name:'ASPIRANTE',
+    selector:'Aspirante',
+    sortable:true,
+    
+  },
+  {
+    name:'ID ASPIRANTE',
+    selector:'Id_aspirante',
+    sortable:true,
+    
+  },
+  {
+    name:'SALA',
+    selector:'Sala',
     sortable:true,
     
   }
