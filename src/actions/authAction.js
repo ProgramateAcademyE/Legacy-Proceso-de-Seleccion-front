@@ -9,7 +9,7 @@ export const dispatchLogin = () => {
 
 export const fetchUser = async (token) => {
         try {
-            const res = await axios.get('https://selectprocess.herokuapp.com/api/user/info', {
+            const res = await axios.get('http://localhost:3001/api/user/info', {
                 headers: {Authorization: token}
             })
             return res
