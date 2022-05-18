@@ -34,7 +34,7 @@ const ModeratorInterviewerTable= ()=> {
       selector: (row) => row.jornada,
     },
     {
-      name: "COnvocatoria",
+      name: "CONVOCATORIA",
       selector: (row) => row.convocatoria,
     },
     {
@@ -52,6 +52,7 @@ const ModeratorInterviewerTable= ()=> {
     {
       name: "# SALAS",
       selector: (row) => row.salas,
+
     },
     {
       name: "DETALLE",
