@@ -23,7 +23,6 @@ function ModeratorInterviewerTable() {
           //defaultSortField="id"
           pagination
           highlightOnHover
-          
           selectableRows
         />
       </DataTableExtensions>
