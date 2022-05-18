@@ -1,0 +1,42 @@
+.rdt_TableCol{
+    background-color: #c7c7c7;
+    display: flex;
+    justify-content: center;
+}
+.rdt_TableCell{
+    background-color: rebeccapurple;
+    display: flex;
+    justify-content: center;
+    border-right: 1px solid #c7c7c7;
+
+}
+
+.table{
+    background-color:yellow;
+    width: 80vw;
+    text-align: center;
+    overflow: scroll;
+    padding: 20px;
+}
+
+
+@media (max-width: 768px) {
+
+    .table{
+        background-color:yellow;
+        width: 80vw;
+        margin: auto;
+    }
+
+}
+
+@media (max-width: 465px) {
+
+    .table{
+        background-color:yellow;
+        width: 80vw;
+        margin: auto;
+    }
+
+}
+
