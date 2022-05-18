@@ -90,7 +90,6 @@ const Login = () => {
           password,
         })
         .then((res) => {
-         
           if (res.status === 200) {
             setUser({ ...user, err: "", success: res.data.msg });
             window.localStorage.setItem("firstLogin", true);
