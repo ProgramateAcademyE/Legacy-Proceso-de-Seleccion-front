@@ -1,7 +1,8 @@
-.moderatorContainer{
-    height: 95vh;
+.moderatorContainer1{
+    height:95vh;
     width: 90vw;
-    background-color:rgb(166, 166, 212);
+    margin: 0 50px;
+    background-color:rgb(34, 34, 199);
     display: flex;
     justify-content: center;
     align-items: center;

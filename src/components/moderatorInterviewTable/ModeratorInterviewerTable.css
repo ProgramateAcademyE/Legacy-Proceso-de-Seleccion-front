@@ -1,0 +1,33 @@
+
+  .moderatorInterviewTableContainer{
+    height:90%;
+    width: 90%;
+    margin: 0px 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 7%;
+  }
+
+  .moderatorInterviewTableTitle{
+    font-size:3rem;
+  }
+
+.rdt_TableCol{
+    background-color:#D7D7D7;
+    color:black;
+
+  }
+
+  @media (max-width:425px){
+    .moderatorInterviewTableContainer{
+      height:100%;
+      width: 100%;
+      margin: 0px 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    
+    }
+
+  }
