@@ -18,8 +18,41 @@
     color:black;
 
   }
+  /*.rdt_TableCell{
+    background-color: rebeccapurple;
+    display: flex;
+    justify-content: center;
+    border-right: 1px solid #c7c7c7;
 
-  @media (max-width:425px){
+}*/
+  .tableInterview{
+    width: 80vw;
+    overflow: scroll;
+    padding: 20px;
+
+  }
+
+  @media (max-width: 768px) {
+
+    .tableInterview{
+        width: 80vw;
+        margin: auto;
+    }
+
+}
+
+@media (max-width: 465px) {
+
+    .tableInterview{
+        width: 80vw;
+        margin: auto;
+    }
+
+}
+
+
+  /*@media (max-width:425px){
+
     .moderatorInterviewTableContainer{
       height:100%;
       width: 100%;
@@ -30,4 +63,4 @@
     
     }
 
-  }
+  }*/

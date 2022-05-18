@@ -67,7 +67,7 @@ const ModeratorInterviewerTable= ()=> {
   };*/
 
   return (
-    <div className="main">
+    <div className="tableInterview">
       <DataTableExtensions 
         columns={columns}
         data={users}
