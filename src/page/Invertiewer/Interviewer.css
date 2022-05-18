@@ -1,14 +1,35 @@
 .interviewerDashboardContainer{
-   
-    height: 170vh;
-    width: 90vw;
+    
+    height: auto;
+    width: 90%;
     background-color: red;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-left: 7%;
 }
 
 .interviewrDashboardTitle{
-    font-size: 4rem;
+    font-size: 2rem;
+    text-align: center;
+    padding: 20px;
+    margin-top: 10%;
 }
+
+
+
+
+@media (max-width: 768px) {
+    .interviewrDashboardTitle{
+        margin-top: 20%;
+        font-size: 1.5rem;
+    }
+    
+}
+
+@media (max-width: 465px) {
+    .interviewrDashboardTitle{
+        margin-top: 25%;
+    }
+}  

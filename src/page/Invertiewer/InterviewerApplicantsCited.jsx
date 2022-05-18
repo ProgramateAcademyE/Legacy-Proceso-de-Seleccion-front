@@ -6,7 +6,7 @@ const InterviewerApplicantsCited = () => {
   return (
     <>
       <div className="interviewerDashboardContainer">
-      {/*<h1 className="interviewrDashboardTitle">Aplicantes citados PARA HOY</h1>*/} 
+      <h1 className="interviewrDashboardTitle">Aplicantes citados para el día de hoy</h1>
        <div className="">
        <InterviewerApplicantsTable/>
        </div>

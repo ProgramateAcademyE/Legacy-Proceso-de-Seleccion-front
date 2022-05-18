@@ -5,6 +5,31 @@ import "./InterviewerApplicants.css";
 import DataTableExtensions from "react-data-table-component-extensions";
 import "react-data-table-component-extensions/dist/index.css";
 
+
+const customStyles = {
+  rows: {
+      style: {
+          minHeight: '72px', // override the row height
+      },
+  },
+  headCells: {
+      style: {
+          paddingLeft: '8px', // override the cell padding for head cells
+          paddingRight: '8px',
+      },
+  },
+  cells: {
+      style: {
+          paddingLeft: '8px', // override the cell padding for data cells
+          paddingRight: '8px',
+      },
+  },
+};
+
+
+
+
+
 const InterviewerApplicantsTable = () => {
   //1 - Configurar los hooks
   const [users, setUsers] = useState([]);
@@ -36,26 +61,26 @@ const InterviewerApplicantsTable = () => {
       selector: (row) => row.hour,
     },
     {
-      name: "ENTREVISTADOR",
-      selector: (row) => row.interviewer,
-    },
-    {
-      name: "OBSERVADOR",
-      selector: (row) => row.viewer,
+      name: "ASPIRANTE",
+      selector: (row) => row.name,
     },
     {
       name: "IDENTIFICACION",
       selector: (row) => row.identification,
     },
     {
-      name: "ASPIRANTE",
-      selector: (row) => row.name,
+      name: "ENTREVISTADOR",
+      selector: (row) => row.interviewername,
     },
+    {
+      name: "OBSERVADOR",
+      selector: (row) => row.viewername,
+    },  
   
   ];
 
   return (
-    <div className="main">
+    <div className="table">
       <DataTableExtensions
         columns={columns}
          data={users}
@@ -72,8 +97,8 @@ const InterviewerApplicantsTable = () => {
           selectableRows
           selectableRowsHighlight
           fixedHeader
-          fixedHeaderScrollHeight="400px"
-          responsive
+          fixedHeaderScrollHeight
+          customStyles={customStyles}
         />
         </DataTableExtensions>
    
