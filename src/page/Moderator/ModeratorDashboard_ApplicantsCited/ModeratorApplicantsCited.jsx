@@ -1,6 +1,6 @@
 import React from 'react'
 import "./ModeratorDashboard_ApplicantsCited.css";
-import Moderatorlea from '../../../components/table-moderator/moderatorlea';
+//import Moderatorlea from '../../../components/table-moderator/moderatorlea';
 
 const ModeratorApplicantsCited = () => {
   return (
