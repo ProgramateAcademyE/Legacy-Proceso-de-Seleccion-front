@@ -1,15 +1,16 @@
 import React, { useEffect, useState } from "react";
-import Tableinitview from "../../components/tableInitOb/Tableinitview";
-import "./Interviewer.css";
-
+import InterviewerDashboardTable from "../../components/interviewer/InterviewerDashboardTable";
+import "./InterviewerDashboard.css";
 
 const InterviewerDashboard = () => {
-
   return (
     <>
-      <div className="table59">
-      
-        <Tableinitview/>
+      <div className="interviewerDashboardContainer">
+        <h1 className="interviewerDashboardtTitle"><span className="interviewerSpan"> ENTREVISTADOR DASHBOARD</span></h1>
+        <h1 className="interviewerDashboardTitle2">
+          Tienes programadas las siguientes reuniones:
+        </h1>
+        <InterviewerDashboardTable />
       </div>
     </>
   );

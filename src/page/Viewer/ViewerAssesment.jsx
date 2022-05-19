@@ -7,16 +7,15 @@ const ViewerAssesment = () => {
   return (
     <>
       <div className="viewerAssesmentContainer">
-        <h1 className="viewerAssesmentTitle">OBSERVADOR ASSESMENT</h1>
+        <h1 className="viewerAssesmentTitle"><span className="viewerSpan">OBSERVADOR ASSESMENT</span></h1>
 
         <h4 className="">
-          Lista de estudiantes agendados para el 30 de marzo en la jornada de la
-          mañana
+          Lista de estudiantes agendados para hoy...
         </h4>
 
         <ViewerTable />
 
-        <h1 className="viewerAssesmentTitle2">OBSERVADOR ASSESMENT</h1>
+        <h1 className="viewerAssesmentTitle2"><span className="viewerSpan">OBSERVADOR CALIFICACIÓN</span></h1>
         <ViewerCalificationBox />
       </div>
     </>
