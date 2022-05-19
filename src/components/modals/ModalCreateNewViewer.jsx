@@ -9,11 +9,11 @@ modal:{
   position:'absolute',
   width:'500px',
   backgroundColor:'white',
-  border: '2px solid #000',
-  boxShadow:'theme.shadows[5]',
+  border: '1px solid #000',
+  boxShadow:'1px 10px 25px',
   padding:'26px 32px 24px',
-  top:'50%',
-  left:'50%',
+  top:'35%',
+  left:'35%',
   transform:'tanslate(-50%, -50%)',
 },
 textfield:{
@@ -50,7 +50,7 @@ function ModalCreateNewViewer() {
 
   return (
     <div>
-      <Button className={styles.button} onClick={()=>abrirCerrarModal()} >Crear Observador </Button>
+      <button className="btncreate_interviewer" onClick={()=>abrirCerrarModal()} >Crear Observador </button>
 <Modal
 open={modal}
 onClose={abrirCerrarModal}>

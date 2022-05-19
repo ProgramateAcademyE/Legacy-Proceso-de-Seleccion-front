@@ -11,8 +11,9 @@ const ModeratorViewer = () => {
     <div className="moderatorContainer_viewer">
         <div className="moderatorInterviewerContainer">
      {/* <h1 className="moderatorInterviewerTitle">MODERADOR - OBSERVADOR</h1> */}
-     <CreateViewer/>
      <ModalCreateNewViewer/>
+     <CreateViewer/>
+     
      </div>
      </div>
     </>

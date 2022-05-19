@@ -15,6 +15,20 @@
     pointer-events: none;
     max-height: 100vh;
 }
+.btncreate_interviewer{
+  margin: 15px 30px;
+  width: 200px;
+  height: 50px;
+   margin-top: 100px;
+   box-shadow: 1px 10px 25px #c7c7c7;
+   border-radius: 10px;
+   font-size: 20px;
+   
+
+}
+.btncreate_interviewer:hover {
+    background: #c1c1c1;
+}
 .modalDialog:target {
     opacity: 1;
     pointer-events: auto;

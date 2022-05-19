@@ -48,6 +48,7 @@ const CreateInterviewer = () => {
       name: "Habilitar",
       selector: (row) => row.habilitar,
       
+      
     
     },
   
