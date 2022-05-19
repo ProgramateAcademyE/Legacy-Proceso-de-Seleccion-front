@@ -56,11 +56,11 @@ const Tableinitview = () => {
   
 
   return (
-    <div>
-    <DataTableExtensions
+    <div className="table77">
+      <DataTableExtensions
         columns={columns}
-         data={users}
-         >
+        data={users}
+        >
         <DataTable
           title = "Aspirantes Citados"
           columns={columns}
@@ -76,7 +76,8 @@ const Tableinitview = () => {
           fixedHeaderScrollHeight
           
         />
-    </DataTableExtensions>
+        </DataTableExtensions>
+  
     </div>
   )
 }

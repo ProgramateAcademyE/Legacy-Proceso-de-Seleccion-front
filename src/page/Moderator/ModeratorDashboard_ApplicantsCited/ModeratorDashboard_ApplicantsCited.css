@@ -1,34 +1,10 @@
+
+
 .moderatorContainer43{
-
-    height: auto;
-    width: 100vw;
-    background-color:rgb(255, 255, 255);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-left: 7%;
-}
-
-.moderatorApplicantsCitedTitle, .moderatorDashboardTitle{
-    font-size: 3rem;
-    
-}
-
-.moderatorContainer44{
-    height: 100vh;
-    width: 90%;
-    background-color:rgb(226, 226, 219);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-left: 7%;
     padding-top: 100px;
-    padding-bottom: 50px;
+    margin-left: 7%;
+    width: 90%;
     
-    overflow-y: scroll;
-    border-radius: 7px;
 }
 
 
@@ -48,3 +24,11 @@
 .moderatorDashboard{
     height: 20%;
 }
+
+.table77{
+    margin-top: 100px;
+    margin-left: 7%;
+    
+}
+
+
