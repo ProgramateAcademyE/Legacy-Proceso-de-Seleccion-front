@@ -44,9 +44,11 @@ const ModeratorForm = () => {
 };
  export default ModeratorForm*/
 
- import React from 'react';
- import {Formik} from 'formik'
+ import React,{useState} from 'react';
+ import { Formik, Field, Form, ErrorMessage } from "formik";
+
  const ModeratorForm = () =>{
+  const[formularioEnviado, cambiarFormularioEnviado] = useState(false)
     
      
 
@@ -55,21 +57,119 @@ const ModeratorForm = () => {
             <>
             <Formik
             initialValues={{
-                nombre:'Carlos',
-                correo:'correo@correo.com'
+                nombre:'',
+                correo:''
             }}
+            validate={(valores) =>{
+              let errores ={};
+              //validacion nombre
+              if(!valores.nombre){
+                errores.nombre = 'Por favor ingresa un nombre'
+
+              }else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.nombre)){/*si contiene letras espacios y guion bajo */
+              errores.nombre = "El nombre solo puede contener letras y espacios "
+
+              }
+              //validacion Correo
+              if(!valores.correo){
+                errores.correo = 'Por favor ingresa un correo electronico'
+
+              }else if(!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valores.correo)){/*si contiene letras espacios y guion bajo */
+              errores.correo = "El correo  solo puede contener letras, numeros, puntos guiones y guion bajo  "
+
+              }
+
+              return errores;
+
+            } }
             
-            onSubmit={()=>{
+            onSubmit={(valores,{resetForm})=>{
+              resetForm();
+              console.log(valores);
                 console.log('Formulario Enviado');
+                cambiarFormularioEnviado(true);
+                setTimeout(() => cambiarFormularioEnviado(false), 5000);
 
             }}
             
             
             >
-               
-                {({values, handleSubmit, handleChange})=>(
+               {/* {{values,errors,touched, handleSubmit, handleChange, handleBlur}} */}
+                {({errors}) =>(
+                    <Form className="formulario" >
+                     {/*  {console.log(touched)}elemento de input fue tocado */}
+                      {console.log(errors)}
+                        
+                        <div>
+                            <label htmlFor="nombre">Nombre</label>
+                            <Field 
+                                type="text" 
+                                id="nombre" 
+                                name="nombre" 
+                                placeholder="Doraly"
+                               
+                                
+                            />
+                            <ErrorMessage name="nombre" component={()=>(
+
+                              <div className="error">{errors.nombre}</div>
+
+                            )}
+                            />
+                  
+                        
+                        </div>
+                        <div>
+                            <label htmlFor="nombre">Correo</label>
+                            <Field 
+                                type="email" 
+                                id="correo" 
+                                name="correo"
+                                placeholder="@educamas.edu.co" 
+                              
+
+                             />
+                            <ErrorMessage name="correo" component={()=>(
+
+                              <div className="error">{errors.correo}</div>
+
+                            )}
+                            />
+                  
+                        </div>
+                        <div>
+                          <Field name="pais" as="select">
+                            <option value="mexico">Mexico</option>
+                            <option value="mexico">Colombia</option>
+                            <option value="mexico">España</option>
+                            <option value="mexico">Argentian</option>
+
+                          </Field>
+                        </div>
+                        <div>
+                              <label>
+                                  <Field type="radio" name="sexo" vale="hombre"/>Hombre
+                              </label>
+                              <label>
+                                  <Field type="radio" name="sexo" vale="mujer"/>Mujer
+                              </label>
+                        </div>
+
+                        <div>
+                          <Field name="mensaje" as="textarea" placeholder="Mensaje"/>
+                        </div>
+                        <button type="submit">Enviar</button>
+                         {formularioEnviado && <p classNAme="exito">Formulario Enviado con exito!</p>}
+                 </Form>
+
+                )}
+                {/* 
+                
+                {({values,errors,touched, handleSubmit, handleChange, handleBlur}) =>(
                     <form className="formulario" onSubmit={handleSubmit}>
-                        {/*{console.log(props)}*/}
+                  
+                      {console.log(errors)}
+                        
                         <div>
                             <label htmlFor="nombre">Nombre</label>
                             <input 
@@ -78,8 +178,11 @@ const ModeratorForm = () => {
                                 name="nombre" 
                                 placeholder="Doraly"
                                 value={values.nombre}
-                                onchange={handleChange}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
                             />
+                      
+                            {touched.nombre && errors.nombre && <div className="error">{errors.nombre}</div>}
                         </div>
                         <div>
                             <label htmlFor="nombre">Correo</label>
@@ -89,15 +192,20 @@ const ModeratorForm = () => {
                                 name="correo"
                                 placeholder="@educamas.edu.co" 
                                 value={values.correo}
-                                onchange={handleChange}
+                                onChange={handleChange}
+                                onBlur={handleBlur}
+
                              />
+                            {touched.correo && errors.correo && <div className="error">{errors.correo}</div>}
                         </div>
                         <button type="submit">Enviar</button>
+                         {formularioEnviado && <p classNAme="exito">Formulario Enviado con exito!</p>}
                  </form>
 
                 )}
             
-
+                   
+ */}
             </Formik>
             
                 
