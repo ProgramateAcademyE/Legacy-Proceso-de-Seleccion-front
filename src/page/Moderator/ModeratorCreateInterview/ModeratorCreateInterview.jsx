@@ -5,7 +5,7 @@ import ModeratorForm from '../../../components/moderatorForm/ModeratorForm'
 const ModeratorCreateInterview = () => {
   return (
     <>
-    <div className="moderatorContainer1">
+    <div className="moderatorContainerInterview">
         <div className="moderatorCreateInterviewContainer"> 
      <h1 className="moderatorCreateInterviewTitle">MODERADOR - CREAR ENTREVISTA y ASSESMENT </h1>
       <ModeratorForm />
