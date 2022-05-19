@@ -1,14 +1,15 @@
 import React from 'react'
-import "./ViewerDashboard.css";
+import Tableinitview from '../../components/tableInitOb/Tableinitview';
 
 const ViewerDashboard = () => {
+
   return (
-    <>
-    <div className="viewerDashboardContainer">
-     <h1 className="viewerDashboardTitle">Inicio OBSERVADOR</h1>
-     </div>
-    </>
-  )
-}
+    <div className="table59">
+      
+      <Tableinitview/>
+
+    </div>
+  );
+};
 
 export default ViewerDashboard

@@ -1,36 +1,11 @@
-.interviewerApplicantContainer{
-    height: auto;
+.interviewerDashboardContainer{
+    height: 95vh;
     width: 90%;
+    background-color: rgb(30, 255, 0);
     display: flex;
     flex-direction: column;
     justify-content: center;
-    align-items: center;
     margin-left: 7%;
-    text-align: center;
-}
-
-.interviewrApplicantTitle{
-    font-size: 2rem;
-    text-align: center;
-    padding: 20px;
-    margin-top: 10%;
-}
-
-.interviewrApplicantTitle2{
-    font-size: 2rem;
-    text-align: center;
-    padding: 20px;
-    margin-top: 3%;
-}
-
-
-
-@media (max-width: 768px) {
-
-    .interviewrApplicantTitle{
-        margin-top: 25%;
-        font-size: 1.5rem;
-    }
-    
+    padding-top: 105px;
 }
 
