@@ -5,7 +5,7 @@ import CreateInterviewer from '../../../components/createInterview_Viewer/Create
 const ModeratorInterviewer = () => {
   return (
     <>
-    <div className="moderatorContainer">
+    <div className="moderatorContainer_interviewer">
         <div className="moderatorInterviewerContainer">
      {/* <h1 className="moderatorInterviewerTitle">MODERADOR - ENTREVISTADOR </h1> */}
      <CreateInterviewer/>

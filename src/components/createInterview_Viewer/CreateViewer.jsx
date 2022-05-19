@@ -1,111 +1,79 @@
-import React from 'react'
-import "./CreateInterviewer.css";
-import DataTable from 'react-data-table-component';
- 
+import React, { useEffect, useState } from "react";
+import DataTable, { createTheme } from "react-data-table-component";
+import "styled-components";
+import DataTableExtensions from "react-data-table-component-extensions";
+import "react-data-table-component-extensions/dist/index.css";
+import "./CreateInterviewer.css"
 
+const CreateViewer = () => {
+  //1 - Configurar los hooks
+  const [users, setUsers] = useState([]);
 
-export const datacreateviewer = [
-  {observador:'Juan Fernando', rolprincipal:'Obs', date: "4/05/2022", jornada: 'Am', habilitar: 'x'},
-  {observador:'Juan Fernando', rolprincipal:'Obs', date: "4/05/2022", jornada: 'Am', habilitar: 'x'},
-  {observador:'Juan Fernando', rolprincipal:'Obs', date: "4/05/2022", jornada: 'Am', habilitar: 'x'},
-  {observador:'Juan Fernando', rolprincipal:'Ent', date: "4/05/2022", jornada: 'Am', habilitar: 'x'},
-  {observador:'Juan Fernando', rolprincipal:'Ent', date: "4/05/2022", jornada: 'Am', habilitar: 'x'},
-  {observador:'Juan Fernando', rolprincipal:'Ent', date: "4/05/2022", jornada: 'Am', habilitar: 'x'},
-  {observador:'Juan Fernando', rolprincipal:'Ent', date: "4/05/2022", jornada: 'Am', habilitar: 'x'},
-  {observador:'Juan Fernando', rolprincipal:'Admin', date: "4/05/2022", jornada: 'Am', habilitar: 'x'},
-  {observador:'Juan Fernando', rolprincipal:'Admin', date: "4/05/2022", jornada: 'Am', habilitar: 'x'},
-  {observador:'Juan Fernando', rolprincipal:'Admin', date: "4/05/2022", jornada: 'Am', habilitar: 'x'},
-  {observador:'Juan Fernando', rolprincipal:'Admin', date: "4/05/2022", jornada: 'Am', habilitar: 'x'},
-  {observador:'Juan Fernando', rolprincipal:'Admin', date: "4/05/2022", jornada: 'Am', habilitar: 'x'},
-  {observador:'Juan Fernando', rolprincipal:'Admin', date: "4/05/2022", jornada: 'Am', habilitar: 'x'},
-  {observador:'Juan Fernando', rolprincipal:'Admin', date: "4/05/2022", jornada: 'Am', habilitar: 'x'},
+  //2 - Función para mostrar los datos con fetch
+  const URL = "http://localhost:3000/entrevistadores";
+  const showData = async () => {
+    const response = await fetch(URL);
+    const data = await response.json();
+    console.log(data);
+    setUsers(data);
+  };
 
+  useEffect(() => {
+    showData();
+  }, []);
 
-];
-
-const columnscreateviewer = [
-  {
-      name:"Observador",
-      selector:"observador",
-      sortable:true
-  },
-  {
-    name:"Rol Principal",
-    selector:"rolprincipal",
-    sortable:true
-},
-  {
-      name:"Fecha disponible",
-      selector:"date",
-      type: "numeric",
-      sortable: true
-  },
-  {
-      name:"Jornada disponible",
-      selector:"jornada",
-      sortable: true,
-      center: true
-  },
-  {
-      name:"Habilitar",
-      selector:"habilitar",
-      sortable: true,
-      center: true
+  const columns = [
+    {
+      name: "Observador",
+      selector: (row) => row.entrevistador,
+    },
+    {
+      name: "Rol Principal",
+      selector: (row) => row.rol_principal,
+    },
+    {
+      name: "Fecha disponible",
+      selector: (row) => row.date,
+    },
+    {
+      name: "Jornada disponible",
+      selector: (row) => row.jornada_disponible,
+    },
+    
+    {
+      name: "Habilitar",
+      selector: (row) => row.habilitar,
+    },
   
-  }
-      ];
+  ];
 
-      const paginacionOpciones={
-        rowsPerPageText: "Filas por Página",
-        rangeSeparatorText: "de",
-        selectAllRowsItem: true,
-        selectAllRowsItemText: "Todos"
-    }
-
-    function CreateViewer() {
-      const [filterText, setFilterText] = React.useState('');
-      const [resetPaginationToggle, setResetPaginationToggle] = React.useState(false);
-      const filteredItems = fakeUsers.filter(
-        item => item.name && item.name.toLowerCase().includes(filterText.toLowerCase()),
-      );
-    
-      const subHeaderComponentMemo = React.useMemo(() => {
-        const handleClear = () => {
-          if (filterText) {
-            setResetPaginationToggle(!resetPaginationToggle);
-            setFilterText('');
-          }
-        };
-    
-        return (
-          <FilterComponent onFilter={e => setFilterText(e.target.value)} onClear={handleClear} filterText={filterText} />
-        );
-      }, [filterText, resetPaginationToggle]);
-    
-      return (
+  return (
+    <div className="moderator_createviewer">
+      <DataTableExtensions
+        columns={columns}
+         data={users}
+         >
         <DataTable
-          title="Observadores"
-          columns={columnscreateviewer}
-          data={datacreateviewer}
+          title = "Observadores"
+          columns={columns}
+          data={users}
+          defaultSortField="id"
+          defaultSortAsc={false}
           pagination
-          paginationResetDefaultPage={resetPaginationToggle} // optionally, a hook to reset pagination to page 1
-          subHeader
-          subHeaderComponent={subHeaderComponentMemo}
-          selectableRows
-          persistTableHead
-          paginationComponentOptions={paginacionOpciones}
-    fixedHeader
-    fixedHeaderScrollHeight='500px'
+          paginationRowsPerPageOptions={[5, 10, 25, 50, 100]}
+          highlightOnHover
+          
+          fixedHeader
+          fixedHeaderScrollHeight="400px"
+          responsive
+          
         />
-      );
-    }
-    
-
-    
-
-
-
- export default CreateViewer
+        </DataTableExtensions>
+   
+    </div>
+  );
+};
+export default CreateViewer;
 
 
 
