@@ -1,4 +1,4 @@
-.interviewerApplicantContainer{
+.viewerAssesmentContainer{
     height: auto;
     width: 90%;
     display: flex;
@@ -9,14 +9,14 @@
     text-align: center;
 }
 
-.interviewrApplicantTitle{
+.viewerAssesmentTitle{
     font-size: 2rem;
     text-align: center;
     padding: 20px;
     margin-top: 10%;
 }
 
-.interviewrApplicantTitle2{
+.viewerAssesmentTitle2{
     font-size: 2rem;
     text-align: center;
     padding: 20px;
@@ -24,13 +24,14 @@
 }
 
 
-
-@media (max-width: 768px) {
-
-    .interviewrApplicantTitle{
+@media (max-width: 768px) { 
+    .viewerAssesmentTitle{
         margin-top: 25%;
+        font-size: 1.5rem;
+    }
+    .viewerAssesmentTitle2{
         font-size: 1.5rem;
     }
     
 }
-
+ 

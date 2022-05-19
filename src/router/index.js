@@ -44,6 +44,7 @@ import Interviewer from "../page/Invertiewer/InterviewerDashboard";
 import InterviewerDashboard from "../page/Invertiewer/InterviewerDashboard";
 import InterviewerApplicantsCited from "../page/Invertiewer/InterviewerApplicantsCited";
 import ViewerDashboard from "../page/Viewer/ViewerDashboard";
+import ViewerAssesment from "../page/Viewer/ViewerAssesment";
 import ModeratorDashboard from "../page/Moderator/ModeratorDashboard_ApplicantsCited/ModeratorDashboard"
 import ModeratorCreateInterview from "../page/Moderator/ModeratorCreateInterview/ModeratorCreateInterview"
 import ModeratorInterviewer from "../page/Moderator/ModeratorInterviewer_Viewer/ModeratorInterviewer"
@@ -137,6 +138,7 @@ const App = () => {
               <Route path="/entrevistadoraplicantescitados" component={InterviewerApplicantsCited} />
 
               <Route path="/observadordashboard" component={ViewerDashboard} />
+              <Route path="/observadorassesment" component={ViewerAssesment} />
 
               <Route path="/moderadordashboard" component={ModeratorDashboard} />
               <Route path="/moderadorcrearentrevistayassesment" component={ModeratorCreateInterview} />

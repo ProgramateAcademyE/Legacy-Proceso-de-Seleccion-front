@@ -5,7 +5,7 @@ const ViewerDashboard = () => {
   return (
     <>
     <div className="viewerDashboardContainer">
-     <h1 className="viewrDashboardTitle">Inicio OBSERVADOR</h1>
+     <h1 className="viewerDashboardTitle">Inicio OBSERVADOR</h1>
      </div>
     </>
   )

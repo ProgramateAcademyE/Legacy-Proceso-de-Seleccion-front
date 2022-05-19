@@ -122,6 +122,11 @@ export const ITEMS_ASPIRANTS = [
         pathname: "/observadordashboard",
 
       },
+      {
+        name: "ObservadorAssesment",
+        pathname: "/observadorassesment",
+
+      },
     ],
   },
   {

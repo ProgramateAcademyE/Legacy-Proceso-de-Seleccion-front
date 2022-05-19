@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
 import "styled-components";
-import "./InterviewerApplicants.css";
+import "./ViewerCalification.css";
 import DataTableExtensions from "react-data-table-component-extensions";
 import "react-data-table-component-extensions/dist/index.css";
 
-const InterviewerApplicantsTable = () => {
+const  ViewerTable = () => {
   const handleChange = ({ selectedRows }) => {
     // You can set state or dispatch with something like Redux so we can use the retrieved data
     console.log("Selected Rows: ", selectedRows);
@@ -55,11 +55,11 @@ const InterviewerApplicantsTable = () => {
       name: "OBSERVADOR",
       selector: (row) => row.viewername,
     },
+    
   ];
 
   return (
-    <>
-    <div className="interviewerApplicantTable">
+    <div className="viewerApplicantTable">
       <DataTableExtensions columns={columns} data={users}>
         <DataTable
           title="Aspirantes Citados"
@@ -78,7 +78,6 @@ const InterviewerApplicantsTable = () => {
         />
       </DataTableExtensions>
     </div>
-    </>
   );
 };
-export default InterviewerApplicantsTable;
+export default ViewerTable;

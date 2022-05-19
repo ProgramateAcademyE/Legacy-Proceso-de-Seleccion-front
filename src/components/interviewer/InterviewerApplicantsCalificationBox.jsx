@@ -1,4 +1,5 @@
 import React from "react";
+import "./InterviewerApplicants.css";
 
 const InterviewerApplicantsCalificationBox = () => {
   return (
@@ -51,14 +52,17 @@ const InterviewerApplicantsCalificationBox = () => {
             con la disponibilidad que requiere la formación Ó tiene dudas sobre
             la disponibilidad total del tiempo para la formación.
           </p>
-          <p className="card-footer">Nombre Aspirante 
-              <select className="interviewerSelect"  name="" id="">
-                <option className="interviewerSelectOption" value="5">5</option>
-                <option value="4">4</option>
-                <option value="3">3</option>
-                <option value="2">2</option>
-                <option value="1">1</option>
-              </select>
+          <p className="card-footer">
+            Nombre Aspirante
+            <select className="interviewerSelect" name="" id="">
+              <option className="interviewerSelectOption" value="5">
+                5
+              </option>
+              <option value="4">4</option>
+              <option value="3">3</option>
+              <option value="2">2</option>
+              <option value="1">1</option>
+            </select>
           </p>
         </div>
       </div>
@@ -116,21 +120,24 @@ const InterviewerApplicantsCalificationBox = () => {
             <span className="interviewerCardSpan redPoints"> 2 puntos:</span>
             Tiene poca claridad y certeza para cumplir las metas que se propone.
             No se esfuerza para lograr sus objetivos, no finaliza lo que
-            empieza, denota baja disciplina y constancia{" "}
+            empieza, denota baja disciplina y constancia
           </p>
           <p className="">
             <span className="interviewerCardSpan redPoints"> 1 punto:</span> No
             tiene claras las expectativas ni obstáculos/retos pasados, actuales
             o futuros, ni cómo superarlos.
           </p>
-          <p className="card-footer">Nombre Aspirante 
-              <select className="interviewerSelect"  name="" id="">
-                <option className="interviewerSelectOption" value="5">5</option>
-                <option value="4">4</option>
-                <option value="3">3</option>
-                <option value="2">2</option>
-                <option value="1">1</option>
-              </select>
+          <p className="card-footer">
+            Nombre Aspirante
+            <select className="interviewerSelect" name="" id="">
+              <option className="interviewerSelectOption" value="5">
+                5
+              </option>
+              <option value="4">4</option>
+              <option value="3">3</option>
+              <option value="2">2</option>
+              <option value="1">1</option>
+            </select>
           </p>
         </div>
       </div>
@@ -213,14 +220,17 @@ const InterviewerApplicantsCalificationBox = () => {
             tolerancia baja a la frustración que se presentaron con los
             ejercicios.{" "}
           </p>
-          <p className="card-footer">Nombre Aspirante 
-              <select className="interviewerSelect"  name="" id="">
-                <option className="interviewerSelectOption" value="5">5</option>
-                <option value="4">4</option>
-                <option value="3">3</option>
-                <option value="2">2</option>
-                <option value="1">1</option>
-              </select>
+          <p className="card-footer">
+            Nombre Aspirante
+            <select className="interviewerSelect" name="" id="">
+              <option className="interviewerSelectOption" value="5">
+                5
+              </option>
+              <option value="4">4</option>
+              <option value="3">3</option>
+              <option value="2">2</option>
+              <option value="1">1</option>
+            </select>
           </p>
         </div>
       </div>
@@ -234,7 +244,6 @@ const InterviewerApplicantsCalificationBox = () => {
               id="w3review"
               name="w3review"
               rows="10"
-             
             />
           </form>
 

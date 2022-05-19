@@ -9,7 +9,7 @@
     border: 1px solid #c7c7c7;
 }
 
-.interviewerApplicantTable{
+.viewerApplicantTable{
     width: 75vw;
     text-align: center;
     overflow: scroll;
@@ -19,7 +19,7 @@
     margin: auto;
 }
 
-.InterviewerApplicantsCalificationBoxContainer{
+.viewerCalificationBoxContainer{
     width: 75vw;
     height: 100%;
     display: flex;
@@ -75,6 +75,8 @@
 .InterviewerApplicanTextarea{
     box-shadow: 1px 10px 25px #c7c7c7;
     width: 100%;
+    border-radius: 10px;
+    border: none;
   
 }
 
@@ -86,11 +88,12 @@
     box-shadow: 1px 10px 25px #c7c7c7;
     margin-top: 10%;
 }
-.card-footer{
+.card-footer-viewer{
     padding: 10px;
-    box-shadow: 1px 10px 25px #c7c7c7;
+    border: 1px solid #c7c7c7;
     display: flex;
     justify-content: space-evenly;
+    border-radius: 10px;
 }
 .interviewerSelect{
     width: 100px;
@@ -103,25 +106,28 @@
 }
 @media (max-width: 768px) {
 
-    .interviewerApplicantTable{
+    .viewerApplicantTable{
         width: 90vw;
         margin: auto;
         padding: 10px;
+    
     }
-        .card-header{
-            font-size: 1rem;
-            height: auto;
-            background-color: #FDC300;
+        .card-header{       
+            height: auto;     
         }
     }
 
 
 
 @media (max-width: 465px) {
-    .InterviewerApplicantsCalificationBoxContainer{
-        padding: 0;
-        width: 100%;
+.viewerCalificationBoxContainer{
+    padding: 0;
+    width: 100%;
     }
+
+.card{
+    width: 100%;
+}
 
 }
 

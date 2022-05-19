@@ -1,12 +1,12 @@
 import React from 'react'
 import InterviewerApplicantsCalificationBox from '../../components/interviewer/InterviewerApplicantsCalificationBox';
 import InterviewerApplicantsTable from '../../components/interviewer/InterviewerApplicantsTable';
-import "./Interviewer.css";
+import "./InterviewerApplicant.css";
 
 const InterviewerApplicantsCited = () => {
   return (
     <>
-      <div className="interviewerDashboardContainer">
+      <div className="interviewerApplicantContainer">
       <h1 className="interviewrApplicantTitle">Aplicantes citados para el día de hoy</h1>
        <div className="">
        <InterviewerApplicantsTable/>
