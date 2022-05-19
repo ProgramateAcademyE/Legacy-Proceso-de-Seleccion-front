@@ -1,49 +1,3 @@
-/*import React from 'react';
-import { useFormik } from 'formik';
-
-const ModeratorForm = () => {
-  const formik = useFormik({
-    initialValues: {
-      firstName: '',
-      lastName: '',
-      email: '',
-    },
-    onSubmit: values => {
-      alert(JSON.stringify(values, null, 2));
-    },
-  });
-  return (
-    <form onSubmit={formik.handleSubmit}>
-      <label htmlFor="firstName">First Name</label>
-      <input
-        id="firstName"
-        name="firstName"
-        type="text"
-        onChange={formik.handleChange}
-        value={formik.values.firstName}
-      />
-      <label htmlFor="lastName">Last Name</label>
-      <input
-        id="lastName"
-        name="lastName"
-        type="text"
-        onChange={formik.handleChange}
-        value={formik.values.lastName}
-      />
-      <label htmlFor="email">Email Address</label>
-      <input
-        id="email"
-        name="email"
-        type="email"
-        onChange={formik.handleChange}
-        value={formik.values.email}
-      />
-      <button type="submit">Submit</button>
-    </form>
-  );
-};
- export default ModeratorForm*/
-
  import React,{useState} from 'react';
  import { Formik, Field, Form, ErrorMessage } from "formik";
 
@@ -98,7 +52,7 @@ const ModeratorForm = () => {
                 {({errors}) =>(
                     <Form className="formulario" >
                     <div>
-                        {/*  {console.log(touched)}elemento de input fue tocado */}
+                      <div>                        
                         {console.log(errors)}
                         <div>
                           <label htmlFor='startDate'>Fecha </label>
@@ -131,10 +85,52 @@ const ModeratorForm = () => {
                                 </span>
                               )}
 									          />     
-                        </div>
+                      </div>
                         <div>
-                          
-                        </div>
+                          <label htmlFor='interviewRooms'>No salas Entrevistas</label>
+                          <Field type='number' name='interviewRooms' />
+                          <ErrorMessage
+                            name='interviewRooms'
+                            component={() => (
+                              <span>
+                                {errors.interviewRooms}
+                              </span>
+                            )}
+                          />
+									      </div>
+                  </div>
+                  <div>
+                    <div>
+                            <label htmlFor='assessmentRooms'>No salas Assessment</label>
+                            <Field type='number' name='assessmentRooms' />
+                            <ErrorMessage
+                              name='assessmentRooms'
+                              component={() => (
+                                <span>
+                                  {errors.assessmentRooms}
+                                </span>
+                              )}
+                            />
+                    </div>
+                    <div>
+                      <label htmlFor="link">Link Reunion</label>
+                            <Field 
+                              type="text" 
+                              id="link" 
+                              name="link" 
+                              placeholder="https://us02web.zoom.us/j/82796969722?pwd=Y0VGSG5TaXlPeTRqZEFVc2dEZk1qUT10"
+                             />
+                            <ErrorMessage name="link" component={()=>(
+                              <div className="error">{errors.link}</div>
+
+                                )}
+                            />
+                      
+                            
+                    </div>
+                    
+
+                  </div>
                         <div>
                                 <label htmlFor="nombre">Nombre</label>
                                 <Field 
