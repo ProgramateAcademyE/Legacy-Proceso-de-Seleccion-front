@@ -1,5 +1,5 @@
 import React from 'react'
-//import "./ModeratorCreateInterview.css";
+import "./ModeratorCreateInterview.css";
 import "../../../components/moderatorForm/ModeratorForm.css"
 import ModeratorForm from '../../../components/moderatorForm/ModeratorForm'
 const ModeratorCreateInterview = () => {

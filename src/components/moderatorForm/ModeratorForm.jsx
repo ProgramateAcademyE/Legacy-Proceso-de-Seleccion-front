@@ -85,7 +85,7 @@
                                 </span>
                               )}
 									          />     
-                      </div>
+                        </div>
                         <div>
                           <label htmlFor='interviewRooms'>No salas Entrevistas</label>
                           <Field type='number' name='interviewRooms' />
@@ -125,9 +125,80 @@
 
                                 )}
                             />
-                      
-                            
+                          
                     </div>
+                    <button className="ModeratorApplicantsSubmit">
+                      Aspirantes
+                    </button>
+
+                    <div>
+                            <Field
+                              name='applicants'
+                              as='select'
+                              multiple
+                              className='form-control select picker form-select'>
+                              <option value='yessith'>Yessith Perez</option>
+                              <option value='marilyn'>Marilyn sandoval</option>
+                              <option value='ligia'>Ligia Perez</option>
+                            </Field> 
+                            <ErrorMessage
+                              name='applicants'
+                              component={() => (
+                                <span>
+                                  {errors.applicants}
+                                </span>
+                              )}
+									          />     
+                    </div>
+                    <button className="ModeratorInterviewersSubmit">
+                      Entrevistadores
+                    </button>
+                    <div>
+                            <Field
+                              name='interviewers'
+                              as='select'
+                              multiple
+                              className='form-control select picker form-select'>
+                              <option value='juli'>Juliana Fajardo</option>
+                              <option value='moises'>Moises Ariza</option>
+                              
+                            </Field> 
+                            <ErrorMessage
+                              name='interviewers'
+                              component={() => (
+                                <span>
+                                  {errors.interviewers}
+                                </span>
+                              )}
+									          />     
+                    </div>
+                    <button className="ModeratorInterviewersSubmit">
+                      observadores
+                    </button>
+                    <div>
+                            <Field
+                              name='observers'
+                              as='select'
+                              multiple
+                              className='form-control select picker form-select'>
+                              <option value='lorena'>Lorena Guerreo</option>
+                              <option value='andres'>Andres Patiño</option>
+                              
+                            </Field> 
+                            <ErrorMessage
+                              name='observers'
+                              component={() => (
+                                <span>
+                                  {errors.observers}
+                                </span>
+                              )}
+									          />     
+                    </div>
+                    <button className="ModeratorInterviewersSubmit">
+                    Publicar y enviar
+                    </button>
+
+
                     
 
                   </div>
