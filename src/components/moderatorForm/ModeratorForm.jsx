@@ -3,10 +3,7 @@
 
  const ModeratorForm = () =>{
   const[formularioEnviado, cambiarFormularioEnviado] = useState(false)
-    
-     
-
-     
+ 
         return(
             <>
             <Formik
@@ -45,7 +42,6 @@
                 setTimeout(() => cambiarFormularioEnviado(false), 5000);
 
             }}
-            
             
             >
                
@@ -239,7 +235,7 @@
                                 />
                       
                         </div>
-
+                       /*
                         <div>
                               <Field name="pais" as="select">
                                 <option value="mexico">Mexico</option>
@@ -268,49 +264,7 @@
                  </Form>
 
                 )}
-                {/* 
-                
-                {({values,errors,touched, handleSubmit, handleChange, handleBlur}) =>(
-                    <form className="formulario" onSubmit={handleSubmit}>
-                  
-                      {console.log(errors)}
-                        
-                        <div>
-                            <label htmlFor="nombre">Nombre</label>
-                            <input 
-                                type="text" 
-                                id="nombre" 
-                                name="nombre" 
-                                placeholder="Doraly"
-                                value={values.nombre}
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-                            />
-                      
-                            {touched.nombre && errors.nombre && <div className="error">{errors.nombre}</div>}
-                        </div>
-                        <div>
-                            <label htmlFor="nombre">Correo</label>
-                            <input 
-                                type="email" 
-                                id="correo" 
-                                name="correo"
-                                placeholder="@educamas.edu.co" 
-                                value={values.correo}
-                                onChange={handleChange}
-                                onBlur={handleBlur}
-
-                             />
-                            {touched.correo && errors.correo && <div className="error">{errors.correo}</div>}
-                        </div>
-                        <button type="submit">Enviar</button>
-                         {formularioEnviado && <p classNAme="exito">Formulario Enviado con exito!</p>}
-                 </form>
-
-                )}
-            
-                   
- */}
+               
             </Formik>
             
                 
