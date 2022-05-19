@@ -3,9 +3,7 @@
     width: 90%;
     margin: 0 50px;
     background-color:rgb(207, 207, 223);
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    
     margin-left: 7%;
     padding:12px;
 }
