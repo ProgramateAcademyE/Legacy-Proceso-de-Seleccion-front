@@ -42,13 +42,12 @@
                 setTimeout(() => cambiarFormularioEnviado(false), 5000);
 
             }}
-            
             >
                
                 {({errors}) =>(
-                    <Form className="formulario" >
+                    <Form className="formulario">
                     <div>
-                      <div>                        
+                      <div className="ModeratorFormSection1">                        
                         {console.log(errors)}
                         <div>
                           <label htmlFor='startDate'>Fecha </label>
@@ -62,14 +61,14 @@
                                 )}
                               />
                         </div>
-                       
-                        <div>
-                          <h4>Jornada</h4>
+                    
+                        <div >
+                        <label htmlFor='jornada'>Jornada</label>
                             <Field
                               name='jornada'
                               as='select'
                               multiple
-                              className='form-control select picker form-select'>
+                              className=''>
                               <option value='am'>am</option>
                               <option value='pm'>pm</option>
                             </Field> 
@@ -95,7 +94,7 @@
                           />
 									      </div>
                   </div>
-                  <div>
+                  <div className="ModeratorFormSection2">
                     <div>
                             <label htmlFor='assessmentRooms'>No salas Assessment</label>
                             <Field type='number' name='assessmentRooms' />
@@ -123,10 +122,10 @@
                             />
                           
                     </div>
-                    <button className="ModeratorApplicantsSubmit">
+                  </div>
+                    <h5 className="ModeratorApplicantsSubmit">
                       Aspirantes
-                    </button>
-
+                    </h5>
                     <div>
                             <Field
                               name='applicants'
@@ -146,9 +145,9 @@
                               )}
 									          />     
                     </div>
-                    <button className="ModeratorInterviewersSubmit">
+                    <h5 className="ModeratorInterviewersSubmit">
                       Entrevistadores
-                    </button>
+                    </h5>
                     <div>
                             <Field
                               name='interviewers'
@@ -168,9 +167,9 @@
                               )}
 									          />     
                     </div>
-                    <button className="ModeratorInterviewersSubmit">
+                    <h5 className="ModeratorInterviewersSubmit">
                       observadores
-                    </button>
+                    </h5>
                     <div>
                             <Field
                               name='observers'
@@ -190,14 +189,13 @@
                               )}
 									          />     
                     </div>
-                    <button className="ModeratorInterviewersSubmit">
-                    Publicar y enviar
-                    </button>
-
-
-                    
-
-                  </div>
+                    <div className="ModeratorInterviewerButton">
+                      <button className="ModeratorInterviewersSubmit">
+                      Publicar y enviar
+                      </button>
+                    </div>
+                    {/** 
+                 
                         <div>
                                 <label htmlFor="nombre">Nombre</label>
                                 <Field 
@@ -235,7 +233,7 @@
                                 />
                       
                         </div>
-                       /*
+                       
                         <div>
                               <Field name="pais" as="select">
                                 <option value="mexico">Mexico</option>
@@ -259,7 +257,7 @@
                         </div>
                             <button type="submit">Enviar</button>
                             {formularioEnviado && <p classNAme="exito">Formulario Enviado con exito!</p>}
-
+*/}
                     </div>
                  </Form>
 
