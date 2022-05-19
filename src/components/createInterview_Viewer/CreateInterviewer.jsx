@@ -4,7 +4,9 @@ import "styled-components";
 import DataTableExtensions from "react-data-table-component-extensions";
 import "react-data-table-component-extensions/dist/index.css";
 import "./CreateInterviewer.css"
-import { Icon } from "@material-ui/core";
+
+
+
 
 const CreateInterviewer = () => {
   //1 - Configurar los hooks
@@ -45,6 +47,7 @@ const CreateInterviewer = () => {
        
       name: "Habilitar",
       selector: (row) => row.habilitar,
+      
     
     },
   

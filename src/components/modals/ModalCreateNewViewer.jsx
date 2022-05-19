@@ -20,7 +20,7 @@ textfield:{
   width:'100%'
 }
 }))
-function ModalCreateNewInterviewer() {
+function ModalCreateNewViewer() {
   const styles=useStyles();
 
   const [modal, setModal]=useState(false);
@@ -50,7 +50,7 @@ function ModalCreateNewInterviewer() {
 
   return (
     <div>
-      <Button className={styles.button} onClick={()=>abrirCerrarModal()} >Crear Entrevistador </Button>
+      <Button className={styles.button} onClick={()=>abrirCerrarModal()} >Crear Observador </Button>
 <Modal
 open={modal}
 onClose={abrirCerrarModal}>
@@ -61,4 +61,4 @@ onClose={abrirCerrarModal}>
   )
 }
 
-export default ModalCreateNewInterviewer
+export default ModalCreateNewViewer
