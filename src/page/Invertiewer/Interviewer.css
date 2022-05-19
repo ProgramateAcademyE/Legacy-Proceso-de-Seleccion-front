@@ -2,21 +2,27 @@
     
     height: auto;
     width: 90%;
-    background-color: red;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-left: 7%;
+    text-align: center;
 }
 
-.interviewrDashboardTitle{
+.interviewrApplicantTitle{
     font-size: 2rem;
     text-align: center;
     padding: 20px;
     margin-top: 10%;
 }
 
+.interviewrApplicantTitle2{
+    font-size: 2rem;
+    text-align: center;
+    padding: 20px;
+    margin-top: 3%;
+}
 
 
 
