@@ -94,72 +94,110 @@ const ModeratorForm = () => {
             
             
             >
-               {/* {{values,errors,touched, handleSubmit, handleChange, handleBlur}} */}
+               
                 {({errors}) =>(
                     <Form className="formulario" >
-                     {/*  {console.log(touched)}elemento de input fue tocado */}
-                      {console.log(errors)}
-                        
+                    <div>
+                        {/*  {console.log(touched)}elemento de input fue tocado */}
+                        {console.log(errors)}
                         <div>
-                            <label htmlFor="nombre">Nombre</label>
-                            <Field 
-                                type="text" 
-                                id="nombre" 
-                                name="nombre" 
-                                placeholder="Doraly"
-                               
-                                
-                            />
-                            <ErrorMessage name="nombre" component={()=>(
-
-                              <div className="error">{errors.nombre}</div>
-
-                            )}
-                            />
-                  
-                        
+                          <label htmlFor='startDate'>Fecha </label>
+                            <Field type='date' name='startDate' id='startDate' />
+                              <ErrorMessage
+                                name='startDate'
+                                component={() => (
+                                  <span>
+                                    {errors.startDate}
+                                  </span>
+                                )}
+                              />
+                        </div>
+                       
+                        <div>
+                          <h4>Jornada</h4>
+                            <Field
+                              name='jornada'
+                              as='select'
+                              multiple
+                              className='form-control select picker form-select'>
+                              <option value='am'>am</option>
+                              <option value='pm'>pm</option>
+                            </Field> 
+                            <ErrorMessage
+                              name='jornada'
+                              component={() => (
+                                <span>
+                                  {errors.jornada}
+                                </span>
+                              )}
+									          />     
                         </div>
                         <div>
-                            <label htmlFor="nombre">Correo</label>
-                            <Field 
-                                type="email" 
-                                id="correo" 
-                                name="correo"
-                                placeholder="@educamas.edu.co" 
-                              
-
-                             />
-                            <ErrorMessage name="correo" component={()=>(
-
-                              <div className="error">{errors.correo}</div>
-
-                            )}
-                            />
-                  
+                          
                         </div>
                         <div>
-                          <Field name="pais" as="select">
-                            <option value="mexico">Mexico</option>
-                            <option value="mexico">Colombia</option>
-                            <option value="mexico">España</option>
-                            <option value="mexico">Argentian</option>
+                                <label htmlFor="nombre">Nombre</label>
+                                <Field 
+                                    type="text" 
+                                    id="nombre" 
+                                    name="nombre" 
+                                    placeholder="Doraly"
+                                  
+                                    
+                                />
+                                <ErrorMessage name="nombre" component={()=>(
 
-                          </Field>
+                                  <div className="error">{errors.nombre}</div>
+
+                                )}
+                                />
+                      
+                            
                         </div>
                         <div>
-                              <label>
-                                  <Field type="radio" name="sexo" vale="hombre"/>Hombre
-                              </label>
-                              <label>
-                                  <Field type="radio" name="sexo" vale="mujer"/>Mujer
-                              </label>
+                                <label htmlFor="nombre">Correo</label>
+                                <Field 
+                                    type="email" 
+                                    id="correo" 
+                                    name="correo"
+                                    placeholder="@educamas.edu.co" 
+                                  
+
+                                />
+                                <ErrorMessage name="correo" component={()=>(
+
+                                  <div className="error">{errors.correo}</div>
+
+                                )}
+                                />
+                      
                         </div>
 
                         <div>
-                          <Field name="mensaje" as="textarea" placeholder="Mensaje"/>
+                              <Field name="pais" as="select">
+                                <option value="mexico">Mexico</option>
+                                <option value="mexico">Colombia</option>
+                                <option value="mexico">España</option>
+                                <option value="mexico">Argentian</option>
+
+                              </Field>
                         </div>
-                        <button type="submit">Enviar</button>
-                         {formularioEnviado && <p classNAme="exito">Formulario Enviado con exito!</p>}
+                        <div>
+                                  <label>
+                                      <Field type="radio" name="sexo" vale="hombre"/>Hombre
+                                  </label>
+                                  <label>
+                                      <Field type="radio" name="sexo" vale="mujer"/>Mujer
+                                  </label>
+                        </div>
+
+                        <div>
+                              <Field name="mensaje" as="textarea" placeholder="Mensaje"/>
+                        </div>
+                            <button type="submit">Enviar</button>
+                            {formularioEnviado && <p classNAme="exito">Formulario Enviado con exito!</p>}
+
+                    </div>
                  </Form>
 
                 )}
