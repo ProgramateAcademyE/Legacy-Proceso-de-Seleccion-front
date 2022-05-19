@@ -3,8 +3,8 @@ import "./ViewerDashboard.css";
 import DataTableExtensions from "react-data-table-component-extensions";
 import "react-data-table-component-extensions/dist/index.css";
 import { useState,useEffect } from 'react';
-import DataTable from "react-data-table-component";
-
+import DataTable , { createTheme } from "react-data-table-component";
+import "styled-components";
 
 const ViewerDashboard = () => {
   //1 - Configurar los hooks
@@ -56,7 +56,7 @@ const ViewerDashboard = () => {
   ];
 
   return (
-    <div className="table">
+    <div className="table59">
       <DataTableExtensions
         columns={columns}
          data={users}
@@ -77,7 +77,6 @@ const ViewerDashboard = () => {
           
         />
       </DataTableExtensions>
-   
     </div>
   );
 };
