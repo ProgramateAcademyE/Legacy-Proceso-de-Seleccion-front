@@ -108,8 +108,9 @@
                             />
                     </div>
                     <div>
-                      <label htmlFor="link">Link Reunion</label>
+                      <label  htmlFor="link">Link Reunion</label>
                             <Field 
+                            className="ModeratorFormLink"
                               type="text" 
                               id="link" 
                               name="link" 
@@ -123,9 +124,12 @@
                           
                     </div>
                   </div>
-                    <h5 className="ModeratorApplicantsSubmit">
+                  <div className="ModeratorFormTitle">
+                  <h5 className="ModeratorFormApplicants">
                       Aspirantes
                     </h5>
+                  </div>
+                  
                     <div>
                             <Field
                               name='applicants'
@@ -145,9 +149,12 @@
                               )}
 									          />     
                     </div>
-                    <h5 className="ModeratorInterviewersSubmit">
+                    <div className="ModeratorFormTitle">
+                    <h5 className="">
                       Entrevistadores
                     </h5>
+                    </div>
+                   
                     <div>
                             <Field
                               name='interviewers'
@@ -167,9 +174,12 @@
                               )}
 									          />     
                     </div>
-                    <h5 className="ModeratorInterviewersSubmit">
-                      observadores
-                    </h5>
+                    <div className="ModeratorFormTitle">
+                      <h5 className="">
+                        observadores
+                        </h5>
+                    
+                    </div> 
                     <div>
                             <Field
                               name='observers'
@@ -189,8 +199,8 @@
                               )}
 									          />     
                     </div>
-                    <div className="ModeratorInterviewerButton">
-                      <button className="ModeratorInterviewersSubmit">
+                    <div className="ModeratorFormButton">
+                      <button className="ModeratorFormSubmit">
                       Publicar y enviar
                       </button>
                     </div>
