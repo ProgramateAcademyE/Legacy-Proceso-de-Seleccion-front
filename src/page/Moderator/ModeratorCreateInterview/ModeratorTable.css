@@ -1,0 +1,34 @@
+
+  .moderatorInterviewTableContainer{
+    height: auto;
+    width: 90%;
+   
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 7%;
+  }
+
+  .moderatorInterviewTableTitle{
+    font-size: 1rem;
+    text-align: center;
+    padding: 10px;
+    margin-top: 10%;
+    background-color:#FFCC02;
+    border-radius:20px;
+  }
+
+  @media (max-width: 768px) {
+    .moderatorInterviewTableTitle{
+        margin-top: 20%;
+        font-size: 1.5rem;
+    }
+    
+}
+
+@media (max-width: 465px) {
+    .moderatorInterviewTableTitle{
+        margin-top: 25%;
+    }
+}  

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
 import "styled-components";
+import "./ModeratorInterviewerTable.css";
 import DataTableExtensions from "react-data-table-component-extensions";
 import "react-data-table-component-extensions/dist/index.css";
 //import { columns, data } from "./data";
@@ -84,6 +85,8 @@ const ModeratorInterviewerTable= ()=> {
           noHeader
           pagination
           highlightOnHover
+        
+
           
         />
       </DataTableExtensions>
