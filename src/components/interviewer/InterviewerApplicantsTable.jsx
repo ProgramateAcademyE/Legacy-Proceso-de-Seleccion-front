@@ -5,13 +5,12 @@ import "./InterviewerApplicants.css";
 import DataTableExtensions from "react-data-table-component-extensions";
 import "react-data-table-component-extensions/dist/index.css";
 
-
-
-
-
-
-
 const InterviewerApplicantsTable = () => {
+
+  const handleChange = ({ selectedRows }) => {
+    // You can set state or dispatch with something like Redux so we can use the retrieved data
+    console.log('Selected Rows: ', selectedRows);
+  };
   //1 - Configurar los hooks
   const [users, setUsers] = useState([]);
 
@@ -56,18 +55,14 @@ const InterviewerApplicantsTable = () => {
     {
       name: "OBSERVADOR",
       selector: (row) => row.viewername,
-    },  
-  
+    },
   ];
 
   return (
-    <div className="table">
-      <DataTableExtensions
-        columns={columns}
-         data={users}
-         >
+    <div className="interviewerApplicantTable">
+      <DataTableExtensions columns={columns} data={users}>
         <DataTable
-          title = "Aspirantes Citados"
+          title="Aspirantes Citados"
           columns={columns}
           data={users}
           defaultSortField="id"
@@ -75,14 +70,13 @@ const InterviewerApplicantsTable = () => {
           pagination
           paginationRowsPerPageOptions={[5, 10, 25, 50, 100]}
           highlightOnHover
-          selectableRows
+          selectableRows 
           selectableRowsHighlight
+          onSelectedRowsChange={handleChange}
           fixedHeader
           fixedHeaderScrollHeight
-          
         />
-        </DataTableExtensions>
-   
+      </DataTableExtensions>
     </div>
   );
 };
