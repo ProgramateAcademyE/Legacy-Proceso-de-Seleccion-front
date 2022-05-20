@@ -35,11 +35,12 @@
     border-radius: 5px;
     height: 30px;
     width: 80px;
-    margin: 10px;
+    margin: 7px;
 }
 .btnadd_interviewer:hover{
     background: #c1c1c1;
 }
+
 .modalDialog:target {
     opacity: 1;
     pointer-events: auto;

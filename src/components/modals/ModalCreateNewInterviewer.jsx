@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Modal, TextField, Button} from '@material-ui/core';
+import {Modal, TextField} from '@material-ui/core';
 import { makeStyles } from '@material-ui/core/styles';
 import "./Modal.css"
 
@@ -7,18 +7,23 @@ import "./Modal.css"
 const useStyles=makeStyles((theme)=>({
 modal:{
   position:'absolute',
-  width:'500px',
+  width:'47%',
   backgroundColor:'white',
   border: '1px solid #000',
   boxShadow:'1px 10px 25px',
   padding:'26px 32px 24px',
-  top:'35%',
-  left:'35%',
   borderRadius:'10px',
-  transform:'tanslate(-50%, -50%)',
+  top:150,
+  left:0,
+ right:0,
+ botton:0,
+ margin:'auto',
+  
+  // transform:'tanslate(-50%, -50%)',
 },
 textfield:{
-  width:'100%'
+  width:'98%'
+
 }
 }))
 function ModalCreateNewInterviewer() {
@@ -36,15 +41,17 @@ function ModalCreateNewInterviewer() {
       <div align="center">     
         <h2>Datos</h2>
       </div>
-      <TextField label="Nombre Completo" className={styles.textfield}/>
+      <TextField label="Nombres" className={styles.textfield}/>
       <br/>
-      <TextField label="Correo Electrónico" className={styles.textfield}/>
+      <TextField label="Apellidos" className={styles.textfield}/>
+      <br/>
+      <TextField label="Email" className={styles.textfield}/>
 <brf/>
 <TextField label="Contraseña" className={styles.textfield}/>
 <br/>
 <div align="right">
 <button className="btnadd_interviewer">Agregar</button>
-<button className="btnadd_interviewer" onClick={()=>abrirCerrarModal()}>Cancelar</button>
+{/* <button className="btnadd_interviewer" onClick={()=>abrirCerrarModal()}>Cancelar</button> */}
 </div>  
  </div>
   )

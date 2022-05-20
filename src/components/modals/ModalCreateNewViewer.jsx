@@ -6,18 +6,21 @@ import "./Modal.css"
 
 const useStyles=makeStyles((theme)=>({
 modal:{
-  position:'absolute',
-  width:'500px',
-  backgroundColor:'white',
-  border: '1px solid #000',
-  boxShadow:'1px 10px 25px',
-  padding:'26px 32px 24px',
-  top:'35%',
-  left:'35%',
-  transform:'tanslate(-50%, -50%)',
+    position:'absolute',
+    width:'47%',
+    backgroundColor:'white',
+    border: '1px solid #000',
+    boxShadow:'1px 10px 25px',
+    padding:'26px 32px 24px',
+    borderRadius:'10px',
+    top:150,
+    left:0,
+   right:0,
+   botton:0,
+   margin:'auto',
 },
 textfield:{
-  width:'100%'
+  width:'98%'
 }
 }))
 function ModalCreateNewViewer() {
@@ -35,15 +38,17 @@ function ModalCreateNewViewer() {
       <div align="center">     
         <h2>Datos</h2>
       </div>
-      <TextField label="Nombre Completo" className={styles.textfield}/>
+      <TextField label="Nombres" className={styles.textfield}/>
       <br/>
-      <TextField label="Correo Electrónico" className={styles.textfield}/>
+      <TextField label="Apellidos" className={styles.textfield}/>
+      <br/>
+      <TextField label="Email" className={styles.textfield}/>
 <brf/>
 <TextField label="Contraseña" className={styles.textfield}/>
 <br/>
 <div align="right">
-<Button>Agregar</Button>
-<Button onClick={()=>abrirCerrarModal()}>Cancelar</Button>
+<button className='btnadd_interviewer'>Agregar</button>
+{/* <Button onClick={()=>abrirCerrarModal()}>Cancelar</Button> */}
 </div>  
  </div>
   )
