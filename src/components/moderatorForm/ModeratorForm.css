@@ -5,9 +5,10 @@
 }
 
 .ModeratorForm {
-	min-width: 600px;
+	
+	width: 100%;
 	margin-top: 50px;
-	background: #fff;
+	/*background: blue;*/
 	border-radius: 5px;
 	padding: 20px;
 	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
@@ -83,60 +84,11 @@ h5{
     margin: 9px 0px 9px 0px;
     box-shadow: 0px 0px 4px 0px black;
     border-radius: 5px;
-	width:70rem;
-}
-/*Media query celular */
-@media (max-width: 425px) {
-
-	.ModeratorFormSection1{
-		display:flex;
-		flex-direction:column;
-		justify-content: space-evenly;
-		align-content:center;
-		width:10rem;
-	}
-	.ModeratorFormSection2{
-		display:flex;
-		flex-direction:column;
-		justify-content: space-evenly;
-		align-content:center;
-		width:10rem;
-	}
-	.ModeratorFormLink{
-		width:16rem;
-		
-	}
-	.ModeratorFormTitle{
-	    width:70vw;
-		display:flex;
-		justify-content:center;
-		align-items:center;
-	}
-
-	.ModeratorFormButton{
-		width:70vw;
-		display:flex;
-		justify-content: center;
-		align-items:center;
-
-
-	}
-	
-	.select {
-		margin: 9px 0px 9px 0px;
-		box-shadow: 0px 0px 4px 0px black;
-		border-radius: 5px;
-		width:15rem;
-	}
-
-    
-
-	
+	width:100%;
 }
 /*Media query Tablet 
 @media screen and (max-width: 700px)*/
-@media  (min-width: 426px) and (max-width:800px){
-	
+@media  (max-width:991px){
 		.ModeratorFormSection1{
 			width:90vw;
 			display:flex;
@@ -160,8 +112,7 @@ h5{
 		
 	}
 	.ModeratorFormLink{
-		width:18rem;
-		
+		width:19rem;
 	}
 	.ModeratorFormTitle{
 		display:flex;
@@ -177,7 +128,6 @@ h5{
 	}
 
 	.ModeratorFormButton{
-		
 		display:flex;
 		justify-content: center;
 		align-items:center;
@@ -188,6 +138,55 @@ h5{
 		box-shadow: 0px 0px 4px 0px black;
 		border-radius: 5px;
 		width:20rem;
+	}
+
+	
+}
+/*Media query celular */
+@media (max-width: 530px) {
+	.ModeratorFormSection1{
+		width:90vw;
+		display:flex;
+		flex-direction:column;
+		justify-content: space-evenly;
+		
+	
+		
+	}
+	.ModeratorFormSection2{
+		width:90vw;
+		display:flex;
+		flex-direction:column;
+		justify-content: space-evenly;
+	
+	}
+	
+	.ModeratorFormLink,.ModeratorFormRooms{
+		width:80%;
+		
+		
+	}
+	.ModeratorFormTitle{
+	    width:70vw;
+		display:flex;
+		justify-content:center;
+		align-items:center;
+	}
+
+	.ModeratorFormButton{
+		width:70vw;
+		display:flex;
+		justify-content: center;
+		align-items:center;
+
+
+	}
+	
+	.select {
+		margin: 9px 0px 9px 0px;
+		box-shadow: 0px 0px 4px 0px black;
+		border-radius: 5px;
+		width:15rem;
 	}
 
     

@@ -83,7 +83,7 @@
                         </div>
                         <div>
                           <label htmlFor='interviewRooms'>No salas Entrevistas</label>
-                          <Field type='number' name='interviewRooms' />
+                          <Field className="ModeratorFormRooms" type='number' name='interviewRooms' />
                           <ErrorMessage
                             name='interviewRooms'
                             component={() => (
@@ -97,7 +97,7 @@
                   <div className="ModeratorFormSection2">
                     <div>
                             <label htmlFor='assessmentRooms'>No salas Assessment</label>
-                            <Field type='number' name='assessmentRooms' />
+                            <Field   className="ModeratorFormRooms" type='number' name='assessmentRooms' />
                             <ErrorMessage
                               name='assessmentRooms'
                               component={() => (

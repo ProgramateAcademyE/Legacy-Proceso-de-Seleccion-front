@@ -7,7 +7,8 @@ const ModeratorCreateInterview = () => {
     <>
     <div className="moderatorContainerInterview">
         <div className="moderatorCreateInterviewContainer"> 
-     <h1 className="moderatorCreateInterviewTitle">MODERADOR - CREAR ENTREVISTA y ASSESMENT </h1>
+    {/* <h1 className="moderatorCreateInterviewTitle">MODERADOR - CREAR ENTREVISTA y ASSESMENT </h1>*/}
+    <h1 className="moderatorCreateInterviewTitle">Crear Reunion </h1>
       <ModeratorForm />
 
      </div>
