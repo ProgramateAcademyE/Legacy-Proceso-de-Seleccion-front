@@ -29,35 +29,43 @@ const ModeratorInterviewerTable= ()=> {
     {
       name: "FECHA",
       selector: (row) => row.fecha,
+      sortable:true
     },
     {
       name: "JORNADA",
       selector: (row) => row.jornada,
+      sortable:true
     },
     {
       name: "CONVOCATORIA",
       selector: (row) => row.convocatoria,
+      sortable:true
     },
     {
       name: "# ASPIRANTES",
       selector: (row) => row.aspirante,
+      sortable:true
     },
     {
       name: "# ENTREVISTADORES",
       selector: (row) => row.entrevistador,
+      sortable:true
     },
     {
       name: "# OBSERVADORES",
       selector: (row) => row.observador,
+      sortable:true
     },
     {
       name: "# SALAS",
       selector: (row) => row.salas,
+      sortable:true
 
     },
     {
       name: "DETALLE",
       selector: (row) => row.detalle,
+      sortable:true
     },
   
   ];
@@ -79,15 +87,14 @@ const ModeratorInterviewerTable= ()=> {
           data={users}
           defaultSortField="id"
           defaultSortAsc={false}
+          pagination
+          paginationRowsPerPageOptions={[5, 10, 25, 50, 100]}
+          highlightOnHover
           //scroll
           fixedHeader
-          fixedHeaderScrollHeight="500px"
+          fixedHeaderScrollHeight="600px"
           noHeader
-          pagination
-          highlightOnHover
-        
-
-          
+                  
         />
       </DataTableExtensions>
     </div>
