@@ -68,7 +68,7 @@
                               name='jornada'
                               as='select'
                               multiple
-                              className=''>
+                              className='ModeratorFormSelectJornada'>
                               <option value='am'>am</option>
                               <option value='pm'>pm</option>
                             </Field> 
@@ -130,7 +130,7 @@
                     </h5>
                   </div>
                   
-                    <div>{/*esta estoy modificando */}
+                    <div className="ModeratorFormSelect">{/*esta estoy modificando */}
                             <Field
                               name='applicants'
                               as='select'
@@ -155,7 +155,7 @@
                     </h5>
                     </div>
                    
-                    <div>
+                    <div className="ModeratorFormSelect">
                             <Field
                               name='interviewers'
                               as='select'
@@ -180,7 +180,7 @@
                         </h5>
                     
                     </div> 
-                    <div>
+                    <div className="ModeratorFormSelect">
                             <Field
                               name='observers'
                               as='select'
