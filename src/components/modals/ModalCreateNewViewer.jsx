@@ -47,7 +47,7 @@ function ModalCreateNewViewer() {
 <TextField label="Contraseña" className={styles.textfield}/>
 <br/>
 <div align="right">
-<button className='btnadd_interviewer'>Agregar</button>
+<button className='btnadd_interviewer' onClick={()=>abrirCerrarModal()}>Agregar</button>
 {/* <Button onClick={()=>abrirCerrarModal()}>Cancelar</Button> */}
 </div>  
  </div>

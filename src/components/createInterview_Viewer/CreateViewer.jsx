@@ -27,30 +27,31 @@ const CreateViewer = () => {
     {
       name: "Observador",
       selector: (row) => row.entrevistador,
+      sortable: true, 
     },
     {
       name: "Rol Principal",
       selector: (row) => row.rol_principal,
+      sortable: true, 
     },
     {
       name: "Fecha disponible",
       selector: (row) => row.date,
+      sortable: true, 
     },
     {
       name: "Jornada disponible",
       selector: (row) => row.jornada_disponible,
+      sortable: true, 
     },
     
-    {
-      name: "Habilitar",
-      selector: (row) => row.habilitar,
-     
-    },
+    
   
   ];
 
   return (
     <div className="moderator_createviewer">
+      <div>
       <DataTableExtensions
         columns={columns}
          data={users}
@@ -71,7 +72,10 @@ const CreateViewer = () => {
           
         />
         </DataTableExtensions>
-   
+        </div>
+        <div>
+          <button type="submit" className="btnadd_interviewer"> Asignar </button>
+        </div>
     </div>
   );
 };

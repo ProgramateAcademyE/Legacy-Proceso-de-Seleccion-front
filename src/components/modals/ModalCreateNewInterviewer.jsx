@@ -50,7 +50,7 @@ function ModalCreateNewInterviewer() {
 <TextField label="Contraseña" className={styles.textfield}/>
 <br/>
 <div align="right">
-<button className="btnadd_interviewer">Agregar</button>
+<button className="btnadd_interviewer" onClick={()=>abrirCerrarModal()}>Agregar</button>
 {/* <button className="btnadd_interviewer" onClick={()=>abrirCerrarModal()}>Cancelar</button> */}
 </div>  
  </div>
