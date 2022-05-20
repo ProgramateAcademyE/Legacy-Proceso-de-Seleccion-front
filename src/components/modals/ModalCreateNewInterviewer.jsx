@@ -14,6 +14,7 @@ modal:{
   padding:'26px 32px 24px',
   top:'35%',
   left:'35%',
+  borderRadius:'10px',
   transform:'tanslate(-50%, -50%)',
 },
 textfield:{
@@ -42,8 +43,8 @@ function ModalCreateNewInterviewer() {
 <TextField label="Contraseña" className={styles.textfield}/>
 <br/>
 <div align="right">
-<Button>Agregar</Button>
-<Button onClick={()=>abrirCerrarModal()}>Cancelar</Button>
+<button className="btnadd_interviewer">Agregar</button>
+<button className="btnadd_interviewer" onClick={()=>abrirCerrarModal()}>Cancelar</button>
 </div>  
  </div>
   )
