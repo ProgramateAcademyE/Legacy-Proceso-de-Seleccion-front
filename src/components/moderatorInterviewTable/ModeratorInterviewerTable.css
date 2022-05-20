@@ -10,6 +10,10 @@
     width: 80vw;
     overflow: scroll;
     padding: 20px;
+    padding: 20px 30px;
+    background-color:#ffffff;
+    box-shadow: 1px 10px 25px #c7c7c7;
+    margin: auto;
 
   }
 
