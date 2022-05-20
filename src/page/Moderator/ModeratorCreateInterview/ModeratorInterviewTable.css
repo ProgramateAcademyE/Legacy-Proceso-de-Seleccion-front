@@ -32,8 +32,9 @@
 
   @media (max-width: 768px) {
     .moderatorInterviewTableTitle{
-        margin-top: 20%;
-        font-size: 1.5rem;
+        width:10rem;
+        margin-top: 15%;
+        font-size: 1rem;
 
 
   
