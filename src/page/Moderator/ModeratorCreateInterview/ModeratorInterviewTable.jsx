@@ -6,8 +6,8 @@ const ModeratorInterviewTable = () => {
   return (
       <>
     <div className="moderatorInterviewTableContainer">
-    <div className="">
-    <h1 className="moderatorInterviewTableTitle">Agenda de salas programadas para evaluacion</h1>
+    <div className="moderatorInterviewContainerTitle">
+    <h1 className="moderatorInterviewTableTitle">Agenda de salas programadas </h1>
       <ModeratorInterviewerTable/>
     </div>
     </div>
