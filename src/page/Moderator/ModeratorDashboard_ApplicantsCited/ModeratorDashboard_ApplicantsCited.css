@@ -7,13 +7,18 @@
     
 }
 
-
+.moderatorContainer44{
+    padding-top: 100px;
+    margin-left: 11%;
+    width: 90%;
+    margin-bottom: 23%;
+}
 
 
 .secondu{
     width: 90%;
     height: auto;
-    background-color:#FFCC02;
+    background-color:#ffe88b;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;

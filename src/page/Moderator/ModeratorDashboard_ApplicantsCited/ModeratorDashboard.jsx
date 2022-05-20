@@ -30,7 +30,7 @@ const ModeratorDashboard = () => {
     
       <div className="moderatorContainer44">
           <div className="moderatorDashboard">
-                <h1 className="moderatorDashboardTitle">INICIO - MODERAD1R </h1>
+                <h1 className="moderatorDashboardTitle">INICIO - MODERADOR </h1>
           </div>
 
           <div className='secondu'>
