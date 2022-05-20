@@ -19,19 +19,37 @@
 .viewerAssesmentTitle2{
     font-size: 2rem;
     text-align: center;
+
+}
+
+.viewerAssesmentTitle3{
+    font-size: 2rem;
+    text-align: center;
     padding: 20px;
     margin-top: 3%;
 }
 
 
-@media (max-width: 768px) { 
+@media (max-width: 991px) { 
     .viewerAssesmentTitle{
-        margin-top: 25%;
+        margin-top: 15%;
         font-size: 1.5rem;
     }
-    .viewerAssesmentTitle2{
+    .viewerAssesmentTitle2, .viewerAssesmentTitle3{
         font-size: 1.5rem;
     }
     
 }
+
+@media (max-width: 530px) { 
+    .viewerAssesmentTitle{
+        margin-top: 23%;
+        font-size: 1rem;
+    }
+    .viewerAssesmentTitle2, .viewerAssesmentTitle3{
+        font-size: 1rem;
+    }
+    
+}
+ 
  

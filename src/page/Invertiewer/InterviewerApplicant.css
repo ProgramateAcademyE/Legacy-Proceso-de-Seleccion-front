@@ -24,12 +24,20 @@
 
 
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
 
     .interviewrApplicantTitle{
-        margin-top: 25%;
+        margin-top: 15%;
         font-size: 1.5rem;
     }
-    
 }
 
+@media (max-width: 530px) {
+    .interviewrApplicantTitle{
+        margin-top: 25%;
+        font-size: 1rem;
+    }
+    .interviewrApplicantTitle2{
+        font-size: 1rem;
+    }
+}

@@ -9,8 +9,13 @@
     text-align: center;
 }
 
-.viewrDashboardTitle{
-    font-size: 4rem;
+.viewerDashboardTitle{
+    margin-top: 10%;
+    font-size: 2rem;
+}
+.viewerDashboardTitle2{
+    margin-top: 2%;
+    font-size: 2rem;
 }
 
 .viewerSpan{
@@ -35,5 +40,34 @@
     display: flex;
     justify-content: center;
     border-right: 1px solid #c7c7c7;
+
+}
+
+
+
+
+@media (max-width: 991px) {
+    .viewerDashboardTitle{
+        margin-top: 17%;
+        font-size: 1.5rem;
+    }
+    .viewerDashboardTitle2{
+        font-size: 1.5rem;
+    }
+    
+}
+
+@media (max-width: 530px) {
+    .viewerDashboardTitle{
+        margin-top: 27%;
+        font-size: 1rem;
+    }
+    .viewerDashboardTitle2{
+        font-size: 1rem;
+    }
+    .viewerSpan{
+        box-shadow: none;
+    }
+
 
 }

@@ -27,3 +27,27 @@
     border-radius: 10px;
     box-shadow: 1px 10px 25px #c7c7c7;
 }
+
+
+@media (max-width: 991px) {
+    .interviewerDashboardtTitle{
+        margin-top: 10%;
+        font-size: 1.5rem;
+    }
+    
+}
+
+@media (max-width: 530px) {
+    .interviewerDashboardtTitle{
+        margin-top: 25%;
+        font-size: 1rem;
+    }
+
+    .interviewerSpan{
+        box-shadow: none;
+    }
+    .interviewerDashboardTitle2{
+        font-size: 1rem;
+    }
+
+}

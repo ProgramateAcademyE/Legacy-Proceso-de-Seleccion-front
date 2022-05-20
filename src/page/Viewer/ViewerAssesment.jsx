@@ -9,13 +9,13 @@ const ViewerAssesment = () => {
       <div className="viewerAssesmentContainer">
         <h1 className="viewerAssesmentTitle"><span className="viewerSpan">OBSERVADOR ASSESMENT</span></h1>
 
-        <h4 className="">
+        <h4 className="viewerAssesmentTitle2">
           Lista de estudiantes agendados para hoy...
         </h4>
 
         <ViewerTable />
 
-        <h1 className="viewerAssesmentTitle2"><span className="viewerSpan">OBSERVADOR CALIFICACIÓN</span></h1>
+        <h1 className="viewerAssesmentTitle3"><span className="viewerSpan">OBSERVADOR CALIFICACIÓN</span></h1>
         <ViewerCalificationBox />
       </div>
     </>

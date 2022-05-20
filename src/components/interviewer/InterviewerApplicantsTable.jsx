@@ -30,30 +30,37 @@ const InterviewerApplicantsTable = () => {
     {
       name: "ID",
       selector: (row) => row.id,
+      sortable: true,
     },
     {
       name: "FECHA",
       selector: (row) => row.date,
+      sortable: true,
     },
     {
       name: "HORARIO",
       selector: (row) => row.hour,
+      sortable: true,
     },
     {
       name: "ASPIRANTE",
       selector: (row) => row.name,
+      sortable: true,
     },
     {
       name: "IDENTIFICACION",
       selector: (row) => row.identification,
+      sortable: true,
     },
     {
       name: "ENTREVISTADOR",
       selector: (row) => row.interviewername,
+      sortable: true,
     },
     {
       name: "OBSERVADOR",
       selector: (row) => row.viewername,
+      sortable: true,
     },
   ];
 

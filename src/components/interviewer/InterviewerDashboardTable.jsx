@@ -27,29 +27,37 @@ const InterviewerDashboardTable= () => {
       {
         name: "FECHA",
         selector: (row) => row.date,
+        sortable: true,
       },
       {
         name: "JORNADA",
         selector: (row) => row.time,
+        sortable: true,
       },
       {
         name: "CONVOCATORIA",
         selector: (row) => row.convocatory,
+        sortable: true,
       },
       {
         name: "ROL ASIGNADO",
         selector: (row) => row.rol,
+        sortable: true,
       },
       {
         name: "SALA",
         selector: (row) => row.room,
+        sortable: true,
       },
       {
         name: "ASPIRANTES",
         selector: (row) => row.applicants,
-      },  {
+        sortable: true,
+      },  
+      {
         name: "DETALLE",
         selector: (row) => row.detail,
+        sortable: true,
       }
     
     ];

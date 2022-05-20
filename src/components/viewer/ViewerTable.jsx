@@ -5,7 +5,7 @@ import "./ViewerCalification.css";
 import DataTableExtensions from "react-data-table-component-extensions";
 import "react-data-table-component-extensions/dist/index.css";
 
-const  ViewerTable = () => {
+const ViewerTable = () => {
   const handleChange = ({ selectedRows }) => {
     // You can set state or dispatch with something like Redux so we can use the retrieved data
     console.log("Selected Rows: ", selectedRows);
@@ -26,36 +26,59 @@ const  ViewerTable = () => {
     showData();
   }, []);
 
+  const handleClick = (title) => {
+    console.log(`You clicked me! ${title}`);
+  };
+
+
   const columns = [
     {
       name: "ID",
       selector: (row) => row.id,
+      sortable: true,
     },
     {
       name: "FECHA",
       selector: (row) => row.date,
+      sortable: true,
     },
     {
       name: "HORARIO",
       selector: (row) => row.hour,
+      sortable: true,
     },
     {
       name: "ASPIRANTE",
       selector: (row) => row.name,
+      sortable: true,
     },
     {
       name: "IDENTIFICACION",
       selector: (row) => row.identification,
+      sortable: true,
     },
     {
       name: "ENTREVISTADOR",
       selector: (row) => row.interviewername,
+      sortable: true,
     },
     {
       name: "OBSERVADOR",
       selector: (row) => row.viewername,
+      sortable: true,
     },
-    
+   /* {
+      name: "Action",
+      sortable: false,
+      selector: "null",
+      cell: (d) => [
+        <i
+          key={d.title}
+          onClick={handleClick.bind(this, d.title)}
+          className="fas fa-toggle-on"
+        ></i>,
+      ],
+    },*/
   ];
 
   return (
