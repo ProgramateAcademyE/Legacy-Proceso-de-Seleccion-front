@@ -3,7 +3,6 @@
     width: 90%;
     margin: 0 50px;
     /*background-color:rgb(223, 64, 15);*/
-    
     margin-left: 7%;
     padding:12px;
 }
@@ -12,6 +11,12 @@
     font-size: 2rem;
     margin-top:10%;
     text-align:center;
+    background-color: #FFCC02;
+    color: #000;
+    padding: 7px;
+    border-radius: 10px;
+    box-shadow: 1px 10px 25px #c7c7c7;
+
 }
 @media  (max-width:991px){
     .moderatorCreateInterviewTitle{
