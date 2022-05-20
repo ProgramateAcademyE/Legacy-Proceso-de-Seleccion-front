@@ -8,16 +8,18 @@
             <>
             <Formik
             initialValues={{
-                nombre:'',
-                correo:''
+                assessmentRooms:'2',
+                interviewRooms:'2'
+               
             }}
-            validate={(valores) =>{
+            
+            /*validate={(valores) =>{
               let errores ={};
               //validacion nombre
               if(!valores.nombre){
                 errores.nombre = 'Por favor ingresa un nombre'
 
-              }else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.nombre)){/*si contiene letras espacios y guion bajo */
+              }else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.nombre))
               errores.nombre = "El nombre solo puede contener letras y espacios "
 
               }
@@ -25,14 +27,14 @@
               if(!valores.correo){
                 errores.correo = 'Por favor ingresa un correo electronico'
 
-              }else if(!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valores.correo)){/*si contiene letras espacios y guion bajo */
+              }else if(!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valores.correo)){
               errores.correo = "El correo  solo puede contener letras, numeros, puntos guiones y guion bajo  "
 
               }
 
               return errores;
 
-            } }
+            } }*/
             
             onSubmit={(valores,{resetForm})=>{
               resetForm();
@@ -130,7 +132,7 @@
                     </h5>
                   </div>
                   
-                    <div className="ModeratorFormSelect">{/*esta estoy modificando */}
+                    <div className="ModeratorFormSelect">
                             <Field
                               name='applicants'
                               as='select'
@@ -200,75 +202,12 @@
 									          />     
                     </div>
                     <div className="ModeratorFormButton">
-                      <button className="ModeratorFormSubmit">
+                      <button  type="submit" className="ModeratorFormSubmit">
                       Publicar y enviar
                       </button>
+                      {formularioEnviado && <p className="ModeratorFormExit">Formulario Enviado con exito!</p>}
                     </div>
-                    {/** 
-                 
-                        <div>
-                                <label htmlFor="nombre">Nombre</label>
-                                <Field 
-                                    type="text" 
-                                    id="nombre" 
-                                    name="nombre" 
-                                    placeholder="Doraly"
-                                  
-                                    
-                                />
-                                <ErrorMessage name="nombre" component={()=>(
-
-                                  <div className="error">{errors.nombre}</div>
-
-                                )}
-                                />
-                      
-                            
-                        </div>
-                        <div>
-                                <label htmlFor="nombre">Correo</label>
-                                <Field 
-                                    type="email" 
-                                    id="correo" 
-                                    name="correo"
-                                    placeholder="@educamas.edu.co" 
-                                  
-
-                                />
-                                <ErrorMessage name="correo" component={()=>(
-
-                                  <div className="error">{errors.correo}</div>
-
-                                )}
-                                />
-                      
-                        </div>
-                       
-                        <div>
-                              <Field name="pais" as="select">
-                                <option value="mexico">Mexico</option>
-                                <option value="mexico">Colombia</option>
-                                <option value="mexico">España</option>
-                                <option value="mexico">Argentian</option>
-
-                              </Field>
-                        </div>
-                        <div>
-                                  <label>
-                                      <Field type="radio" name="sexo" vale="hombre"/>Hombre
-                                  </label>
-                                  <label>
-                                      <Field type="radio" name="sexo" vale="mujer"/>Mujer
-                                  </label>
-                        </div>
-
-                        <div>
-                              <Field name="mensaje" as="textarea" placeholder="Mensaje"/>
-                        </div>
-                            <button type="submit">Enviar</button>
-                            {formularioEnviado && <p classNAme="exito">Formulario Enviado con exito!</p>}
-*/}
-                    </div>
+                   </div>
                  </Form>
 
                 )}
