@@ -45,8 +45,8 @@
             >
                
                 {({errors}) =>(
-                    <Form className="formulario">
-                    <div>
+                    <Form className="ModeratorForm">
+                    <div class="ModeratorformContainer">
                       <div className="ModeratorFormSection1">                        
                         {console.log(errors)}
                         <div>
@@ -130,7 +130,7 @@
                     </h5>
                   </div>
                   
-                    <div>
+                    <div>{/*esta estoy modificando */}
                             <Field
                               name='applicants'
                               as='select'
