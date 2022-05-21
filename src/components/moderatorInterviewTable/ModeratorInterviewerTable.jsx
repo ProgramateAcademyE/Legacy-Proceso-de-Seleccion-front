@@ -39,22 +39,26 @@ const ModeratorInterviewerTable= ()=> {
     {
       name: "CONVOCATORIA",
       selector: (row) => row.convocatoria,
-      sortable:true
+      sortable:true,
+      grow:2
     },
     {
       name: "# ASPIRANTES",
       selector: (row) => row.aspirante,
-      sortable:true
+      sortable:true,
+      grow:2
     },
     {
       name: "# ENTREVISTADORES",
       selector: (row) => row.entrevistador,
-      sortable:true
+      sortable:true,
+      grow:2
     },
     {
       name: "# OBSERVADORES",
       selector: (row) => row.observador,
-      sortable:true
+      sortable:true,
+      grow:2
     },
     {
       name: "# SALAS",
@@ -64,7 +68,9 @@ const ModeratorInterviewerTable= ()=> {
     },
     {
       name: "DETALLE",
-      selector: (row) => row.detalle,
+
+      /*selector: (row) => row.detalle,*/
+      selector: (row) => <a href="https://educamas.com.co/" target="_blank">mas detalles</a>,
       sortable:true
     },
   
