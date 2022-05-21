@@ -40,25 +40,25 @@ const ModeratorInterviewerTable= ()=> {
       name: "CONVOCATORIA",
       selector: (row) => row.convocatoria,
       sortable:true,
-      grow:2
+      
     },
     {
       name: "# ASPIRANTES",
       selector: (row) => row.aspirante,
       sortable:true,
-      grow:2
+    
     },
     {
       name: "# ENTREVISTADORES",
       selector: (row) => row.entrevistador,
       sortable:true,
-      grow:2
+    
     },
     {
       name: "# OBSERVADORES",
       selector: (row) => row.observador,
       sortable:true,
-      grow:2
+     
     },
     {
       name: "# SALAS",
