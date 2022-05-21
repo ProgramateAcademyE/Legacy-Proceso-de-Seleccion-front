@@ -85,12 +85,11 @@ const Login = () => {
     }
     try {
       await axios
-        .post("https://selectprocess.herokuapp.com/api/user/login", {
+        .post("http://localhost:3001/api/user/login", {
           email,
           password,
         })
         .then((res) => {
-         
           if (res.status === 200) {
             setUser({ ...user, err: "", success: res.data.msg });
             window.localStorage.setItem("firstLogin", true);

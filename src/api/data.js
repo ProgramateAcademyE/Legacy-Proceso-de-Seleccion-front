@@ -61,7 +61,6 @@ export const ITEMS = [
         name: "Prueba Tecnica",
         pathname: "/calificacion-prueba-tecnica",
       },
-  
     ],
   },
 ];
@@ -95,35 +94,38 @@ export const ITEMS_ASPIRANTS = [
     pathname: "/aspirante",
     id: 12,
   },
-  {
-    name: "Entrevistador",
-    icon: "fas fa-star",
-    
-    id: 13,
-    items: [
-      {
-        name: "Inicio Entrevistador",
-        pathname: "/entrevistadordashboard",
-      },
-      {
-        name: "Aspirante Citados",
-        pathname: "/entrevistadoraplicantescitados",
-      },     
-    ],
-  },
+  //{
+  //  name: "Entrevistador",
+  //  icon: "fas fa-star",
+  //
+  //  id: 13,
+  //  items: [
+  //    {
+  //      name: "Inicio Entrevistador",
+  //      pathname: "/entrevistadordashboard",
+  //    },
+  //    {
+  //      name: "Aspirante Citados",
+  //      pathname: "/entrevistadoraplicantescitados",
+  //    },
+  //  ],
+  //},
+  //
+  //{
+  //  name: "Observador",
+  //  icon: "far fa-smile",
+  //  id: 14,
+  //  items: [
+  //    {
+  //      name: "Inicio Observador",
+  //      pathname: "/observadordashboard",
+  //
+  //    },
+  //  ],
+  //},
+];
 
-  {
-    name: "Observador",
-    icon: "far fa-smile",
-    id: 14,
-    items: [
-      {
-        name: "Inicio Observador",
-        pathname: "/observadordashboard",
-
-      },
-    ],
-  },
+export const ITEMS_MODERATOR = [
   {
     name: "Moderador",
     icon: "fas fa-user-edit",
@@ -152,11 +154,9 @@ export const ITEMS_ASPIRANTS = [
       {
         name: "Aspirantes citados",
         pathname: "/moderadoraspirantescitados",
-      },              
+      },
     ],
   },
-
-
 ];
 
 export const CONVOCATORY = [
@@ -214,7 +214,6 @@ export const CONVOCATORY = [
   },
 ];
 
-
 export const ITEMS_INTERVIEWER = [
   {
     name: "Dashboard Entrevistador",
@@ -230,5 +229,4 @@ export const ITEMS_INTERVIEWER = [
     pathname: "/entrevistadordashboard",
     id: 14,
   },
- 
 ];
