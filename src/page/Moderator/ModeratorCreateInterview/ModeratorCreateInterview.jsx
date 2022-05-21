@@ -2,7 +2,8 @@ import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import "./ModeratorCreateInterview.css";
-
+import "../../../components/moderatorForm/ModeratorForm.css"
+import ModeratorForm from '../../../components/moderatorForm/ModeratorForm'
 const ModeratorCreateInterview = () => {
   const [citations, setCitations] = useState([]);
   const [citationSelected, setCitationSelected] = useState([]);
@@ -78,14 +79,14 @@ const ModeratorCreateInterview = () => {
 
   return (
     <>
-      <div className="moderatorContainer">
-        <div className="moderatorCreateInterviewContainer">
-          <h1 className="moderatorCreateInterviewTitle">
-            MODERADOR - CREAR ENTREVISTA y ASSESMENT
-          </h1>
-          <button onClick={handleSubmit}>Crear Reunion</button>
-        </div>
-      </div>
+    <div className="moderatorContainerInterview">
+        <div className="moderatorCreateInterviewContainer"> 
+    {/* <h1 className="moderatorCreateInterviewTitle">MODERADOR - CREAR ENTREVISTA y ASSESMENT </h1>*/}
+    <h1 className="moderatorCreateInterviewTitle">Crear Reunion </h1>
+      <ModeratorForm />
+
+     </div>
+     </div>
     </>
   );
 };

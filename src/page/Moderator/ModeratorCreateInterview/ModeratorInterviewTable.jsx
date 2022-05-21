@@ -1,12 +1,14 @@
 import React from 'react'
-import "./ModeratorCreateInterview.css";
+import "./ModeratorInterviewTable.css";
+import ModeratorInterviewerTable from '../../../components/moderatorInterviewTable/ModeratorInterviewerTable';
 
 const ModeratorInterviewTable = () => {
   return (
       <>
-    <div className="moderatorContainer">
     <div className="moderatorInterviewTableContainer">
-    <h1 className="moderatorInterviewTableTitle">MODERADOR - TABLA VISTA-ASSESMENT</h1>
+    <div className="moderatorInterviewContainerTitle">
+    <h1 className="moderatorInterviewTableTitle">Agenda de salas programadas </h1>
+      <ModeratorInterviewerTable/>
     </div>
     </div>
     </>
