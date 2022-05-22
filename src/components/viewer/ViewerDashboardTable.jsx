@@ -31,7 +31,7 @@ const ViewerDashboardTable = () => {
       },
       {
         name: "JORNADA",
-        selector: (row) => row.time,
+        selector: (row) =>row.time,
         sortable: true,
       },
       {
@@ -55,9 +55,8 @@ const ViewerDashboardTable = () => {
         sortable: true,
       },  
       {
-        name: "DETALLE",
-        selector: (row) => row.detail,
-        sortable: true,
+        name: "VER DETALLE",
+        selector: (row) => <a href='./entrevistadoraplicantescitados'>Ver Detalle</a>,
       }
     
     ];
