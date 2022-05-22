@@ -48,6 +48,10 @@ const InterviewerDashboardTable= () => {
         name: "ASPIRANTES",
         selector: (row) => row.applicants,
       }, 
+      {
+        name: "VER DETALLE",
+        selector: (row) => <a href='./entrevistadoraplicantescitados'>Ver Detalle</a>,
+      }
     
     ];
   

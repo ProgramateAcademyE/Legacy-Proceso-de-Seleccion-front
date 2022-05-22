@@ -56,7 +56,7 @@ const ViewerDashboardTable = () => {
       },  
       {
         name: "VER DETALLE",
-        selector: (row) => <a href='./entrevistadoraplicantescitados'>Ver Detalle</a>,
+        selector: (row) => <a href='./observadorassesment'>Ver Detalle</a>,
       }
     
     ];
