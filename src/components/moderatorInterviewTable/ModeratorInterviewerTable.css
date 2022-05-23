@@ -1,0 +1,61 @@
+
+
+.rdt_TableCol{
+    background-color:#c7c7c7;
+    color:black;
+    display: flex;
+    justify-content: center;
+    
+
+  }
+  .rdt_TableCell{
+    display: flex;
+    justify-content: center;
+    border: 1px solid #c7c7c7;
+}
+
+  .tableInterview{
+    width: 80vw;
+    text-align: center;
+    overflow: scroll;
+    padding: 20px;
+    padding: 20px 30px;
+    background-color:#ffffff;
+    box-shadow: 1px 10px 25px #c7c7c7;
+    margin: auto;
+
+  }
+
+  @media (max-width: 768px) {
+
+    .tableInterview{
+        width: 90vw;
+        margin: auto;
+        padding: 10px;
+    }
+
+}
+
+@media (max-width: 465px) {
+
+    .tableInterview{
+        width: 80vw;
+        margin: auto;
+    }
+
+}
+
+
+  /*@media (max-width:425px){
+
+    .moderatorInterviewTableContainer{
+      height:100%;
+      width: 100%;
+      margin: 0px 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    
+    }
+
+  }*/

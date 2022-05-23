@@ -28,7 +28,7 @@ const Header = () => {
       const getToken = async () => {
         try {
           const res = await axios.post(
-            "https://selectprocess.herokuapp.com/api/user/refresh_token",
+            "http://localhost:3001/api/user/refresh_token",
             { refreshtoken }
           );
           dispatch({ type: "getToken", payload: res.data.access_token });
@@ -60,6 +60,7 @@ const Header = () => {
   return (
     <div className="General_header">
       <div className="header__logo" id="logo">
+        
         {auth ? (
           <Link to="/dashboard">
             <img
@@ -73,7 +74,8 @@ const Header = () => {
           <i className="fas fa-bars pointer" onClick={moveNav} />
         </div>
       </div>
-
+      <button>programate academy</button>
+      <button>programate school</button>
       <div className="header__user">
         <User />
       </div>

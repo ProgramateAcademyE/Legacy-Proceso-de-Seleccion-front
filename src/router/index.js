@@ -32,7 +32,7 @@ import Register from "../components/register/Register";
 import ListOfUsers from "../components/allUsers/ListOfUsers";
 import AspirantConvocatorys from "../page/Aspirant Convocatory/AspirantConvocatory";
 
-import './style.css'
+import "./style.css";
 import QualifyAssessment from "../page/Qualification/QualifyAssessment";
 import QualifySololearn from "../page/Qualification/QualifySoloLearn";
 import QualifyMotivationLetter from "../page/Qualification/QualifyMotivationLetter";
@@ -44,18 +44,16 @@ import Interviewer from "../page/Invertiewer/InterviewerDashboard";
 import InterviewerDashboard from "../page/Invertiewer/InterviewerDashboard";
 import InterviewerApplicantsCited from "../page/Invertiewer/InterviewerApplicantsCited";
 import ViewerDashboard from "../page/Viewer/ViewerDashboard";
-import ModeratorDashboard from "../page/Moderator/ModeratorDashboard_ApplicantsCited/ModeratorDashboard"
-import ModeratorCreateInterview from "../page/Moderator/ModeratorCreateInterview/ModeratorCreateInterview"
-import ModeratorInterviewer from "../page/Moderator/ModeratorInterviewer_Viewer/ModeratorInterviewer"
-import ModeratorViewer from "../page/Moderator/ModeratorInterviewer_Viewer/ModeratorViewer"
-import ModeratorApplicantsCited from "../page/Moderator/ModeratorDashboard_ApplicantsCited/ModeratorApplicantsCited"
+import ModeratorDashboard from "../page/Moderator/ModeratorDashboard_ApplicantsCited/ModeratorDashboard";
+import ModeratorCreateInterview from "../page/Moderator/ModeratorCreateInterview/ModeratorCreateInterview";
+import ModeratorInterviewer from "../page/Moderator/ModeratorInterviewer_Viewer/ModeratorInterviewer";
+import ModeratorViewer from "../page/Moderator/ModeratorInterviewer_Viewer/ModeratorViewer";
+import ModeratorApplicantsCited from "../page/Moderator/ModeratorDashboard_ApplicantsCited/ModeratorApplicantsCited";
 import ModeratorInterviewTable from "../page/Moderator/ModeratorCreateInterview/ModeratorInterviewTable";
-
-
-
 
 const App = () => {
   const auth = useSelector((state) => state.auth);
+  console.log(auth);
 
   const dispatch = useDispatch();
 
@@ -63,101 +61,147 @@ const App = () => {
     dispatch(getData(auth.user._id));
   }, [dispatch, auth]);
 
-  const { isLogged, isAdmin, isModerator, isInterviewer, isViewer } = auth;
+  const { isLogged, /*isAdmin, isModerator, isInterviewer, isViewer*/ } = auth;
+
+  const role = auth.user.role;
+  console.log(role);
 
   const { pathname } = useLocation();
 
   return (
     <>
       {/* {pathname !== "/login" && <Header user={user} adminstate={adminstate} />} */}
-      {pathname !== "/" && pathname !== "/register" && pathname !== '/verify' && <Header /> || <NavBarIndex/>}
+      {(pathname !== "/" &&
+        pathname !== "/register" &&
+        pathname !== "/verify" && <Header />) || <NavBarIndex />}
 
-        {/* {pathname !== "/login" && <Nav user={user} adminstate={adminstate} />} */}
-        {pathname !== "/" && pathname !== "/register" && pathname !== '/verify' && <Nav />}
+      {/* {pathname !== "/login" && <Nav user={user} adminstate={adminstate} />} */}
+      {pathname !== "/" &&
+        pathname !== "/register" &&
+        pathname !== "/verify" && <Nav />}
 
-        <Switch>
-          
-          <Route exact path="/verify" component={Verify} />
-          
-          <Route exact path="/" component={LoginFull} />
-       
-          <Route exact path="/register" component={Register} /> 
-          
+      <Switch>
+        <Route exact path="/verify" component={Verify} />
 
-          {/* <Redirect to="/login" /> */}
-          {isAdmin && !isModerator && !isInterviewer && !isViewer &&
-            isLogged &&(
+        <Route exact path="/" component={LoginFull} />
+
+        <Route exact path="/register" component={Register} />
+
+        {/* <Redirect to="/login" /> */}
+        {isLogged &&
+          (role === 1 ? (
             <>
               <Route path="/dashboard" component={DashboardAdmin} />
-              <Route path="/users" component={ListOfUsers}/>
+              <Route path="/users" component={ListOfUsers} />
               <Route path="/dia-de-entrevista" component={InterviewDays} />
-              <Route path="/calendario"><InterviewDay /></Route>
+              <Route path="/calendario">
+                <InterviewDay />
+              </Route>
               <Route path="/convocatoria" component={Convocatory} />
               <Route path="/nuevacohorte" component={NewCohort} />
               <Route path="/editarcohorte" component={NewCohort} />
-              <Route path="/convocatorias-aspirantes" component={ConvocatoryAspirants} />
-              
+              <Route
+                path="/convocatorias-aspirantes"
+                component={ConvocatoryAspirants}
+              />
+
               <Route path="/citacion" component={Citations} />
-              <Route path="/aspirantes" component={Aspirants} /> 
+              <Route path="/aspirantes" component={Aspirants} />
               <Route path="/prueba" component={AdministerTechnicalTest} />
-              <Route path="/agregar" component={AddTechTest}/>
-              <Route path="/editarprueba" component={AddTechTest}/>
+              <Route path="/agregar" component={AddTechTest} />
+              <Route path="/editarprueba" component={AddTechTest} />
               <Route path="/citaciones" component={Citations} />
               <Route path="/nuevacitacion" component={NewCitation} />
 
-              <Route path="/calificacion-sololearn" component={QualifySololearn} />
-              <Route path="/motivationLetter" component={QualifyMotivationLetter} />
-              <Route path="/calificacion-prueba-tecnica" component={QualifyTechnicalTest} />
-              <Route path="/calificacion-entrevista" component={QualifyInterview} />
-              <Route path="/calificacion-assessment" component={QualifyAssessment} />
+              <Route
+                path="/calificacion-sololearn"
+                component={QualifySololearn}
+              />
+              <Route
+                path="/motivationLetter"
+                component={QualifyMotivationLetter}
+              />
+              <Route
+                path="/calificacion-prueba-tecnica"
+                component={QualifyTechnicalTest}
+              />
+              <Route
+                path="/calificacion-entrevista"
+                component={QualifyInterview}
+              />
+              <Route
+                path="/calificacion-assessment"
+                component={QualifyAssessment}
+              />
 
               <Route path="/register-admin" component={RegisterAdmin} />
-      
+
               <Route path="/InfoAspirants" component={Results} />
               <Route path="/waiting-list" component={WaitingList} />
 
               <Route path="/parameterization" component={Parameterization} />
               <Route path="/selection-results" component={SelectionResults} />
-              
             </>
-          )}
-          {!isAdmin && !isModerator && !isInterviewer && !isViewer &&
-            isLogged && (
+          ) : role === 2 ? (
             <>
-
+              <Route
+                path="/moderadordashboard"
+                component={ModeratorDashboard}
+              />
+              <Route
+                path="/moderadorcrearentrevistayassesment"
+                component={ModeratorCreateInterview}
+              />
+              <Route
+                path="/moderadortablaentrevistas"
+                component={ModeratorInterviewTable}
+              />
+              <Route
+                path="/moderadorentrevistadores"
+                component={ModeratorInterviewer}
+              />
+              <Route
+                path="/moderadorobservadores"
+                component={ModeratorViewer}
+              />
+              <Route
+                path="/moderadoraspirantescitados"
+                component={ModeratorApplicantsCited}
+              />
+            </>
+          ) : role === 3 ? (
+            <Route path="/observadordashboard" component={ViewerDashboard} />
+          ) : role === 4 ? (
+            <>
+              <Route path="/entrevistadordashboard" component={Interviewer} />
+            </>
+          ) : (
+            <>
               <Route exact path="/inscripcion" component={Index} />
               <Route exact path="/entrevista">
                 <InterviewAspirant />
               </Route>
-              <Route exact path="/Convocatoriasaspirante" component={AspirantConvocatorys}/>
+              <Route
+                exact
+                path="/Convocatoriasaspirante"
+                component={AspirantConvocatorys}
+              />
               <Route exact path="/aspirante" component={ProofAspirant} />
               <Route exact path="/dashboard" component={DashboardAspirant} />
 
-              <Route path="/entrevistadordashboard" component={InterviewerDashboard} />
-              <Route path="/entrevistadoraplicantescitados" component={InterviewerApplicantsCited} />
-
-              <Route path="/observadordashboard" component={ViewerDashboard} />
-
-              <Route path="/moderadordashboard" component={ModeratorDashboard} />
-              <Route path="/moderadorcrearentrevistayassesment" component={ModeratorCreateInterview} />
-              <Route path="/moderadortablaentrevistas" component={ModeratorInterviewTable} />
-              <Route path="/moderadorentrevistadores" component={ModeratorInterviewer} />
-              <Route path="/moderadorobservadores" component={ModeratorViewer} />
-              <Route path="/moderadoraspirantescitados" component={ModeratorApplicantsCited} />
-              <WhatsAppButton/>
+              <Route
+                path="/entrevistadordashboard"
+                component={InterviewerDashboard}
+              />
+              <Route
+                path="/entrevistadoraplicantescitados"
+                component={InterviewerApplicantsCited}
+              />
+              <WhatsAppButton />
             </>
-          )}
-
-            {isInterviewer && !isAdmin && !isModerator && !isViewer &&
-            isLogged &&(
-            <>
-              <Route path="/entrevistadordashboard" component={Interviewer} />
-            </>
-          )}
-         
-         
-        </Switch>
-      {pathname !== '/verify' && <Footer />}
+          ))}
+      </Switch>
+      {pathname !== "/verify" && <Footer />}
     </>
   );
 };
