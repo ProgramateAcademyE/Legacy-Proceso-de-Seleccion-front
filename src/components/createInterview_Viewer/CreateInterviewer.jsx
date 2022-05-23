@@ -59,7 +59,7 @@ const CreateInterviewer = () => {
 
   return (
     <div className="moderator_createviewer">
-      <div>
+      <div >
       <DataTableExtensions
         columns={columns}
          data={users}
