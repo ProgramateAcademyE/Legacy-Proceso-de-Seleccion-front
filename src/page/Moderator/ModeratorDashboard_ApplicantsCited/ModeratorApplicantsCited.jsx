@@ -52,31 +52,31 @@ const ModeratorApplicantsCited = () => {
       //1 - Configurar los hooks
 
     <div className="moderatorContainer43">
-          <div className="moderatorApplicantsCitedContainer">
-              <div className="table">
-      <DataTableExtensions
-        columns={columns}
-        data={users}
-        >
-        <DataTable
-          title = "Aspirantes Citados"
-          columns={columns}
-          data={users}
-          defaultSortField="id"
-          defaultSortAsc={false}
-          pagination
-          paginationRowsPerPageOptions={[5, 10, 25, 50, 100]}
-          highlightOnHover
-          selectableRows
-          selectableRowsHighlight
-          fixedHeader
-          fixedHeaderScrollHeight
-          
-        />
-    </DataTableExtensions>
-  
-    </div>
-          </div>
+              <div className="moderatorApplicantsCitedContainer">
+                  <div className="table">
+                      <DataTableExtensions
+                        columns={columns}
+                        data={users}
+                        >
+                        <DataTable
+                          title = "Aspirantes Citados"
+                          columns={columns}
+                          data={users}
+                          defaultSortField="id"
+                          defaultSortAsc={false}
+                          pagination
+                          paginationRowsPerPageOptions={[5, 10, 25, 50, 100]}
+                          highlightOnHover
+                          selectableRows
+                          selectableRowsHighlight
+                          fixedHeader
+                          fixedHeaderScrollHeight
+                          
+                        />
+                      </DataTableExtensions>
+      
+                    </div>
+                </div>
           
     </div>
     
