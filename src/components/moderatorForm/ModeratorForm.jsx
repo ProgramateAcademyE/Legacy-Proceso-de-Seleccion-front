@@ -9,7 +9,7 @@ const formValidate = (values) => {
   };
 
   if (!values.citationID || values.citationID.length === 0)
-    errors.citationID === "Debes seleccionar una fech";
+    errors.citationID === "Debes seleccionar una fecha";
 
   return errors;
 };
