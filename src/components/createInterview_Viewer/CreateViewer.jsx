@@ -7,6 +7,7 @@ import "./CreateInterviewer.css"
 import "./Switch.jsx"
 
 const CreateViewer = () => {
+  
   //1 - Configurar los hooks
   const [users, setUsers] = useState([]);
 
@@ -44,6 +45,12 @@ const CreateViewer = () => {
       selector: (row) => row.jornada_disponible,
       sortable: true, 
     },
+    {
+      name: "Habilitar",
+      selector: (row) => <input type="checkbox" />,
+      sortable: true, 
+    },
+    
     
     
   
@@ -66,6 +73,7 @@ const CreateViewer = () => {
           paginationRowsPerPageOptions={[5, 10, 25, 50, 100]}
           highlightOnHover
           center
+          
           fixedHeader
           fixedHeaderScrollHeight="400px"
           responsive

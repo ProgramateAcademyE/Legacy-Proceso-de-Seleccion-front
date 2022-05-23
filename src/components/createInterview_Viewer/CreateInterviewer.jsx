@@ -9,10 +9,7 @@ import "./CreateInterviewer.css"
 
 
 const CreateInterviewer = () => {
-  const handleChange = ({ selectedRows }) => {
-    // You can set state or dispatch with something like Redux so we can use the retrieved data
-    console.log("Selected Rows: ", selectedRows);
-  };
+ 
   //1 - Configurar los hooks
   const [users, setUsers] = useState([]);
 
@@ -50,6 +47,11 @@ const CreateInterviewer = () => {
       selector: (row) => row.jornada_disponible,
       sortable: true, 
     },
+    {
+      name: "Habilitar",
+      selector: (row) => <input type="checkbox" />,
+      sortable: true, 
+    },
     
     
   
@@ -57,7 +59,7 @@ const CreateInterviewer = () => {
 
   return (
     <div className="moderator_createviewer">
-      <div>
+      <div >
       <DataTableExtensions
         columns={columns}
          data={users}
@@ -72,9 +74,7 @@ const CreateInterviewer = () => {
           paginationRowsPerPageOptions={[5, 10, 25, 50, 100]}
           highlightOnHover
           center
-          selectableRows
-          selectableRowsHighlight
-          onSelectedRowsChange={handleChange}
+          
           fixedHeader
           fixedHeaderScrollHeight="400px"
           responsive
