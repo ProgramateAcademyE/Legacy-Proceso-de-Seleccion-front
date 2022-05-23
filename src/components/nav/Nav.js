@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { useSelector } from "react-redux";
-import { ITEMS, ITEMS_ASPIRANTS,  ITEMS_INTERVIEWER } from "../../api/data";
+import {
+  ITEMS,
+  ITEMS_ASPIRANTS,
+  ITEMS_INTERVIEWER,
+  ITEMS_MODERATOR,
+} from "../../api/data";
 import Item from "../item/Item";
 import "./Nav.css";
 import { Link } from "react-router-dom";
@@ -8,9 +13,11 @@ import { Link } from "react-router-dom";
 const Nav = () => {
   const [activeItems, setActiveItems] = useState([]);
 
-
-  const auth = useSelector(state => state.auth)
-  const {isLogged, isAdmin, isModerator, isInterviewer, isViewer} = auth
+  const auth = useSelector((state) => state.auth);
+  const { isLogged, /*isAdmin, isModerator, isInterviewer, isViewer*/ } = auth;
+  const role = auth.user.role;
+  console.log("Role en nav", role);
+  console.log("En Nav", role === 4);
 
   const toggleItem = (id) => {
     if (activeItems.find((active) => active === id)) {
@@ -25,67 +32,87 @@ const Nav = () => {
     bar.classList.toggle("move");
   };
 
+  const isActive = ITEMS.findIndex(
+    (item) => item.pathname === location.pathname
+  );
+  const isActiveAspirant = ITEMS_ASPIRANTS.findIndex(
+    (item) => item.pathname === location.pathname
+  );
+  const isInterviewer1 = ITEMS_INTERVIEWER.findIndex(
+    (item) => item.pathname === location.pathname
+  );
+  return role !== undefined ? (
+    <>
+      <div className="nav" id="menu">
+        <Link to="/dashboard">
+          <img
+            className="Logo_Lapiz"
+            src="https://i.ibb.co/ZM3jGdB/logoeducamasimbolo.png"
+            alt="logo"
+          />
+        </Link>
 
-  const isActive = ITEMS.findIndex(item => item.pathname === location.pathname)
-  const isActiveAspirant = ITEMS_ASPIRANTS.findIndex(item => item.pathname === location.pathname)
-  const isInterviewer1 = ITEMS_INTERVIEWER.findIndex(item => item.pathname === location.pathname)
-  return (  
-  <> 
-  
-    <div className="nav" id="menu">
-      <Link to="/dashboard">
-    <img className="Logo_Lapiz"
-          src="https://i.ibb.co/ZM3jGdB/logoeducamasimbolo.png"
-          alt="logo"/>
-            </Link>
-     
-      <span className="nav__title">Menu</span>
-      <div className="nav__items mt-2">
-        <nav className="nav__fixed">
-          {isAdmin && !isModerator && !isInterviewer && !isViewer &&
-            isLogged &&
-            ITEMS.map((item, index) => (
-              <Item
-                key={index}
-                item={item}
-                toggleItem={() => toggleItem(item.id)}
-                activeItems={activeItems}
-                active={index === isActive}
-              />
-            ))}
+        <span className="nav__title">Menu</span>
+        <div className="nav__items mt-2">
+          <nav className="nav__fixed">
+            {isLogged &&
+              (role === 1
+                ? ITEMS.map((item, index) => (
+                    <Item
+                      key={index}
+                      item={item}
+                      toggleItem={() => toggleItem(item.id)}
+                      activeItems={activeItems}
+                      active={index === isActive}
+                    />
+                  ))
+                : role === 2
+                ? ITEMS_MODERATOR.map((item, index) => (
+                    <Item
+                      key={index}
+                      item={item}
+                      toggleItem={() => toggleItem(item.id)}
+                      activeItems={activeItems}
+                      active={item.pathname === location.pathname}
+                    />
+                  ))
+                : role === 4
+                ? ITEMS_INTERVIEWER.map((item, index) => (
+                    <Item
+                      key={index}
+                      item={item}
+                      toggleItem={() => toggleItem(item.id)}
+                      activeItems={activeItems}
+                      active={index === isInterviewer1}
+                    />
+                  ))
+                : ITEMS_ASPIRANTS.map((item, index) => (
+                    <Item
+                      key={index}
+                      item={item}
+                      toggleItem={() => toggleItem(item.id)}
+                      activeItems={activeItems}
+                      active={item.pathname === location.pathname}
+                    />
+                  )))}
 
-          {!isAdmin && !isModerator && !isInterviewer && !isViewer &&
-            isLogged &&
-            ITEMS_ASPIRANTS.map((item, index) => (
-              <Item
-                key={index}
-                item={item}
-                toggleItem={() => toggleItem(item.id)}
-                activeItems={activeItems}
-                active={index === isActiveAspirant} 
-              />
-            ))}
-
-          {isInterviewer && !isAdmin && !isModerator &&  !isViewer &&
-            isLogged &&
-            ITEMS_INTERVIEWER.map((item, index) => (
-              <Item
-                key={index}
-                item={item}
-                toggleItem={() => toggleItem(item.id)}
-                activeItems={activeItems}
-                active={index === isInterviewer1} 
-              />
-            ))}
             <div>
-              <a href='#close' title="close" className='close' style={{margin:"-56px -163px 0 0"}} onClick={moveNav}>X</a>
+              <a
+                href="#close"
+                title="close"
+                className="close"
+                style={{ margin: "-56px -163px 0 0" }}
+                onClick={moveNav}
+              >
+                X
+              </a>
             </div>
-        </nav>
+          </nav>
+        </div>
       </div>
-    </div>
-     
     </>
-  
+  ) : (
+    <></>
   );
 };
 
