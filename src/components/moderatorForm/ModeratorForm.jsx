@@ -55,7 +55,8 @@ const ModeratorForm = () => {
       link: "",
     },
     //validate: formValidate,
-    onSubmit: (values) => {
+    onSubmit: (values,{resetForm}) => {
+      resetForm();
       console.log("On submit", values);
       const toSubmit = {
         ...values,
@@ -71,8 +72,8 @@ const ModeratorForm = () => {
       //resetForm();
 
       //conle.log("Formulario Enviado");
-      //cambiarFormularioEnviado(true);
-      //setTimeout(() => cambiarFormularioEnviado(false), 5000);
+      cambiarFormularioEnviado(true);
+      setTimeout(() => cambiarFormularioEnviado(false), 5000);
     },
   });
 
@@ -169,8 +170,8 @@ const ModeratorForm = () => {
                     component={() => <span>{errors.interviewRooms}</span>}
                   />
                 </div>
-              </div>
-              <div className="ModeratorFormSection2">
+
+                {/*modificando */}
                 <div>
                   <label htmlFor="assesmentsRooms">No salas Assessment</label>
                   <Field
@@ -184,6 +185,9 @@ const ModeratorForm = () => {
                     component={() => <span>{errors.assesmentsRooms}</span>}
                   />
                 </div>
+              </div>
+              <div className="ModeratorFormSection2">
+               
                 <div>
                   <label htmlFor="link">Link Reunion</label>
                   <Field
@@ -209,7 +213,7 @@ const ModeratorForm = () => {
                   <>
                     <Field
                       name="applicants"
-                      as="select"
+                      as="text"
                       multiple
                       className="form-control select picker form-select"
                     >
@@ -235,7 +239,7 @@ const ModeratorForm = () => {
                   <>
                     <Field
                       name="interviewers"
-                      as="select"
+                      as="text"
                       multiple
                       className="form-control select picker form-select"
                     >
@@ -264,7 +268,7 @@ const ModeratorForm = () => {
                   <>
                     <Field
                       name="interviewers"
-                      as="select"
+                      as="text"
                       multiple
                       className="form-control select picker form-select"
                     >
@@ -294,9 +298,9 @@ const ModeratorForm = () => {
                   Publicar y enviar
                 </button>
                 {formularioEnviado && (
-                  <p className="ModeratorFormExit">
+                  <span className="ModeratorFormExit">
                     Formulario Enviado con exito!
-                  </p>
+                  </span>
                 )}
               </div>
             </div>

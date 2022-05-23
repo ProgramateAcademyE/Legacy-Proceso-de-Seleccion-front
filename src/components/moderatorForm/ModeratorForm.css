@@ -31,11 +31,11 @@
 }
 .ModeratorFormSection2{
 	display:flex;
-	justify-content: space-evenly;
+	padding:20px;
 	align-content:center;
 }
 .ModeratorFormLink{
-	width:40rem;
+	width:42rem;
 	
 }
 .ModeratorFormTitle{
@@ -130,6 +130,7 @@ h5{
 
 	.ModeratorFormButton{
 		display:flex;
+	
 		justify-content: center;
 		align-items:center;
 	}
