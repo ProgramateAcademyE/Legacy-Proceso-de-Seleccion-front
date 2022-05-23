@@ -46,7 +46,7 @@ const Index = () => {
   useEffect(() => {
     if(sendAllData){
       try {
-        axios.post("http://localhost:3001/api/candidate/profile", {
+        axios.post("http://localhost:3003/api/candidate/profile", {
           ...data,
           user_id: user?._id,
         });

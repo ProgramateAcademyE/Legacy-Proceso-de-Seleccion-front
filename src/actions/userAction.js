@@ -3,7 +3,7 @@ import { useDispatch } from 'react-redux';
 import { types } from "../types/types";
 
 export const fetchAllUsers = async (token) => {
-    const res = await axios.get("http://localhost:3001/api/user/all_info", {
+    const res = await axios.get("http://localhost:3003/api/user/all_info", {
       headers: { Authorization: token },
     });
     return res
@@ -21,7 +21,7 @@ export const getFormAll = (id) => {
     return async (dispatch) => {
         try {
             const { data } = await axios.get(
-              `http://localhost:3001/api/candidate/infoperfil/${id}`
+              `http://localhost:3003/api/candidate/infoperfil/${id}`
             );
             dispatch(getForm(data))
           } catch (error) {

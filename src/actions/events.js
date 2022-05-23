@@ -7,7 +7,7 @@ export const eventStartAddNew = (event) => {
     return async(dispatch) => {
         try {
             const { data } = await axios.post(
-              "http://localhost:3001/api/admin/calendar",
+              "http://localhost:3003/api/admin/calendar",
               event
             );
             if(data.ok){
