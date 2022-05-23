@@ -215,7 +215,7 @@ const ModeratorForm = () => {
                       name="applicants"
                       as="text"
                       multiple
-                      className="form-control select picker form-select"
+                      className="form-control select picker "
                     >
                       {citationSelected?.users?.map((u) => (
                         <option value={u.firstName}>{u.firstName}</option>
@@ -241,7 +241,7 @@ const ModeratorForm = () => {
                       name="interviewers"
                       as="text"
                       multiple
-                      className="form-control select picker form-select"
+                      className="form-control select picker "
                     >
                       {available?.selectors?.map((s) =>
                         s.meetRole === 3 ? (
@@ -270,7 +270,7 @@ const ModeratorForm = () => {
                       name="interviewers"
                       as="text"
                       multiple
-                      className="form-control select picker form-select"
+                      className="form-control select picker "
                     >
                       {available?.selectors?.map((s) =>
                         s.meetRole === 4 ? (
