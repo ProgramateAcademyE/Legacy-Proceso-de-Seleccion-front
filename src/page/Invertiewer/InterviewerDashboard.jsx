@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import SelectButton from "../../components/selectButton/SelectButton";
 import "./Interviewer.css";
 
 
@@ -8,6 +9,7 @@ const InterviewerDashboard = () => {
     <>
       <div className="interviewerDashboardContainer">
        <h1 className="interviewrDashboardTitle">Inicio Entrevistador</h1>
+       <SelectButton/>
        </div>
     </>
   );
