@@ -74,8 +74,6 @@ const Header = () => {
           <i className="fas fa-bars pointer" onClick={moveNav} />
         </div>
       </div>
-      <button>programate academy</button>
-      <button>programate school</button>
       <div className="header__user">
         <User />
       </div>
