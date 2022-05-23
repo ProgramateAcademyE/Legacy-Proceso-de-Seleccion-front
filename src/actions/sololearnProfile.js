@@ -5,8 +5,8 @@ export const getProfileFull = (id) => {
 	return async (dispatch) => {
 		try {
 			const res = await axios.get(
-				`https://selectprocess.herokuapp.com/api/candidate/sololearm/${id}`
-			);
+        `http://localhost:3001/api/candidate/sololearm/${id}`
+      );
 			dispatch(getResult(res));
 		} catch (error) {
 			return error;
@@ -23,8 +23,8 @@ export const getData = (id) => {
 	return async (dispatch) => {
 		try {
 			const { data } = await axios.get(
-				`https://selectprocess.herokuapp.com/api/candidate/result/${id}`
-			);
+        `http://localhost:3001/api/candidate/result/${id}`
+      );
 			dispatch(getProfile(data));
 		} catch (error) {
 			return error;
