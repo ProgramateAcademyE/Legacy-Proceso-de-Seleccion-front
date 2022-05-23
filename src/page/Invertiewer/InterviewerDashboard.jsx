@@ -8,7 +8,7 @@ const InterviewerDashboard = () => {
   return (
     <>
       <div className="interviewerDashboardContainer">
-       <h1 className="interviewrDashboardTitle">Inicio Entrevistador</h1>
+       <h1 className="interviewrDashboardTitle">Inicio Entrevistadorsdfdsfdsgf</h1>
        <SelectButton/>
        </div>
     </>
