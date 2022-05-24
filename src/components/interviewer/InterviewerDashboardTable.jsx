@@ -5,6 +5,7 @@ import 'react-data-table-component-extensions/dist/index.css';
 import { useState,useEffect } from 'react';
 import DataTable , { createTheme } from "react-data-table-component";
 import "styled-components";
+import axios from 'axios';
 
 const InterviewerDashboardTable= () => {
     const [users, setUsers] = useState([]);

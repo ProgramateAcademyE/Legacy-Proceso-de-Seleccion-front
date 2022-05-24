@@ -62,6 +62,11 @@ const InterviewerApplicantsTable = () => {
       selector: (row) => row.viewername,
       sortable: true,
     },
+    {
+      name: "SELECCIONAR",
+      selector: (row) => <input type="checkbox"/>,
+      sortable: true,
+    },
   ];
 
   return (
@@ -77,9 +82,6 @@ const InterviewerApplicantsTable = () => {
           pagination
           paginationRowsPerPageOptions={[5, 10, 25, 50, 100]}
           highlightOnHover
-          selectableRows
-          selectableRowsHighlight
-          onSelectedRowsChange={handleChange}
           fixedHeader
           fixedHeaderScrollHeight
         />

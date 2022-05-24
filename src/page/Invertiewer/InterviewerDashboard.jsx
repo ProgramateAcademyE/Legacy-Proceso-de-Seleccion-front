@@ -11,7 +11,7 @@ const InterviewerDashboard = () => {
 
       <div className="interviewerDashboardContainer">
     
-        <h1 className="interviewerDashboardtTitle"><span className="interviewerSpan"> ENTREVISTADOR DASHBOARD</span></h1>
+        <h1 className="interviewerDashboardtTitle"><span className="interviewerSpan"> DASHBOARD</span></h1>
         <SelectButton/>
         <h1 className="interviewerDashboardTitle2">
           Tienes programadas las siguientes reuniones:

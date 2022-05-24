@@ -175,7 +175,7 @@ const App = () => {
             <>
             <Route
                 path="/entrevistadordashboard"
-                component={ViewerDashboard}
+                component={InterviewerDashboard}
               />
               <Route
                 path="/entrevistadoraplicantescitados"

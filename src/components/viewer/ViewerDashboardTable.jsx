@@ -10,7 +10,7 @@ const ViewerDashboardTable = () => {
     const [users, setUsers] = useState([]);
 
     //2 - Función para mostrar los datos con fetch
-    const URL = "http://localhost:3001/scheduledmeetings";
+    const URL = "http://localhost:3005/scheduledmeetings";
     const showData = async () => {
       const response = await fetch(URL);
       const data = await response.json();
