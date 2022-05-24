@@ -10,14 +10,26 @@ import axios from 'axios';
 const InterviewerDashboardTable= () => {
     const [users, setUsers] = useState([]);
 
-    //2 - Función para mostrar los datos con fetch
+   // const token = useSelector((state) => state.token);
+    async function showData() {
+      const { data } = await axios.get(
+      "http://localhost:3005/scheduledmeetings",
+     /* {
+      headers: { Authorization: token },
+      }*/
+      );
+      setUsers(data);
+      }
+
+
+   /* //2 - Función para mostrar los datos con fetch
     const URL = "http://localhost:3005/scheduledmeetings";
     const showData = async () => {
       const response = await fetch(URL);
       const data = await response.json();
       console.log(data);
       setUsers(data);
-    };
+    };*/
   
     useEffect(() => {
       showData();
