@@ -6,7 +6,7 @@ const ModeratorViewer = () => {
     <>
     <div className="moderatorContainer">
         <div className="moderatorInterviewerContainer">
-     <h1 className="moderatorInterviewerTitle">MODERADOR - OBSERVADOR</h1>
+     <h1 className="moderatorInterviewTableTitle">MODERADOR - OBSERVADOR</h1>
      </div>
      </div>
     </>

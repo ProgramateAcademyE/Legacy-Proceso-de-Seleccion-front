@@ -85,7 +85,6 @@ const ModeratorInterviewerTable= ()=> {
     },
     {
       name: "DETALLE",
-
       /*selector: (row) => row.detalle,*/
       selector: (row) => <a href="https://educamas.com.co/" target="_blank">ver detalles</a>,
       sortable:true

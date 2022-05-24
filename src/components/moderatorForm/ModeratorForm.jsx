@@ -7,11 +7,9 @@ import { useSelector } from "react-redux";
   const errors = {
     citationID: "",
   };
-
   if (!values.citationID || values.citationID.length === 0)
     errors.citationID === "Debes seleccionar una fecha";
  
-
   return errors;
 };*/
 
