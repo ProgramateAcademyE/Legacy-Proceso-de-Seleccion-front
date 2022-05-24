@@ -66,8 +66,8 @@ const ViewerDashboardTable = () => {
     <div className='interviewerApplicantTable'>
     <DataTableExtensions
         columns={columns}
-         data={users}
-         >
+        data={users}
+        >
         <DataTable
           columns={columns}
           data={users}
@@ -80,7 +80,8 @@ const ViewerDashboardTable = () => {
           fixedHeaderScrollHeight
           
         />
-    </DataTableExtensions>
+        </DataTableExtensions>
+  
     </div>
   )
 }

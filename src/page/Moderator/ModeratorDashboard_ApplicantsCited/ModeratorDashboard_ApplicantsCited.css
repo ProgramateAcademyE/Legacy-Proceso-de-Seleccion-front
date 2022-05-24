@@ -1,43 +1,41 @@
-.moderatorContainer{
-   
+
+
+.moderatorContainer43{
     height: auto;
-    width: 90%;
+    width: 99%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: auto;
-    text-align: center; 
+    text-align: center;
+    padding-top: 100px;
+
 }
 
-.moderatorApplicantsCitedTitle, .moderatorDashboardTitle{
-    font-size: 3rem;
+.table{
+    width: 80vw;
+    text-align: center;
     
+    padding: 20px 30px;
+    background-color:#ffffff;
+    box-shadow: 1px 10px 25px #c7c7c7;
+    margin: auto;
+
 }
 
 .moderatorContainer44{
-    height: 100vh;
-    width: 90%;
-    background-color:rgb(226, 226, 219);
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    margin-left: 7%;
     padding-top: 100px;
-    padding-bottom: 50px;
-    
-    overflow-y: scroll;
-    border-radius: 7px;
+    margin-left: 11%;
+    width: 99%;
+    margin-bottom: 23%;
 }
-
-
 
 
 .secondu{
     width: 90%;
     height: auto;
-    background-color:#FFCC02;
+    background-color:#ecfdcf;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -48,3 +46,34 @@
 .moderatorDashboard{
     height: 20%;
 }
+
+.table77{
+    margin-top: 100px;
+    margin-left: 7%;
+    
+}
+
+
+@media (max-width: 600px) {
+    .moderatorContainer43 {
+        height: auto;
+        width: 99%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        text-align: center;
+        padding-top: 100px;
+        
+    }
+    .moderatorApplicantsCitedContainer{
+        
+        width: 99%;
+    }
+    .table{
+        width: 98%;
+        padding: 20px 10px;
+    }
+
+  }

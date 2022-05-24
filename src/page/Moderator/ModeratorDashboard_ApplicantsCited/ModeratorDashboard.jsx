@@ -1,5 +1,5 @@
 import React from 'react'
-import ConstructorModerator from '../../../components/constructorModerator/ConstructorModerator';
+
 import "./ModeratorDashboard_ApplicantsCited.css";
 import ModeratorInterviewerTable from '../../../components/moderatorInterviewTable/ModeratorInterviewerTable';
 
