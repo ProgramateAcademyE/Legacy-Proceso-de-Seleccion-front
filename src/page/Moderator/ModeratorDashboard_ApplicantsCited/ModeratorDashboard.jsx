@@ -1,5 +1,5 @@
 import React from 'react'
-import ConstructorModerator from '../../../components/constructorModerator/ConstructorModerator';
+
 import "./ModeratorDashboard_ApplicantsCited.css";
 
 
@@ -30,21 +30,10 @@ const ModeratorDashboard = () => {
     
       <div className="moderatorContainer44">
           <div className="moderatorDashboard">
-                <h1 className="moderatorDashboardTitle">INICIO - MODERADOR </h1>
+                <h1 className="moderatorDashboardTitle">espacio para doraly </h1>
           </div>
 
-          <div className='secondu'>
 
-              { starti.map(sta=>{
-                return(
-                  <ConstructorModerator sala={sta.sala} selectores={sta.selectores}  candidatos={sta.candidatos}  />
-                )
-                
-
-              })
-
-            }
-          </div>
 
       </div>
     
