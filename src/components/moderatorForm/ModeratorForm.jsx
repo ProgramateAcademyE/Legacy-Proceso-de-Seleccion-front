@@ -3,16 +3,15 @@ import { Formik, Field, Form, ErrorMessage, useFormik } from "formik";
 import axios from "axios";
 import { useSelector } from "react-redux";
 
-const formValidate = (values) => {
+/*const formValidate = (values) => {
   const errors = {
     citationID: "",
   };
-
   if (!values.citationID || values.citationID.length === 0)
-    errors.citationID === "Debes seleccionar una fech";
-
+    errors.citationID === "Debes seleccionar una fecha";
+ 
   return errors;
-};
+};*/
 
 const ModeratorForm = () => {
   const [citations, setCitations] = useState([]);
@@ -55,7 +54,8 @@ const ModeratorForm = () => {
       link: "",
     },
     //validate: formValidate,
-    onSubmit: (values) => {
+    onSubmit: (values,{resetForm}) => {
+     //resetForm();
       console.log("On submit", values);
       const toSubmit = {
         ...values,
@@ -67,12 +67,14 @@ const ModeratorForm = () => {
         observers: available.selectors.filter((s) => s.meetRole === 4),
       };
       console.log("To submit", toSubmit);
+      
       axios.post("http://localhost:3001/api/admin/meet", { ...toSubmit });
+     
       //resetForm();
-
       //conle.log("Formulario Enviado");
-      //cambiarFormularioEnviado(true);
-      //setTimeout(() => cambiarFormularioEnviado(false), 5000);
+      cambiarFormularioEnviado(true);
+      setTimeout(() => cambiarFormularioEnviado(false), 5000);
+    
     },
   });
 
@@ -89,28 +91,33 @@ const ModeratorForm = () => {
     <>
       <Formik
 
-      /*validate={(valores) =>{
-              let errores ={};
-              //validacion nombre
-              if(!valores.nombre){
-                errores.nombre = 'Por favor ingresa un nombre'
+    validate={(valores) =>{
+              let errors ={};
 
-              }else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.nombre))
-              errores.nombre = "El nombre solo puede contener letras y espacios "
+              //validacion fecha
+              if (!valores.citationID || valores.citationID.length === 0){
+                errors.citationID = "Debes seleccionar una fecha";
 
               }
-              //validacion Correo
-              if(!valores.correo){
-                errores.correo = 'Por favor ingresa un correo electronico'
+              //validacion numero salas entrevistas
+              if(!valores.interviewRooms || valores.interviewRooms.length <= 0){
+                errors.interviewRooms = ' El campo no puede estar vacio, tampoco puede ser menor igual a cero'
+                
+              } //validacion numero salas assessment
+              if(!valores.assesmentsRooms || valores.assesmentsRooms <= 0){
+                errors.nombre = "El campo no puede estar vacio, tampoco puede ser menor igual a cero "
 
-              }else if(!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valores.correo)){
-              errores.correo = "El correo  solo puede contener letras, numeros, puntos guiones y guion bajo  "
+              } //validacion de link
+              if(!valores.assesmentsRooms || valores.assesmentsRooms === 0){
+                errors.nombre = "El campo no puede estar vacio, tampoco puede ser menor igual a cero "
 
               }
 
-              return errores;
 
-            } }*/
+              return errors;
+
+            } }
+            
       >
         {({ errors }) => (
           <Form className="ModeratorForm">
@@ -124,6 +131,7 @@ const ModeratorForm = () => {
                     placeholder="Selecciona una Fecha"
                     name="citationID"
                     id="citationID"
+                    className="ModeratorFormDate"
                     value={formik.values.citationID}
                     onChange={formik.handleChange}
                   >
@@ -139,22 +147,7 @@ const ModeratorForm = () => {
                   />
                 </div>
 
-                {/*<div>
-                  <label htmlFor="jornada">Jornada</label>
-                  <Field
-                    name="jornada"
-                    as="select"
-                    multiple
-                    className="ModeratorFormSelectJornada"
-                  >
-                    <option value="am">am</option>
-                    <option value="pm">pm</option>
-                  </Field>
-                  <ErrorMessage
-                    name="jornada"
-                    component={() => <span>{errors.jornada}</span>}
-                  />
-                      </div>*/}
+                
                 <div>
                   <label htmlFor="interviewRooms">No salas Entrevistas</label>
                   <Field
@@ -169,8 +162,8 @@ const ModeratorForm = () => {
                     component={() => <span>{errors.interviewRooms}</span>}
                   />
                 </div>
-              </div>
-              <div className="ModeratorFormSection2">
+
+                {/*modificando */}
                 <div>
                   <label htmlFor="assesmentsRooms">No salas Assessment</label>
                   <Field
@@ -184,6 +177,9 @@ const ModeratorForm = () => {
                     component={() => <span>{errors.assesmentsRooms}</span>}
                   />
                 </div>
+              </div>
+              <div className="ModeratorFormSection2">
+               
                 <div>
                   <label htmlFor="link">Link Reunion</label>
                   <Field
@@ -209,9 +205,9 @@ const ModeratorForm = () => {
                   <>
                     <Field
                       name="applicants"
-                      as="select"
+                      as="text"
                       multiple
-                      className="form-control select picker form-select"
+                      className="form-control select picker "
                     >
                       {citationSelected?.users?.map((u) => (
                         <option value={u.firstName}>{u.firstName}</option>
@@ -235,9 +231,9 @@ const ModeratorForm = () => {
                   <>
                     <Field
                       name="interviewers"
-                      as="select"
+                      as="text"
                       multiple
-                      className="form-control select picker form-select"
+                      className="form-control select picker "
                     >
                       {available?.selectors?.map((s) =>
                         s.meetRole === 3 ? (
@@ -264,9 +260,9 @@ const ModeratorForm = () => {
                   <>
                     <Field
                       name="interviewers"
-                      as="select"
+                      as="text"
                       multiple
-                      className="form-control select picker form-select"
+                      className="form-control select picker "
                     >
                       {available?.selectors?.map((s) =>
                         s.meetRole === 4 ? (
@@ -294,10 +290,12 @@ const ModeratorForm = () => {
                   Publicar y enviar
                 </button>
                 {formularioEnviado && (
-                  <p className="ModeratorFormExit">
+                  <span className="ModeratorFormExit">
                     Formulario Enviado con exito!
-                  </p>
+                  </span>
+                    
                 )}
+              
               </div>
             </div>
           </Form>

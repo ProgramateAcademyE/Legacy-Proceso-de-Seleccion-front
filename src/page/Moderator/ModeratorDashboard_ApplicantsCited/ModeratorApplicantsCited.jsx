@@ -5,12 +5,11 @@ import "./ModeratorDashboard_ApplicantsCited.css";
 const ModeratorApplicantsCited = () => {
   return (
     <>
-    <div className="moderatorContainer43">
-          <div className="moderatorApplicantsCitedContainer">
-          <h3 className="moderatorApplicantsCitedTitle">MODERADOR - APLICANTES CITADOS</h3>
-          </div>
-          <Moderatorlea/>
-    </div>
+    <div className="moderatorContainer">
+        <div className="moderatorApplicantsCitedContainer">
+     <h1 className="moderatorInterviewTableTitle">MODERADOR - APLICANTES CITADOS</h1>
+     </div>
+     </div>
     </>
   )
 }

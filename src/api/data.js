@@ -140,7 +140,7 @@ export const ITEMS_MODERATOR = [
         pathname: "/moderadorcrearentrevistayassesment",
       },
       {
-        name: "Tabla Entrevistas",
+        name: "Listado General Entrevistas",
         pathname: "/moderadortablaentrevistas",
       },
       {
