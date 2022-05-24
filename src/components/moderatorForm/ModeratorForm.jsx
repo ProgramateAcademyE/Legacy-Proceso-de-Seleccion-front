@@ -56,7 +56,7 @@ const ModeratorForm = () => {
     },
     //validate: formValidate,
     onSubmit: (values,{resetForm}) => {
-      resetForm();
+     //resetForm();
       console.log("On submit", values);
       const toSubmit = {
         ...values,
@@ -68,12 +68,14 @@ const ModeratorForm = () => {
         observers: available.selectors.filter((s) => s.meetRole === 4),
       };
       console.log("To submit", toSubmit);
+      //
       axios.post("http://localhost:3001/api/admin/meet", { ...toSubmit });
+     
       //resetForm();
-
       //conle.log("Formulario Enviado");
       cambiarFormularioEnviado(true);
       setTimeout(() => cambiarFormularioEnviado(false), 5000);
+    
     },
   });
 
@@ -92,9 +94,10 @@ const ModeratorForm = () => {
 
       /*validate={(valores) =>{
               let errores ={};
-              //validacion nombre
-              if(!valores.nombre){
-                errores.nombre = 'Por favor ingresa un nombre'
+              //validacion numero salas entrevistas
+              if(!valores.interviewRooms || valores.interviewRooms.length <= 0){
+                errores.interviewRooms = ' El campo no puede estar vacio o ser  . . cero'
+               
 
               }else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.nombre))
               errores.nombre = "El nombre solo puede contener letras y espacios "
@@ -112,6 +115,7 @@ const ModeratorForm = () => {
               return errores;
 
             } }*/
+            
       >
         {({ errors }) => (
           <Form className="ModeratorForm">
@@ -125,6 +129,7 @@ const ModeratorForm = () => {
                     placeholder="Selecciona una Fecha"
                     name="citationID"
                     id="citationID"
+                    className="ModeratorFormDate"
                     value={formik.values.citationID}
                     onChange={formik.handleChange}
                   >
@@ -140,22 +145,7 @@ const ModeratorForm = () => {
                   />
                 </div>
 
-                {/*<div>
-                  <label htmlFor="jornada">Jornada</label>
-                  <Field
-                    name="jornada"
-                    as="select"
-                    multiple
-                    className="ModeratorFormSelectJornada"
-                  >
-                    <option value="am">am</option>
-                    <option value="pm">pm</option>
-                  </Field>
-                  <ErrorMessage
-                    name="jornada"
-                    component={() => <span>{errors.jornada}</span>}
-                  />
-                      </div>*/}
+                
                 <div>
                   <label htmlFor="interviewRooms">No salas Entrevistas</label>
                   <Field
@@ -301,7 +291,9 @@ const ModeratorForm = () => {
                   <span className="ModeratorFormExit">
                     Formulario Enviado con exito!
                   </span>
+                    
                 )}
+              
               </div>
             </div>
           </Form>
