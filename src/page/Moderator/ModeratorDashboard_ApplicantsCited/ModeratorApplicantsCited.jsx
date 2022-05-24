@@ -6,17 +6,32 @@ import { useState,useEffect } from 'react';
 import DataTable  from "react-data-table-component";
 import "styled-components";
 import SelectButton from '../../../components/selectButton/SelectButton';
+import axios from 'axios';
+import { useSelector } from "react-redux";
+
 
 const ModeratorApplicantsCited = () => {
   const [users, setUsers] = useState([]);
 
-  const URL = "http://localhost:3002/entrevistados";
+/*   const URL = "http://localhost:3002/entrevistados";
   const showData = async () => {
     const response = await fetch(URL);
     const data = await response.json();
     console.log(data);
     setUsers(data);
-  };
+  }; */
+
+  // const token = useSelector((state) => state.token);
+  async function showData() {
+    const { data } = await axios.get(
+    "http://localhost:3002/entrevistados",
+  /* {
+    headers: { Authorization: token },
+    }*/
+  );
+    setUsers(data);
+  }
+
   
   useEffect(() => {
     showData();
