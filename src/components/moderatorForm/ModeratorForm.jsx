@@ -3,16 +3,17 @@ import { Formik, Field, Form, ErrorMessage, useFormik } from "formik";
 import axios from "axios";
 import { useSelector } from "react-redux";
 
-const formValidate = (values) => {
+/*const formValidate = (values) => {
   const errors = {
     citationID: "",
   };
 
   if (!values.citationID || values.citationID.length === 0)
     errors.citationID === "Debes seleccionar una fecha";
+ 
 
   return errors;
-};
+};*/
 
 const ModeratorForm = () => {
   const [citations, setCitations] = useState([]);
@@ -68,7 +69,7 @@ const ModeratorForm = () => {
         observers: available.selectors.filter((s) => s.meetRole === 4),
       };
       console.log("To submit", toSubmit);
-      //
+      
       axios.post("http://localhost:3001/api/admin/meet", { ...toSubmit });
      
       //resetForm();
@@ -92,29 +93,32 @@ const ModeratorForm = () => {
     <>
       <Formik
 
-      /*validate={(valores) =>{
-              let errores ={};
+    validate={(valores) =>{
+              let errors ={};
+
+              //validacion fecha
+              if (!valores.citationID || valores.citationID.length === 0){
+                errors.citationID = "Debes seleccionar una fecha";
+
+              }
               //validacion numero salas entrevistas
               if(!valores.interviewRooms || valores.interviewRooms.length <= 0){
-                errores.interviewRooms = ' El campo no puede estar vacio o ser  . . cero'
-               
+                errors.interviewRooms = ' El campo no puede estar vacio, tampoco puede ser menor igual a cero'
+                
+              } //validacion numero salas assessment
+              if(!valores.assesmentsRooms || valores.assesmentsRooms <= 0){
+                errors.nombre = "El campo no puede estar vacio, tampoco puede ser menor igual a cero "
 
-              }else if(!/^[a-zA-ZÀ-ÿ\s]{1,40}$/.test(valores.nombre))
-              errores.nombre = "El nombre solo puede contener letras y espacios "
-
-              }
-              //validacion Correo
-              if(!valores.correo){
-                errores.correo = 'Por favor ingresa un correo electronico'
-
-              }else if(!/^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$/.test(valores.correo)){
-              errores.correo = "El correo  solo puede contener letras, numeros, puntos guiones y guion bajo  "
+              } //validacion de link
+              if(!valores.assesmentsRooms || valores.assesmentsRooms === 0){
+                errors.nombre = "El campo no puede estar vacio, tampoco puede ser menor igual a cero "
 
               }
 
-              return errores;
 
-            } }*/
+              return errors;
+
+            } }
             
       >
         {({ errors }) => (
