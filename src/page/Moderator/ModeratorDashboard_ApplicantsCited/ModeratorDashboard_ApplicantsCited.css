@@ -1,17 +1,33 @@
 
 
 .moderatorContainer43{
+    height: auto;
+    width: 99%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: auto;
+    text-align: center;
     padding-top: 100px;
-    margin-left: 7%;
-    width: 90%;
-    background-color: #ffffff;
-    padding: 15px;
+
+}
+
+.table{
+    width: 80vw;
+    text-align: center;
+    
+    padding: 20px 30px;
+    background-color:#ffffff;
+    box-shadow: 1px 10px 25px #c7c7c7;
+    margin: auto;
+
 }
 
 .moderatorContainer44{
     padding-top: 100px;
     margin-left: 11%;
-    width: 90%;
+    width: 99%;
     margin-bottom: 23%;
 }
 
@@ -38,3 +54,26 @@
 }
 
 
+@media (max-width: 600px) {
+    .moderatorContainer43 {
+        height: auto;
+        width: 99%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        margin: auto;
+        text-align: center;
+        padding-top: 100px;
+        
+    }
+    .moderatorApplicantsCitedContainer{
+        
+        width: 99%;
+    }
+    .table{
+        width: 98%;
+        padding: 20px 10px;
+    }
+
+  }

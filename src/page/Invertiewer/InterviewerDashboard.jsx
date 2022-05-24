@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import Tableinitview from "../../components/tableInitOb/Tableinitview";
+import SelectButton from "../../components/selectButton/SelectButton";
 import "./Interviewer.css";
 
 
@@ -7,10 +7,10 @@ const InterviewerDashboard = () => {
 
   return (
     <>
-      <div className="table59">
-      
-        <Tableinitview/>
-      </div>
+      <div className="interviewerDashboardContainer">
+       <h1 className="interviewrDashboardTitle">Inicio Entrevistador</h1>
+       <SelectButton/>
+       </div>
     </>
   );
 };

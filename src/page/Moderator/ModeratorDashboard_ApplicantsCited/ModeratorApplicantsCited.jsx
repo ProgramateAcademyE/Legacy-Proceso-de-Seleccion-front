@@ -5,6 +5,7 @@ import "react-data-table-component-extensions/dist/index.css";
 import { useState,useEffect } from 'react';
 import DataTable  from "react-data-table-component";
 import "styled-components";
+import SelectButton from '../../../components/selectButton/SelectButton';
 
 const ModeratorApplicantsCited = () => {
   const [users, setUsers] = useState([]);
@@ -52,6 +53,8 @@ const ModeratorApplicantsCited = () => {
       //1 - Configurar los hooks
 
     <div className="moderatorContainer43">
+              <h2>Aspirantes </h2>
+              <SelectButton/>
               <div className="moderatorApplicantsCitedContainer">
                   <div className="table">
                       <DataTableExtensions
