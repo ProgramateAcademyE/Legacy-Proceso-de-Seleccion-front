@@ -214,19 +214,30 @@ export const CONVOCATORY = [
   },
 ];
 
+
 export const ITEMS_INTERVIEWER = [
   {
-    name: "Dashboard Entrevistador",
+    name: "Dashboard",
     icon: "fas fa-th-large",
     items: [],
-    pathname: "/dashboard",
+    pathname: "/entrevistadordashboard",
     id: 13,
   },
   {
-    name: "Entrevista",
+    name: "Aspirante citados",
     icon: "fa fa-bullhorn",
     items: [],
-    pathname: "/entrevistadordashboard",
+    pathname: "/entrevistadoraplicantescitados",
+    id: 14,
+  },
+  {
+    name: "Observador assesment",
+    icon: "fa fa-bullhorn",
+    items: [],
+    pathname: "/observadorassesment",
     id: 14,
   },
 ];
+
+
+

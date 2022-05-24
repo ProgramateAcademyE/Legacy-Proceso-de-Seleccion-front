@@ -8,7 +8,7 @@ const ViewerDashboard = () => {
 
   return (
     <div className="viewerDashboardContainer">
-      <h1 className="viewerDashboardTitle"><span className='viewerSpan'>OBSERVADOR DASHBOARD</span></h1>
+      <h1 className="viewerDashboardTitle"><span className='viewerSpan'>DASHBOARD</span></h1>
 
 <h4 className="viewerDashboardTitle2">
 Tienes programadas las siguientes reuniones:
