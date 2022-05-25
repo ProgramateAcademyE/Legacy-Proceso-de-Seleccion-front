@@ -1,5 +1,4 @@
 .moderatorContainer43{
-
     height: auto;
     width: 100vw;
     background-color:rgb(255, 255, 255);
@@ -9,6 +8,19 @@
     align-items: center;
     margin-left: 7%;
 }
+
+
+.moderatorIndex{
+    height: 100vh;
+    width: 100vw;
+    background-color:rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 7%;
+}
+
 
 .moderatorApplicantsCitedTitle, .moderatorDashboardTitle{
     font-size: 3rem;

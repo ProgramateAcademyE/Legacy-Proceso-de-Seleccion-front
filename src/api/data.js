@@ -127,10 +127,18 @@ export const ITEMS_ASPIRANTS = [
 
 export const ITEMS_MODERATOR = [
   {
+    name: "Dashboard",
+    icon: "fas fa-th-large",
+    items: [],
+    pathname: "/dashboard",
+    id: 13,
+  },
+  {
     name: "Moderador",
     icon: "fas fa-user-edit",
     id: 15,
     items: [
+  
       {
         name: "Inicio Moderador",
         pathname: "/moderadordashboard",
@@ -219,6 +227,13 @@ export const ITEMS_INTERVIEWER = [
   {
     name: "Dashboard",
     icon: "fas fa-th-large",
+    items: [],
+    pathname: "/dashboard",
+    id: 13,
+  }, 
+  {
+    name: "Citas programadas",
+    icon: "fa fa-bookmark",
     items: [],
     pathname: "/entrevistadordashboard",
     id: 13,

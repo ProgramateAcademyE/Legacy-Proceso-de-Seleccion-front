@@ -9,6 +9,18 @@
     text-align: center;
 }
 
+.interviewerDashboardContainer2{
+    height: 100vh;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 7%;
+    text-align: center;
+}
+
+
 .interviewerDashboardtTitle{
     font-size: 2rem;
     text-align: center;
