@@ -54,10 +54,14 @@ const ModeratorForm = () => {
       assesmentsRooms: 0,
       interviewRooms: 0,
       link: "",
+      
     },
-    //validate: formValidate,
-    onSubmit: (values,{resetForm}) => {
+    
+    //validate: formValidate, 
+    onSubmit: (values, {resetForm})  => {
      //resetForm();
+     console.log(values)
+      //alert("Form is validated and in this block api call should be made...");
       console.log("On submit", values);
       const toSubmit = {
         ...values,
@@ -71,11 +75,11 @@ const ModeratorForm = () => {
       console.log("To submit", toSubmit);
       
       axios.post("http://localhost:3001/api/admin/meet", { ...toSubmit });
-     
       //resetForm();
       //conle.log("Formulario Enviado");
       cambiarFormularioEnviado(true);
       setTimeout(() => cambiarFormularioEnviado(false), 5000);
+     // resetForm();
     
     },
   });
@@ -91,30 +95,31 @@ const ModeratorForm = () => {
 
   return (
     <>
+    
       <Formik
+    // onSubmit={(e) => { e.preventDefault(); formik.handleSubmit(e)}}
+    
 
-    validate={(valores) =>{
+              validate={(values) =>{
               let errors ={};
-
               //validacion fecha
-              if (!valores.citationID || valores.citationID.length === 0){
+              /*if (!values.citationID || values.citationID.length === 0){
                 errors.citationID = "Debes seleccionar una fecha";
 
-              }
+              }*/
+              
               //validacion numero salas entrevistas
-              if(!valores.interviewRooms || valores.interviewRooms.length <= 0){
+              if(!values.interviewRooms || values.interviewRooms <= 0){
                 errors.interviewRooms = ' El campo no puede estar vacio, tampoco puede ser menor igual a cero'
-                
+                 //console.log('salas entrevistas'interviewRooms)
               } //validacion numero salas assessment
-              if(!valores.assesmentsRooms || valores.assesmentsRooms <= 0){
+              if(!values.assesmentsRooms || values.assesmentsRooms <= 0){
                 errors.nombre = "El campo no puede estar vacio, tampoco puede ser menor igual a cero "
-
               } //validacion de link
-              if(!valores.assesmentsRooms || valores.assesmentsRooms === 0){
-                errors.nombre = "El campo no puede estar vacio, tampoco puede ser menor igual a cero "
+              if(!values.link || values.link.length=== 0){
+                errors.nombre = "El campo no puede estar vacio,"
 
               }
-
 
               return errors;
 
@@ -123,7 +128,7 @@ const ModeratorForm = () => {
       >
         {({ errors }) => (
           <Form className="ModeratorForm">
-            <div class="ModeratorformContainer">
+            <div className="ModeratorformContainer">
               <div className="ModeratorFormSection1">
                 {console.log(errors)}
                 <div>
@@ -156,6 +161,7 @@ const ModeratorForm = () => {
                     className="ModeratorFormRooms"
                     type="number"
                     name="interviewRooms"
+                    id="interviewRooms"
                     //value={formik.values.interviewRooms}
                     onChange={formik.handleChange}
                   />
@@ -172,7 +178,9 @@ const ModeratorForm = () => {
                     className="ModeratorFormRooms"
                     type="number"
                     name="assesmentsRooms"
+                    id="assesmentsRooms"
                     onChange={formik.handleChange}
+                    
                   />
                   <ErrorMessage
                     name="assesmentsRooms"
@@ -303,6 +311,7 @@ const ModeratorForm = () => {
           </Form>
         )}
       </Formik>
+    
     </>
   );
 };
