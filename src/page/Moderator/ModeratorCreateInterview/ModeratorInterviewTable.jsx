@@ -27,7 +27,7 @@ const ModeratorInterviewTable = () => {
     <>
       <div className="moderatorInterviewTableContainer">
             <div className="moderatorInterviewContainerTitle">
-                <h1 className="moderatorInterviewTableTitle">Tabla entrevistas e </h1>
+                <h1 className="moderatorInterviewTableTitle">Tabla entrevistas  </h1>
               
             </div>
             <div className='secondu'>
