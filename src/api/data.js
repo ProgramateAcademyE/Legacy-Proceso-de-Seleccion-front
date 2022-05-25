@@ -225,7 +225,7 @@ export const CONVOCATORY = [
 
 export const ITEMS_INTERVIEWER = [
   {
-    name: "Dashboard",
+    name: "INICIO",
     icon: "fas fa-th-large",
     items: [],
     pathname: "/dashboard",
