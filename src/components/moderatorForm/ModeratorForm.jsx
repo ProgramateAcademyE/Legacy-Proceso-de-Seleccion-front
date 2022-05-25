@@ -54,8 +54,8 @@ const ModeratorForm = () => {
       link: "",
     },
     //validate: formValidate,
-    onSubmit: (values,{resetForm}) => {
-     //resetForm();
+    onSubmit: (values, { resetForm }) => {
+      //resetForm();
       console.log("On submit", values);
       const toSubmit = {
         ...values,
@@ -67,14 +67,13 @@ const ModeratorForm = () => {
         observers: available.selectors.filter((s) => s.meetRole === 4),
       };
       console.log("To submit", toSubmit);
-      
+
       axios.post("http://localhost:3001/api/admin/meet", { ...toSubmit });
-     
+
       //resetForm();
       //conle.log("Formulario Enviado");
       cambiarFormularioEnviado(true);
       setTimeout(() => cambiarFormularioEnviado(false), 5000);
-    
     },
   });
 
@@ -90,34 +89,29 @@ const ModeratorForm = () => {
   return (
     <>
       <Formik
+        validate={(valores) => {
+          let errors = {};
 
-    validate={(valores) =>{
-              let errors ={};
+          //validacion fecha
+          if (!valores.citationID || valores.citationID.length === 0) {
+            errors.citationID = "Debes seleccionar una fecha";
+          }
+          //validacion numero salas entrevistas
+          if (!valores.interviewRooms || valores.interviewRooms.length <= 0) {
+            errors.interviewRooms =
+              " El campo no puede estar vacio, tampoco puede ser menor igual a cero";
+          } //validacion numero salas assessment
+          if (!valores.assesmentsRooms || valores.assesmentsRooms <= 0) {
+            errors.nombre =
+              "El campo no puede estar vacio, tampoco puede ser menor igual a cero ";
+          } //validacion de link
+          if (!valores.assesmentsRooms || valores.assesmentsRooms === 0) {
+            errors.nombre =
+              "El campo no puede estar vacio, tampoco puede ser menor igual a cero ";
+          }
 
-              //validacion fecha
-              if (!valores.citationID || valores.citationID.length === 0){
-                errors.citationID = "Debes seleccionar una fecha";
-
-              }
-              //validacion numero salas entrevistas
-              if(!valores.interviewRooms || valores.interviewRooms.length <= 0){
-                errors.interviewRooms = ' El campo no puede estar vacio, tampoco puede ser menor igual a cero'
-                
-              } //validacion numero salas assessment
-              if(!valores.assesmentsRooms || valores.assesmentsRooms <= 0){
-                errors.nombre = "El campo no puede estar vacio, tampoco puede ser menor igual a cero "
-
-              } //validacion de link
-              if(!valores.assesmentsRooms || valores.assesmentsRooms === 0){
-                errors.nombre = "El campo no puede estar vacio, tampoco puede ser menor igual a cero "
-
-              }
-
-
-              return errors;
-
-            } }
-            
+          return errors;
+        }}
       >
         {({ errors }) => (
           <Form className="ModeratorForm">
@@ -147,7 +141,6 @@ const ModeratorForm = () => {
                   />
                 </div>
 
-                
                 <div>
                   <label htmlFor="interviewRooms">No salas Entrevistas</label>
                   <Field
@@ -179,7 +172,6 @@ const ModeratorForm = () => {
                 </div>
               </div>
               <div className="ModeratorFormSection2">
-               
                 <div>
                   <label htmlFor="link">Link Reunion</label>
                   <Field
@@ -293,9 +285,7 @@ const ModeratorForm = () => {
                   <span className="ModeratorFormExit">
                     Formulario Enviado con exito!
                   </span>
-                    
                 )}
-              
               </div>
             </div>
           </Form>

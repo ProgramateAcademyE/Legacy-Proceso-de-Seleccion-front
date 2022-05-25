@@ -1,5 +1,6 @@
 export const getDepartments = async () => {
-  const APIURL = "https://raw.githubusercontent.com/marcovega/colombia-json/master/colombia.min.json";
+  const APIURL =
+    "https://raw.githubusercontent.com/marcovega/colombia-json/master/colombia.min.json";
 
   // Fetching data...
   const res = await fetch(APIURL);
@@ -22,7 +23,7 @@ export const dataTypePopulation = [
   "Personas privadas de libertad o INPEC",
   "Adolescentes en conflicto con la ley penal",
   "LGBTIQ+",
-]
+];
 
 export const getOneConvocatory = async (id) => {
   const APIURL = `http://localhost:3001/api/admin/convocatory/${id}`;
