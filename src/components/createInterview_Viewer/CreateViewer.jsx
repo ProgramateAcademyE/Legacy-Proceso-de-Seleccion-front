@@ -4,7 +4,6 @@ import "styled-components";
 import DataTableExtensions from "react-data-table-component-extensions";
 import "react-data-table-component-extensions/dist/index.css";
 import "./CreateInterviewer.css"
-import "./Switch.jsx"
 
 const CreateViewer = () => {
   

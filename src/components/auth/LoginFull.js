@@ -85,7 +85,7 @@ const Login = () => {
     }
     try {
       await axios
-        .post("http://localhost:3003/api/user/login", {
+        .post("http://localhost:3001/api/user/login", {
           email,
           password,
         })

@@ -11,7 +11,7 @@ const ModeratorCreateInterview = () => {
 
   async function fetchCitations() {
     const { data } = await axios.get(
-      "http://localhost:3003/api/admin/citation-all",
+      "http://localhost:3001/api/admin/citation-all",
       {
         headers: { Authorization: token },
       }
@@ -74,7 +74,7 @@ const ModeratorCreateInterview = () => {
     };
 
     console.log("New Meet: ", newMeet);
-    axios.post("http://localhost:3003/api/admin/meet", { ...newMeet });
+    axios.post("http://localhost:3001/api/admin/meet", { ...newMeet });
   };
 
   return (

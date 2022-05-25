@@ -23,7 +23,7 @@ const ModeratorForm = () => {
 
   async function fetchCitations() {
     const { data } = await axios.get(
-      "http://localhost:3003/api/admin/citation-all",
+      "http://localhost:3001/api/admin/citation-all",
       {
         headers: { Authorization: token },
       }
@@ -37,7 +37,7 @@ const ModeratorForm = () => {
 
   async function fetchAvailibility(citationID) {
     const { data } = await axios.get(
-      `http://localhost:3003/api/admin/available-id/${citationID}`,
+      `http://localhost:3001/api/admin/available-id/${citationID}`,
       {
         headers: { Authorization: token },
       }
@@ -67,7 +67,7 @@ const ModeratorForm = () => {
         observers: available.selectors.filter((s) => s.meetRole === 4),
       };
       console.log("To submit", toSubmit);
-      axios.post("http://localhost:3003/api/admin/meet", { ...toSubmit });
+      axios.post("http://localhost:3001/api/admin/meet", { ...toSubmit });
       //resetForm();
 
       //conle.log("Formulario Enviado");

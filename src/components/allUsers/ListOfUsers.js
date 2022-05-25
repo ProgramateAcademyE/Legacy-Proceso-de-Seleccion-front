@@ -14,7 +14,7 @@ const ListOfUsers = () => {
 
   async function fetchData(page) {
     const { data } = await axios.get(
-      "http://localhost:3003/api/user/all_info/" + page,
+      "http://localhost:3001/api/user/all_info/" + page,
       {
         headers: { Authorization: token },
       }
