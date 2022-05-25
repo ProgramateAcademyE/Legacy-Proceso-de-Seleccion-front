@@ -33,7 +33,6 @@ const ModeratorForm = () => {
         }
       );
       setAvailable(data.data[0]);
-      
     } catch (error) {
       setAvailable([]);
     }
@@ -81,6 +80,7 @@ const ModeratorForm = () => {
       console.log("On submit", values);
       const toSubmit = {
         ...values,
+        link: values.link.trim(),
         date: citationSelected?.appointmentDate,
         titleConvocatory: citationSelected?.titleConvocatory,
         shift: citationSelected?.shift[0],
