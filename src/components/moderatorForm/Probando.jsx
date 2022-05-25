@@ -1,7 +1,7 @@
 import React,{useState} from 'react';
  import { Formik, Field, Form, ErrorMessage } from "formik";
 
- const probando = () =>{
+ const Probando = () =>{
   const[formularioEnviado, cambiarFormularioEnviado] = useState(false)
  
         return(
@@ -206,7 +206,7 @@ import React,{useState} from 'react';
                       </button>
                       {formularioEnviado && <p className="exito">Formulario Enviado con exito!</p>}
                     </div>
-                    {/** 
+                  
                  
                         <div>
                                 <label htmlFor="nombre">Nombre</label>
@@ -269,7 +269,7 @@ import React,{useState} from 'react';
                         </div>
                             <button type="submit">Enviar</button>
                             {formularioEnviado && <p className="exito">Formulario Enviado con exito!</p>}
-*/}
+
                     </div>
                  </Form>
 
@@ -288,4 +288,4 @@ import React,{useState} from 'react';
      }
 
 
- export default probando
+ export default Probando
