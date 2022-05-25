@@ -13,13 +13,13 @@ const ModeratorInterviewerTable= ()=> {
    //1 - Configurar los hooks
   const [users, setUsers] = useState([])
  
- // const token = useSelector((state) => state.token);
+const token = useSelector((state) => state.token);
   async function showData() {
     const { data } = await axios.get(
-    "http://localhost:3005/meets",
-  /* {
+    "http://localhost:3001/api/admin/get-meets",
+   {
     headers: { Authorization: token },
-    }*/
+    }
     );
     setUsers(data);
     }
@@ -86,7 +86,7 @@ const ModeratorInterviewerTable= ()=> {
     {
       name: "DETALLE",
       /*selector: (row) => row.detalle,*/
-      selector: (row) => <a href="https://educamas.com.co/" target="_blank">ver detalles</a>,
+      selector: (row) => <a href="/moderadortablaentrevistas" target="_blank">ver detalles</a>,
       sortable:true
     },
   
