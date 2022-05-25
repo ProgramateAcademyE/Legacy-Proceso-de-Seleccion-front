@@ -189,6 +189,7 @@ ${cita.shift}`}{" "}
           </div>
 
           <table>
+            <tbody>
             <tr>
               <th>Entrevistador</th>
               <th>Assign rol</th>
@@ -241,6 +242,7 @@ ${cita.shift}`}{" "}
                 </tr>
               )
             )}
+            </tbody>
           </table>
           <button onClick={postAvailability}>Assign</button>
         </div>
