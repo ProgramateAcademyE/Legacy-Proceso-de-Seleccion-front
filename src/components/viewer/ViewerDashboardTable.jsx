@@ -1,16 +1,16 @@
 import React from 'react'
-import "./ViewerDashboard.css";
+import "./ViewerDashboard.css"
 import DataTableExtensions from "react-data-table-component-extensions";
 import "react-data-table-component-extensions/dist/index.css";
 import { useState,useEffect } from 'react';
 import DataTable , { createTheme } from "react-data-table-component";
 import "styled-components";
 
-const Tableinitview = () => {
+const ViewerDashboardTable = () => {
     const [users, setUsers] = useState([]);
 
     //2 - Función para mostrar los datos con fetch
-    const URL = "http://localhost:3002/entrevistados";
+    const URL = "http://localhost:3005/scheduledmeetings";
     const showData = async () => {
       const response = await fetch(URL);
       const data = await response.json();
@@ -27,42 +27,48 @@ const Tableinitview = () => {
       {
         name: "FECHA",
         selector: (row) => row.date,
+        sortable: true,
       },
       {
         name: "JORNADA",
-        selector: (row) => row.hour,
+        selector: (row) =>row.time,
+        sortable: true,
       },
       {
         name: "CONVOCATORIA",
-        selector: (row) => row.name,
+        selector: (row) => row.convocatory,
+        sortable: true,
       },
       {
-        name: "ROL",
-        selector: (row) => row.identification,
+        name: "ROL ASIGNADO",
+        selector: (row) => row.rol,
+        sortable: true,
       },
       {
         name: "SALA",
-        selector: (row) => row.interviewername,
+        selector: (row) => row.room,
+        sortable: true,
       },
       {
         name: "ASPIRANTES",
-        selector: (row) => row.viewername,
-      },  {
-        name: "DETALLE",
-        selector: (row) => row.id,
+        selector: (row) => row.applicants,
+        sortable: true,
+      },  
+      {
+        name: "VER DETALLE",
+        selector: (row) => <a href='./observadorassesment'>Ver Detalle</a>,
       }
     
     ];
   
 
   return (
-    <div className="table77">
-      <DataTableExtensions
+    <div className='interviewerApplicantTable'>
+    <DataTableExtensions
         columns={columns}
         data={users}
         >
         <DataTable
-          title = "Aspirantes Citados"
           columns={columns}
           data={users}
           defaultSortField="id"
@@ -70,8 +76,6 @@ const Tableinitview = () => {
           pagination
           paginationRowsPerPageOptions={[5, 10, 25, 50, 100]}
           highlightOnHover
-          selectableRows
-          selectableRowsHighlight
           fixedHeader
           fixedHeaderScrollHeight
           
@@ -82,4 +86,4 @@ const Tableinitview = () => {
   )
 }
 
-export default Tableinitview
+export default ViewerDashboardTable;

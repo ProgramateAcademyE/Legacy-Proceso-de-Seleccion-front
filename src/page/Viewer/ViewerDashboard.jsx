@@ -1,12 +1,19 @@
 import React from 'react'
-import Tableinitview from '../../components/tableInitOb/Tableinitview';
+import "./ViewerDashboard.css";
+import ViewerDashboardTable from '../../components/viewer/ViewerDashboardTable';
+
+
 
 const ViewerDashboard = () => {
 
   return (
-    <div className="table59">
-      
-      <Tableinitview/>
+    <div className="viewerDashboardContainer">
+      <h1 className="viewerDashboardTitle"><span className='viewerSpan'>DASHBOARD</span></h1>
+
+<h4 className="viewerDashboardTitle2">
+Tienes programadas las siguientes reuniones:
+</h4>
+      <ViewerDashboardTable/>
 
     </div>
   );

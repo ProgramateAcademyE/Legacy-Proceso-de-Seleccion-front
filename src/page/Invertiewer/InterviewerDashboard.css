@@ -1,0 +1,53 @@
+.interviewerDashboardContainer{
+    height: auto;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 7%;
+    text-align: center;
+}
+
+.interviewerDashboardtTitle{
+    font-size: 2rem;
+    text-align: center;
+    padding: 20px;
+    margin-top: 10%;
+}
+
+.interviewerDashboardTitle2{
+    font-size: 1.5rem;
+    text-align: center;
+}
+
+.interviewerSpan{
+    background-color:  #FDC300;
+    padding: 5px 10px;
+    border-radius: 10px;
+    box-shadow: 1px 10px 25px #c7c7c7;
+}
+
+
+@media (max-width: 991px) {
+    .interviewerDashboardtTitle{
+        margin-top: 10%;
+        font-size: 1.5rem;
+    }
+    
+}
+
+@media (max-width: 530px) {
+    .interviewerDashboardtTitle{
+        margin-top: 25%;
+        font-size: 1rem;
+    }
+
+    .interviewerSpan{
+        box-shadow: none;
+    }
+    .interviewerDashboardTitle2{
+        font-size: 1rem;
+    }
+
+}

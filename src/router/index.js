@@ -40,10 +40,10 @@ import QualifyInterview from "../page/Qualification/QualifyInterview";
 import ConvocatoryAspirants from "../page/convocatory/ConvocaryAspirants";
 import NavBarIndex from "../components/navBarIndex/NavBarIndex";
 import Index from "../components/stepForm";
-import Interviewer from "../page/Invertiewer/InterviewerDashboard";
 import InterviewerDashboard from "../page/Invertiewer/InterviewerDashboard";
 import InterviewerApplicantsCited from "../page/Invertiewer/InterviewerApplicantsCited";
 import ViewerDashboard from "../page/Viewer/ViewerDashboard";
+import ViewerAssesment from "../page/Viewer/ViewerAssesment";
 import ModeratorDashboard from "../page/Moderator/ModeratorDashboard_ApplicantsCited/ModeratorDashboard";
 import ModeratorCreateInterview from "../page/Moderator/ModeratorCreateInterview/ModeratorCreateInterview";
 import ModeratorInterviewer from "../page/Moderator/ModeratorInterviewer_Viewer/ModeratorInterviewer";
@@ -63,7 +63,7 @@ const App = () => {
     dispatch(getData(auth.user._id));
   }, [dispatch, auth]);
 
-  const { isLogged, /*isAdmin, isModerator, isInterviewer, isViewer*/ } = auth;
+  const { isLogged /*isAdmin, isModerator, isInterviewer, isViewer*/ } = auth;
 
   const role = auth.user.role;
   console.log(role);
@@ -171,12 +171,21 @@ const App = () => {
                 component={ModeratorApplicantsCited}
               />
             </>
-          ) : role === 3 ? (
-            <Route path="/observadordashboard" component={ViewerDashboard} />
-          ) : role === 4 ? (
+          ) : role === 3 || role === 4 ?  (
             <>
-              <Route path="/entrevistadordashboard" component={Interviewer} />
-            </>
+            <Route
+                path="/entrevistadordashboard"
+                component={InterviewerDashboard}
+              />
+              <Route
+                path="/entrevistadoraplicantescitados"
+                component={InterviewerApplicantsCited}
+              />
+                 <Route
+                path="/observadorassesment"
+                component={ViewerAssesment}
+              />
+              </>
           ) : (
             <>
               <Route exact path="/inscripcion" component={Index} />

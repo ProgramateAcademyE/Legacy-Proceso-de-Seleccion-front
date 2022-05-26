@@ -1,11 +1,11 @@
 import React, { useEffect, useState } from "react";
 import DataTable from "react-data-table-component";
 import "styled-components";
-import "./InterviewerApplicants.css";
+import "./ViewerCalification.css";
 import DataTableExtensions from "react-data-table-component-extensions";
 import "react-data-table-component-extensions/dist/index.css";
 
-const InterviewerApplicantsTable = () => {
+const ViewerTable = () => {
   const handleChange = ({ selectedRows }) => {
     // You can set state or dispatch with something like Redux so we can use the retrieved data
     console.log("Selected Rows: ", selectedRows);
@@ -25,6 +25,11 @@ const InterviewerApplicantsTable = () => {
   useEffect(() => {
     showData();
   }, []);
+
+  const handleClick = (title) => {
+    console.log(`You clicked me! ${title}`);
+  };
+
 
   const columns = [
     {
@@ -62,16 +67,22 @@ const InterviewerApplicantsTable = () => {
       selector: (row) => row.viewername,
       sortable: true,
     },
-    {
-      name: "SELECCIONAR",
-      selector: (row) => <input type="checkbox"/>,
-      sortable: true,
-    },
+   /* {
+      name: "Action",
+      sortable: false,
+      selector: "null",
+      cell: (d) => [
+        <i
+          key={d.title}
+          onClick={handleClick.bind(this, d.title)}
+          className="fas fa-toggle-on"
+        ></i>,
+      ],
+    },*/
   ];
 
   return (
-    <>
-    <div className="interviewerApplicantTable">
+    <div className="viewerApplicantTable">
       <DataTableExtensions columns={columns} data={users}>
         <DataTable
           title="Aspirantes Citados"
@@ -82,12 +93,14 @@ const InterviewerApplicantsTable = () => {
           pagination
           paginationRowsPerPageOptions={[5, 10, 25, 50, 100]}
           highlightOnHover
+          selectableRows
+          selectableRowsHighlight
+          onSelectedRowsChange={handleChange}
           fixedHeader
           fixedHeaderScrollHeight
         />
       </DataTableExtensions>
     </div>
-    </>
   );
 };
-export default InterviewerApplicantsTable;
+export default ViewerTable;
