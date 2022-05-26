@@ -58,6 +58,7 @@ const ModeratorForm = () => {
       link: "",
       
     },
+
     //validate: formValidate, 
     onSubmit: (values, {resetForm})  => {
      //resetForm();
@@ -124,6 +125,8 @@ const ModeratorForm = () => {
   
               } }
 
+              
+
       >
         {({ errors }) => (
           <Form className="ModeratorForm">
@@ -138,18 +141,20 @@ const ModeratorForm = () => {
                     name="citationID"
                     id="citationID"
                     className="ModeratorFormDate"
-                
+                  
+                    
                     value={formik.values.citationID}
                     onChange={formik.handleChange}
                   
                   >
                    
-                    <option value=''>seleccione una fecha</option>
+                   <option value="" >Seleccione una fecha</option>
                     {citations?.data?.map((c) => (
                       <option value={c._id}>{`${c.appointmentDate
                         .toString()
                         .slice(0, -14)} ${c.shift[0]}`}</option>
                     ))}
+               
                   </Field>
                   <ErrorMessage
                     name="citationID"
@@ -248,7 +253,8 @@ const ModeratorForm = () => {
                     >
                       {available?.selectors?.map((s) =>
                         s.meetRole === 3 ? (
-                          <option value={s.firstName}>{s.firstName}</option>
+                         
+                          <option value={s.firstName}>{`${s.firstName} ${s.lastName}`}</option>
                         ) : (
                           <></>
                         )
@@ -277,7 +283,8 @@ const ModeratorForm = () => {
                     >
                       {available?.selectors?.map((s) =>
                         s.meetRole === 4 ? (
-                          <option value={s.firstName}>{s.firstName}</option>
+                      
+                          <option value={s.firstName}>{`${s.firstName} ${s.lastName}`}</option>
                         ) : (
                           <></>
                         )
