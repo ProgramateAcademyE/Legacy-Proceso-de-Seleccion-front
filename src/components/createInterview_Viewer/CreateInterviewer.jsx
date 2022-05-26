@@ -6,9 +6,9 @@ import { useSelector } from "react-redux";
 import "./SelectButton.css";
 import "./CreateInterviewer.css"
 
-import { setDate } from "date-fns/esm";
 
-const ModeratorViewer = () => {
+
+const CreateInterViewer = () => {
   const [users, setUsers] = useState([]);
   const [citation, setCitation] = useState([]);
   const [citationSelected, setCitationSelected] = useState([]);
@@ -205,8 +205,8 @@ ${cita.shift}`}{" "}
                     {staff.firstName} {staff.lastName}
                   </td>
                   <td>{staff.role}</td>
-                  <td>{date}</td>
-
+                  <td>{date.slice(0, -6)}</td>
+                  <td>{date.slice(11)}</td>
                   <td>
                     <input
                       value={staff._id}
@@ -230,7 +230,8 @@ ${cita.shift}`}{" "}
                     {staff.names} {staff.surname}
                   </td>
                   <td>{staff.role}</td>
-                  <td>{date}</td>
+                  <td>{date.slice(0, -6)}</td>
+                  <td>{date.slice(11)}</td>
 
                   <td>
                     <input
@@ -252,4 +253,4 @@ ${cita.shift}`}{" "}
   );
 };
 
-export default ModeratorViewer;
+export default CreateInterViewer;

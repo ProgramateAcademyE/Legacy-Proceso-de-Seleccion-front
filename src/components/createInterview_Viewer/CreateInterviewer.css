@@ -4,7 +4,6 @@
     text-align: center;
     padding: 20px;
     background-color:#ffffff;
-    /* box-shadow: 1px 10px 25px #c7c7c7; */
     margin: auto;
 }
 .table_full{
@@ -21,7 +20,6 @@
 }
 .table_head{
     background: #c7c7c7;
-    /* box-shadow: 1px 10px 25px 1px rgba(22, 21, 21, 0); */
     font-size: 1.2rem;
     height: 70px;
     border: solid 1px black;
