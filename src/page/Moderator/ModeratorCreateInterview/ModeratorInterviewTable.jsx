@@ -1,8 +1,33 @@
 import React from 'react'
 import "./ModeratorInterviewTable.css";
 import ConstructorModerator from '../../../components/constructorModerator/ConstructorModerator';
+import { useState,useEffect } from 'react';
+import axios from 'axios';
+import { useSelector } from "react-redux";
+
+
 
 const ModeratorInterviewTable = () => {
+  const [usersr, setUsersr] = useState([]);
+  const token = useSelector((state) => state.token);
+  async function showData5() {
+    
+    const { data3 } = await axios.get(
+    "http://localhost:3001/api/admin/citation-all",
+    {
+      headers: { Authorization: token },
+    }
+
+  );
+    console.log("d",data3[0])
+    setUsersr(data3);
+  }
+  useEffect(() => {
+    showData5();
+  }, []);
+
+  console.log("algo",usersr)
+
 
   const starti = [
     {
@@ -23,6 +48,8 @@ const ModeratorInterviewTable = () => {
       
   }]
 
+  
+ 
   return (
     <>
       <div className="moderatorInterviewTableContainer">
