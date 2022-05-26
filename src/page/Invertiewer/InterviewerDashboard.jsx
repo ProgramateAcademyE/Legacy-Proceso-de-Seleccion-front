@@ -4,7 +4,7 @@ import "./Interviewer.css";
 
 
 const InterviewerDashboard = () => {
- 
+
   return (
     <>
       <div className="interviewerDashboardContainer">
