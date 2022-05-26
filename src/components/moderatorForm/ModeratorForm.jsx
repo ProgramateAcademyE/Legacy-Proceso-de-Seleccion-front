@@ -233,8 +233,8 @@ const ModeratorForm = () => {
                 >
                   {citationSelected?.users?.map((u) => (
                     <option
-                      value={u.firstName}
-                    >{`${u.firstName} ${u.lastName}`}</option>
+                      value={u.names}
+                    >{`${u.names} ${u.surname}`}</option>
                   ))}
                 </Field>
                 {/*<ErrorMessage
@@ -261,7 +261,7 @@ const ModeratorForm = () => {
                 >
                   {available?.selectors?.map((s) =>
                     s.meetRole === 3 ? (
-                      <option value={s.firstName}>{`${s.firstName} ${ s.lastName}`}</option>
+                      <option value={s.names}>{`${s.names} ${ s.surname}`}</option>
                     ) : (
                       <></>
                     )
@@ -290,7 +290,7 @@ const ModeratorForm = () => {
                 >
                   {available?.selectors?.map((s) =>
                     s.meetRole === 4 ? (
-                      <option value={s.firstName}>{`${s.firstName} ${s.lastName}`}</option>
+                      <option value={s.names}>{`${s.names} ${s.surname}`}</option>
                     ) : (
                       <></>
                     )
