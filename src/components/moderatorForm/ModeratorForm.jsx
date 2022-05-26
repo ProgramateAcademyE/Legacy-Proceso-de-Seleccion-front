@@ -61,20 +61,20 @@ const ModeratorForm = () => {
       } else if (values.interviewRooms <= 0) {
         errores.interviewRooms = "Debe ser mayor a 0";
       }
+      //validacion numero salas assessment
+      if (!values.assesmentsRooms) {
+        errores.assesmentsRooms = "Campo Requerido.";
+      } else if(values.assesmentsRooms <=0)
+        errores.assesmentsRooms = "Debe ser mayor a 0.";
 
-      if (!values.assesmentsRooms || values.assesmentsRooms <= 0) {
-        //validacion numero salas assessment
-        errores.assesmentsRooms =
-          "El campo no puede estar vacio, tampoco puede ser menor //igual a cero ";
-      } //validacion de link
+      //validacion de link
       if (!values.link || values.link.length === 0) {
         errores.link = "El campo no puede estar vacio,";
       }
-
       return errores;
     },
 
-    onSubmit: (values, { resetForm }) => {
+    onSubmit: (values, {resetForm}) => {
       //resetForm();
       console.log(values);
       console.log("On submit", values);
@@ -89,14 +89,15 @@ const ModeratorForm = () => {
         observers: available.selectors.filter((s) => s.meetRole === 4),
       };
       console.log("To submit", toSubmit);
-
+      
       axios.post("http://localhost:3001/api/admin/meet", { ...toSubmit });
       //resetForm();
       //conle.log("Formulario Enviado");
       cambiarFormularioEnviado(true);
       setTimeout(() => cambiarFormularioEnviado(false), 5000);
-      resetForm();
+     resetForm();
     },
+    
   });
 
   console.log("errores", formik.errors);
@@ -112,7 +113,7 @@ const ModeratorForm = () => {
 
   return (
     <Formik>
-      <form className="ModeratorForm">
+      <Form className="ModeratorForm">
         <div className="ModeratorformContainer">
           <div className="ModeratorFormSection1">
             <div>
@@ -178,6 +179,13 @@ const ModeratorForm = () => {
                 id="assesmentsRooms"
                 onChange={formik.handleChange}
               />
+              {formik.errors.assesmentsRooms ? (
+                <div style={{ color: "red" }}>
+                  {formik.errors.assesmentsRooms}
+                </div>
+              ) : (
+                <></>
+              )}
               {/* <ErrorMessage
                 name="assesmentsRooms"
                 component={() => <span>{formik.errors.assesmentsRooms}</span>}
@@ -195,6 +203,13 @@ const ModeratorForm = () => {
                 placeholder="Ingresa una URL"
                 onChange={formik.handleChange}
               />
+              {formik.errors.link ? (
+                <div style={{ color: "red" }}>
+                  {formik.errors.link}
+                </div>
+              ) : (
+                <></>
+              )}
               {/*<ErrorMessage
                 name="link"
                 component={() => (
@@ -246,7 +261,7 @@ const ModeratorForm = () => {
                 >
                   {available?.selectors?.map((s) =>
                     s.meetRole === 3 ? (
-                      <option value={s.firstName}>{s.firstName}</option>
+                      <option value={s.firstName}>{`${s.firstName} ${ s.lastName}`}</option>
                     ) : (
                       <></>
                     )
@@ -275,16 +290,13 @@ const ModeratorForm = () => {
                 >
                   {available?.selectors?.map((s) =>
                     s.meetRole === 4 ? (
-                      <option value={s.firstName}>{s.firstName}</option>
+                      <option value={s.firstName}>{`${s.firstName} ${s.lastName}`}</option>
                     ) : (
                       <></>
                     )
                   )}
                 </Field>
-                {/*<ErrorMessage
-                  name="interviewers"
-                  component={() => <span>{formik.errors.interviewers}</span>}
-                    />*/}
+              
               </>
             ) : (
               <></>
@@ -298,14 +310,19 @@ const ModeratorForm = () => {
             >
               Publicar y enviar
             </button>
-            {formularioEnviado && (
-              <span className="ModeratorFormExit">
-                Formulario Enviado con exito!
-              </span>
-            )}
+            
           </div>
+          <div className="ModeratorFormExit">
+              {formularioEnviado && (
+                <span className="">
+                  Formulario Enviado con exito!
+                </span>
+
+              )}
+            </div>
         </div>
-      </form>
+       
+      </Form>
     </Formik>
   );
 };
