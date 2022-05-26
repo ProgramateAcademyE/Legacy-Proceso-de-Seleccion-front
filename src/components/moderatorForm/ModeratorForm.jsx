@@ -3,7 +3,7 @@ import { Formik, Field, Form, ErrorMessage, useFormik } from "formik";
 import axios from "axios";
 import { useSelector } from "react-redux";
 
-const formValidate = (values) => {
+/*const formValidate = (values) => {
   const errors = {
     citationID: "",
   };
@@ -12,7 +12,7 @@ const formValidate = (values) => {
     errors.citationID === "Debes seleccionar una fech";
 
   return errors;
-};
+};*/
 
 const ModeratorForm = () => {
   const [citations, setCitations] = useState([]);
