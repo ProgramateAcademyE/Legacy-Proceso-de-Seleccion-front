@@ -11,11 +11,9 @@ const ModeratorViewer = () => {
   const [users, setUsers] = useState([]);
   const [citation, setCitation] = useState([]);
   const [citationSelected, setCitationSelected] = useState([]);
-  const [checked, setChecked] = useState(false);
   const [IdCitation, setIdCitation] = useState([]);
   const [date, setDate] = useState([])
   const [UsersSelected, setUsersSelected] = useState([]);
-  const [allInfoUser, setAllInfoUser] = useState([]) 
   const [currentSelectors, setCurrentSelectors] = useState([])
   const [currentAvailableId, setCurrentAvailableId] = useState("");
   
@@ -122,38 +120,35 @@ const ModeratorViewer = () => {
   const postAvailability =()=>{
           
         fetchCitationSelected()
+
+        const selectors = UsersSelected.map((dat) => {
+          
+          return( 
+                  {
+                    _id:(dat._id),
+                    names:(dat.names),
+                    surname:(dat.surname),
+                    role:(dat.role),
+                    meetRole:4
+                  
+                  }
+                
+                  )
+         }) 
+        console.log("newselector", selectors)
         
 
         if(currentAvailableId.length !== 0){
-          axios.patch(`http://localhost:3001/api/admin/update_availables/
-          ${currentAvailableId}`, { ...UsersSelected });
+          axios.put(`http://localhost:3001/api/admin/update_availables/${currentAvailableId}`, { ...selectors});
         }
         else {
-
-       
-           let mapeo =UsersSelected.map((dat) => {
-            let producto=""
-            
-            return( producto ="_id:" + (dat._id)+ "," +
-                    "firstName:" +(dat.names)+", "+ 
-                    "role:" +(dat.role))
-           }) 
-          console.log("newselector", mapeo)
-                     
+          
             const newAvailability = {
       
                citationID:IdCitation,
                date: (date),
                shift: "mañana", 
-               selectors:[
-                 {
-               _id:20,
-               firstName: "carolina",
-               lastName: "loaiza",
-               role: 3,
-               meetRole: 4,
-                 }
-               ]
+               selectors
                    
              };
          
@@ -185,7 +180,6 @@ const ModeratorViewer = () => {
         console.log("citation:", citation)
         console.log("IdCitation:", IdCitation);
         console.log("date:", date);
-        console.log("allInfoUser", allInfoUser)
         console.log("citationSelected:", citationSelected)
         console.log("available:", currentSelectors)
         console.log("availableId:", currentAvailableId)
@@ -223,7 +217,7 @@ const ModeratorViewer = () => {
         {currentSelectors?.length !== 0 ? currentSelectors?.map(staff => (
           
           <tr>
-          <td>{staff.firstName} {staff.lastName}</td>
+          <td>{staff.names} {staff.surname}</td>
           <td>{staff.role}</td>
           <td>{date}</td>
       
@@ -232,6 +226,7 @@ const ModeratorViewer = () => {
                value={staff._id}
                type="checkbox"
                name="id"
+               checked={true}
                onChange={toggleChecked}/>
            </td>
                 
