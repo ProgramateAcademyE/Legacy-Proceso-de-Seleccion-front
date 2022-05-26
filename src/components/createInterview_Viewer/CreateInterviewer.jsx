@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 //import StaffSelect from './StaffSelect';
 import "./SelectButton.css";
+import "./CreateInterviewer.css"
 
 import { setDate } from "date-fns/esm";
 
@@ -171,9 +172,9 @@ const ModeratorViewer = () => {
 
   return (
     <>
-      <div className="moderatorContainer">
+      <div className="moderator_createviewer" >
         <div className="moderatorInterviewerContainer">
-          <h1 className="moderatorInterviewerTitle">MODERADOR - OBSERVADOR</h1>
+          
 
           <div>
             <h4 className="">Por favor seleccione fecha y hora</h4>
@@ -188,13 +189,14 @@ ${cita.shift}`}{" "}
             </select>
           </div>
 
-          <table>
-            <tr>
+          <table className="table_full">
+            <tbody className="table_body">
+            <tr className="table_head" >
               <th>Entrevistador</th>
-              <th>Assign rol</th>
-              <th>Available date</th>
-              <th>Available shift</th>
-              <th>Assign</th>
+              <th>Rol Principal</th>
+              <th>Fecha disponible</th>
+              <th>Jornada disponible </th>
+              <th>Habilitar</th>
             </tr>
             {currentSelectors?.length !== 0 ? (
               currentSelectors?.map((staff) => (
@@ -241,8 +243,9 @@ ${cita.shift}`}{" "}
                 </tr>
               )
             )}
+            </tbody>
           </table>
-          <button onClick={postAvailability}>Assign</button>
+          <button className="btnadd_interviewer" onClick={postAvailability}>Asignar</button>
         </div>
       </div>
     </>
