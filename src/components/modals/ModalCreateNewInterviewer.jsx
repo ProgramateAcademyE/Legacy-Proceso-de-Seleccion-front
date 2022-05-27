@@ -25,8 +25,7 @@ modal:{
  right:0,
  botton:0,
  margin:'auto',
-  
-  // transform:'tanslate(-50%, -50%)',
+    
 },
 textfield:{
   width:'98%'
