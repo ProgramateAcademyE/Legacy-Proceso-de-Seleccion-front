@@ -5,6 +5,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { Formik, Field, Form, ErrorMessage, useFormik } from "formik";
+import "../../../components/selectButton/SelectButton.css";
 
 const ModeratorInterviewTable = () => {
   const [citations, setCitations] = useState([]);
@@ -59,11 +60,12 @@ const ModeratorInterviewTable = () => {
     <Formik>
       <div className="moderatorInterviewTableContainer">
         <div className="moderatorInterviewContainerTitle">
-          <h1 className="moderatorInterviewTableTitle">Tabla entrevistas </h1>
+          <h1 className="moderatorInterviewTableTitle">
+            Listado General Entrevistas{" "}
+          </h1>
         </div>
 
         <div>
-          <label htmlFor="citationID">Fecha </label>
           <Field
             as="select"
             placeholder="Selecciona una Fecha"
@@ -71,6 +73,7 @@ const ModeratorInterviewTable = () => {
             id="citationID"
             value={formik.values.citationID}
             onChange={formik.handleChange}
+            className="selectButton"
           >
             <option value="">Seleccione una Fecha</option>
 
