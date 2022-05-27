@@ -40,7 +40,7 @@ const ModeratorInterviewerTable = () => {
   const columns = [
     {
       name: "FECHA",
-      selector: (row) => row.date,
+      selector: (row) => row.date.slice(0, 10),
       sortable: true,
     },
     {
