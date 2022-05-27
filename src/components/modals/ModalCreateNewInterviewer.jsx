@@ -25,8 +25,7 @@ modal:{
  right:0,
  botton:0,
  margin:'auto',
-  
-  // transform:'tanslate(-50%, -50%)',
+    
 },
 textfield:{
   width:'98%'
@@ -90,7 +89,7 @@ function ModalCreateNewInterviewer() {
             icon: "success",
             title: "Registro Exitoso!",
             text: res.data.msg,
-          });
+            });
           setUser({
             names: null,
             surname: null,
@@ -98,7 +97,9 @@ function ModalCreateNewInterviewer() {
             confirmPassword: null,
             email: null,
           });
-        }, 1000);
+          document.location.reload();
+        }, 500);
+        
       })
       .catch((err) => {
         Swal.fire({
@@ -109,7 +110,9 @@ function ModalCreateNewInterviewer() {
         setTimeout(() => {
           mostrarSpinner(false);
         }, 1000);
+       
       });
+      
   }
   const handleName = (e) => {
     const names = e.target.value;
