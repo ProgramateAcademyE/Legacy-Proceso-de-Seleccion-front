@@ -9,7 +9,6 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 
 const ModeratorApplicantsCited = () => {
-
   const [citation, setCitation] = useState([]);
   const [IdCitation, setIdCitation] = useState([]);
   const [citationSelected, setCitationSelected] = useState([]);
@@ -25,23 +24,20 @@ const ModeratorApplicantsCited = () => {
     );
     setCitation(data.data);
     setProcessedCitation(
-      data.data.map(item=>{
-        return (          
-           item.users.map(subitem =>{
-            return{
-              fecha: item.appointmentDate.slice(0,10),
-              jornada: item.shift,
-              aspirante: subitem.names+ " " + subitem.surname,
-              id_aspirante: subitem.documentNumber,
-              ubicacion: subitem.location
-            }
-          })
-          )
+      data.data.map((item) => {
+        return item.users.map((subitem) => {
+          return {
+            fecha: item.appointmentDate.slice(0, 10),
+            jornada: item.shift,
+            aspirante: subitem.names + " " + subitem.surname,
+            id_aspirante: subitem.documentNumber,
+            ubicacion: subitem.location,
+          };
+        });
       })
     );
   }
-  console.log("citacion", citation)
-
+  console.log("citacion", citation);
 
   const token = useSelector((state) => state.token);
   async function fetchCitationSelected() {
@@ -54,14 +50,13 @@ const ModeratorApplicantsCited = () => {
 
     setCitationSelected(data);
   }
-  console.log("citation selected", citationSelected)
+  console.log("citation selected", citationSelected);
 
   useEffect(() => {
     fetchCitation();
-    
   }, []);
 
-  console.log("processed", processedCitation)
+  console.log("processed", processedCitation);
 
   const handleSelect = (e) => {
     let index = e.target.selectedIndex;
@@ -69,10 +64,9 @@ const ModeratorApplicantsCited = () => {
     setDate(e.target.value);
     setIdCitation(e.target.value);
     fetchCitationSelected();
-    
   };
 
-  console.log("citations", IdCitation)
+  console.log("citations", IdCitation);
 
   const columns = [
     {
@@ -85,7 +79,7 @@ const ModeratorApplicantsCited = () => {
     },
     {
       name: "ASPIRANTE",
-      selector:(row) => row["aspirante"],
+      selector: (row) => row["aspirante"],
       sortable: true,
     },
     {
@@ -118,7 +112,7 @@ const ModeratorApplicantsCited = () => {
         </select>
       </div>
       <div className="moderatorApplicantsCitedContainer">
-        <div className="table">
+        <div className="tablemoderatorApplicantsCited">
           <DataTableExtensions columns={columns} data={processedCitation[date]}>
             <DataTable
               title="Aspirantes Citados"
@@ -128,7 +122,7 @@ const ModeratorApplicantsCited = () => {
               defaultSortAsc={false}
               pagination
               paginationRowsPerPageOptions={[5, 10, 25, 50, 100]}
-              highlightOnHover     
+              highlightOnHover
             />
           </DataTableExtensions>
         </div>
