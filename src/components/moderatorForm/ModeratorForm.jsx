@@ -1,17 +1,7 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Formik, Field, Form, ErrorMessage, useFormik } from "formik";
 import axios from "axios";
 import { useSelector } from "react-redux";
-
-/*const formValidate = (values) => {
-  const errors = {
-    citationID: "",
-  };
-  if (!values.citationID || values.citationID.length === 0)
-    errors.citationID === "Debes seleccionar una fecha";
- 
-  return errors;
-};*/
 
 const ModeratorForm = () => {
   const [citations, setCitations] = useState([]);
@@ -20,6 +10,10 @@ const ModeratorForm = () => {
   const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
   const token = useSelector((state) => state.token);
 
+  const interviewersInput = useRef(null);
+  const viewersInput = useRef(null);
+
+  const [countInterviewer, setCountIntervierwer] = useState(0);
   async function fetchCitations() {
     const { data } = await axios.get(
       "http://localhost:3001/api/admin/citation-all",
@@ -35,13 +29,17 @@ const ModeratorForm = () => {
   }, []);
 
   async function fetchAvailibility(citationID) {
-    const { data } = await axios.get(
-      `http://localhost:3001/api/admin/available-id/${citationID}`,
-      {
-        headers: { Authorization: token },
-      }
-    );
-    setAvailable(data.data[0]);
+    try {
+      const { data } = await axios.get(
+        `http://localhost:3001/api/admin/available-id/${citationID}`,
+        {
+          headers: { Authorization: token },
+        }
+      );
+      setAvailable(data.data[0]);
+    } catch (error) {
+      setAvailable([]);
+    }
   }
   //console.log("citaciones: ", citations);
 
@@ -53,12 +51,47 @@ const ModeratorForm = () => {
       interviewRooms: 0,
       link: "",
     },
-    //validate: formValidate,
+
+    validate: (values) => {
+      console.log("VaLues en Validate");
+      let errores = {};
+      //validacion fecha
+      if (!values.citationID || values.citationID.length === 0) {
+        errores.citationID = "Debes seleccionar una fecha";
+      }
+      //validacion numero salas entrevistas
+      if (!values.interviewRooms) {
+        errores.interviewRooms = "Campo Requerido.";
+      } else if (values.interviewRooms <= 0) {
+        errores.interviewRooms = "Debe ser mayor a 0";
+      }
+      if (values.interviewRooms > interviewersInput.current.childElementCount) {
+        errores.interviewRooms = "No puede ser mayor numero entrevistadores";
+      }
+      //validacion numero salas assessment
+      if (!values.assesmentsRooms) {
+        errores.assesmentsRooms = "Campo Requerido.";
+      } else if (values.assesmentsRooms <= 0)
+        errores.assesmentsRooms = "Debe ser mayor a 0.";
+
+      if (values.assesmentsRooms > viewersInput.current.childElementCount) {
+        errores.assesmentsRooms = "No puede ser mayor numero Observadores";
+      }
+
+      //validacion de link
+      if (!values.link || values.link.length === 0) {
+        errores.link = "El campo no puede estar vacio,";
+      }
+      return errores;
+    },
+
     onSubmit: (values, { resetForm }) => {
       //resetForm();
+      console.log(values);
       console.log("On submit", values);
       const toSubmit = {
         ...values,
+        link: values.link.trim(),
         date: citationSelected?.appointmentDate,
         titleConvocatory: citationSelected?.titleConvocatory,
         shift: citationSelected?.shift[0],
@@ -69,13 +102,15 @@ const ModeratorForm = () => {
       console.log("To submit", toSubmit);
 
       axios.post("http://localhost:3001/api/admin/meet", { ...toSubmit });
-
       //resetForm();
       //conle.log("Formulario Enviado");
       cambiarFormularioEnviado(true);
       setTimeout(() => cambiarFormularioEnviado(false), 5000);
+      resetForm();
     },
   });
+
+  console.log("errores", formik.errors);
 
   useEffect(() => {
     setCitacionSelected(
@@ -85,213 +120,194 @@ const ModeratorForm = () => {
     );
     fetchAvailibility(formik.values.citationID);
   }, [formik.values.citationID]);
+  //mirar que tiene interviewersInput
+  console.log("Entrevistadoresinput", interviewersInput);
+  console.log("ObservadoresInput", viewersInput);
 
   return (
-    <>
-      <Formik
-        validate={(valores) => {
-          let errors = {};
+    <Formik>
+      <Form className="ModeratorForm">
+        <div className="ModeratorformContainer">
+          <div className="ModeratorFormSection1">
+            <div>
+              <label htmlFor="citationID">Fecha </label>
+              <Field
+                as="select"
+                placeholder="Selecciona una Fecha"
+                name="citationID"
+                id="citationID"
+                className="ModeratorFormDate"
+                value={formik.values.citationID}
+                onChange={formik.handleChange}
+              >
+                <option value="">Seleccione una Fecha</option>
 
-          //validacion fecha
-          if (!valores.citationID || valores.citationID.length === 0) {
-            errors.citationID = "Debes seleccionar una fecha";
-          }
-          //validacion numero salas entrevistas
-          if (!valores.interviewRooms || valores.interviewRooms.length <= 0) {
-            errors.interviewRooms =
-              " El campo no puede estar vacio, tampoco puede ser menor igual a cero";
-          } //validacion numero salas assessment
-          if (!valores.assesmentsRooms || valores.assesmentsRooms <= 0) {
-            errors.nombre =
-              "El campo no puede estar vacio, tampoco puede ser menor igual a cero ";
-          } //validacion de link
-          if (!valores.assesmentsRooms || valores.assesmentsRooms === 0) {
-            errors.nombre =
-              "El campo no puede estar vacio, tampoco puede ser menor igual a cero ";
-          }
-
-          return errors;
-        }}
-      >
-        {({ errors }) => (
-          <Form className="ModeratorForm">
-            <div class="ModeratorformContainer">
-              <div className="ModeratorFormSection1">
-                {console.log(errors)}
-                <div>
-                  <label htmlFor="citationID">Fecha </label>
-                  <Field
-                    as="select"
-                    placeholder="Selecciona una Fecha"
-                    name="citationID"
-                    id="citationID"
-                    className="ModeratorFormDate"
-                    value={formik.values.citationID}
-                    onChange={formik.handleChange}
-                  >
-                    {citations?.data?.map((c) => (
-                      <option value={c._id}>{`${c.appointmentDate
-                        .toString()
-                        .slice(0, -14)} ${c.shift[0]}`}</option>
-                    ))}
-                  </Field>
-                  <ErrorMessage
-                    name="citationID"
-                    component={() => <span>{errors.citationID}</span>}
-                  />
-                </div>
-
-                <div>
-                  <label htmlFor="interviewRooms">No salas Entrevistas</label>
-                  <Field
-                    className="ModeratorFormRooms"
-                    type="number"
-                    name="interviewRooms"
-                    //value={formik.values.interviewRooms}
-                    onChange={formik.handleChange}
-                  />
-                  <ErrorMessage
-                    name="interviewRooms"
-                    component={() => <span>{errors.interviewRooms}</span>}
-                  />
-                </div>
-
-                {/*modificando */}
-                <div>
-                  <label htmlFor="assesmentsRooms">No salas Assessment</label>
-                  <Field
-                    className="ModeratorFormRooms"
-                    type="number"
-                    name="assesmentsRooms"
-                    onChange={formik.handleChange}
-                  />
-                  <ErrorMessage
-                    name="assesmentsRooms"
-                    component={() => <span>{errors.assesmentsRooms}</span>}
-                  />
-                </div>
-              </div>
-              <div className="ModeratorFormSection2">
-                <div>
-                  <label htmlFor="link">Link Reunion</label>
-                  <Field
-                    className="ModeratorFormLink"
-                    type="text"
-                    id="link"
-                    name="link"
-                    placeholder="Ingresa una URL"
-                    onChange={formik.handleChange}
-                  />
-                  <ErrorMessage
-                    name="link"
-                    component={() => <div className="error">{errors.link}</div>}
-                  />
-                </div>
-              </div>
-              <div className="ModeratorFormTitle">
-                <h5 className="ModeratorFormApplicants">Aspirantes</h5>
-              </div>
-
-              <div className="ModeratorFormSelect">
-                {citationSelected !== undefined ? (
-                  <>
-                    <Field
-                      name="applicants"
-                      as="text"
-                      multiple
-                      className="form-control select picker "
-                    >
-                      {citationSelected?.users?.map((u) => (
-                        <option value={u.firstName}>{u.firstName}</option>
-                      ))}
-                    </Field>
-                    <ErrorMessage
-                      name="applicants"
-                      component={() => <span>{errors.applicants}</span>}
-                    />
-                  </>
-                ) : (
-                  <></>
-                )}
-              </div>
-              <div className="ModeratorFormTitle">
-                <h5 className="">Entrevistadores</h5>
-              </div>
-
-              <div className="ModeratorFormSelect">
-                {available !== undefined ? (
-                  <>
-                    <Field
-                      name="interviewers"
-                      as="text"
-                      multiple
-                      className="form-control select picker "
-                    >
-                      {available?.selectors?.map((s) =>
-                        s.meetRole === 3 ? (
-                          <option value={s.firstName}>{s.firstName}</option>
-                        ) : (
-                          <></>
-                        )
-                      )}
-                    </Field>
-                    <ErrorMessage
-                      name="interviewers"
-                      component={() => <span>{errors.interviewers}</span>}
-                    />
-                  </>
-                ) : (
-                  <></>
-                )}
-              </div>
-              <div className="ModeratorFormTitle">
-                <h5 className="">observadores</h5>
-              </div>
-              <div className="ModeratorFormSelect">
-                {available !== undefined ? (
-                  <>
-                    <Field
-                      name="interviewers"
-                      as="text"
-                      multiple
-                      className="form-control select picker "
-                    >
-                      {available?.selectors?.map((s) =>
-                        s.meetRole === 4 ? (
-                          <option value={s.firstName}>{s.firstName}</option>
-                        ) : (
-                          <></>
-                        )
-                      )}
-                    </Field>
-                    <ErrorMessage
-                      name="interviewers"
-                      component={() => <span>{errors.interviewers}</span>}
-                    />
-                  </>
-                ) : (
-                  <></>
-                )}
-              </div>
-              <div className="ModeratorFormButton">
-                <button
-                  type="submit"
-                  onClick={formik.handleSubmit}
-                  className="ModeratorFormSubmit"
-                >
-                  Publicar y enviar
-                </button>
-                {formularioEnviado && (
-                  <span className="ModeratorFormExit">
-                    Formulario Enviado con exito!
-                  </span>
-                )}
-              </div>
+                {citations?.data?.map((c) => (
+                  <option value={c._id}>{`${c.appointmentDate
+                    .toString()
+                    .slice(0, -14)} ${c.shift[0]}`}</option>
+                ))}
+              </Field>
+              {formik.errors.citationID ? (
+                <div style={{ color: "red" }}>{formik.errors.citationID}</div>
+              ) : (
+                <></>
+              )}
             </div>
-          </Form>
-        )}
-      </Formik>
-    </>
+            <div>
+              <label htmlFor="interviewRooms">No salas Entrevistas</label>
+              <Field
+                className="ModeratorFormRooms"
+                type="number"
+                name="interviewRooms"
+                id="interviewRooms"
+                //value={formik.values.interviewRooms}
+                onChange={formik.handleChange}
+              />
+
+              {formik.errors.interviewRooms ? (
+                <div style={{ color: "red" }}>
+                  {formik.errors.interviewRooms}
+                </div>
+              ) : (
+                <></>
+              )}
+            </div>
+
+            <div>
+              <label htmlFor="assesmentsRooms">No salas Assessment</label>
+              <Field
+                className="ModeratorFormRooms"
+                type="number"
+                name="assesmentsRooms"
+                id="assesmentsRooms"
+                onChange={formik.handleChange}
+              />
+              {formik.errors.assesmentsRooms ? (
+                <div style={{ color: "red" }}>
+                  {formik.errors.assesmentsRooms}
+                </div>
+              ) : (
+                <></>
+              )}
+            </div>
+          </div>
+          <div className="ModeratorFormSection2">
+            <div>
+              <label htmlFor="link">Link Reunion</label>
+              <Field
+                className="ModeratorFormLink"
+                type="text"
+                id="link"
+                name="link"
+                placeholder="Ingresa una URL"
+                onChange={formik.handleChange}
+              />
+              {formik.errors.link ? (
+                <div style={{ color: "red" }}>{formik.errors.link}</div>
+              ) : (
+                <></>
+              )}
+            </div>
+          </div>
+          <div className="ModeratorFormTitle">
+            <h5 className="ModeratorFormApplicants">Aspirantes</h5>
+          </div>
+
+          <div className="ModeratorFormSelect">
+            {citationSelected !== undefined ? (
+              <>
+                <Field
+                  name="applicants"
+                  as="text"
+                  multiple
+                  className="form-control select "
+                >
+                  {citationSelected?.users?.map((u) => (
+                    <option value={u.names}>{`${u.names} ${u.surname}`}</option>
+                  ))}
+                </Field>
+              </>
+            ) : (
+              <></>
+            )}
+          </div>
+          <div className="ModeratorFormTitle">
+            <h5 className="">Entrevistadores</h5>
+          </div>
+
+          <div className="ModeratorFormSelect">
+            {available !== undefined ? (
+              <>
+                <Field
+                  name="interviewers"
+                  as="text"
+                  multiple
+                  className=" form-control select  "
+                >
+                  <div ref={interviewersInput}>
+                    {available?.selectors?.map((s) =>
+                      s.meetRole === 3 ? (
+                        <option value={s.names}>
+                          {`${s.names} ${s.surname}`}{" "}
+                        </option>
+                      ) : (
+                        <></>
+                      )
+                    )}
+                  </div>
+                </Field>
+              </>
+            ) : (
+              <></>
+            )}
+          </div>
+          <div className="ModeratorFormTitle">
+            <h5 className="">observadores</h5>
+          </div>
+          <div className="ModeratorFormSelect">
+            {available !== undefined ? (
+              <>
+                <Field
+                  name="interviewers"
+                  as="text"
+                  multiple
+                  className="form-control select "
+                >
+                  <div ref={viewersInput}>
+                    {available?.selectors?.map((s) =>
+                      s.meetRole === 4 ? (
+                        <option
+                          value={s.names}
+                        >{`${s.names} ${s.surname}`}</option>
+                      ) : (
+                        <></>
+                      )
+                    )}
+                  </div>
+                </Field>
+              </>
+            ) : (
+              <></>
+            )}
+          </div>
+          <div className="ModeratorFormButton">
+            <button
+              type="submit"
+              onClick={formik.handleSubmit}
+              className="ModeratorFormSubmit"
+            >
+              Publicar y enviar
+            </button>
+          </div>
+          <div className="ModeratorFormExit">
+            {formularioEnviado && (
+              <span className="">Formulario Enviado con exito!</span>
+            )}
+          </div>
+        </div>
+      </Form>
+    </Formik>
   );
 };
 
