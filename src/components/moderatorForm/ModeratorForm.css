@@ -52,6 +52,13 @@
 	justify-content:center;
 	align-items:center;
 }
+.ModeratorFormSelect{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	
+
+}
 
 .ModeratorFormApplicants{
 	display:flex;
@@ -106,6 +113,7 @@ h5{
 	overflow: scroll;
 	width:100%;
 	height:50vh;
+	
 	
 }
 /*Media query Tablet 

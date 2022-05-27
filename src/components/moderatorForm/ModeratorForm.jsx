@@ -230,7 +230,7 @@ const ModeratorForm = () => {
           </div>
 
           <div className="ModeratorFormSelect">
-            {citationSelected !== undefined ? (
+            {citationSelected !== null ? (//cambio a Null
               <>
                 <Field
                   name="applicants"
