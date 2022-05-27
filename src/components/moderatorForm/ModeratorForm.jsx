@@ -3,14 +3,13 @@ import { Formik, Field, Form, ErrorMessage, useFormik } from "formik";
 import axios from "axios";
 import { useSelector } from "react-redux";
 
+
 const ModeratorForm = () => {
   const [citations, setCitations] = useState([]);
   const [available, setAvailable] = useState(undefined);
   const [citationSelected, setCitacionSelected] = useState(undefined);
   const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
   const token = useSelector((state) => state.token);
-  
-  
   
   const interviewersInput = useRef(null)
   const viewersInput = useRef(null)
@@ -84,6 +83,7 @@ const ModeratorForm = () => {
       if (!values.link || values.link.length === 0) {
         errores.link = "El campo no puede estar vacio,";
       }
+      
       return errores;
     },
 
@@ -98,9 +98,11 @@ const ModeratorForm = () => {
         titleConvocatory: citationSelected?.titleConvocatory,
         shift: citationSelected?.shift[0],
         users: citationSelected?.users?.map((u) => ({ ...u, _id: u.userID })),
-        interviewers: available.selectors.filter((s) => s.meetRole === 3),
-        observers: available.selectors.filter((s) => s.meetRole === 4),
+        interviewers: available.selectors.filter((s) => s.meetRole === 4),
+        observers: available.selectors.filter((s) => s.meetRole === 3),
+        
       };
+      
       console.log("To submit", toSubmit);
       
       axios.post("http://localhost:3001/api/admin/meet", { ...toSubmit });
@@ -108,11 +110,12 @@ const ModeratorForm = () => {
       //conle.log("Formulario Enviado");
       cambiarFormularioEnviado(true);
       setTimeout(() => cambiarFormularioEnviado(false), 5000);
-     resetForm();
+      resetForm()
+     
     },
     
   });
-
+ 
   console.log("errores", formik.errors);
 
   useEffect(() => {
@@ -123,10 +126,11 @@ const ModeratorForm = () => {
     );
     fetchAvailibility(formik.values.citationID);
   }, [formik.values.citationID]);
+
   //mirar que tiene interviewersInput
   console.log('Entrevistadoresinput',interviewersInput)
   console.log('ObservadoresInput',viewersInput)
-
+ 
   return (
     <Formik>
       <Form className="ModeratorForm">
@@ -165,6 +169,7 @@ const ModeratorForm = () => {
                 type="number"
                 name="interviewRooms"
                 id="interviewRooms"
+                placeholder="Numero salas Entrevistas"
       
                 //value={formik.values.interviewRooms}
                 onChange={formik.handleChange}
@@ -186,6 +191,7 @@ const ModeratorForm = () => {
                 type="number"
                 name="assesmentsRooms"
                 id="assesmentsRooms"
+                placeholder="Numero salas Assessment"
                 onChange={formik.handleChange}
               />
               {formik.errors.assesmentsRooms ? (
@@ -255,14 +261,11 @@ const ModeratorForm = () => {
                   name="interviewers"
                   as="text"
                   multiple
-                  
                   className=" form-control select  "
                 >
                 <div ref={interviewersInput} >
                 {available?.selectors?.map((s) =>
-                    s.meetRole === 3 ? (
-                    
-              
+                    s.meetRole === 4 ? (
                       <option value={s.names}>{`${s.names} ${ s.surname}`} </option>
                     ) : (
                       <></>
@@ -292,7 +295,7 @@ const ModeratorForm = () => {
                 >
                   <div ref={viewersInput}>
                   {available?.selectors?.map((s) =>
-                    s.meetRole === 4 ? (
+                    s.meetRole === 3 ? (
                       <option value={s.names}>{`${s.names} ${s.surname}`}</option>
                     ) : (
                       <></>
@@ -309,7 +312,7 @@ const ModeratorForm = () => {
           <div className="ModeratorFormButton">
             <button
               type="submit"
-              onClick={formik.handleSubmit}
+              onClick={formik.handleSubmit }
               className="ModeratorFormSubmit"
             >
               Publicar y enviar
@@ -325,7 +328,7 @@ const ModeratorForm = () => {
               )}
             </div>
         </div>
-       
+   
       </Form>
     </Formik>
   );
