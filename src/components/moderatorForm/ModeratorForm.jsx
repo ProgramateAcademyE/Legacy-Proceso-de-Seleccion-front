@@ -82,6 +82,7 @@ const ModeratorForm = () => {
       if (!values.link || values.link.length === 0) {
         errores.link = "El campo no puede estar vacio,";
       }
+
       return errores;
     },
 
@@ -96,9 +97,10 @@ const ModeratorForm = () => {
         titleConvocatory: citationSelected?.titleConvocatory,
         shift: citationSelected?.shift[0],
         users: citationSelected?.users?.map((u) => ({ ...u, _id: u.userID })),
-        interviewers: available.selectors.filter((s) => s.meetRole === 3),
-        observers: available.selectors.filter((s) => s.meetRole === 4),
+        interviewers: available.selectors.filter((s) => s.meetRole === 4),
+        observers: available.selectors.filter((s) => s.meetRole === 3),
       };
+
       console.log("To submit", toSubmit);
 
       axios.post("http://localhost:3001/api/admin/meet", { ...toSubmit });
@@ -120,6 +122,7 @@ const ModeratorForm = () => {
     );
     fetchAvailibility(formik.values.citationID);
   }, [formik.values.citationID]);
+
   //mirar que tiene interviewersInput
   console.log("Entrevistadoresinput", interviewersInput);
   console.log("ObservadoresInput", viewersInput);
@@ -161,6 +164,7 @@ const ModeratorForm = () => {
                 type="number"
                 name="interviewRooms"
                 id="interviewRooms"
+                placeholder="Numero salas Entrevistas"
                 //value={formik.values.interviewRooms}
                 onChange={formik.handleChange}
               />
@@ -181,6 +185,7 @@ const ModeratorForm = () => {
                 type="number"
                 name="assesmentsRooms"
                 id="assesmentsRooms"
+                placeholder="Numero salas Assessment"
                 onChange={formik.handleChange}
               />
               {formik.errors.assesmentsRooms ? (
@@ -215,7 +220,7 @@ const ModeratorForm = () => {
           </div>
 
           <div className="ModeratorFormSelect">
-            {citationSelected !== undefined ? (
+            {citationSelected !== null ? ( //cambio a Null
               <>
                 <Field
                   name="applicants"
@@ -247,7 +252,7 @@ const ModeratorForm = () => {
                 >
                   <div ref={interviewersInput}>
                     {available?.selectors?.map((s) =>
-                      s.meetRole === 3 ? (
+                      s.meetRole === 4 ? (
                         <option value={s.names}>
                           {`${s.names} ${s.surname}`}{" "}
                         </option>
@@ -276,7 +281,7 @@ const ModeratorForm = () => {
                 >
                   <div ref={viewersInput}>
                     {available?.selectors?.map((s) =>
-                      s.meetRole === 4 ? (
+                      s.meetRole === 3 ? (
                         <option
                           value={s.names}
                         >{`${s.names} ${s.surname}`}</option>

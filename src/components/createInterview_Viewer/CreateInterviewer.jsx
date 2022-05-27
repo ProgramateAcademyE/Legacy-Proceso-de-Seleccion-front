@@ -2,8 +2,8 @@ import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-//import StaffSelect from './StaffSelect';
-import "./CreateInterviewer.css";
+import Swal from "sweetalert2";
+import "./CreateInterviewer.css"
 
 const CreateInterViewer = () => {
   const [users, setUsers] = useState([]);
@@ -14,6 +14,8 @@ const CreateInterViewer = () => {
   const [UsersSelected, setUsersSelected] = useState([]);
   const [currentSelectors, setCurrentSelectors] = useState([]);
   const [currentAvailableId, setCurrentAvailableId] = useState("");
+  const [checked, setCheked] = useState(true);
+  
 
   const token = useSelector((state) => state.token);
 
@@ -78,58 +80,75 @@ const CreateInterViewer = () => {
     fetchAvailability();
   }, [IdCitation]);
 
-  const toggleChecked = (e) => {
-    if (UsersSelected.findIndex((user) => user._id == e.target.value) !== -1) {
-      const selector = UsersSelected.findIndex(
-        (user) => user._id == e.target.value
-      );
-      console.log("seconSelector:", UsersSelected);
-      UsersSelected.splice(selector, 1);
-      setUsersSelected([...UsersSelected]);
-    } else {
-      const selector = users.find((user) => user._id == e.target.value);
-      setUsersSelected([...UsersSelected, selector]);
-    }
-    console.log("selctor:", UsersSelected);
-  };
+   
+  const toggleChecked = e => {
 
+   if(UsersSelected.findIndex((user)=>(user._id == e.target.value)) !== -1){
+    
+    const selector = UsersSelected.findIndex((user)=>(user._id == e.target.value))
+    console.log("seconSelector:", UsersSelected)
+    UsersSelected.splice(selector, 1) 
+    setCheked(selector)
+    
+    
+    
+    setUsersSelected([...UsersSelected])
+   }
+   else{
+    const selector = users.find((user)=>(user._id == e.target.value))
+      setUsersSelected([...UsersSelected, selector])
+   }
+  console.log("selctor:", UsersSelected)
+  }
+
+
+   
+  
   // Post availability staff
   const postAvailability = () => {
     fetchCitationSelected();
 
     const selectors = UsersSelected.map((dat) => {
-      return {
-        _id: dat._id,
-        names: dat.names,
-        surname: dat.surname,
-        role: dat.role,
-        meetRole: 4,
-      };
-    });
-    console.log("newselector", selectors);
+          
+          return( 
+                  {
+                    _id:(dat._id),
+                    names:(dat.names),
+                    surname:(dat.surname),
+                    role:(dat.role),
+                    meetRole:4
+                  
+                  }
+                
+                  )
+         }) 
+        console.log("newselector", selectors)
+        
 
-    if (currentAvailableId.length !== 0) {
-      axios.put(
-        `http://localhost:3001/api/admin/update_availables/${currentAvailableId}`,
-        { ...selectors }
-      );
-    } else {
-      const newAvailability = {
-        citationID: IdCitation,
-        date: date,
-        shift: "mañana",
-        selectors,
-      };
-
-      console.log("newAvailability: ", newAvailability);
-      axios.post("http://localhost:3001/api/admin/availability", {
-        ...newAvailability,
-      });
-      window.alert("Registro guardado");
-    }
-
-    // const citationAvailability = axios.get(`http://localhost:3001/api/admin/findCitationid/${citation.ID}`);
-  };
+        if(currentAvailableId.length !== 0){
+          axios.put(`http://localhost:3001/api/admin/update_availables/${currentAvailableId}`, { ...selectors});
+          window.alert("Registro enviado con exito")
+          document.location.reload();
+        }
+        else {
+          
+            const newAvailability = {
+      
+               citationID:IdCitation,
+               date: (date),
+               shift: "mañana", 
+               selectors
+                   
+             };
+         
+            console.log("newAvailability: ", newAvailability);
+            axios.post("http://localhost:3001/api/admin/availability", { ...newAvailability });
+            window.alert("Registro enviado con exito")
+            document.location.reload();
+        }
+   
+ // const citationAvailability = axios.get(`http://localhost:3001/api/admin/findCitationid/${citation.ID}`);
+  }
 
   //const deleteAvailability = () => {
   //  const id_available=UsersSelected._id;
@@ -162,7 +181,7 @@ const CreateInterViewer = () => {
             {citation.map((cita) => (
               <option value={cita._id}>
                 {`${cita.appointmentDate.toString().slice(0, -14)}
-                      ${cita.shift}`}{" "}
+                      ${cita.shift}`}
               </option>
             ))}
           </select>
@@ -189,12 +208,11 @@ const CreateInterViewer = () => {
 
                     <td>
                       <input
-                        value={staff._id}
-                        type="checkbox"
-                        name="id"
-                        checked={true}
-                        onChange={toggleChecked}
-                      />
+                      value={staff._id}
+                      type="checkbox"
+                      name="id"
+                      checked={checked}
+                      onChange={toggleChecked}/>
                     </td>
                   </tr>
                 ))

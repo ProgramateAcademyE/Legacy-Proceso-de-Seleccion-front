@@ -62,7 +62,11 @@
     margin-left: 7%;
     
 }
+.tablemoderatorApplicantsCited{
+    width: 75vw;
+    margin: auto;
 
+}
 
 @media (max-width: 600px) {
     .moderatorContainer43 {
@@ -84,6 +88,10 @@
     .table{
         width: 98%;
         padding: 20px 10px;
+    }
+    .tablemoderatorApplicantsCited{
+        width: 90vw;
+        background-color: red;
     }
 
   }
