@@ -1,8 +1,7 @@
-import React, { useState, useEffect,useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { Formik, Field, Form, ErrorMessage, useFormik } from "formik";
 import axios from "axios";
 import { useSelector } from "react-redux";
-
 
 const ModeratorForm = () => {
   const [citations, setCitations] = useState([]);
@@ -10,9 +9,9 @@ const ModeratorForm = () => {
   const [citationSelected, setCitacionSelected] = useState(undefined);
   const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
   const token = useSelector((state) => state.token);
-  
-  const interviewersInput = useRef(null)
-  const viewersInput = useRef(null)
+
+  const interviewersInput = useRef(null);
+  const viewersInput = useRef(null);
 
   const [countInterviewer, setCountIntervierwer] = useState(0);
   async function fetchCitations() {
@@ -66,28 +65,28 @@ const ModeratorForm = () => {
       } else if (values.interviewRooms <= 0) {
         errores.interviewRooms = "Debe ser mayor a 0";
       }
-      if(values.interviewRooms > interviewersInput.current.childElementCount){
-        errores.interviewRooms ="No puede ser mayor numero entrevistadores"
+      if (values.interviewRooms > interviewersInput.current.childElementCount) {
+        errores.interviewRooms = "No puede ser mayor numero entrevistadores";
       }
       //validacion numero salas assessment
       if (!values.assesmentsRooms) {
         errores.assesmentsRooms = "Campo Requerido.";
-      } else if(values.assesmentsRooms <=0)
+      } else if (values.assesmentsRooms <= 0)
         errores.assesmentsRooms = "Debe ser mayor a 0.";
 
-      if(values.assesmentsRooms > viewersInput.current.childElementCount){
-          errores.assesmentsRooms ="No puede ser mayor numero Observadores"
+      if (values.assesmentsRooms > viewersInput.current.childElementCount) {
+        errores.assesmentsRooms = "No puede ser mayor numero Observadores";
       }
 
       //validacion de link
       if (!values.link || values.link.length === 0) {
         errores.link = "El campo no puede estar vacio,";
       }
-      
+
       return errores;
     },
 
-    onSubmit: (values, {resetForm}) => {
+    onSubmit: (values, { resetForm }) => {
       //resetForm();
       console.log(values);
       console.log("On submit", values);
@@ -98,24 +97,21 @@ const ModeratorForm = () => {
         titleConvocatory: citationSelected?.titleConvocatory,
         shift: citationSelected?.shift[0],
         users: citationSelected?.users?.map((u) => ({ ...u, _id: u.userID })),
-        interviewers: available.selectors.filter((s) => s.meetRole === 4),
-        observers: available.selectors.filter((s) => s.meetRole === 3),
-        
+        interviewers: available.selectors.filter((s) => s.meetRole === 3),
+        observers: available.selectors.filter((s) => s.meetRole === 4),
       };
-      
+
       console.log("To submit", toSubmit);
-      
+
       axios.post("http://localhost:3001/api/admin/meet", { ...toSubmit });
       //resetForm();
       //conle.log("Formulario Enviado");
       cambiarFormularioEnviado(true);
       setTimeout(() => cambiarFormularioEnviado(false), 5000);
-      resetForm()
-     
+      resetForm();
     },
-    
   });
- 
+
   console.log("errores", formik.errors);
 
   useEffect(() => {
@@ -128,9 +124,9 @@ const ModeratorForm = () => {
   }, [formik.values.citationID]);
 
   //mirar que tiene interviewersInput
-  console.log('Entrevistadoresinput',interviewersInput)
-  console.log('ObservadoresInput',viewersInput)
- 
+  console.log("Entrevistadoresinput", interviewersInput);
+  console.log("ObservadoresInput", viewersInput);
+
   return (
     <Formik>
       <Form className="ModeratorForm">
@@ -160,7 +156,6 @@ const ModeratorForm = () => {
               ) : (
                 <></>
               )}
-              
             </div>
             <div>
               <label htmlFor="interviewRooms">No salas Entrevistas</label>
@@ -170,7 +165,6 @@ const ModeratorForm = () => {
                 name="interviewRooms"
                 id="interviewRooms"
                 placeholder="Numero salas Entrevistas"
-      
                 //value={formik.values.interviewRooms}
                 onChange={formik.handleChange}
               />
@@ -184,7 +178,7 @@ const ModeratorForm = () => {
               )}
             </div>
 
-           <div>
+            <div>
               <label htmlFor="assesmentsRooms">No salas Assessment</label>
               <Field
                 className="ModeratorFormRooms"
@@ -201,7 +195,6 @@ const ModeratorForm = () => {
               ) : (
                 <></>
               )}
-            
             </div>
           </div>
           <div className="ModeratorFormSection2">
@@ -216,13 +209,10 @@ const ModeratorForm = () => {
                 onChange={formik.handleChange}
               />
               {formik.errors.link ? (
-                <div style={{ color: "red" }}>
-                  {formik.errors.link}
-                </div>
+                <div style={{ color: "red" }}>{formik.errors.link}</div>
               ) : (
                 <></>
               )}
-             
             </div>
           </div>
           <div className="ModeratorFormTitle">
@@ -230,7 +220,7 @@ const ModeratorForm = () => {
           </div>
 
           <div className="ModeratorFormSelect">
-            {citationSelected !== null ? (//cambio a Null
+            {citationSelected !== null ? ( //cambio a Null
               <>
                 <Field
                   name="applicants"
@@ -239,12 +229,9 @@ const ModeratorForm = () => {
                   className="form-control select "
                 >
                   {citationSelected?.users?.map((u) => (
-                    <option
-                      value={u.names}
-                    >{`${u.names} ${u.surname}`}</option>
+                    <option value={u.names}>{`${u.names} ${u.surname}`}</option>
                   ))}
                 </Field>
-                
               </>
             ) : (
               <></>
@@ -263,20 +250,19 @@ const ModeratorForm = () => {
                   multiple
                   className=" form-control select  "
                 >
-                <div ref={interviewersInput} >
-                {available?.selectors?.map((s) =>
-                    s.meetRole === 3 ? (
-                      <option value={s.names}>{`${s.names} ${ s.surname}`} </option>
-                    ) : (
-                      <></>
-                    )
-                  )}
-
-                </div>
-              
-                 
+                  <div ref={interviewersInput}>
+                    {available?.selectors?.map((s) =>
+                      s.meetRole === 3 ? (
+                        <option value={s.names}>
+                          {`${s.names} ${s.surname}`}{" "}
+                        </option>
+                      ) : (
+                        <></>
+                      )
+                    )}
+                  </div>
                 </Field>
-                </>
+              </>
             ) : (
               <></>
             )}
@@ -294,16 +280,17 @@ const ModeratorForm = () => {
                   className="form-control select "
                 >
                   <div ref={viewersInput}>
-                  {available?.selectors?.map((s) =>
-                    s.meetRole === 4 ? (
-                      <option value={s.names}>{`${s.names} ${s.surname}`}</option>
-                    ) : (
-                      <></>
-                    )
-                  )}
+                    {available?.selectors?.map((s) =>
+                      s.meetRole === 4 ? (
+                        <option
+                          value={s.names}
+                        >{`${s.names} ${s.surname}`}</option>
+                      ) : (
+                        <></>
+                      )
+                    )}
                   </div>
                 </Field>
-              
               </>
             ) : (
               <></>
@@ -312,23 +299,18 @@ const ModeratorForm = () => {
           <div className="ModeratorFormButton">
             <button
               type="submit"
-              onClick={formik.handleSubmit }
+              onClick={formik.handleSubmit}
               className="ModeratorFormSubmit"
             >
               Publicar y enviar
             </button>
-            
           </div>
           <div className="ModeratorFormExit">
-              {formularioEnviado && (
-                <span className="">
-                  Formulario Enviado con exito!
-                </span>
-
-              )}
-            </div>
+            {formularioEnviado && (
+              <span className="">Formulario Enviado con exito!</span>
+            )}
+          </div>
         </div>
-   
       </Form>
     </Formik>
   );

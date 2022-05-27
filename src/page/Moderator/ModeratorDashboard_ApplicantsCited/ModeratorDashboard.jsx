@@ -1,8 +1,12 @@
 import React from 'react'
+
 import "./ModeratorDashboard_ApplicantsCited.css";
 import ModeratorInterviewerTable from '../../../components/moderatorInterviewTable/ModeratorInterviewerTable';
 
+
+
 const ModeratorDashboard = () => {
+
   return (
     <>
   <div className="moderatorInterviewTableContainer">

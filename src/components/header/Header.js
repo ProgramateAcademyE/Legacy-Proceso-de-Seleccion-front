@@ -60,7 +60,6 @@ const Header = () => {
   return (
     <div className="General_header">
       <div className="header__logo" id="logo">
-        
         {auth ? (
           <Link to="/dashboard">
             <img

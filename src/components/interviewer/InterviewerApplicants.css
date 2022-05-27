@@ -1,0 +1,128 @@
+.rdt_TableCol{
+    background-color: #c7c7c7;
+    display: flex;
+    justify-content: center;
+}
+.rdt_TableCell{
+    display: flex;
+    justify-content: center;
+    border: 1px solid #c7c7c7;
+}
+
+.interviewerApplicantTable{
+    width: 75vw;
+    text-align: center;
+    overflow: scroll;
+    padding: 20px 30px;
+    background-color:#ffffff;
+    box-shadow: 1px 10px 25px #c7c7c7;
+    margin: auto;
+    
+}
+
+.InterviewerApplicantsCalificationBoxContainer{
+    width: 75vw;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: auto;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 50px;
+}
+
+.card{
+    width: 460px;
+    box-shadow: 1px 10px 25px #c7c7c7;
+    text-align: center;
+    padding: 0;
+    height: 600px;
+    overflow-y: scroll;
+}
+
+.card-header{
+    font-size: 1rem;
+    height: 55px;
+    background-color: #FDC300;
+    box-shadow: 1px 10px 25px #c7c7c7;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.interviewerCardSpan{
+    font-weight: bolder;
+}
+
+.fivePoints, .fourPoints, .threePoints, .redPoints{
+    padding: 5px;
+    border-radius: 10px;
+}
+.fivePoints{
+    background-color: #7AC139;
+}
+.fourPoints{
+    background-color: #FFCC02;
+}
+
+.threePoints{
+    background-color: #fd8c2e;
+}
+.redPoints{
+    background-color: #fe0404;
+}
+
+.InterviewerApplicanTextarea{
+    box-shadow: 1px 10px 25px #c7c7c7;
+    width: 100%;
+  
+}
+
+.InteviewerApplicantSubmit{
+    background-color: #010101;
+    color: #f1f1f1;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 1px 10px 25px #c7c7c7;
+    margin-top: 10%;
+}
+.card-footer{
+    padding: 10px;
+    box-shadow: 1px 10px 25px #c7c7c7;
+    display: flex;
+    justify-content: space-evenly;
+}
+.interviewerSelect{
+    width: 100px;
+    border-radius: 5px;
+    border: none;
+    padding: 5px;
+}
+.interviewerSelectOption{
+    width: 150px;   
+}
+@media (max-width: 768px) {
+
+    .interviewerApplicantTable{
+        width: 90vw;
+        margin: auto;
+        padding: 10px;
+    }
+        .card-header{
+            font-size: 1rem;
+            height: auto;
+            background-color: #FDC300;
+        }
+    }
+
+
+
+@media (max-width: 465px) {
+    .InterviewerApplicantsCalificationBoxContainer{
+        padding: 0;
+        width: 100%;
+    }
+
+}
+
