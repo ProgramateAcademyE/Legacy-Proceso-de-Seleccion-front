@@ -12,6 +12,7 @@ export const PETITIONS = {
   updateRole: `${BASEURL}user/update_role/`,
   // Register Admin
   registerAdmin: `${BASEURL}user/register_admin`,
+  registerStaff: `${BASEURL}user/register_staff`,
   // ========================================
 
   // ============ Convocatory ===============

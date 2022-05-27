@@ -2,7 +2,7 @@ import React from 'react'
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-//import StaffSelect from './StaffSelect';
+import Swal from "sweetalert2";
 import "./CreateInterviewer.css"
 
 
@@ -15,6 +15,7 @@ const ModeratorViewer = () => {
   const [UsersSelected, setUsersSelected] = useState([]);
   const [currentSelectors, setCurrentSelectors] = useState([])
   const [currentAvailableId, setCurrentAvailableId] = useState("");
+  const [checked, setCheked] = useState(true);
   
 
   const token = useSelector((state) => state.token);
@@ -99,10 +100,14 @@ const ModeratorViewer = () => {
   const toggleChecked = e => {
 
    if(UsersSelected.findIndex((user)=>(user._id == e.target.value)) !== -1){
-  
+    
     const selector = UsersSelected.findIndex((user)=>(user._id == e.target.value))
     console.log("seconSelector:", UsersSelected)
-    UsersSelected.splice(selector, 1)
+    UsersSelected.splice(selector, 1) 
+    setCheked(selector)
+    
+    
+    
     setUsersSelected([...UsersSelected])
    }
    else{
@@ -139,6 +144,8 @@ const ModeratorViewer = () => {
 
         if(currentAvailableId.length !== 0){
           axios.put(`http://localhost:3001/api/admin/update_availables/${currentAvailableId}`, { ...selectors});
+          window.alert("Registro enviado con exito")
+          document.location.reload();
         }
         else {
           
@@ -153,7 +160,8 @@ const ModeratorViewer = () => {
          
             console.log("newAvailability: ", newAvailability);
             axios.post("http://localhost:3001/api/admin/availability", { ...newAvailability });
-           
+            window.alert("Registro enviado con exito")
+            document.location.reload();
         }
    
  // const citationAvailability = axios.get(`http://localhost:3001/api/admin/findCitationid/${citation.ID}`);
@@ -230,7 +238,7 @@ const ModeratorViewer = () => {
                       value={staff._id}
                       type="checkbox"
                       name="id"
-                      checked={true}
+                      checked={checked}
                       onChange={toggleChecked}/>
                     </td>
                 </tr>
