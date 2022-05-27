@@ -15,7 +15,7 @@ const Nav = () => {
   const [activeItems, setActiveItems] = useState([]);
 
   const auth = useSelector((state) => state.auth);
-  const { isLogged, /*isAdmin, isModerator, isInterviewer, isViewer*/ } = auth;
+  const { isLogged /*isAdmin, isModerator, isInterviewer, isViewer*/ } = auth;
   const role = auth.user.role;
   console.log("Role en nav", role);
   console.log("En Nav", role === 4);
@@ -46,13 +46,13 @@ const Nav = () => {
   return role !== undefined ? (
     <>
       <div className="nav" id="menu">
-       {/*<Link to="/dashboard">*/} 
-          <img
-            className="Logo_Lapiz"
-            src="https://i.ibb.co/ZM3jGdB/logoeducamasimbolo.png"
-            alt="logo"
-          />
-       {/*</Link>*/} 
+        {/*<Link to="/dashboard">*/}
+        <img
+          className="Logo_Lapiz"
+          src="https://i.ibb.co/ZM3jGdB/logoeducamasimbolo.png"
+          alt="logo"
+        />
+        {/*</Link>*/}
 
         <span className="nav__title">Menu</span>
         <div className="nav__items mt-2">
@@ -78,7 +78,6 @@ const Nav = () => {
                       active={item.pathname === location.pathname}
                     />
                   ))
-                  
                 : role === 4 || role === 3
                 ? ITEMS_INTERVIEWER.map((item, index) => (
                     <Item
@@ -104,7 +103,7 @@ const Nav = () => {
                 href="#close"
                 title="close"
                 className="close"
-                style={{ margin: "-56px -163px 0 0" }}
+                style={{ margin: "-40px -163px 0 0" }}
                 onClick={moveNav}
               >
                 X
