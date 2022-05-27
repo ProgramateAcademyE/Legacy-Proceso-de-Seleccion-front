@@ -10,10 +10,7 @@ const ModeratorInterviewer = () => {
         <div className="moderatorInterviewerContainer">
      <h1 className="moderatorInterviewerTitle">TABLA DE ENTREVISTADORES </h1> 
      <ModalCreateNewInterviewer/>
-     
      <CreateInterviewer/>
-     
-     
      </div>
      
      

@@ -3,19 +3,15 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 //import StaffSelect from './StaffSelect';
-import "./SelectButton.css";
+import "./CreateInterviewer.css";
 
-import { setDate } from "date-fns/esm";
-
-const ModeratorViewer = () => {
+const CreateInterViewer = () => {
   const [users, setUsers] = useState([]);
   const [citation, setCitation] = useState([]);
   const [citationSelected, setCitationSelected] = useState([]);
-  const [checked, setChecked] = useState(false);
   const [IdCitation, setIdCitation] = useState([]);
   const [date, setDate] = useState([]);
   const [UsersSelected, setUsersSelected] = useState([]);
-  const [allInfoUser, setAllInfoUser] = useState([]);
   const [currentSelectors, setCurrentSelectors] = useState([]);
   const [currentAvailableId, setCurrentAvailableId] = useState("");
 
@@ -101,47 +97,35 @@ const ModeratorViewer = () => {
   const postAvailability = () => {
     fetchCitationSelected();
 
+    const selectors = UsersSelected.map((dat) => {
+      return {
+        _id: dat._id,
+        names: dat.names,
+        surname: dat.surname,
+        role: dat.role,
+        meetRole: 4,
+      };
+    });
+    console.log("newselector", selectors);
+
     if (currentAvailableId.length !== 0) {
-      axios.patch(
-        `http://localhost:3001/api/admin/update_availables/
-          ${currentAvailableId}`,
-        { ...UsersSelected }
+      axios.put(
+        `http://localhost:3001/api/admin/update_availables/${currentAvailableId}`,
+        { ...selectors }
       );
     } else {
-      let mapeo = UsersSelected.map((dat) => {
-        let producto = "";
-
-        return (producto =
-          "_id:" +
-          dat._id +
-          "," +
-          "firstName:" +
-          dat.names +
-          ", " +
-          "role:" +
-          dat.role);
-      });
-      console.log("newselector", mapeo);
-
       const newAvailability = {
         citationID: IdCitation,
         date: date,
         shift: "mañana",
-        selectors: [
-          {
-            _id: 20,
-            firstName: "carolina",
-            lastName: "loaiza",
-            role: 3,
-            meetRole: 4,
-          },
-        ],
+        selectors,
       };
 
       console.log("newAvailability: ", newAvailability);
       axios.post("http://localhost:3001/api/admin/availability", {
         ...newAvailability,
       });
+      window.alert("Registro guardado");
     }
 
     // const citationAvailability = axios.get(`http://localhost:3001/api/admin/findCitationid/${citation.ID}`);
@@ -164,91 +148,92 @@ const ModeratorViewer = () => {
   console.log("citation:", citation);
   console.log("IdCitation:", IdCitation);
   console.log("date:", date);
-  console.log("allInfoUser", allInfoUser);
   console.log("citationSelected:", citationSelected);
   console.log("available:", currentSelectors);
   console.log("availableId:", currentAvailableId);
 
   return (
     <>
-      <div className="moderatorContainer">
+      <div className="moderator_createviewer">
+        <div>
+          <h4 className="">Por favor seleccione fecha y hora</h4>
+          <select className="selectButton" onChange={handleSelect}>
+            <option value="">Seleccione una fecha</option>
+            {citation.map((cita) => (
+              <option value={cita._id}>
+                {`${cita.appointmentDate.toString().slice(0, -14)}
+                      ${cita.shift}`}{" "}
+              </option>
+            ))}
+          </select>
+        </div>
         <div className="moderatorInterviewerContainer">
-          <h1 className="moderatorInterviewerTitle">MODERADOR - OBSERVADOR</h1>
+          <table className="table_full">
+            <tbody className="table_body">
+              <tr className="table_head">
+                <th>Entrevistador</th>
+                <th>Rol Principal</th>
+                <th>Fecha disponible</th>
+                <th>Jornada disponible </th>
+                <th>Habilitar</th>
+              </tr>
+              {currentSelectors?.length !== 0 ? (
+                currentSelectors?.map((staff) => (
+                  <tr>
+                    <td>
+                      {staff.names} {staff.surname}
+                    </td>
+                    <td>{staff.role}</td>
+                    <td>{date.slice(0, -6)}</td>
+                    <td>{date.slice(11)}</td>
 
-          <div>
-            <h4 className="">Por favor seleccione fecha y hora</h4>
-            <select className="selectButton" onChange={handleSelect}>
-              <option value="">Seleccione una fecha</option>
-              {citation.map((cita) => (
-                <option value={cita._id}>
-                  {`${cita.appointmentDate.toString().slice(0, -14)}
-${cita.shift}`}{" "}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          <table>
-            <tbody>
-            <tr>
-              <th>Entrevistador</th>
-              <th>Assign rol</th>
-              <th>Available date</th>
-              <th>Available shift</th>
-              <th>Assign</th>
-            </tr>
-            {currentSelectors?.length !== 0 ? (
-              currentSelectors?.map((staff) => (
-                <tr>
-                  <td>
-                    {staff.firstName} {staff.lastName}
-                  </td>
-                  <td>{staff.role}</td>
-                  <td>{date}</td>
-
-                  <td>
-                    <input
-                      value={staff._id}
-                      type="checkbox"
-                      name="id"
-                      onChange={toggleChecked}
-                    />
-                  </td>
-                </tr>
-              ))
-            ) : (
-              <></>
-            )}
-            {users.map((staff) =>
-              currentSelectors.findIndex((user) => user._id == staff._id) !==
-              -1 ? (
-                <></>
+                    <td>
+                      <input
+                        value={staff._id}
+                        type="checkbox"
+                        name="id"
+                        checked={true}
+                        onChange={toggleChecked}
+                      />
+                    </td>
+                  </tr>
+                ))
               ) : (
-                <tr>
-                  <td>
-                    {staff.names} {staff.surname}
-                  </td>
-                  <td>{staff.role}</td>
-                  <td>{date}</td>
+                <></>
+              )}
+              {users.map((staff) =>
+                currentSelectors.findIndex((user) => user._id == staff._id) !==
+                -1 ? (
+                  <></>
+                ) : (
+                  <tr>
+                    <td>
+                      {staff.names} {staff.surname}
+                    </td>
+                    <td>{staff.role}</td>
+                    <td>{date.slice(0, -6)}</td>
+                    <td>{date.slice(11)}</td>
 
-                  <td>
-                    <input
-                      value={staff._id}
-                      type="checkbox"
-                      name="id"
-                      onChange={toggleChecked}
-                    />
-                  </td>
-                </tr>
-              )
-            )}
+                    <td>
+                      <input
+                        value={staff._id}
+                        type="checkbox"
+                        name="id"
+                        onChange={toggleChecked}
+                      />
+                    </td>
+                  </tr>
+                )
+              )}
             </tbody>
           </table>
-          <button onClick={postAvailability}>Assign</button>
+          <button className="btnadd_interviewer" onClick={postAvailability}>
+            Asignar
+          </button>
         </div>
       </div>
     </>
   );
 };
 
-export default ModeratorViewer;
+export default CreateInterViewer;

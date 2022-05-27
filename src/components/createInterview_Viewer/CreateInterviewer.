@@ -1,41 +1,27 @@
+.rdt_TableCol{
+    background-color: #c7c7c7;
+    display: flex;
+    justify-content: center;
+    
+}
+.rdt_TableCell{
+    width: 10vw;
+    display: flex;
+    justify-content: center;
+    border-right: 1px solid #c7c7c7;
+
+}
 
 .moderator_createviewer{
     width: 80vw;
     text-align: center;
+    
     padding: 20px;
     background-color:#ffffff;
+    box-shadow: 1px 10px 25px #c7c7c7;
     margin: auto;
 }
-.table_full{
-   
-    width: 100%;
-    
 
-}
-.table_body{
-    
-    width: 80vw;
-    box-shadow: 1px 10px 25px #c7c7c7;
-    height: 90%;
-}
-.table_head{
-    background: #c7c7c7;
-    font-size: 1.2rem;
-    height: 70px;
-    border: solid 1px black;
-    
-    
-}
-
-
-td{
-    border: solid 1px black;
-    height: 40px;
-}
-td:hover {
-    background-color: #c7c7c7;
-
-}
 
 
 
