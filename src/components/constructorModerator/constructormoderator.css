@@ -24,6 +24,7 @@
     display: flex;
     justify-content: center;
     border-radius: 5px;
+    
 }
 
 .hei2{
@@ -33,12 +34,18 @@
 
 
 
+.lili{
+   
+    overflow-y: scroll;
+}
+
 .containerconstructormoderator4{
     height: 100%;
     width: 100%;
     overflow-y: scroll;
     background-color: #ecfdcf;
     padding: 3px;
+    
 }
 
 .hei3{

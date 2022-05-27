@@ -9,13 +9,13 @@ const ConstructorModerator = (props) => {
         <div className="containerconstructormoderator3">Sala</div>
         <div>{props.sala}</div>
       </div>
-      <div className="containerconstructormoderator2  hei2">
+      <div className="containerconstructormoderator2  hei2 lili">
         <div className="containerconstructormoderator3">Selectores</div>
         {props?.selectores?.map((s) => (
-          <div className="">{`${s.names} ${s.surname}`}</div>
+          <div className="moco">{`${s.names} ${s.surname}`}</div>
         ))}
       </div>
-      <div className="containerconstructormoderator2 hei2">
+      <div className="containerconstructormoderator2 hei2 lili">
         <div className="containerconstructormoderator3">Candidatos</div>
         {props?.candidatos?.map((c) => (
           <div className="">{`${c.names} ${c.surname}`}</div>
