@@ -11,16 +11,18 @@
 
 
 .moderatorIndex{
-    height: 100vh;
+    height: 80vh;
     width: 100vw;
-    background-color:rgb(255, 255, 255);
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    margin-left: 7%;
+    align-content: center;
+    text-align: center;
 }
-
+.moderatorIndexTitle{
+    margin-top: 10%;
+}
 
 .moderatorApplicantsCitedTitle, .moderatorDashboardTitle{
     font-size: 3rem;
@@ -38,7 +40,6 @@
     margin-left: 7%;
     padding-top: 100px;
     padding-bottom: 50px;
-    
     overflow-y: scroll;
     border-radius: 7px;
 }
@@ -59,4 +60,14 @@
 
 .moderatorDashboard{
     height: 20%;
+}
+
+
+@media (max-width: 530px) {
+
+    .moderatorIndexTitle{
+       font-size: 2rem;
+       padding: 20px;
+    }
+
 }

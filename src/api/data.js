@@ -127,7 +127,7 @@ export const ITEMS_ASPIRANTS = [
 
 export const ITEMS_MODERATOR = [
   {
-    name: "Dashboard",
+    name: "INICIO",
     icon: "fas fa-th-large",
     items: [],
     pathname: "/dashboard",
@@ -138,9 +138,8 @@ export const ITEMS_MODERATOR = [
     icon: "fas fa-user-edit",
     id: 15,
     items: [
-  
       {
-        name: "Inicio Moderador",
+        name: "Agenda programada",
         pathname: "/moderadordashboard",
       },
       {
@@ -148,7 +147,7 @@ export const ITEMS_MODERATOR = [
         pathname: "/moderadorcrearentrevistayassesment",
       },
       {
-        name: "Tabla Entrevistas",
+        name: "Listado General Entrevistas",
         pathname: "/moderadortablaentrevistas",
       },
       {
@@ -222,7 +221,6 @@ export const CONVOCATORY = [
   },
 ];
 
-
 export const ITEMS_INTERVIEWER = [
   {
     name: "INICIO",
@@ -230,7 +228,7 @@ export const ITEMS_INTERVIEWER = [
     items: [],
     pathname: "/dashboard",
     id: 13,
-  }, 
+  },
   {
     name: "Citas programadas",
     icon: "fa fa-bookmark",
@@ -253,6 +251,3 @@ export const ITEMS_INTERVIEWER = [
     id: 14,
   },
 ];
-
-
-

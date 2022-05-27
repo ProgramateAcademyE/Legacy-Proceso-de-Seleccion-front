@@ -42,11 +42,10 @@ import NavBarIndex from "../components/navBarIndex/NavBarIndex";
 import Index from "../components/stepForm";
 import InterviewerDashboard from "../page/Invertiewer/InterviewerDashboard";
 import InterviewerApplicantsCited from "../page/Invertiewer/InterviewerApplicantsCited";
-import InterviewerIndex from "../page/Invertiewer/InterviewerIndex"
+import InterviewerIndex from "../page/Invertiewer/InterviewerIndex";
 
 import ViewerDashboard from "../page/Viewer/ViewerDashboard";
 import ViewerAssesment from "../page/Viewer/ViewerAssesment";
-
 
 import ModeratorDashboard from "../page/Moderator/ModeratorDashboard_ApplicantsCited/ModeratorDashboard";
 import ModeratorCreateInterview from "../page/Moderator/ModeratorCreateInterview/ModeratorCreateInterview";
@@ -54,9 +53,7 @@ import ModeratorInterviewer from "../page/Moderator/ModeratorInterviewer_Viewer/
 import ModeratorViewer from "../page/Moderator/ModeratorInterviewer_Viewer/ModeratorViewer";
 import ModeratorApplicantsCited from "../page/Moderator/ModeratorDashboard_ApplicantsCited/ModeratorApplicantsCited";
 import ModeratorInterviewTable from "../page/Moderator/ModeratorCreateInterview/ModeratorInterviewTable";
-import ModeratorIndex from "../page/Moderator/ModeratorDashboard_ApplicantsCited/ModeratorIndex";
-
-
+import ModeratorIndex from "../page/Moderator/ModeratorIndex";
 
 const App = () => {
   const auth = useSelector((state) => state.auth);
@@ -151,7 +148,7 @@ const App = () => {
             </>
           ) : role === 2 ? (
             <>
-            <Route exact path="/dashboard" component={ModeratorIndex} />
+              <Route exact path="/dashboard" component={ModeratorIndex} />
               <Route
                 path="/moderadordashboard"
                 component={ModeratorDashboard}
@@ -177,10 +174,10 @@ const App = () => {
                 component={ModeratorApplicantsCited}
               />
             </>
-          ) : role === 3 || role === 4 ?  (
+          ) : role === 3 || role === 4 ? (
             <>
-            <Route exact path="/dashboard" component={InterviewerIndex} />
-            <Route
+              <Route exact path="/dashboard" component={InterviewerIndex} />
+              <Route
                 path="/entrevistadordashboard"
                 component={InterviewerDashboard}
               />
@@ -188,11 +185,8 @@ const App = () => {
                 path="/entrevistadoraplicantescitados"
                 component={InterviewerApplicantsCited}
               />
-                 <Route
-                path="/observadorassesment"
-                component={ViewerAssesment}
-              />
-              </>
+              <Route path="/observadorassesment" component={ViewerAssesment} />
+            </>
           ) : (
             <>
               <Route exact path="/inscripcion" component={Index} />

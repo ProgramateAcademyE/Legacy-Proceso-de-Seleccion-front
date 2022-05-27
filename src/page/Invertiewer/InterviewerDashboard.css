@@ -41,6 +41,21 @@
 }
 
 
+.interviewerIndex{
+    height: 80vh;
+    width: 100vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+    text-align: center;
+}
+.interviewerIndexTitle{
+    margin-top: 10%;
+}
+
+
 @media (max-width: 991px) {
     .interviewerDashboardtTitle{
         margin-top: 10%;
@@ -61,5 +76,11 @@
     .interviewerDashboardTitle2{
         font-size: 1rem;
     }
+
+    .interviewerIndexTitle{
+        font-size: 2rem;
+        padding: 20px;
+     }
+ 
 
 }

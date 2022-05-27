@@ -1,11 +1,11 @@
 import React, { useEffect } from "react";
-import "./InterviewerDashboard.css";
+import "./ModeratorDashboard_ApplicantsCited/ModeratorDashboard_ApplicantsCited.css";
 
 function ModeratorIndex() {
   return (
     <>
-      <div className="interviewerIndex">
-        <h1 className="interviewerIndexTitle">
+      <div className="moderatorIndex">
+        <h1 className="moderatorIndexTitle">
           Bienvenido a Prográmate - Educamás
         </h1>
         <img
@@ -14,7 +14,7 @@ function ModeratorIndex() {
           alt="logo"
           width="250px"
         />
-        <h3 className="">Página Observador - Entrevistador</h3>
+        <h3 className="">Página Moderador</h3>
       </div>
     </>
   );
