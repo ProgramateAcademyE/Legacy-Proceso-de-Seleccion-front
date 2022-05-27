@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import "./ModeratorCreateInterview.css";
 import "../../../components/moderatorForm/ModeratorForm.css";
 import ModeratorForm from "../../../components/moderatorForm/ModeratorForm";
+
 const ModeratorCreateInterview = () => {
   const [citations, setCitations] = useState([]);
   const [citationSelected, setCitationSelected] = useState([]);
@@ -83,8 +84,9 @@ const ModeratorCreateInterview = () => {
         <div className="moderatorCreateInterviewContainer">
           {/* <h1 className="moderatorCreateInterviewTitle">MODERADOR - CREAR ENTREVISTA y ASSESMENT </h1>*/}
           <h1 className="moderatorCreateInterviewTitle">Crear Reunion </h1>
-          <button onClick={handleSubmit}>Aiuda!!!!</button>
-          <ModeratorForm />
+      
+           <ModeratorForm /> 
+     
         </div>
       </div>
     </>
