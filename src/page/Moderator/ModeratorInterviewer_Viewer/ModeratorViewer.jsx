@@ -1,11 +1,8 @@
-import React from 'react'
-import axios from "axios";
-import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
-//import StaffSelect from './StaffSelect';
+import React from "react";
+import CreateViewer from "../../../components/createInterview_Viewer/CreateViewer";
+import ModalCreateNewViewer from "../../../components/modals/ModalCreateNewViewer";
 import "./ModeratorInterviewer_Viewer.css";
-import { setDate } from 'date-fns/esm';
-
+import SelectButton from "../../../components/selectButton/SelectButton";
 
 const ModeratorViewer = () => {
   const [users, setUsers] = useState([]);
@@ -187,79 +184,15 @@ const ModeratorViewer = () => {
         
   return (
     <>
-    <div className="moderatorContainer">
+      <div className="moderatorContainer_viewer">
         <div className="moderatorInterviewerContainer">
-     <h1 className="moderatorInterviewerTitle">MODERADOR - OBSERVADOR</h1>
-     
-     <select  onChange={handleSelect}>
-      <option value="" >Seleccione una fecha</option>
-      {
-
-          citation.map((cita)=>(
-         
-            <option value={cita._id} >
-              {`${cita.appointmentDate.toString()
-              .slice(0, -14)}
-               ${cita.shift}`} </option>
-          ))
-        }
-    </select>
-    
-    
-     <table>
-        <tr>
-          <th>Entrevistador</th>
-          <th>Assign rol</th>
-          <th>Available date</th>
-          <th>Available shift</th>
-          <th>Assign</th>
-        </tr>
-        {currentSelectors?.length !== 0 ? currentSelectors?.map(staff => (
-          
-          <tr>
-          <td>{staff.names} {staff.surname}</td>
-          <td>{staff.role}</td>
-          <td>{date}</td>
-      
-          <td> 
-              <input
-               value={staff._id}
-               type="checkbox"
-               name="id"
-               checked={true}
-               onChange={toggleChecked}/>
-           </td>
-                
-          </tr>
-               
-        ) ) : <></>}
-       {
-         users.map(staff => currentSelectors.findIndex((user)=> user._id == staff._id) !== -1 ?
-          <></> : (
-          
-          <tr>
-          <td>{staff.names} {staff.surname}</td>
-          <td>{staff.role}</td>
-          <td>{date}</td>
-      
-          <td> 
-              <input
-               value={staff._id}
-               type="checkbox"
-               name="id"
-               onChange={toggleChecked}/>
-           </td>
-                
-          </tr>
-               
-         ))
-         }
-     </table>
-     <button onClick={postAvailability}>Assign</button>
-     </div>
-     </div>
+          <h1 className="moderatorInterviewerTitle">TABLA DE OBSERVADORES</h1>
+          <ModalCreateNewViewer />
+          <CreateViewer />
+        </div>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default ModeratorViewer
+export default ModeratorViewer;

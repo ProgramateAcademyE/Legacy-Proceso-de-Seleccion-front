@@ -1,0 +1,69 @@
+.rdt_TableCol{
+    background-color: #c7c7c7;
+    display: flex;
+    justify-content: center;
+}
+.rdt_TableCell{
+    display: flex;
+    justify-content: center;
+    border: 1px solid #c7c7c7;
+}
+
+.interviewerApplicantTable{
+    width: 75vw;
+    text-align: center;
+    overflow: scroll;
+    padding: 20px 30px;
+    background-color:#ffffff;
+    box-shadow: 1px 10px 25px #c7c7c7;
+    margin: auto;
+}
+
+.InterviewerApplicantsCalificationBoxContainer{
+    width: 75vw;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    margin: auto;
+    flex-wrap: wrap;
+    padding: 20px;
+    gap: 50px;
+}
+
+
+.InterviewerApplicanTextarea{
+    box-shadow: 1px 10px 25px #c7c7c7;
+    width: 100%;
+  
+}
+
+.InteviewerApplicantSubmit{
+    background-color: #010101;
+    color: #f1f1f1;
+    padding: 10px;
+    border-radius: 10px;
+    box-shadow: 1px 10px 25px #c7c7c7;
+    margin-top: 10%;
+}
+
+
+@media (max-width: 768px) {
+
+    .interviewerApplicantTable{
+        width: 90vw;
+        margin: auto;
+        padding: 10px;
+    }
+    }
+
+
+
+@media (max-width: 465px) {
+    .InterviewerApplicantsCalificationBoxContainer{
+        padding: 0;
+        width: 100%;
+    }
+
+}
+

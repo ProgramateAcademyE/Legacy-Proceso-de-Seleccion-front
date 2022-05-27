@@ -15,6 +15,31 @@
     pointer-events: none;
     max-height: 100vh;
 }
+.btncreate_interviewer{
+  margin: 10px 20px;
+  width: 200px;
+  height: 40px;
+   box-shadow: 1px 10px 25px #c7c7c7;
+   border-radius: 10px;
+   font-size: 20px;
+   font-family:Arial, Helvetica, sans-serif
+   
+
+}
+.btncreate_interviewer:hover {
+    background: #c1c1c1;
+}
+.btnadd_interviewer{
+    box-shadow: 1px 10px 15px #c7c7c7;
+    border-radius: 5px;
+    height: 30px;
+    width: 80px;
+    margin: 7px;
+}
+.btnadd_interviewer:hover{
+    background: #c1c1c1;
+}
+
 .modalDialog:target {
     opacity: 1;
     pointer-events: auto;

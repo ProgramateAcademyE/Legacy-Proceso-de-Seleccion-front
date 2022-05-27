@@ -40,16 +40,20 @@ import QualifyInterview from "../page/Qualification/QualifyInterview";
 import ConvocatoryAspirants from "../page/convocatory/ConvocaryAspirants";
 import NavBarIndex from "../components/navBarIndex/NavBarIndex";
 import Index from "../components/stepForm";
-import Interviewer from "../page/Invertiewer/InterviewerDashboard";
 import InterviewerDashboard from "../page/Invertiewer/InterviewerDashboard";
 import InterviewerApplicantsCited from "../page/Invertiewer/InterviewerApplicantsCited";
+import InterviewerIndex from "../page/Invertiewer/InterviewerIndex";
+
 import ViewerDashboard from "../page/Viewer/ViewerDashboard";
+import ViewerAssesment from "../page/Viewer/ViewerAssesment";
+
 import ModeratorDashboard from "../page/Moderator/ModeratorDashboard_ApplicantsCited/ModeratorDashboard";
 import ModeratorCreateInterview from "../page/Moderator/ModeratorCreateInterview/ModeratorCreateInterview";
 import ModeratorInterviewer from "../page/Moderator/ModeratorInterviewer_Viewer/ModeratorInterviewer";
 import ModeratorViewer from "../page/Moderator/ModeratorInterviewer_Viewer/ModeratorViewer";
 import ModeratorApplicantsCited from "../page/Moderator/ModeratorDashboard_ApplicantsCited/ModeratorApplicantsCited";
 import ModeratorInterviewTable from "../page/Moderator/ModeratorCreateInterview/ModeratorInterviewTable";
+import ModeratorIndex from "../page/Moderator/ModeratorIndex";
 
 const App = () => {
   const auth = useSelector((state) => state.auth);
@@ -61,7 +65,7 @@ const App = () => {
     dispatch(getData(auth.user._id));
   }, [dispatch, auth]);
 
-  const { isLogged, /*isAdmin, isModerator, isInterviewer, isViewer*/ } = auth;
+  const { isLogged /*isAdmin, isModerator, isInterviewer, isViewer*/ } = auth;
 
   const role = auth.user.role;
   console.log(role);
@@ -144,6 +148,7 @@ const App = () => {
             </>
           ) : role === 2 ? (
             <>
+              <Route exact path="/dashboard" component={ModeratorIndex} />
               <Route
                 path="/moderadordashboard"
                 component={ModeratorDashboard}
@@ -169,11 +174,18 @@ const App = () => {
                 component={ModeratorApplicantsCited}
               />
             </>
-          ) : role === 3 ? (
-            <Route path="/observadordashboard" component={ViewerDashboard} />
-          ) : role === 4 ? (
+          ) : role === 3 || role === 4 ? (
             <>
-              <Route path="/entrevistadordashboard" component={Interviewer} />
+              <Route exact path="/dashboard" component={InterviewerIndex} />
+              <Route
+                path="/entrevistadordashboard"
+                component={InterviewerDashboard}
+              />
+              <Route
+                path="/entrevistadoraplicantescitados"
+                component={InterviewerApplicantsCited}
+              />
+              <Route path="/observadorassesment" component={ViewerAssesment} />
             </>
           ) : (
             <>

@@ -73,7 +73,6 @@ const Header = () => {
           <i className="fas fa-bars pointer" onClick={moveNav} />
         </div>
       </div>
-
       <div className="header__user">
         <User />
       </div>

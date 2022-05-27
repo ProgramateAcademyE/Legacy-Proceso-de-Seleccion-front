@@ -18,10 +18,12 @@
 .logout__text {
   font-weight: 500;
   display: none;
+  text-align: center;
 }
 .logout {
   position: fixed;
   padding: 2vh;
+  
 }
 
 .box-logut {
@@ -31,12 +33,14 @@
 
 .box-logut:hover .logout {
   padding: 20px;
-  top: 30px;
+  top:8%;
   width: 150px;
   height: 80px;
   background-color: white;
   box-shadow: 0px 2px 8px 2px #0000004f !important;
   transition: .5s all ease;
+  transition-timing-function: ease-in-out;
+  
 }
 
 .box-logut:hover .logout__text {
