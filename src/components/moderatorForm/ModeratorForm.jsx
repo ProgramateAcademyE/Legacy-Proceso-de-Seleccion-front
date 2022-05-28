@@ -307,7 +307,7 @@ const ModeratorForm = () => {
           </div>
           <div className="ModeratorFormExit">
             {formularioEnviado && (
-              <span className="">Formulario Enviado con exito!</span>
+              <span className="">Formulario Enviado con éxito!</span>
             )}
           </div>
         </div>
