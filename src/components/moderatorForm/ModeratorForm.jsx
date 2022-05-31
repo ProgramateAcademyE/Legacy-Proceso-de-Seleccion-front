@@ -252,7 +252,7 @@ const ModeratorForm = () => {
                 >
                   <div ref={interviewersInput}>
                     {available?.selectors?.map((s) =>
-                      s.meetRole === 3 ? (
+                      s.meetRole === 4 ? (
                         <option value={s.names}>
                           {`${s.names} ${s.surname}`}{" "}
                         </option>
@@ -281,7 +281,7 @@ const ModeratorForm = () => {
                 >
                   <div ref={viewersInput}>
                     {available?.selectors?.map((s) =>
-                      s.meetRole === 4 ? (
+                      s.meetRole === 3 ? (
                         <option
                           value={s.names}
                         >{`${s.names} ${s.surname}`}</option>
