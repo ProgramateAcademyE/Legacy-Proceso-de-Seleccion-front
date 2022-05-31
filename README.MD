@@ -14,7 +14,8 @@ Se realiza el frontend con Ract, se utilizo webpack y las siguientes librerías 
 - **React-chartjs-2:**  se utilizó para representar gráficamente los datos en el dashboard
 - **React-csv:**  Se utilizó para tener la posibilidad de exportar y descargar las tablas a formato CSV.
 - **React-datetime-picker:**  Selector de fechas para agendar eventos en el calendario.
-- **React-data-table:**  Se utilizó para la creación de tablas en las vistas del moderador, observador y entrevistador.
+- **React-data-table-component:**  Se utilizó para la creación de tablas en las vistas del moderador, observador y entrevistador.
+- **React-data-Table-component-extensions:** Se utilizó en las tablas moderador, observador y entrevistador.
 - **React-dom:**  se utilizó para renderizar un componente en el DOM.
 - **React-html-table-to-excel:**  Se utilizó para tener la posibilidad de exportar y descargar las tablas a formato excel.
 - **React-modal:**  Esta librería se utilizó para crear tarjetas modales específicamente en el calendario a la hora de realizar el agendamiento de una entrevista.
