@@ -98,7 +98,9 @@ const ModeratorApplicantsCited = () => {
     //1 - Configurar los hooks
 
     <div className="moderatorContainer43">
-      <h2>Aspirantes </h2>
+      <h2>
+        <span className="moderatorSpan">Aspirantes Citados</span>{" "}
+      </h2>
       <div>
         <h4 className="">Por favor seleccione fecha y hora</h4>
         <select className="selectButton" onChange={handleSelect}>

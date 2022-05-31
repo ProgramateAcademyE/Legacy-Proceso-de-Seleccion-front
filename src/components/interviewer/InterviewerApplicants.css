@@ -20,6 +20,16 @@
     
 }
 
+.interviewerDashboardTable{
+    width: 85vw;
+    text-align: center;
+    overflow: scroll;
+    padding: 20px 30px;
+    background-color:#ffffff;
+    box-shadow: 1px 10px 25px #c7c7c7;
+    margin: auto;    
+}
+
 .InterviewerApplicantsCalificationBoxContainer{
     width: 75vw;
     height: 100%;
@@ -108,6 +118,9 @@
         width: 90vw;
         margin: auto;
         padding: 10px;
+    }
+    .interviewerDashboardTable{
+        width: 90vw;
     }
         .card-header{
             font-size: 1rem;

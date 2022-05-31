@@ -55,9 +55,7 @@ const InterviewerApplicantsCalificationBox = () => {
           <p className="card-footer">
             Nombre Aspirante
             <select className="interviewerSelect" name="" id="">
-              <option className="interviewerSelectOption" value="5">
-                5
-              </option>
+              <option value="5">5</option>
               <option value="4">4</option>
               <option value="3">3</option>
               <option value="2">2</option>
@@ -130,9 +128,7 @@ const InterviewerApplicantsCalificationBox = () => {
           <p className="card-footer">
             Nombre Aspirante
             <select className="interviewerSelect" name="" id="">
-              <option className="interviewerSelectOption" value="5">
-                5
-              </option>
+              <option value="5">5</option>
               <option value="4">4</option>
               <option value="3">3</option>
               <option value="2">2</option>
@@ -223,9 +219,7 @@ const InterviewerApplicantsCalificationBox = () => {
           <p className="card-footer">
             Nombre Aspirante
             <select className="interviewerSelect" name="" id="">
-              <option className="interviewerSelectOption" value="5">
-                5
-              </option>
+              <option value="5">5</option>
               <option value="4">4</option>
               <option value="3">3</option>
               <option value="2">2</option>
