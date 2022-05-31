@@ -8,9 +8,8 @@ const InterviewerDashboard = () => {
     <>
       <div className="interviewerDashboardContainer">
         <h1 className="interviewerDashboardtTitle">
-          <span className="interviewerSpan"> DASHBOARD</span>
+          <span className="interviewerSpan">Citas programadas</span>
         </h1>
-        <SelectButton />
         <h1 className="interviewerDashboardTitle2">
           Tienes programadas las siguientes reuniones:
         </h1>

@@ -81,7 +81,6 @@ const ModeratorInterviewerTable = () => {
           ver detalles
         </a>
       ),
-      sortable: true,
     },
   ];
 

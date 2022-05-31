@@ -4,98 +4,94 @@ import "styled-components";
 import "./ViewerCalification.css";
 import DataTableExtensions from "react-data-table-component-extensions";
 import "react-data-table-component-extensions/dist/index.css";
+import axios from "axios";
+import { useSelector } from "react-redux";
 
 const ViewerTable = () => {
-  const handleChange = ({ selectedRows }) => {
-    // You can set state or dispatch with something like Redux so we can use the retrieved data
-    console.log("Selected Rows: ", selectedRows);
-  };
-  //1 - Configurar los hooks
-  const [users, setUsers] = useState([]);
+  const [citation, setCitation] = useState([]);
+  const [processedCitation, setProcessedCitation] = useState([]);
 
   //2 - Función para mostrar los datos con fetch
-  const URL = "http://localhost:3005/entrevistados";
-  const showData = async () => {
-    const response = await fetch(URL);
-    const data = await response.json();
-    console.log(data);
-    setUsers(data);
-  };
+  const token = useSelector((state) => state.token);
+  async function fetchCitation() {
+    const { data } = await axios.get(
+      "http://localhost:3001/api/admin/citation-all",
+      {
+        headers: { Authorization: token },
+      }
+    );
+
+    setCitation(data.data);
+    setProcessedCitation(
+      data.data.map((item) => {
+        return item.users.map((subitem) => {
+          return {
+            fecha: item.appointmentDate.slice(0, 10),
+            jornada: item.shift,
+            convocatoria: item.titleConvocatory,
+            role_asignado: item.rol,
+            sala: item.room,
+            aspirantes: item.users,
+            aspirante: subitem.names + " " + subitem.surname,
+            id_aspirante: subitem.documentNumber,
+          };
+        });
+      })
+    );
+  }
 
   useEffect(() => {
-    showData();
+    fetchCitation();
   }, []);
-
-  const handleClick = (title) => {
-    console.log(`You clicked me! ${title}`);
-  };
-
 
   const columns = [
     {
-      name: "ID",
-      selector: (row) => row.id,
-      sortable: true,
-    },
-    {
       name: "FECHA",
-      selector: (row) => row.date,
+      selector: (row) => row["fecha"],
       sortable: true,
     },
     {
-      name: "HORARIO",
-      selector: (row) => row.hour,
+      name: "JORNADA",
+      selector: (row) => row["jornada"],
       sortable: true,
     },
     {
-      name: "ASPIRANTE",
-      selector: (row) => row.name,
+      name: "CONVOCATORIA",
+      selector: (row) => row["convocatoria"],
       sortable: true,
     },
     {
-      name: "IDENTIFICACION",
-      selector: (row) => row.identification,
+      name: "ROL ASIGNADO",
+      selector: (row) => row["role_asignado"],
       sortable: true,
     },
     {
-      name: "ENTREVISTADOR",
-      selector: (row) => row.interviewername,
+      name: "SALA",
+      selector: (row) => row["sala"],
       sortable: true,
     },
     {
-      name: "OBSERVADOR",
-      selector: (row) => row.viewername,
+      name: "ASPIRANTES",
+      selector: (row) => row["aspirantes"],
       sortable: true,
     },
-   /* {
-      name: "Action",
-      sortable: false,
-      selector: "null",
-      cell: (d) => [
-        <i
-          key={d.title}
-          onClick={handleClick.bind(this, d.title)}
-          className="fas fa-toggle-on"
-        ></i>,
-      ],
-    },*/
+    {
+      name: "VER DETALLE",
+      selector: (row) => <a href="./observadorassesment">Ver Detalle</a>,
+    },
   ];
 
   return (
-    <div className="viewerApplicantTable">
-      <DataTableExtensions columns={columns} data={users}>
+    <div className="interviewerApplicantTable">
+      <DataTableExtensions columns={columns} data={processedCitation}>
         <DataTable
-          title="Aspirantes Citados"
           columns={columns}
-          data={users}
+          data={processedCitation}
           defaultSortField="id"
           defaultSortAsc={false}
           pagination
           paginationRowsPerPageOptions={[5, 10, 25, 50, 100]}
           highlightOnHover
-          selectableRows
-          selectableRowsHighlight
-          onSelectedRowsChange={handleChange}
           fixedHeader
           fixedHeaderScrollHeight
         />
@@ -103,4 +99,5 @@ const ViewerTable = () => {
     </div>
   );
 };
+
 export default ViewerTable;

@@ -41,9 +41,7 @@ const ViewerCalificationBox = () => {
           <p className="card-footer-viewer">
             Nombre Aspirante 1
             <select className="interviewerSelect" name="" id="">
-              <option className="interviewerSelectOption" value="5">
-                5
-              </option>
+              <option value="5">5</option>
               <option value="4">4</option>
               <option value="3">3</option>
               <option value="2">2</option>
@@ -53,9 +51,7 @@ const ViewerCalificationBox = () => {
           <p className="card-footer-viewer">
             Nombre Aspirante 2
             <select className="interviewerSelect" name="" id="">
-              <option className="interviewerSelectOption" value="5">
-                5
-              </option>
+              <option value="5">5</option>
               <option value="4">4</option>
               <option value="3">3</option>
               <option value="2">2</option>
@@ -65,9 +61,7 @@ const ViewerCalificationBox = () => {
           <p className="card-footer-viewer">
             Nombre Aspirante 3
             <select className="interviewerSelect" name="" id="">
-              <option className="interviewerSelectOption" value="5">
-                5
-              </option>
+              <option value="5">5</option>
               <option value="4">4</option>
               <option value="3">3</option>
               <option value="2">2</option>
@@ -77,9 +71,7 @@ const ViewerCalificationBox = () => {
           <p className="card-footer-viewer">
             Nombre Aspirante 4
             <select className="interviewerSelect" name="" id="">
-              <option className="interviewerSelectOption" value="5">
-                5
-              </option>
+              <option value="5">5</option>
               <option value="4">4</option>
               <option value="3">3</option>
               <option value="2">2</option>
@@ -125,9 +117,7 @@ const ViewerCalificationBox = () => {
           <p className="card-footer-viewer">
             Nombre Aspirante 1
             <select className="interviewerSelect" name="" id="">
-              <option className="interviewerSelectOption" value="5">
-                5
-              </option>
+              <option value="5">5</option>
               <option value="4">4</option>
               <option value="3">3</option>
               <option value="2">2</option>
@@ -137,9 +127,7 @@ const ViewerCalificationBox = () => {
           <p className="card-footer-viewer">
             Nombre Aspirante 2
             <select className="interviewerSelect" name="" id="">
-              <option className="interviewerSelectOption" value="5">
-                5
-              </option>
+              <option value="5">5</option>
               <option value="4">4</option>
               <option value="3">3</option>
               <option value="2">2</option>
@@ -149,9 +137,7 @@ const ViewerCalificationBox = () => {
           <p className="card-footer-viewer">
             Nombre Aspirante 3
             <select className="interviewerSelect" name="" id="">
-              <option className="interviewerSelectOption" value="5">
-                5
-              </option>
+              <option value="5">5</option>
               <option value="4">4</option>
               <option value="3">3</option>
               <option value="2">2</option>
@@ -161,9 +147,7 @@ const ViewerCalificationBox = () => {
           <p className="card-footer-viewer">
             Nombre Aspirante 4
             <select className="interviewerSelect" name="" id="">
-              <option className="interviewerSelectOption" value="5">
-                5
-              </option>
+              <option value="5">5</option>
               <option value="4">4</option>
               <option value="3">3</option>
               <option value="2">2</option>
@@ -213,9 +197,7 @@ const ViewerCalificationBox = () => {
           <p className="card-footer-viewer">
             Nombre Aspirante 1
             <select className="interviewerSelect" name="" id="">
-              <option className="interviewerSelectOption" value="5">
-                5
-              </option>
+              <option value="5">5</option>
               <option value="4">4</option>
               <option value="3">3</option>
               <option value="2">2</option>
@@ -225,9 +207,7 @@ const ViewerCalificationBox = () => {
           <p className="card-footer-viewer">
             Nombre Aspirante 2
             <select className="interviewerSelect" name="" id="">
-              <option className="interviewerSelectOption" value="5">
-                5
-              </option>
+              <option value="5">5</option>
               <option value="4">4</option>
               <option value="3">3</option>
               <option value="2">2</option>
@@ -237,9 +217,7 @@ const ViewerCalificationBox = () => {
           <p className="card-footer-viewer">
             Nombre Aspirante 3
             <select className="interviewerSelect" name="" id="">
-              <option className="interviewerSelectOption" value="5">
-                5
-              </option>
+              <option value="5">5</option>
               <option value="4">4</option>
               <option value="3">3</option>
               <option value="2">2</option>
@@ -249,9 +227,7 @@ const ViewerCalificationBox = () => {
           <p className="card-footer-viewer">
             Nombre Aspirante 4
             <select className="interviewerSelect" name="" id="">
-              <option className="interviewerSelectOption" value="5">
-                5
-              </option>
+              <option value="5">5</option>
               <option value="4">4</option>
               <option value="3">3</option>
               <option value="2">2</option>
@@ -260,7 +236,6 @@ const ViewerCalificationBox = () => {
           </p>
         </div>
       </div>
-
 
       <div className="card text-start|center|end">
         <div className="card-body">
@@ -302,9 +277,7 @@ const ViewerCalificationBox = () => {
           <p className="card-footer-viewer">
             Nombre Aspirante 1
             <select className="interviewerSelect" name="" id="">
-              <option className="interviewerSelectOption" value="5">
-                5
-              </option>
+              <option value="5">5</option>
               <option value="4">4</option>
               <option value="3">3</option>
               <option value="2">2</option>
@@ -314,9 +287,7 @@ const ViewerCalificationBox = () => {
           <p className="card-footer-viewer">
             Nombre Aspirante 2
             <select className="interviewerSelect" name="" id="">
-              <option className="interviewerSelectOption" value="5">
-                5
-              </option>
+              <option value="5">5</option>
               <option value="4">4</option>
               <option value="3">3</option>
               <option value="2">2</option>
@@ -326,9 +297,7 @@ const ViewerCalificationBox = () => {
           <p className="card-footer-viewer">
             Nombre Aspirante 3
             <select className="interviewerSelect" name="" id="">
-              <option className="interviewerSelectOption" value="5">
-                5
-              </option>
+              <option value="5">5</option>
               <option value="4">4</option>
               <option value="3">3</option>
               <option value="2">2</option>
@@ -338,9 +307,7 @@ const ViewerCalificationBox = () => {
           <p className="card-footer-viewer">
             Nombre Aspirante 4
             <select className="interviewerSelect" name="" id="">
-              <option className="interviewerSelectOption" value="5">
-                5
-              </option>
+              <option value="5">5</option>
               <option value="4">4</option>
               <option value="3">3</option>
               <option value="2">2</option>
@@ -355,7 +322,6 @@ const ViewerCalificationBox = () => {
           <h4 className="card-header">OBSERVACIONES GENERALES</h4>
           <p className="">Aspirante 1</p>
           <form action="">
-              
             <textarea
               className="InterviewerApplicanTextarea"
               id="w3review"
@@ -366,7 +332,6 @@ const ViewerCalificationBox = () => {
 
           <p className="">Aspirante 2</p>
           <form action="">
-              
             <textarea
               className="InterviewerApplicanTextarea"
               id="w3review"
@@ -377,7 +342,6 @@ const ViewerCalificationBox = () => {
 
           <p className="">Aspirante 3</p>
           <form action="">
-              
             <textarea
               className="InterviewerApplicanTextarea"
               id="w3review"
@@ -388,7 +352,6 @@ const ViewerCalificationBox = () => {
 
           <p className="">Aspirante 4</p>
           <form action="">
-              
             <textarea
               className="InterviewerApplicanTextarea"
               id="w3review"

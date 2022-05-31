@@ -67,7 +67,12 @@
     margin: auto;
 
 }
-
+.moderatorSpan{
+    background-color:  #FDC300;
+    padding: 5px 10px;
+    border-radius: 10px;
+    box-shadow: 1px 10px 25px #c7c7c7;
+}
 @media (max-width: 600px) {
     .moderatorContainer43 {
         height: auto;
@@ -91,7 +96,6 @@
     }
     .tablemoderatorApplicantsCited{
         width: 90vw;
-        background-color: red;
     }
 
   }
