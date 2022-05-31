@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useState } from "react";
 import "./InterviewerApplicants.css";
+import { AiOutlineMinus, AiOutlinePlus } from "react-icons/ai";
 
 const InterviewerApplicantsCalificationBoxCard = (props) => {
+  const [showInfo, setShowInfo] = useState(false);
+
   return (
     <div className="card">
       <h4 className="card-header">{props.title}</h4>
       <br />
       <h4 className="card-title">Preguntas</h4>
+      <button className="btn" onClick={() => setShowInfo(!showInfo)}>
+        {showInfo ? <AiOutlineMinus /> : <AiOutlinePlus />}
+      </button>
       <p className="">
         <span className="interviewerCardSpan"> 1. </span> {props.question1}
       </p>
@@ -67,6 +73,7 @@ const InterviewerApplicantsCalificationBoxCard = (props) => {
         <span className="interviewerCardSpan redPoints"> 1 punto:</span>{" "}
         {props.calification1}
       </p>
+
       <p className="card-footer">
         Nombre Aspirante
         <select className="interviewerSelect" name="" id="">
@@ -77,6 +84,7 @@ const InterviewerApplicantsCalificationBoxCard = (props) => {
           <option value="1">1</option>
         </select>
       </p>
+      {showInfo && <p>{question1}</p>}
     </div>
   );
 };
