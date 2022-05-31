@@ -1,13 +1,14 @@
 
   .moderatorInterviewTableContainer{
-    height: 100%;
+    height: 100vh;
     width: 90%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-left: 7%;
- 
+    
+    overflow-y: scroll;
 
   }
   .moderatorInterviewContainerTitle{
@@ -15,7 +16,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
+    margin-top: 10%;
   }
 
   .moderatorInterviewTableTitle{
@@ -23,7 +24,7 @@
     text-align: center;
     background-color: #FFCC02;
     color: #000;
-    padding: 7px;
+    padding: 3px;
     border-radius: 10px;
     box-shadow: 1px 10px 25px #c7c7c7;
     margin-top: 10%;
@@ -42,20 +43,24 @@
     
 }
 
-  @media (max-width: 768px) {
+  @media (max-width: 698px) {
     .moderatorInterviewTableTitle{
-        width:10rem;
-        margin-top: 15%;
-        font-size: 1rem;
+        width:80%;
+        margin-top: 10%;
+        font-size: 2rem;
+    }
 
-
+    .moderatorInterviewTableContainer{
+      
+      
+      height: 170vh;
+      
+    }
   
-    }
-    
-}
+  }
+  
 
-@media (max-width: 465px) {
-    .moderatorInterviewTableTitle{
-        margin-top: 25%;
-    }
-}  
+    
+
+
+

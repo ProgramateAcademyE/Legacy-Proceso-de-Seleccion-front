@@ -58,7 +58,9 @@ const ModeratorInterviewTable = () => {
 
   return (
     <Formik>
+      
       <div className="moderatorInterviewTableContainer">
+        
         <div className="moderatorInterviewContainerTitle">
           <h1 className="moderatorInterviewTableTitle">
             Listado General Entrevistas{" "}
