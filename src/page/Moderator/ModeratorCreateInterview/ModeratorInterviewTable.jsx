@@ -61,7 +61,7 @@ const ModeratorInterviewTable = () => {
       <div className="moderatorInterviewTableContainer">
         <div className="moderatorInterviewContainerTitle">
           <h1 className="moderatorInterviewTableTitle">
-            Listado General Entrevistas{" "}
+            Listado General Entrevistas
           </h1>
         </div>
 

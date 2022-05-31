@@ -245,7 +245,7 @@ export const ITEMS_INTERVIEWER = [
   },
   {
     name: "Observador assesment",
-    icon: "fa fa-bullhorn",
+    icon: "fa fa-smile",
     items: [],
     pathname: "/observadorassesment",
     id: 14,
