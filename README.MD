@@ -4,6 +4,7 @@ Se realiza el frontend con Ract, se utilizo webpack y las siguientes librerías 
 
 ## Dependencias
 
+- **Axios:** Se utilizó para hacer conexión del back con el front por medio de los end-point.
 - **Material-ui/core:** se utilizó para realizar la barra de progreso del formulario de inscripción, los botones
 - **Chart.js:**  se utilizó para descargar la librería de gráficas
 - **Chartjs-plugin-datalabels:**  se utilizó para mostrar las etiquetas en los datos de los gráficos.
