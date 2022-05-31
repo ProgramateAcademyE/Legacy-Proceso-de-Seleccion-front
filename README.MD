@@ -8,6 +8,7 @@ Se realiza el frontend con Ract, se utilizo webpack y las siguientes librerías 
 - **Chart.js:**  se utilizó para descargar la librería de gráficas
 - **Chartjs-plugin-datalabels:**  se utilizó para mostrar las etiquetas en los datos de los gráficos.
 - **Eslint:**  Análisis de código estático para identificar patrones problemáticos encontrados en el código JavaScript.
+- **Formik:** Se utilizó en la creación de formulario para crear reunión y la vista de los aspirantes citados
 - **Less-loader:**  Se utilizó para compilar la librería de react-big al no ser compatible con webpack
 - **Moment:**  Nos permitió mostrar fechas y horas de una forma mas amigable al usuario.
 - **React-big-calendar:**  Se utilizó para renderizar un componente de calendario de eventos para que el aspirante agende su cita de entrevista.	
