@@ -2,14 +2,28 @@
     height: 100%;
     width: 90%;
     margin: 0 50px;
-    margin-left: 7%;
     padding:12px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-left: 7%;
    
+}
+.moderatorCreateInterviewContainer{
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 
 .moderatorCreateInterviewTitle{
+   width:40rem;
     font-size: 2rem;
     margin-top:10%;
+    display:flex;
+    justify-content: center;
+    align-items: center;
     text-align:center;
     background-color: #FFCC02;
     color: #000;
@@ -20,6 +34,7 @@
 }
 @media  (max-width:991px){
     .moderatorCreateInterviewTitle{
+        width:20rem;
         font-size: 1.5rem;
         margin-top:15%;
       
@@ -28,6 +43,7 @@
 }
 @media  (max-width:530px){
     .moderatorCreateInterviewTitle{
+        width:12rem;
         font-size: 1.5rem;
         margin-top:25%;
     
