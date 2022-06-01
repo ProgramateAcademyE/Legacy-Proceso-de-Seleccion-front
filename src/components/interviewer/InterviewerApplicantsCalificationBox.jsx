@@ -12,15 +12,16 @@ const InterviewerApplicantsCalificationBox = (props) => {
   const questionaryId = "62855ad10a60a551a4aa7431";
 
   const token = useSelector((state) => state.token);
-  async function fetchCitation() {
-    const { data } = await axios.get(
-      "http://localhost:3005/entrevistadoresCalificacion"
-      /* {
-        headers: { Authorization: token },
-      }*/
-    );
-    setUsers(data);
-  }
+
+  //async function fetchCitation() {
+  //  const { data } = await axios.get(
+  //    "http://localhost:3005/entrevistadoresCalificacion"
+  //    /* {
+  //      headers: { Authorization: token },
+  //    }*/
+  //  );
+  //  setUsers(data);
+  //}
 
   async function fetchQuestionary() {
     const { data } = await axios.get(
@@ -35,7 +36,7 @@ const InterviewerApplicantsCalificationBox = (props) => {
   console.log("Questio..: ", questionary);
 
   useEffect(() => {
-    fetchCitation();
+    //fetchCitation();
     fetchQuestionary();
   }, []);
 
@@ -227,7 +228,7 @@ const InterviewerApplicantsCalificationBox = (props) => {
 
   return (
     <div className="InterviewerApplicantsCalificationBoxContainer">
-      {helper?.groups?.map((item, index) => {
+      {questionary?.groups?.map((item, index) => {
         return (
           <InterviewerApplicantsCalificationBoxCard
             title={item.name}
