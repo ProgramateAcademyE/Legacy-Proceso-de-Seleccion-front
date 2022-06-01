@@ -77,7 +77,7 @@ const InterviewerApplicantsTable = (props) => {
       jornada: meet?.shift,
       horario: meet?.shift,
       aspirante: item.names + " " + item.surname,
-      id_aspirante: item._id,
+      id_aspirante: item.documentNumber,
       ubicacion: item.location,
     };
   });
