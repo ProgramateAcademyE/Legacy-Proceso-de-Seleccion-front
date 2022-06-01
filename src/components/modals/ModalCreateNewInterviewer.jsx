@@ -97,8 +97,7 @@ function ModalCreateNewInterviewer() {
             confirmPassword: null,
             email: null,
           });
-          document.location.reload();
-        }, 500);
+        }, 1000);
         
       })
       .catch((err) => {

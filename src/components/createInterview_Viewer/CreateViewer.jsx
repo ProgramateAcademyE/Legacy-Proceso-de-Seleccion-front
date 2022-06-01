@@ -3,6 +3,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import "./CreateInterviewer.css"
+import Swal from "sweetalert2";
 
 
 const CreateViewer = () => {
@@ -15,6 +16,7 @@ const CreateViewer = () => {
   const [currentSelectors, setCurrentSelectors] = useState([]);
   const [currentAvailableId, setCurrentAvailableId] = useState("");
   const [checked, setCheked] = useState(true);
+  const [spinner, mostrarSpinner] = useState(true);
   
 
   const token = useSelector((state) => state.token);
@@ -116,7 +118,7 @@ const CreateViewer = () => {
                     names:(dat.names),
                     surname:(dat.surname),
                     role:(dat.role),
-                    meetRole:4
+                    meetRole:3
                   
                   }
                 
@@ -127,8 +129,16 @@ const CreateViewer = () => {
 
         if(currentAvailableId.length !== 0){
           axios.put(`http://localhost:3001/api/admin/update_availables/${currentAvailableId}`, { ...selectors});
-          window.alert("Registro enviado con exito")
-          document.location.reload();
+          
+        
+          Swal.fire({
+            icon: "success",
+            title: "Observador habilitado",
+            timer:2000
+            });
+            
+                    
+          //  document.location.reload();
         }
         else {
           
@@ -143,7 +153,13 @@ const CreateViewer = () => {
          
             console.log("newAvailability: ", newAvailability);
             axios.post("http://localhost:3001/api/admin/availability", { ...newAvailability });
-            window.alert("Registro enviado con exito")
+              Swal.fire({
+              icon: "success",
+              title: "Observador habilitado",
+              timer:2000
+               });
+              
+             
             document.location.reload();
         }
    
