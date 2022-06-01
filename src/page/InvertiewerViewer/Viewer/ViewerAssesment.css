@@ -16,6 +16,12 @@
     margin-top: 10%;
 }
 
+.viewerSpan{
+    background-color:  #FDC300;
+    padding: 5px 10px;
+    border-radius: 10px;
+    box-shadow: 1px 10px 25px #c7c7c7;
+}
 .viewerAssesmentTitle2{
     font-size: 2rem;
     text-align: center;

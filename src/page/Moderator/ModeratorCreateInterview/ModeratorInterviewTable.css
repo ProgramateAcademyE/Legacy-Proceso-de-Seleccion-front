@@ -1,61 +1,44 @@
 
   .moderatorInterviewTableContainer{
-    height: 100%;
+    height: auto;
     width: 90%;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-left: 7%;
- 
-
-  }
-  .moderatorInterviewContainerTitle{
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-
-  }
-
-  .moderatorInterviewTableTitle{
-    width:40rem;
-    text-align: center;
-    background-color: #FFCC02;
-    color: #000;
+    overflow-y: scroll;
     padding: 7px;
-    border-radius: 10px;
-    box-shadow: 1px 10px 25px #c7c7c7;
-    margin-top: 10%;
-  
+    padding-top: 15%;
+    margin-bottom: 300px;
   }
 
-  .secondu{
-    width: 90%;
-    height: auto;
-    background-color:#ecfdcf;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    border-radius: 10px;
-    margin-bottom: 23%;
-    
-}
-
-  @media (max-width: 768px) {
-    .moderatorInterviewTableTitle{
-        width:10rem;
-        margin-top: 15%;
-        font-size: 1rem;
-
-
+.divi{
   
-    }
-    
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.moderatorInterviewTableTitle{
+  font-size: 2rem;
 }
 
-@media (max-width: 465px) {
-    .moderatorInterviewTableTitle{
-        margin-top: 25%;
-    }
-}  
+
+@media (max-width: 698px) {
+  .moderatorInterviewTableTitle{
+    width:100%;
+    margin-top: 10%;
+    font-size: 1.5rem;
+}
+
+
+}
+
+@media (max-width: 370px) {
+  .moderatorInterviewTableTitle{
+    margin-top: 25%;
+    font-size: 1.1rem; 
+  }
+
+}

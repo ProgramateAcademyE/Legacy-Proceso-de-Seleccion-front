@@ -42,7 +42,9 @@ const ModeratorForm = () => {
     }
   }
   //console.log("citaciones: ", citations);
-
+  function clear() {
+    (assesmentsRooms = 0), (assesmentsRooms = 0), (link = "");
+  }
   const formik = useFormik({
     initialValues: {
       citationID: "",
@@ -88,7 +90,8 @@ const ModeratorForm = () => {
 
     onSubmit: (values, { resetForm }) => {
       //resetForm();
-      console.log(values);
+
+      console.log("valores", values);
       console.log("On submit", values);
       const toSubmit = {
         ...values,
@@ -97,18 +100,24 @@ const ModeratorForm = () => {
         titleConvocatory: citationSelected?.titleConvocatory,
         shift: citationSelected?.shift[0],
         users: citationSelected?.users?.map((u) => ({ ...u, _id: u.userID })),
-        interviewers: available.selectors.filter((s) => s.meetRole === 4),
-        observers: available.selectors.filter((s) => s.meetRole === 3),
+        interviewers: available.selectors.filter((s) => s.meetRole === 3),
+        observers: available.selectors.filter((s) => s.meetRole === 4),
       };
 
       console.log("To submit", toSubmit);
 
       axios.post("http://localhost:3001/api/admin/meet", { ...toSubmit });
       //resetForm();
-      //conle.log("Formulario Enviado");
       cambiarFormularioEnviado(true);
-      setTimeout(() => cambiarFormularioEnviado(false), 5000);
-      resetForm();
+      setTimeout(() => cambiarFormularioEnviado(false), 80000);
+
+      /*formik.resetForm({
+        values: { assesmentsRooms: '', interviewRooms: '' },
+      });*/
+      //resetForm({values:''});
+      //resetForm();
+      //window.location.reload();
+      setTimeout(window.location.reload(), 90000);
     },
   });
 
@@ -129,7 +138,7 @@ const ModeratorForm = () => {
 
   return (
     <Formik>
-      <Form className="ModeratorForm">
+      <Form id="formulario" className="ModeratorForm">
         <div className="ModeratorformContainer">
           <div className="ModeratorFormSection1">
             <div>
@@ -199,12 +208,13 @@ const ModeratorForm = () => {
           </div>
           <div className="ModeratorFormSection2">
             <div>
-              <label htmlFor="link">Link Reunion</label>
+              <label htmlFor="link">Link Reunión</label>
               <Field
                 className="ModeratorFormLink"
-                type="text"
+                type="url"
                 id="link"
                 name="link"
+                pattern="http://[A-Za-z]+[A-Za-z0-9\.-]*[^\.]\.com"
                 placeholder="Ingresa una URL"
                 onChange={formik.handleChange}
               />
@@ -252,7 +262,7 @@ const ModeratorForm = () => {
                 >
                   <div ref={interviewersInput}>
                     {available?.selectors?.map((s) =>
-                      s.meetRole === 3 ? (
+                      s.meetRole === 4 ? (
                         <option value={s.names}>
                           {`${s.names} ${s.surname}`}{" "}
                         </option>
@@ -281,7 +291,7 @@ const ModeratorForm = () => {
                 >
                   <div ref={viewersInput}>
                     {available?.selectors?.map((s) =>
-                      s.meetRole === 4 ? (
+                      s.meetRole === 3 ? (
                         <option
                           value={s.names}
                         >{`${s.names} ${s.surname}`}</option>
@@ -301,13 +311,14 @@ const ModeratorForm = () => {
               type="submit"
               onClick={formik.handleSubmit}
               className="ModeratorFormSubmit"
+              //onClick={() => formik.resetForm()}
             >
               Publicar y enviar
             </button>
           </div>
           <div className="ModeratorFormExit">
             {formularioEnviado && (
-              <span className="">Formulario Enviado con éxito!</span>
+              <span className="">Formulario Enviado con exito!</span>
             )}
           </div>
         </div>
