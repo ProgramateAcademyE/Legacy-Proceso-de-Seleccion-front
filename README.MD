@@ -1,6 +1,6 @@
 # FrontEnd
 
-Se realiza el frontend con Ract, se utilizo webpack y las siguientes librerías y dependencias listadas a continuación:
+Se realiza el frontend con React, se utilizó webpack y las siguientes librerías y dependencias listadas a continuación:
 
 ## Dependencias
 
@@ -22,6 +22,7 @@ Se realiza el frontend con Ract, se utilizo webpack y las siguientes librerías 
 - **React-html-table-to-excel:**  Se utilizó para tener la posibilidad de exportar y descargar las tablas a formato excel.
 - **React-modal:**  Esta librería se utilizó para crear tarjetas modales específicamente en el calendario a la hora de realizar el agendamiento de una entrevista.
 - **React-router-dom:**  se utilizó para realizar las rutas de navegación de la aplicación.
+- **Styled-components:** Permitió escribir CSS para las tablas creadas con data-table.
 - **Style-loader:**  Cargadores de paquetes web que toma los archivos CSS y los inserta en la página para que los estilos estén activos en la página.
 - **Sweetalert2:**  se utilizó para realizar alertas como confirmación de una acción realizada por el usuario
 - **Eslint:** _Es sencillamente una herramienta de linting para JavaScript y JSX cuya función es la de revisar nuestro código tratando de encontrar errores que podrían provocar problemas de compilación o bien futuros bugs en nuestro desarrollo_
