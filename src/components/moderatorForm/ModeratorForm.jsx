@@ -208,7 +208,7 @@ const ModeratorForm = () => {
           </div>
           <div className="ModeratorFormSection2">
             <div>
-              <label htmlFor="link">Link Reunion</label>
+              <label htmlFor="link">Link Reunión</label>
               <Field
                 className="ModeratorFormLink"
                 type="url"
