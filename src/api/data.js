@@ -134,35 +134,46 @@ export const ITEMS_MODERATOR = [
     id: 13,
   },
   {
-    name: "Moderador",
-    icon: "fas fa-user-edit",
-    id: 15,
-    items: [
-      {
-        name: "Agenda programada",
-        pathname: "/moderadordashboard",
-      },
-      {
-        name: "Crear entrevistas y assesments",
-        pathname: "/moderadorcrearentrevistayassesment",
-      },
-      {
-        name: "Listado General Entrevistas",
-        pathname: "/moderadortablaentrevistas",
-      },
-      {
-        name: "Entrevistadores",
-        pathname: "/moderadorentrevistadores",
-      },
-      {
-        name: "Observadores",
-        pathname: "/moderadorobservadores",
-      },
-      {
-        name: "Aspirantes citados",
-        pathname: "/moderadoraspirantescitados",
-      },
-    ],
+    name: "Agenda programada",
+    icon: "fa fa-calendar",
+    items: [],
+    pathname: "/moderadordashboard",
+    id: 13,
+  },
+  {
+    name: "Crear entrevistas y assesments",
+    icon: "fa fa-plus-circle",
+    items: [],
+    pathname: "/moderadorcrearentrevistayassesment",
+    id: 13,
+  },
+  {
+    name: "Listado General Entrevistas",
+    icon: "fa fa-list",
+    items: [],
+    pathname: "/moderadortablaentrevistas",
+    id: 13,
+  },
+  {
+    name: "Entrevistadores",
+    icon: "fa fa-star",
+    items: [],
+    pathname: "/moderadorentrevistadores",
+    id: 13,
+  },
+  {
+    name: "Observadores",
+    icon: "fa fa-smile",
+    items: [],
+    pathname: "/moderadorobservadores",
+    id: 13,
+  },
+  {
+    name: "Aspirantes citados",
+    icon: "fa fa-bullhorn",
+    items: [],
+    pathname: "/moderadoraspirantescitados",
+    id: 13,
   },
 ];
 
@@ -231,7 +242,7 @@ export const ITEMS_INTERVIEWER = [
   },
   {
     name: "Citas programadas",
-    icon: "fa fa-bookmark",
+    icon: "fa fa-calendar",
     items: [],
     pathname: "/entrevistadordashboard",
     id: 13,

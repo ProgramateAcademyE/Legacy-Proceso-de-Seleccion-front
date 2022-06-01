@@ -40,12 +40,12 @@ import QualifyInterview from "../page/Qualification/QualifyInterview";
 import ConvocatoryAspirants from "../page/convocatory/ConvocaryAspirants";
 import NavBarIndex from "../components/navBarIndex/NavBarIndex";
 import Index from "../components/stepForm";
-import InterviewerDashboard from "../page/Invertiewer/InterviewerDashboard";
-import InterviewerApplicantsCited from "../page/Invertiewer/InterviewerApplicantsCited";
-import InterviewerIndex from "../page/Invertiewer/InterviewerIndex";
 
-import ViewerDashboard from "../page/Viewer/ViewerDashboard";
-import ViewerAssesment from "../page/Viewer/ViewerAssesment";
+import InterviewerDashboard from "../page/InvertiewerViewer/Interviewer/InterviewerDashboard";
+import InterviewerApplicantsCited from "../page/InvertiewerViewer/Interviewer/InterviewerApplicantsCited";
+import InterviewerIndex from "../page/InvertiewerViewer/Interviewer/InterviewerIndex";
+
+import ViewerAssesment from "../page/InvertiewerViewer/Viewer/ViewerAssesment";
 
 import ModeratorDashboard from "../page/Moderator/ModeratorDashboard_ApplicantsCited/ModeratorDashboard";
 import ModeratorCreateInterview from "../page/Moderator/ModeratorCreateInterview/ModeratorCreateInterview";

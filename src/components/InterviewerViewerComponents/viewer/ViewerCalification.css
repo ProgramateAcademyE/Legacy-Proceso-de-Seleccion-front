@@ -53,6 +53,9 @@
 .card-text{
     margin-top: 20px;
 }
+.viewerCardParagraph{
+    margin-top: 10px;
+}
 .interviewerCardSpan{
     font-weight: bolder;
 }

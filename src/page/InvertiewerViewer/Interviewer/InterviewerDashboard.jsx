@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import InterviewerDashboardTable from "../../components/interviewer/InterviewerDashboardTable";
-import SelectButton from "../../components/selectButton/SelectButton";
+import InterviewerDashboardTable from "../../../components/InterviewerViewerComponents/interviewer/InterviewerDashboardTable";
 import "./InterviewerDashboard.css";
 
 const InterviewerDashboard = () => {
