@@ -7,15 +7,20 @@
 .ModeratorForm {
 	
 	width: 100%;
-	margin-top: 50px;
-	/*background: blue;*/
+	/*margin-top: 50px;
+
 	border-radius: 5px;
+	
 	padding: 20px;
 	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-	
+	display:flex;
+	******************
+	flex-direction: column;
+	justify-content:center;
+	align-content:center;*/
 }
 .ModeratorformContainer{
-	margin-top: 3em; 
+	margin-top: 3rem; 
 
 }
 
@@ -23,6 +28,7 @@
 	display:flex;
 	justify-content: space-evenly;
 	align-content:center;
+
 }
 
 .ModeratorFormSelectJornada{
@@ -31,17 +37,27 @@
 }
 .ModeratorFormSection2{
 	display:flex;
-	justify-content: space-evenly;
+	padding:20px;
 	align-content:center;
 }
 .ModeratorFormLink{
-	width:40rem;
+
+	width:43rem;
+
+	/*width:85vw;*/
 	
 }
 .ModeratorFormTitle{
 	display:flex;
 	justify-content:center;
 	align-items:center;
+}
+.ModeratorFormSelect{
+	display:flex;
+	justify-content:center;
+	align-items:center;
+	
+
 }
 
 .ModeratorFormApplicants{
@@ -54,6 +70,7 @@
     border-radius: 10px;
     box-shadow: 1px 10px 25px #c7c7c7;
     margin-top: 10%;
+
 
 }
 h5{
@@ -80,11 +97,24 @@ h5{
     box-shadow: 1px 10px 25px #c7c7c7;
     margin-top: 10%;
 }
+.ModeratorFormExit{
+	display:flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items:center;
+	padding:5px;
+	font-size:1rem;
+	color:green;
+}
 .select {
     margin: 9px 0px 9px 0px;
     box-shadow: 0px 0px 4px 0px black;
     border-radius: 5px;
+	overflow: scroll;
 	width:100%;
+	height:50vh;
+	
+	
 }
 /*Media query Tablet 
 @media screen and (max-width: 700px)*/
@@ -124,11 +154,13 @@ h5{
 		display:flex;
 		justify-content:center;
 		align-items:center;
+		
 
 	}
 
 	.ModeratorFormButton{
 		display:flex;
+	
 		justify-content: center;
 		align-items:center;
 	}
@@ -138,6 +170,7 @@ h5{
 		box-shadow: 0px 0px 4px 0px black;
 		border-radius: 5px;
 		width:20rem;
+		overflow: scroll;
 	}
 
 	
@@ -149,6 +182,8 @@ h5{
 		display:flex;
 		flex-direction:column;
 		justify-content: space-evenly;
+	
+
 		
 	
 		
@@ -163,8 +198,6 @@ h5{
 	
 	.ModeratorFormLink,.ModeratorFormRooms{
 		width:80%;
-		
-		
 	}
 	.ModeratorFormTitle{
 	    width:70vw;
@@ -178,8 +211,6 @@ h5{
 		display:flex;
 		justify-content: center;
 		align-items:center;
-
-
 	}
 	
 	.select {
@@ -187,9 +218,7 @@ h5{
 		box-shadow: 0px 0px 4px 0px black;
 		border-radius: 5px;
 		width:15rem;
+		overflow: scroll;
 	}
-
-    
-
 	
 }

@@ -1,8 +1,9 @@
-import React from 'react'
+import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import "./CreateInterviewer.css"
+import Swal from "sweetalert2";
 
 
 const CreateViewer = () => {
@@ -15,6 +16,7 @@ const CreateViewer = () => {
   const [currentSelectors, setCurrentSelectors] = useState([]);
   const [currentAvailableId, setCurrentAvailableId] = useState("");
   const [checked, setCheked] = useState(true);
+  const [spinner, mostrarSpinner] = useState(true);
   
 
   const token = useSelector((state) => state.token);
@@ -116,7 +118,7 @@ const CreateViewer = () => {
                     names:(dat.names),
                     surname:(dat.surname),
                     role:(dat.role),
-                    meetRole:4
+                    meetRole:3
                   
                   }
                 
@@ -127,8 +129,16 @@ const CreateViewer = () => {
 
         if(currentAvailableId.length !== 0){
           axios.put(`http://localhost:3001/api/admin/update_availables/${currentAvailableId}`, { ...selectors});
-          window.alert("Registro enviado con exito")
-          document.location.reload();
+          
+        
+          Swal.fire({
+            icon: "success",
+            title: "Observador habilitado",
+            timer:2000
+            });
+            
+                    
+          //  document.location.reload();
         }
         else {
           
@@ -143,7 +153,13 @@ const CreateViewer = () => {
          
             console.log("newAvailability: ", newAvailability);
             axios.post("http://localhost:3001/api/admin/availability", { ...newAvailability });
-            window.alert("Registro enviado con exito")
+              Swal.fire({
+              icon: "success",
+              title: "Observador habilitado",
+              timer:2000
+               });
+              
+             
             document.location.reload();
         }
    
@@ -174,23 +190,24 @@ const CreateViewer = () => {
   return (
     <>
       <div className="moderator_createviewer">
-        <div>
-          <h4 className="">Por favor seleccione fecha y hora</h4>
-          <select className="selectButton" onChange={handleSelect}>
-            <option value="">Seleccione una fecha</option>
-            {citation.map((cita) => (
-              <option value={cita._id}>
-                {`${cita.appointmentDate.toString().slice(0, -14)}
-                      ${cita.shift}`}
-              </option>
-            ))}
-          </select>
-        </div>
         <div className="moderatorInterviewerContainer">
+          <div>
+            <h4 className="">Por favor seleccione fecha y hora</h4>
+            <select className="selectButton" onChange={handleSelect}>
+              <option value="">Seleccione una fecha</option>
+              {citation.map((cita) => (
+                <option value={cita._id}>
+                  {`${cita.appointmentDate.toString().slice(0, -14)}
+                      ${cita.shift}`}{" "}
+                </option>
+              ))}
+            </select>
+          </div>
+
           <table className="table_full">
             <tbody className="table_body">
               <tr className="table_head">
-                <th>Entrevistador</th>
+                <th>Observador</th>
                 <th>Rol Principal</th>
                 <th>Fecha disponible</th>
                 <th>Jornada disponible </th>
@@ -256,23 +273,3 @@ const CreateViewer = () => {
 
 
 export default CreateViewer;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
