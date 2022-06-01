@@ -57,7 +57,6 @@ import ModeratorIndex from "../page/Moderator/ModeratorIndex";
 
 const App = () => {
   const auth = useSelector((state) => state.auth);
-  console.log(auth);
 
   const dispatch = useDispatch();
 

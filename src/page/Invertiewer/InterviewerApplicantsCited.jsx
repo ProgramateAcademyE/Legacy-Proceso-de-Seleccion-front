@@ -4,6 +4,13 @@ import InterviewerApplicantsTable from "../../components/interviewer/Interviewer
 import "./InterviewerApplicant.css";
 
 const InterviewerApplicantsCited = () => {
+  const [currentAspirant, setCurrentAspirant] = React.useState();
+
+  const handleCurrentAspirant = (newAspirant) => {
+    console.log("function", newAspirant);
+    setCurrentAspirant(newAspirant);
+  };
+
   return (
     <>
       <div className="interviewerApplicantContainer">
@@ -14,12 +21,16 @@ const InterviewerApplicantsCited = () => {
           <h4 className="viewerAssesmentTitle2">
             Lista de estudiantes agendados para hoy...
           </h4>
-          <InterviewerApplicantsTable />
+          <InterviewerApplicantsTable
+            handleCurrentAspirant={handleCurrentAspirant}
+          />
 
           <h1 className="interviewrApplicantTitle2">
             <span className="interviewerSpan">Aspirante</span>
           </h1>
-          <InterviewerApplicantsCalificationBox />
+          <InterviewerApplicantsCalificationBox
+            currentAspirant={currentAspirant}
+          />
         </div>
       </div>
     </>
