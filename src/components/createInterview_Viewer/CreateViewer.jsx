@@ -129,8 +129,7 @@ const CreateViewer = () => {
 
         if(currentAvailableId.length !== 0){
           axios.put(`http://localhost:3001/api/admin/update_availables/${currentAvailableId}`, { ...selectors});
-          
-        
+                 
           Swal.fire({
             icon: "success",
             title: "Observador habilitado",
