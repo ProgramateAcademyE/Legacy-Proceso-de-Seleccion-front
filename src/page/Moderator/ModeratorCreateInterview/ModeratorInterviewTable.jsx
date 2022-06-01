@@ -60,57 +60,60 @@ const ModeratorInterviewTable = () => {
     <Formik>
       
       <div className="moderatorInterviewTableContainer">
-        
-        <div className="moderatorInterviewContainerTitle">
-          <h1 className="moderatorInterviewTableTitle">
-            Listado General Entrevistas{" "}
-          </h1>
-        </div>
+        <div className="divi">
 
-        <div>
-          <Field
-            as="select"
-            placeholder="Selecciona una Fecha"
-            name="citationID"
-            id="citationID"
-            value={formik.values.citationID}
-            onChange={formik.handleChange}
-            className="selectButton"
-          >
-            <option value="">Seleccione una Fecha</option>
+              
+              <div className="moderatorInterviewContainerTitle">
+                <h1 className="moderatorInterviewTableTitle">
+                  Listado General Entrevistas{" "}
+                </h1>
+              </div>
 
-            {citations?.data?.map((c) => (
-              <option value={c._id}>{`${c.appointmentDate
-                .toString()
-                .slice(0, -14)} ${c.shift[0]}`}</option>
-            ))}
-          </Field>
-          <ErrorMessage
-            name="citationID"
-            component={() => <span>{errors.citationID}</span>}
-          />
-        </div>
+              <div>
+                <Field
+                  as="select"
+                  placeholder="Selecciona una Fecha"
+                  name="citationID"
+                  id="citationID"
+                  value={formik.values.citationID}
+                  onChange={formik.handleChange}
+                  className="selectButton"
+                >
+                  <option value="">Seleccione una Fecha</option>
 
-        <div className="secondu">
-          {meet?.roomsAssesments?.map((r) => {
-            return (
-              <ConstructorModerator
-                sala={r.roomName}
-                selectores={r.selectors}
-                candidatos={r.users}
-              />
-            );
-          })}
+                  {citations?.data?.map((c) => (
+                    <option value={c._id}>{`${c.appointmentDate
+                      .toString()
+                      .slice(0, -14)} ${c.shift[0]}`}</option>
+                  ))}
+                </Field>
+                <ErrorMessage
+                  name="citationID"
+                  component={() => <span>{errors.citationID}</span>}
+                />
+              </div>
 
-          {meet?.roomsInterviewers?.map((r) => {
-            return (
-              <ConstructorModerator
-                sala={r.roomName}
-                selectores={r.selectors}
-                candidatos={r.users}
-              />
-            );
-          })}
+              <div className="secondu">
+                {meet?.roomsAssesments?.map((r) => {
+                  return (
+                    <ConstructorModerator
+                      sala={r.roomName}
+                      selectores={r.selectors}
+                      candidatos={r.users}
+                    />
+                  );
+                })}
+
+                {meet?.roomsInterviewers?.map((r) => {
+                  return (
+                    <ConstructorModerator
+                      sala={r.roomName}
+                      selectores={r.selectors}
+                      candidatos={r.users}
+                    />
+                  );
+                })}
+            </div>
         </div>
       </div>
     </Formik>
