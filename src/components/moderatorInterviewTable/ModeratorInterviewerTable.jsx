@@ -23,16 +23,6 @@ const ModeratorInterviewerTable = () => {
     setUsers(data);
   }
 
-  /* //2 - Función para mostrar los datos con fetch
-  const URL= "http://localhost:3002/interviewTable";
-  const showData = async() =>{
-    const response = await fetch(URL)
-    const data = await response.json()
-    console.log(data)
-    setUsers(data)
-
-  }*/
-
   useEffect(() => {
     showData();
   }, []);
@@ -84,11 +74,6 @@ const ModeratorInterviewerTable = () => {
       sortable: true,
     },
   ];
-
-  /*const tableData = {
-    columns,
-    data
-  };*/
 
   return (
     <div className="tableInterview">

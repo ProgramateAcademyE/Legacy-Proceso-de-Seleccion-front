@@ -89,6 +89,7 @@ function clear(){
       if (!values.link || values.link.length === 0) {
         errores.link = "El campo no puede estar vacio,";
       }
+      
 
       return errores;
     },
@@ -115,16 +116,18 @@ function clear(){
 
       axios.post("http://localhost:3001/api/admin/meet", { ...toSubmit });
       //resetForm();
-      //consle.log("Formulario Enviado");
       cambiarFormularioEnviado(true);
-      setTimeout(() => cambiarFormularioEnviado(false), 6000);
+      setTimeout(() => cambiarFormularioEnviado(false), 80000);
      
       /*formik.resetForm({
         values: { assesmentsRooms: '', interviewRooms: '' },
       });*/
       //resetForm({values:''});
-      resetForm();
-      window.location.replace('');
+      //resetForm();
+     //window.location.reload();
+      setTimeout(window.location.reload(), 90000);
+    
+   
       
     },
   });
@@ -144,9 +147,7 @@ function clear(){
   console.log("Entrevistadoresinput", interviewersInput);
   console.log("ObservadoresInput", viewersInput);
 
-  //const cancelCourse = () => { document.getElementById("create-course-form").reset(); }
-  //cancelCourse = () => { this.myFormRef.reset(); }
- 
+  
   return (
     <Formik>
       <Form id="formulario" className="ModeratorForm">
@@ -222,7 +223,7 @@ function clear(){
               <label htmlFor="link">Link Reunion</label>
               <Field
                 className="ModeratorFormLink"
-                type="URL"
+                type="url"
                 id="link"
                 name="link"
                 pattern="http://[A-Za-z]+[A-Za-z0-9\.-]*[^\.]\.com"
