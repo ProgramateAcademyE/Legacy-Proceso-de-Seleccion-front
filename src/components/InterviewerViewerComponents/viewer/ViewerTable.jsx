@@ -60,7 +60,7 @@ const ViewerTable = (props) => {
       jornada: meet?.shift,
       ubicacion: item.location,
       aspirante: item.names + " " + item.surname,
-      id_aspirante: item._id,
+      id_aspirante: item.documentNumber,
     };
   });
 

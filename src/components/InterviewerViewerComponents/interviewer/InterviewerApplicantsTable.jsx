@@ -80,7 +80,7 @@ const InterviewerApplicantsTable = (props) => {
       horario: meet?.shift,
       aspirante: item.names + " " + item.surname,
       id_aspirante: item.documentNumber,
-      location: item.location,
+      ubicacion: item.location,
     };
   });
   const columns = [
@@ -111,7 +111,7 @@ const InterviewerApplicantsTable = (props) => {
     },
     {
       name: "UBICACION",
-      selector: (row) => row["location"],
+      selector: (row) => row["ubicacion"],
       sortable: true,
     },
     {

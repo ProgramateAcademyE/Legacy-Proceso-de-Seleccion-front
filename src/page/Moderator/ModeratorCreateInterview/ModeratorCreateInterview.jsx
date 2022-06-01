@@ -6,7 +6,7 @@ import "../../../components/moderatorForm/ModeratorForm.css";
 import ModeratorForm from "../../../components/moderatorForm/ModeratorForm";
 
 const ModeratorCreateInterview = () => {
-  const [citations, setCitations] = useState([]);
+ /*const [citations, setCitations] = useState([]);
   const [citationSelected, setCitationSelected] = useState([]);
   const token = useSelector((state) => state.token);
 
@@ -76,7 +76,7 @@ const ModeratorCreateInterview = () => {
 
     console.log("New Meet: ", newMeet);
     axios.post("http://localhost:3001/api/admin/meet", { ...newMeet });
-  };
+  };*/
 
   return (
     <>
