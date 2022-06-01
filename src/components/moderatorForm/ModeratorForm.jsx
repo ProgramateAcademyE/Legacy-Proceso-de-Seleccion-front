@@ -3,6 +3,7 @@ import { Formik, Field, Form, ErrorMessage, useFormik } from "formik";
 import axios from "axios";
 import { useSelector } from "react-redux";
 
+
 const ModeratorForm = () => {
 
   const [citations, setCitations] = useState([]);
@@ -89,7 +90,6 @@ function clear(){
       if (!values.link || values.link.length === 0) {
         errores.link = "El campo no puede estar vacio,";
       }
-      
 
       return errores;
     },
@@ -150,7 +150,7 @@ function clear(){
   
   return (
     <Formik>
-      <Form id="formulario" className="ModeratorForm">
+        <Form id="formulario" className="ModeratorForm">
         <div className="ModeratorformContainer">
           <div className="ModeratorFormSection1">
             <div>
@@ -228,7 +228,7 @@ function clear(){
                 name="link"
                 pattern="http://[A-Za-z]+[A-Za-z0-9\.-]*[^\.]\.com"
                 placeholder="Ingresa una URL"
-
+                required
                 onChange={formik.handleChange}
               />
               {formik.errors.link ? (
@@ -342,6 +342,7 @@ function clear(){
       </Form>
   
     </Formik>
+       
   );
 };
 
