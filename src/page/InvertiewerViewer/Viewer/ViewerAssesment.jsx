@@ -1,6 +1,6 @@
 import React from "react";
-import ViewerCalificationBox from "../../components/viewer/ViewerCalificationBox";
-import ViewerTable from "../../components/viewer/ViewerTable";
+import ViewerCalificationBox from "../../../components/InterviewerViewerComponents/viewer/ViewerCalificationBox";
+import ViewerTable from "../../../components/InterviewerViewerComponents/viewer/ViewerTable";
 import "./ViewerAssesment.css";
 
 const ViewerAssesment = () => {

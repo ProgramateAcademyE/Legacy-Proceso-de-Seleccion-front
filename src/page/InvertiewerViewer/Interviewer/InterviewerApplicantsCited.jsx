@@ -1,6 +1,6 @@
 import React from "react";
-import InterviewerApplicantsCalificationBox from "../../components/interviewer/InterviewerApplicantsCalificationBox";
-import InterviewerApplicantsTable from "../../components/interviewer/InterviewerApplicantsTable";
+import InterviewerApplicantsCalificationBox from "../../../components/InterviewerViewerComponents/interviewer/InterviewerApplicantsCalificationBox";
+import InterviewerApplicantsTable from "../../../components/InterviewerViewerComponents/interviewer/InterviewerApplicantsTable";
 import "./InterviewerApplicant.css";
 
 const InterviewerApplicantsCited = () => {
