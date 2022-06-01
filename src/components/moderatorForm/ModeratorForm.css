@@ -7,17 +7,8 @@
 .ModeratorForm {
 	
 	width: 100%;
-	/*margin-top: 50px;
-
-	border-radius: 5px;
+    height: 100%;
 	
-	padding: 20px;
-	box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
-	display:flex;
-	******************
-	flex-direction: column;
-	justify-content:center;
-	align-content:center;*/
 }
 .ModeratorformContainer{
 	margin-top: 3rem; 
@@ -104,6 +95,7 @@ h5{
 	align-items:center;
 	padding:5px;
 	font-size:1rem;
+font-weight: bold;
 	color:green;
 }
 .select {
@@ -116,6 +108,7 @@ h5{
 	
 	
 }
+
 /*Media query Tablet 
 @media screen and (max-width: 700px)*/
 @media  (max-width:991px){
@@ -155,7 +148,6 @@ h5{
 		justify-content:center;
 		align-items:center;
 		
-
 	}
 
 	.ModeratorFormButton{
@@ -179,6 +171,7 @@ h5{
 @media (max-width: 530px) {
 	.ModeratorFormSection1{
 		width:90vw;
+	
 		display:flex;
 		flex-direction:column;
 		justify-content: space-evenly;
