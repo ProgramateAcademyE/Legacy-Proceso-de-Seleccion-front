@@ -4,6 +4,7 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 
 const ModeratorForm = () => {
+
   const [citations, setCitations] = useState([]);
   const [available, setAvailable] = useState(undefined);
   const [citationSelected, setCitacionSelected] = useState(undefined);
@@ -42,7 +43,13 @@ const ModeratorForm = () => {
     }
   }
   //console.log("citaciones: ", citations);
+function clear(){
 
+  assesmentsRooms= 0,
+  assesmentsRooms= 0,
+  link= ""
+
+}
   const formik = useFormik({
     initialValues: {
       citationID: "",
@@ -88,7 +95,8 @@ const ModeratorForm = () => {
 
     onSubmit: (values, { resetForm }) => {
       //resetForm();
-      console.log(values);
+      
+      console.log('valores',values);
       console.log("On submit", values);
       const toSubmit = {
         ...values,
@@ -99,16 +107,25 @@ const ModeratorForm = () => {
         users: citationSelected?.users?.map((u) => ({ ...u, _id: u.userID })),
         interviewers: available.selectors.filter((s) => s.meetRole === 3),
         observers: available.selectors.filter((s) => s.meetRole === 4),
+        
+      
       };
 
       console.log("To submit", toSubmit);
 
       axios.post("http://localhost:3001/api/admin/meet", { ...toSubmit });
       //resetForm();
-      //conle.log("Formulario Enviado");
+      //consle.log("Formulario Enviado");
       cambiarFormularioEnviado(true);
-      setTimeout(() => cambiarFormularioEnviado(false), 5000);
+      setTimeout(() => cambiarFormularioEnviado(false), 6000);
+     
+      /*formik.resetForm({
+        values: { assesmentsRooms: '', interviewRooms: '' },
+      });*/
+      //resetForm({values:''});
       resetForm();
+      window.location.replace('');
+      
     },
   });
 
@@ -127,9 +144,12 @@ const ModeratorForm = () => {
   console.log("Entrevistadoresinput", interviewersInput);
   console.log("ObservadoresInput", viewersInput);
 
+  //const cancelCourse = () => { document.getElementById("create-course-form").reset(); }
+  //cancelCourse = () => { this.myFormRef.reset(); }
+ 
   return (
     <Formik>
-      <Form className="ModeratorForm">
+      <Form id="formulario" className="ModeratorForm">
         <div className="ModeratorformContainer">
           <div className="ModeratorFormSection1">
             <div>
@@ -202,10 +222,12 @@ const ModeratorForm = () => {
               <label htmlFor="link">Link Reunion</label>
               <Field
                 className="ModeratorFormLink"
-                type="text"
+                type="URL"
                 id="link"
                 name="link"
+                pattern="http://[A-Za-z]+[A-Za-z0-9\.-]*[^\.]\.com"
                 placeholder="Ingresa una URL"
+
                 onChange={formik.handleChange}
               />
               {formik.errors.link ? (
@@ -299,8 +321,11 @@ const ModeratorForm = () => {
           <div className="ModeratorFormButton">
             <button
               type="submit"
-              onClick={formik.handleSubmit}
+              onClick={formik.handleSubmit }
+        
+     
               className="ModeratorFormSubmit"
+              //onClick={() => formik.resetForm()}
             >
               Publicar y enviar
             </button>
@@ -308,10 +333,13 @@ const ModeratorForm = () => {
           <div className="ModeratorFormExit">
             {formularioEnviado && (
               <span className="">Formulario Enviado con exito!</span>
+       
             )}
           </div>
         </div>
+     
       </Form>
+  
     </Formik>
   );
 };
