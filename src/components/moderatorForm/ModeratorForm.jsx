@@ -101,8 +101,8 @@ const ModeratorForm = () => {
         titleConvocatory: citationSelected?.titleConvocatory,
         shift: citationSelected?.shift[0],
         users: citationSelected?.users?.map((u) => ({ ...u, _id: u.userID })),
-        interviewers: available.selectors.filter((s) => s.meetRole === 3),
-        observers: available.selectors.filter((s) => s.meetRole === 4),
+        interviewers: available.selectors.filter((s) => s.meetRole === 4),
+        observers: available.selectors.filter((s) => s.meetRole === 3),
       };
 
       console.log("To submit", toSubmit);
