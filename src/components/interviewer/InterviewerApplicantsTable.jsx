@@ -21,7 +21,7 @@ const InterviewerApplicantsTable = (props) => {
     console.log("Selected Rows: ", selectedRows);
   };
 
-  const meetId = "628fe5ec9e7968bc7673fd0b";
+  const meetId = "6290dbfaffb2ee7777ba38ad";
   async function fetchCitation() {
     const { data } = await axios.get(
       `http://localhost:3001/api/admin/get-meet-by-meetId/${meetId}`,
@@ -78,8 +78,7 @@ const InterviewerApplicantsTable = (props) => {
       horario: meet?.shift,
       aspirante: item.names + " " + item.surname,
       id_aspirante: item._id,
-      entrevistador: "Tmp",
-      observador: "Tmp",
+      ubicacion: item.location,
     };
   });
   const columns = [
@@ -109,13 +108,8 @@ const InterviewerApplicantsTable = (props) => {
       sortable: true,
     },
     {
-      name: "ENTREVISTADOR",
-      selector: (row) => row["entrevistador"],
-      sortable: true,
-    },
-    {
-      name: "OBSERVADOR",
-      selector: (row) => row["viewer_name"],
+      name: "UBICACION",
+      selector: (row) => row["ubicacion"],
       sortable: true,
     },
     {

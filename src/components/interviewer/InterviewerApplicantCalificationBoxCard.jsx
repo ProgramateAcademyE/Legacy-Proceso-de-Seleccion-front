@@ -36,7 +36,7 @@ const InterviewerApplicantsCalificationBoxCard = (props) => {
       {props.calification
         .sort((a, b) => b.value - a.value)
         .map((c) => (
-          <p className="">
+          <p className="interviewerCardParagraph">
             <span
               className={`interviewerCardSpan ${
                 c.value === 5

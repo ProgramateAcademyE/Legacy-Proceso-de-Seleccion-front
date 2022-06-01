@@ -15,7 +15,7 @@ const InterviewerApplicantsCited = () => {
     <>
       <div className="interviewerApplicantContainer">
         <h1 className="interviewrApplicantTitle">
-          <span className="interviewerSpan">Aplicantes citados </span>
+          <span className="interviewerSpan">Aspirantes citados </span>
         </h1>
         <div className="">
           <h4 className="viewerAssesmentTitle2">

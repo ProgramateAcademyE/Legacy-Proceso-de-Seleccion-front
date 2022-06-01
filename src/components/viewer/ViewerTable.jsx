@@ -7,42 +7,70 @@ import "react-data-table-component-extensions/dist/index.css";
 import axios from "axios";
 import { useSelector } from "react-redux";
 
-const ViewerTable = () => {
-  const [citation, setCitation] = useState([]);
-  const [processedCitation, setProcessedCitation] = useState([]);
-
-  //2 - Función para mostrar los datos con fetch
+const ViewerTable = (props) => {
   const token = useSelector((state) => state.token);
+  const auth = useSelector((state) => state.auth);
+  const meId = auth.user._id;
+
+  const [currentUser, setCurrentUser] = useState("");
+
+  const [meet, setMeet] = useState([]);
+
+  const handleChange = ({ selectedRows }) => {
+    // You can set state or dispatch with something like Redux so we can use the retrieved data
+    console.log("Selected Rows: ", selectedRows);
+  };
+
+  const meetId = "6290dbfaffb2ee7777ba38ad";
   async function fetchCitation() {
     const { data } = await axios.get(
-      "http://localhost:3001/api/admin/citation-all",
+      `http://localhost:3001/api/admin/get-meet-by-meetId/${meetId}`,
       {
         headers: { Authorization: token },
       }
     );
 
-    setCitation(data.data);
-    setProcessedCitation(
-      data.data.map((item) => {
-        return item.users.map((subitem) => {
-          return {
-            fecha: item.appointmentDate.slice(0, 10),
-            jornada: item.shift,
-            convocatoria: item.titleConvocatory,
-            role_asignado: item.rol,
-            sala: item.room,
-            aspirantes: item.users,
-            aspirante: subitem.names + " " + subitem.surname,
-            id_aspirante: subitem.documentNumber,
-          };
-        });
-      })
-    );
+    setMeet(data.data[0]);
   }
+
+  const searchInterviewer = meet?.roomsInterviewers?.map((r) =>
+    r?.selectors?.findIndex((s) => s._id === meId)
+  );
+  const searchAsse = meet?.roomsAssesments?.map((r) =>
+    r?.selectors?.findIndex((s) => s._id === meId)
+  );
+
+  const role = searchInterviewer?.includes(1)
+    ? "interviewer"
+    : searchAsse?.includes(1)
+    ? "Observer"
+    : null;
+
+  const room =
+    role === "interviewer"
+      ? meet.roomsInterviewers[searchInterviewer.findIndex((p) => p === 1)]
+      : "";
+
+  console.log("Room: ", room);
+
+  const processedCitation = room?.users?.map((item) => {
+    return {
+      id: item._id,
+      fecha: meet?.date?.slice(0, 10),
+      jornada: meet?.shift,
+      ubicacion: item.location,
+      aspirante: item.names + " " + item.surname,
+      id_aspirante: item._id,
+    };
+  });
 
   useEffect(() => {
     fetchCitation();
   }, []);
+
+  useEffect(() => {
+    console.log("Aiuda!!!!");
+  }, [currentUser]);
 
   const columns = [
     {
@@ -56,28 +84,19 @@ const ViewerTable = () => {
       sortable: true,
     },
     {
-      name: "CONVOCATORIA",
-      selector: (row) => row["convocatoria"],
+      name: "ASPIRANTE",
+      selector: (row) => row["aspirante"],
       sortable: true,
     },
     {
-      name: "ROL ASIGNADO",
-      selector: (row) => row["role_asignado"],
+      name: "ID ASPIRANTE",
+      selector: (row) => row["id_aspirante"],
       sortable: true,
     },
     {
-      name: "SALA",
-      selector: (row) => row["sala"],
+      name: "Ubicacion",
+      selector: (row) => row["ubicacion"],
       sortable: true,
-    },
-    {
-      name: "ASPIRANTES",
-      selector: (row) => row["aspirantes"],
-      sortable: true,
-    },
-    {
-      name: "VER DETALLE",
-      selector: (row) => <a href="./observadorassesment">Ver Detalle</a>,
     },
   ];
 

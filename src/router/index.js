@@ -44,7 +44,6 @@ import InterviewerDashboard from "../page/Invertiewer/InterviewerDashboard";
 import InterviewerApplicantsCited from "../page/Invertiewer/InterviewerApplicantsCited";
 import InterviewerIndex from "../page/Invertiewer/InterviewerIndex";
 
-import ViewerDashboard from "../page/Viewer/ViewerDashboard";
 import ViewerAssesment from "../page/Viewer/ViewerAssesment";
 
 import ModeratorDashboard from "../page/Moderator/ModeratorDashboard_ApplicantsCited/ModeratorDashboard";
