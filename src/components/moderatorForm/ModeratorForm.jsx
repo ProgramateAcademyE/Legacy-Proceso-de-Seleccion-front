@@ -5,7 +5,6 @@ import { useSelector } from "react-redux";
 
 
 const ModeratorForm = () => {
-
   const [citations, setCitations] = useState([]);
   const [available, setAvailable] = useState(undefined);
   const [citationSelected, setCitacionSelected] = useState(undefined);
@@ -44,13 +43,9 @@ const ModeratorForm = () => {
     }
   }
   //console.log("citaciones: ", citations);
-function clear(){
-
-  assesmentsRooms= 0,
-  assesmentsRooms= 0,
-  link= ""
-
-}
+  function clear() {
+    (assesmentsRooms = 0), (assesmentsRooms = 0), (link = "");
+  }
   const formik = useFormik({
     initialValues: {
       citationID: "",
@@ -96,8 +91,8 @@ function clear(){
 
     onSubmit: (values, { resetForm }) => {
       //resetForm();
-      
-      console.log('valores',values);
+
+      console.log("valores", values);
       console.log("On submit", values);
       const toSubmit = {
         ...values,
@@ -108,8 +103,6 @@ function clear(){
         users: citationSelected?.users?.map((u) => ({ ...u, _id: u.userID })),
         interviewers: available.selectors.filter((s) => s.meetRole === 3),
         observers: available.selectors.filter((s) => s.meetRole === 4),
-        
-      
       };
 
       console.log("To submit", toSubmit);
@@ -118,17 +111,14 @@ function clear(){
       //resetForm();
       cambiarFormularioEnviado(true);
       setTimeout(() => cambiarFormularioEnviado(false), 80000);
-     
+
       /*formik.resetForm({
         values: { assesmentsRooms: '', interviewRooms: '' },
       });*/
       //resetForm({values:''});
       //resetForm();
-     //window.location.reload();
+      //window.location.reload();
       setTimeout(window.location.reload(), 90000);
-    
-   
-      
     },
   });
 
@@ -147,7 +137,6 @@ function clear(){
   console.log("Entrevistadoresinput", interviewersInput);
   console.log("ObservadoresInput", viewersInput);
 
-  
   return (
     <Formik>
         <Form id="formulario" className="ModeratorForm">
@@ -220,7 +209,7 @@ function clear(){
           </div>
           <div className="ModeratorFormSection2">
             <div>
-              <label htmlFor="link">Link Reunion</label>
+              <label htmlFor="link">Link Reunión</label>
               <Field
                 className="ModeratorFormLink"
                 type="url"
@@ -228,7 +217,6 @@ function clear(){
                 name="link"
                 pattern="http://[A-Za-z]+[A-Za-z0-9\.-]*[^\.]\.com"
                 placeholder="Ingresa una URL"
-                required
                 onChange={formik.handleChange}
               />
               {formik.errors.link ? (
@@ -275,7 +263,7 @@ function clear(){
                 >
                   <div ref={interviewersInput}>
                     {available?.selectors?.map((s) =>
-                      s.meetRole === 3 ? (
+                      s.meetRole === 4 ? (
                         <option value={s.names}>
                           {`${s.names} ${s.surname}`}{" "}
                         </option>
@@ -304,7 +292,7 @@ function clear(){
                 >
                   <div ref={viewersInput}>
                     {available?.selectors?.map((s) =>
-                      s.meetRole === 4 ? (
+                      s.meetRole === 3 ? (
                         <option
                           value={s.names}
                         >{`${s.names} ${s.surname}`}</option>
@@ -322,9 +310,7 @@ function clear(){
           <div className="ModeratorFormButton">
             <button
               type="submit"
-              onClick={formik.handleSubmit }
-        
-     
+              onClick={formik.handleSubmit}
               className="ModeratorFormSubmit"
               //onClick={() => formik.resetForm()}
             >
@@ -334,13 +320,10 @@ function clear(){
           <div className="ModeratorFormExit">
             {formularioEnviado && (
               <span className="">Formulario Enviado con exito!</span>
-       
             )}
           </div>
         </div>
-     
       </Form>
-  
     </Formik>
        
   );

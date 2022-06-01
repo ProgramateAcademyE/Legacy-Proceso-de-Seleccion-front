@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from "react";
-import InterviewerDashboardTable from "../../components/interviewer/InterviewerDashboardTable";
-import SelectButton from "../../components/selectButton/SelectButton";
+import InterviewerDashboardTable from "../../../components/InterviewerViewerComponents/interviewer/InterviewerDashboardTable";
 import "./InterviewerDashboard.css";
 
 const InterviewerDashboard = () => {
@@ -8,9 +7,8 @@ const InterviewerDashboard = () => {
     <>
       <div className="interviewerDashboardContainer">
         <h1 className="interviewerDashboardtTitle">
-          <span className="interviewerSpan"> DASHBOARD</span>
+          <span className="interviewerSpan">Citas programadas</span>
         </h1>
-        <SelectButton />
         <h1 className="interviewerDashboardTitle2">
           Tienes programadas las siguientes reuniones:
         </h1>

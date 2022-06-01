@@ -1,14 +1,13 @@
-import React from "react";
-import "./ModeratorDashboard_ApplicantsCited.css";
+import "./InterviewerApplicants.css";
 import DataTableExtensions from "react-data-table-component-extensions";
 import "react-data-table-component-extensions/dist/index.css";
-import { useState, useEffect } from "react";
-import DataTable from "react-data-table-component";
+import React, { useState, useEffect } from "react";
+import DataTable, { createTheme } from "react-data-table-component";
 import "styled-components";
 import axios from "axios";
 import { useSelector } from "react-redux";
 
-const ModeratorApplicantsCited = () => {
+const InterviewerDashboardTable = () => {
   const [citation, setCitation] = useState([]);
   const [IdCitation, setIdCitation] = useState([]);
   const [citationSelected, setCitationSelected] = useState([]);
@@ -29,9 +28,9 @@ const ModeratorApplicantsCited = () => {
           return {
             fecha: item.appointmentDate.slice(0, 10),
             jornada: item.shift,
-            aspirante: subitem.names + " " + subitem.surname,
-            id_aspirante: subitem.documentNumber,
-            ubicacion: subitem.location,
+            convocatoria: item.titleConvocatory,
+            rol_asignado: item.rol,
+            aspirantes: item.usersNumber,
           };
         });
       })
@@ -78,18 +77,27 @@ const ModeratorApplicantsCited = () => {
       selector: (row) => row["jornada"],
     },
     {
-      name: "ASPIRANTE",
-      selector: (row) => row["aspirante"],
+      name: "CONVOCATORIA",
+      selector: (row) => row["convocatoria"],
       sortable: true,
     },
     {
-      name: "ID ASPIRANTE",
-      selector: (row) => row["id_aspirante"],
+      name: "ROL ASIGNADO",
+      selector: (row) => row["rol_asignado"],
       sortable: true,
     },
     {
-      name: "UBICACION",
-      selector: (row) => row["ubicacion"],
+      name: "#ASPIRANTES",
+      selector: (row) => row["aspirantes"],
+      sortable: true,
+    },
+    {
+      name: "VER MAS",
+      selector: (row) => (
+        <a href="/entrevistadoraplicantescitados" target="_blank">
+          ver detalles
+        </a>
+      ),
       sortable: true,
     },
   ];
@@ -97,12 +105,8 @@ const ModeratorApplicantsCited = () => {
   return (
     //1 - Configurar los hooks
 
-    <div className="moderatorContainer43">
-      <h2>
-        <span className="moderatorSpan">Aspirantes Citados</span>{" "}
-      </h2>
+    <div className="interviewerDashboardTable">
       <div>
-        <h4 className="">Por favor seleccione fecha y hora</h4>
         <select className="selectButton" onChange={handleSelect}>
           <option value="">Seleccione una fecha</option>
           {citation.map((cita, index) => (
@@ -133,4 +137,4 @@ const ModeratorApplicantsCited = () => {
   );
 };
 
-export default ModeratorApplicantsCited;
+export default InterviewerDashboardTable;

@@ -1,3 +1,4 @@
+
 .rdt_TableCol{
     background-color: #c7c7c7;
     display: flex;
@@ -9,7 +10,7 @@
     border: 1px solid #c7c7c7;
 }
 
-.viewerApplicantTable{
+.interviewerApplicantTable{
     width: 75vw;
     text-align: center;
     overflow: scroll;
@@ -17,9 +18,20 @@
     background-color:#ffffff;
     box-shadow: 1px 10px 25px #c7c7c7;
     margin: auto;
+    
 }
 
-.viewerCalificationBoxContainer{
+.interviewerDashboardTable{
+    width: 85vw;
+    text-align: center;
+    overflow: scroll;
+    padding: 20px 30px;
+    background-color:#ffffff;
+    box-shadow: 1px 10px 25px #c7c7c7;
+    margin: auto;    
+}
+
+.InterviewerApplicantsCalificationBoxContainer{
     width: 75vw;
     height: 100%;
     display: flex;
@@ -29,13 +41,14 @@
     flex-wrap: wrap;
     padding: 20px;
     gap: 50px;
+    
 }
 
 .card{
     width: 460px;
     box-shadow: 1px 10px 25px #c7c7c7;
     text-align: center;
-    padding: 0;
+    padding: 0 20px;
     height: 600px;
     overflow-y: scroll;
 }
@@ -49,7 +62,12 @@
     justify-content: center;
     align-items: center;
 }
-
+.card-title{
+    margin-top: 20px;
+}
+.interviewerCardParagraph{
+    margin-top: 10px;
+}
 .interviewerCardSpan{
     font-weight: bolder;
 }
@@ -75,8 +93,6 @@
 .InterviewerApplicanTextarea{
     box-shadow: 1px 10px 25px #c7c7c7;
     width: 100%;
-    border-radius: 10px;
-    border: none;
   
 }
 
@@ -88,46 +104,47 @@
     box-shadow: 1px 10px 25px #c7c7c7;
     margin-top: 10%;
 }
-.card-footer-viewer{
+.card-footer{
     padding: 10px;
-    border: 1px solid #c7c7c7;
+    box-shadow: 1px 1px 10px #c7c7c7;
     display: flex;
     justify-content: space-evenly;
-    border-radius: 10px;
+    margin-bottom: 10px;
 }
 .interviewerSelect{
     width: 100px;
     border-radius: 5px;
     border: none;
     padding: 5px;
+
 }
 .interviewerSelectOption{
     width: 150px;   
 }
 @media (max-width: 768px) {
 
-    .viewerApplicantTable{
+    .interviewerApplicantTable{
         width: 90vw;
         margin: auto;
         padding: 10px;
-    
     }
-        .card-header{       
-            height: auto;     
+    .interviewerDashboardTable{
+        width: 90vw;
+    }
+        .card-header{
+            font-size: 1rem;
+            height: auto;
+            background-color: #FDC300;
         }
     }
 
 
 
 @media (max-width: 465px) {
-.viewerCalificationBoxContainer{
-    padding: 0;
-    width: 100%;
+    .InterviewerApplicantsCalificationBoxContainer{
+        padding: 0;
+        width: 100%;
     }
-
-.card{
-    width: 100%;
-}
 
 }
 
