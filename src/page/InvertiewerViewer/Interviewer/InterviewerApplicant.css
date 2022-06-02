@@ -23,19 +23,20 @@
 
 .buttonBackInterviewerViewer {
   border: none;
-  background-color: #fdc300;
+  background-color: #c7c7c7;
+  color: #000000;
   padding: 5px 10px;
   border-radius: 10px;
   cursor: pointer;
-  text-decoration: underline;
   box-shadow: 1px 10px 25px #c7c7c7;
   margin-top: 10%;
   font-size: 1rem;
   font-weight: bolder;
+  margin-left: 65%;
 }
 
 @media (max-width: 991px) {
-  .buttonBackInterviewer {
+  .buttonBackInterviewerViewer {
     margin-top: 15%;
   }
   .interviewrApplicantTitle {
@@ -44,8 +45,10 @@
 }
 
 @media (max-width: 530px) {
-  .buttonBackInterviewer {
+  .buttonBackInterviewerViewer {
+    width: 70%;
     margin-top: 30%;
+    margin-left: 35%;
   }
   .interviewrApplicantTitle {
     font-size: 1rem;
