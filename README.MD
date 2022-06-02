@@ -51,13 +51,14 @@ Se realiza el frontend con React, se utilizó webpack y las siguientes librería
 
 - Dasboard Moderador (Muestra las siguientes vistas: agenda programada, crear entrevistas y assesments, listado gral de entrevistas, entrevistadores, observadores, aspirantes citados)
 
-![1](https://user-images.githubusercontent.com/97619450/171721736-73b52a44-35af-4896-8fb3-cbad8afd839a.png)
+
+![1](https://user-images.githubusercontent.com/97619450/171725488-6a1e7ba5-3e51-4fde-afef-1039c96e8b9f.png)
 
 
-![2](https://user-images.githubusercontent.com/97619450/171723901-16f7748f-bd85-4530-8669-f12382edf6c2.png)
+![2](https://user-images.githubusercontent.com/97619450/171725503-1ba72334-17bc-454f-ba81-fdc4dcef9d73.png)
 
 
-![3](https://user-images.githubusercontent.com/97619450/171721778-86d95b1b-e16a-445a-b6dd-1b4e237e05ba.png)
+![3](https://user-images.githubusercontent.com/97619450/171725518-df170263-e0aa-4c1f-b3eb-44f8edb9ae8a.png)
 
 
 
