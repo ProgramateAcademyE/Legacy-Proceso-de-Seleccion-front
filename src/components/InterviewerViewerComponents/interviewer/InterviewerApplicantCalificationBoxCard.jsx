@@ -9,7 +9,6 @@ const InterviewerApplicantsCalificationBoxCard = (props) => {
       <br />
       <h4 className="card-title">Preguntas</h4>
       {props.questions.map((q, index) => {
-        //console.log(q.split("<br>"));
         return (
           <>
             <p className="">

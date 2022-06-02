@@ -36,7 +36,6 @@ const InterviewerDashboardTable = () => {
       })
     );
   }
-  console.log("citacion", citation);
 
   const token = useSelector((state) => state.token);
   async function fetchCitationSelected() {
@@ -49,13 +48,10 @@ const InterviewerDashboardTable = () => {
 
     setCitationSelected(data);
   }
-  console.log("citation selected", citationSelected);
 
   useEffect(() => {
     fetchCitation();
   }, []);
-
-  console.log("processed", processedCitation);
 
   const handleSelect = (e) => {
     let index = e.target.selectedIndex;
@@ -64,8 +60,6 @@ const InterviewerDashboardTable = () => {
     setIdCitation(e.target.value);
     fetchCitationSelected();
   };
-
-  console.log("citations", IdCitation);
 
   const columns = [
     {

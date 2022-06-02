@@ -18,7 +18,6 @@ const InterviewerApplicantsTable = (props) => {
 
   const handleChange = ({ selectedRows }) => {
     // You can set state or dispatch with something like Redux so we can use the retrieved data
-    console.log("Selected Rows: ", selectedRows);
   };
 
   const meetId = "6290dbfaffb2ee7777ba38ad";
@@ -47,9 +46,7 @@ const InterviewerApplicantsTable = (props) => {
     fetchCitation();
   }, []);
 
-  useEffect(() => {
-    console.log("Aiuda!!!!");
-  }, [currentUser]);
+  useEffect(() => {}, [currentUser]);
 
   const searchInterviewer = meet?.roomsInterviewers?.map((r) =>
     r?.selectors?.findIndex((s) => s._id === meId)
@@ -69,7 +66,6 @@ const InterviewerApplicantsTable = (props) => {
       ? meet.roomsInterviewers[searchInterviewer.findIndex((p) => p === 1)]
       : "";
 
-  console.log("Room: ", room);
   const processedCitation = room?.users?.map((item) => {
     return {
       id: item._id,
@@ -115,7 +111,6 @@ const InterviewerApplicantsTable = (props) => {
     {
       name: "SELECCIONAR",
       selector: (row) => {
-        console.log("Row", row.aspirante, row.id === currentUser);
         return (
           <input
             type="checkbox"
@@ -129,7 +124,6 @@ const InterviewerApplicantsTable = (props) => {
     },
   ];
 
-  console.log("current ", currentUser);
   return (
     <>
       <div className="interviewerApplicantTable">

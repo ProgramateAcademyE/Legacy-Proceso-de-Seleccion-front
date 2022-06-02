@@ -23,8 +23,6 @@ const InterviewerApplicantsCalificationBox = (props) => {
     setQuestionary(data.data[0]);
   }
 
-  console.log("Questio..: ", questionary);
-
   useEffect(() => {
     fetchQuestionary();
   }, []);

@@ -2,8 +2,6 @@ import React from "react";
 import "./ViewerCalification.css";
 
 const ViewerCalificationBoxCard = (props) => {
-  console.log("aspirantse: ", props.currentAspirant);
-
   return (
     <div className="card">
       <h4 className="card-header">{props.title}</h4>
