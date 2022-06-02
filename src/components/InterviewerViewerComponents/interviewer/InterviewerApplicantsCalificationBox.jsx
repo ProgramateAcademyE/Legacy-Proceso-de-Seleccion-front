@@ -3,13 +3,16 @@ import "./InterviewerApplicants.css";
 import InterviewerApplicantsCalificationBoxCard from "./InterviewerApplicantCalificationBoxCard";
 import axios from "axios";
 import { useSelector } from "react-redux";
-import { PowerInputSharp } from "@material-ui/icons";
+import { Formik, Field, Form, useFormik } from "formik";
 
 const InterviewerApplicantsCalificationBox = (props) => {
-  const [users, setUsers] = useState([]);
+  const { currentAspirant, meet, room } = props;
+  const auth = useSelector((state) => state.auth);
+  const meId = auth.user;
   const [questionary, setQuestionary] = useState();
 
   const questionaryId = "62855ad10a60a551a4aa7431";
+  const meetRole = 4;
 
   const token = useSelector((state) => state.token);
 
@@ -23,46 +26,123 @@ const InterviewerApplicantsCalificationBox = (props) => {
     setQuestionary(data.data[0]);
   }
 
-  console.log("Questio..: ", questionary);
+  const formik = useFormik({
+    initialValues: {
+      qualifications: [],
+      comment: "",
+    },
+    validate: (values) => {
+      const errors = {};
+      if (!values.comment || values.comment.length === 0)
+        errors["comment"] = "Debes ingresar un comentario";
+
+      return errors;
+    },
+    onSubmit: (values) => {
+      const currentAspirantInfo = room?.users?.find(
+        (u) => u._id === currentAspirant.id
+      );
+      const score =
+        values.qualifications
+          .map((q) => parseInt(q.score))
+          .reduce((a, b) => a + b, 0) / values.qualifications.length;
+      console.log("Score: ", score);
+      const toSubmit = {
+        meetID: meet._id,
+        userID: currentAspirantInfo._id,
+        names: currentAspirantInfo.names,
+        surname: currentAspirantInfo.surname,
+        questionaryAssesmentId: "temporales",
+        questionaryInterviewersId: "Temporales",
+      };
+      if (meetRole === 4)
+        toSubmit["interviewers"] = [
+          {
+            selectorId: meId._id, // Interviewr _id
+            names: meId.names,
+            surname: meId.surname,
+            comment: values.comment,
+            score: score,
+            qualifications: values.qualifications,
+          },
+        ];
+
+      if (meetRole === 3)
+        toSubmit["observers"] = [
+          {
+            selectorId: String, // Interviewr _id
+            names: String,
+            surname: String,
+            comment: values.comment,
+            score: Number,
+            qualifications: values.qualifications,
+          },
+        ];
+      console.log(toSubmit);
+    },
+  });
+
+  const handleQA = (newQualification) => {
+    console.log(newQualification);
+    formik.setFieldValue("qualifications", [
+      ...formik.values.qualifications,
+      newQualification,
+    ]);
+  };
 
   useEffect(() => {
     fetchQuestionary();
   }, []);
 
   return (
-    <div className="InterviewerApplicantsCalificationBoxContainer">
-      {questionary?.groups?.map((item, index) => {
-        return (
-          <InterviewerApplicantsCalificationBoxCard
-            title={item.name}
-            questions={item.questions}
-            calification={item.qualificationOptions}
-            key={index}
-            currentAspirant={props.currentAspirant}
-          />
-        );
-      })}
+    <Formik>
+      <Form>
+        <div className="InterviewerApplicantsCalificationBoxContainer">
+          {questionary?.groups?.map((item, index) => {
+            return (
+              <InterviewerApplicantsCalificationBoxCard
+                item={item}
+                key={index}
+                currentAspirant={currentAspirant}
+                handleQA={handleQA}
+              />
+            );
+          })}
 
-      <div className="card text-start|center|end">
-        <div className="card-body">
-          <h4 className="card-header">OBSERVACIONES GENERALES</h4>
-          <form action="">
-            <textarea
-              className="InterviewerApplicanTextarea"
-              id="w3review"
-              name="w3review"
-              rows="10"
-            />
-          </form>
+          <div className="card text-start|center|end">
+            <div className="card-body">
+              <h4 className="card-header">OBSERVACIONES GENERALES</h4>
+              <div>
+                <Field
+                  name="comment"
+                  id="comment"
+                  className="InterviewerApplicanTextarea"
+                  rows="10"
+                  as="textarea"
+                  placeholder="Deja un comentario..."
+                  onChange={formik.handleChange}
+                />
+                {formik.errors.comment ? (
+                  <div style={{ color: "red" }}>{formik.errors.comment}</div>
+                ) : (
+                  <></>
+                )}
+              </div>
 
-          <p className="">
-            <button className="InteviewerApplicantSubmit">
-              Enviar Evaluación
-            </button>
-          </p>
+              <p className="">
+                <button
+                  type="submit"
+                  className="InteviewerApplicantSubmit"
+                  onClick={formik.handleSubmit}
+                >
+                  Enviar Evaluación
+                </button>
+              </p>
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
+      </Form>
+    </Formik>
   );
 };
 

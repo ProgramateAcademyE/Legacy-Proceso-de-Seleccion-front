@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import ViewerCalificationBoxCard from "./ViewerCalificationBoxCard";
 
 const ViewerCalificationBox = (props) => {
-  const [users, setUsers] = useState([]);
+  const { room } = props;
 
   const [questionary, setQuestionary] = useState();
 
@@ -23,8 +23,6 @@ const ViewerCalificationBox = (props) => {
     setQuestionary(data.data[0]);
   }
 
-  console.log("Questio..: ", questionary);
-
   useEffect(() => {
     fetchQuestionary();
   }, []);
@@ -38,7 +36,7 @@ const ViewerCalificationBox = (props) => {
             questions={item.questions}
             calification={item.qualificationOptions}
             key={index}
-            currentAspirant={props.currentAspirant}
+            aspirants={room.users}
           />
         );
       })}

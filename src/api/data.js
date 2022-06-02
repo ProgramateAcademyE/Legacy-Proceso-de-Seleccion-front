@@ -247,18 +247,18 @@ export const ITEMS_INTERVIEWER = [
     pathname: "/entrevistadordashboard",
     id: 13,
   },
-  {
-    name: "Aspirante citados",
-    icon: "fa fa-bullhorn",
-    items: [],
-    pathname: "/entrevistadoraplicantescitados",
-    id: 14,
-  },
-  {
-    name: "Observador assesment",
-    icon: "fa fa-smile",
-    items: [],
-    pathname: "/observadorassesment",
-    id: 14,
-  },
+  //{
+  //  name: "Aspirante citados",
+  //  icon: "fa fa-bullhorn",
+  //  items: [],
+  //  pathname: "/entrevistadoraplicantescitados",
+  //  id: 14,
+  //},
+  //{
+  //  name: "Observador assesment",
+  //  icon: "fa fa-smile",
+  //  items: [],
+  //  pathname: "/observadorassesment",
+  //  id: 14,
+  //},
 ];

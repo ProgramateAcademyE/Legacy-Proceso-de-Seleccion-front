@@ -1,8 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React from "react";
 import InterviewerDashboardTable from "../../../components/InterviewerViewerComponents/interviewer/InterviewerDashboardTable";
 import "./InterviewerDashboard.css";
 
-const InterviewerDashboard = () => {
+const InterviewerDashboard = (props) => {
+  const { handleCurrentMeet } = props;
   return (
     <>
       <div className="interviewerDashboardContainer">
@@ -12,7 +13,7 @@ const InterviewerDashboard = () => {
         <h1 className="interviewerDashboardTitle2">
           Tienes programadas las siguientes reuniones:
         </h1>
-        <InterviewerDashboardTable />
+        <InterviewerDashboardTable handleCurrentMeet={handleCurrentMeet} />
       </div>
     </>
   );
