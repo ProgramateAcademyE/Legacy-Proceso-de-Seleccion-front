@@ -47,3 +47,21 @@ Se realiza el frontend con React, se utilizó webpack y las siguientes librería
 
 ![](https://i.ibb.co/7QgNHL3/calendario.png)
 
+
+
+- Dasboard Moderador (Muestra las siguientes vistas: agenda programada, crear entrevistas y assesments, listado gral de entrevistas, entrevistadores, observadores, aspirantes citados)
+
+![1](https://user-images.githubusercontent.com/97619450/171721736-73b52a44-35af-4896-8fb3-cbad8afd839a.png)
+
+
+![2](https://user-images.githubusercontent.com/97619450/171723901-16f7748f-bd85-4530-8669-f12382edf6c2.png)
+
+
+![3](https://user-images.githubusercontent.com/97619450/171721778-86d95b1b-e16a-445a-b6dd-1b4e237e05ba.png)
+
+
+
+-
+
+
+
