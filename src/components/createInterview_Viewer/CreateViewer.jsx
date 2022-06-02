@@ -12,10 +12,11 @@ const CreateViewer = () => {
   const [IdCitation, setIdCitation] = useState([]);
   const [date, setDate] = useState([]);
   const [UsersSelected, setUsersSelected] = useState([]);
+  const [UsersSelectedOne, setUsersSelectedOne] = useState([]);
   const [currentSelectors, setCurrentSelectors] = useState([]);
   const [currentAvailableId, setCurrentAvailableId] = useState("");
-  const [checked, setCheked] = useState(true);
-  
+  const [finalSelectors, setFinalSelectors] = useState([]);
+
 
   const token = useSelector((state) => state.token);
 
@@ -82,33 +83,26 @@ const CreateViewer = () => {
 
    
   const toggleChecked = e => {
-
-   if(UsersSelected.findIndex((user)=>(user._id == e.target.value)) !== -1){
+  
+   if(currentSelectors.findIndex((user)=>(user._id == e.target.value)) !== -1){
     
-    const selector = UsersSelected.findIndex((user)=>(user._id == e.target.value))
-    console.log("seconSelector:", UsersSelected)
-    UsersSelected.splice(selector, 1) 
-    setCheked(selector)
-    
-    
-    
-    setUsersSelected([...UsersSelected])
+    const selector = currentSelectors.findIndex((user)=>(user._id == e.target.value))
+    currentSelectors.splice(selector, 1)
+    setCurrentSelectors([...currentSelectors])
    }
-   else{
+   else {
     const selector = users.find((user)=>(user._id == e.target.value))
-      setUsersSelected([...UsersSelected, selector])
+    setUsersSelectedOne([...UsersSelectedOne, selector])
    }
-  console.log("selctor:", UsersSelected)
+  
   }
-
-
-   
+  
   
   // Post availability staff
   const postAvailability = () => {
     fetchCitationSelected();
 
-    const selectors = UsersSelected.map((dat) => {
+    const selectors = UsersSelectedOne.map((dat) => {
           
           return( 
                   {
@@ -116,17 +110,36 @@ const CreateViewer = () => {
                     names:(dat.names),
                     surname:(dat.surname),
                     role:(dat.role),
-                    meetRole:4
+                    meetRole:3
                   
                   }
                 
                   )
          }) 
-        console.log("newselector", selectors)
-        
 
-        if(currentAvailableId.length !== 0){
-          axios.put(`http://localhost:3001/api/admin/update_availables/${currentAvailableId}`, { ...selectors});
+         const selectores = currentSelectors.map((dat) => {
+          
+          return( 
+                  {
+                    _id:(dat._id),
+                    names:(dat.names),
+                    surname:(dat.surname),
+                    role:(dat.role),
+                    meetRole:(dat.meetRole)
+                                  
+                  }
+                
+                  )
+         }) 
+        console.log("newselector", selectors)
+        console.log("oldselectors", selectores)
+        
+        const finalStaff = selectors.concat(selectores)
+        setFinalSelectors(finalStaff)
+        
+         if(currentAvailableId.length !== 0){
+          axios.put(`http://localhost:3001/api/admin//update_availables_viewer/${currentAvailableId}`,
+           { ...finalStaff})
           window.alert("Registro enviado con exito")
           document.location.reload();
         }
@@ -138,7 +151,7 @@ const CreateViewer = () => {
                date: (date),
                shift: "mañana", 
                selectors
-                   
+                    
              };
          
             console.log("newAvailability: ", newAvailability);
@@ -147,7 +160,7 @@ const CreateViewer = () => {
             document.location.reload();
         }
    
- // const citationAvailability = axios.get(`http://localhost:3001/api/admin/findCitationid/${citation.ID}`);
+ 
   }
 
   //const deleteAvailability = () => {
@@ -162,14 +175,16 @@ const CreateViewer = () => {
     setIdCitation(e.target.value);
   };
 
-  console.log("users:", users);
+ // console.log("users:", users);
   console.log("usersSelected:", UsersSelected);
-  console.log("citation:", citation);
-  console.log("IdCitation:", IdCitation);
-  console.log("date:", date);
-  console.log("citationSelected:", citationSelected);
+ // console.log("citation:", citation);
+ // console.log("IdCitation:", IdCitation);
+ // console.log("date:", date);
+ // console.log("citationSelected:", citationSelected);
   console.log("available:", currentSelectors);
-  console.log("availableId:", currentAvailableId);
+ // console.log("availableId:", currentAvailableId);
+  console.log("usersSelectedOne:", UsersSelectedOne);
+  console.log("FinalSElector", finalSelectors)
 
   return (
     <>
@@ -211,8 +226,8 @@ const CreateViewer = () => {
                       value={staff._id}
                       type="checkbox"
                       name="id"
-                      checked={checked}
-                      onChange={toggleChecked}/>
+                      checked={true}
+                      onChange={ toggleChecked }/>
                     </td>
                   </tr>
                 ))

@@ -126,7 +126,7 @@ const CreateInterViewer = () => {
         
 
         if(currentAvailableId.length !== 0){
-          axios.put(`http://localhost:3001/api/admin/update_availables/${currentAvailableId}`, { ...selectors});
+          axios.put(`http://localhost:3001/api/admin/update_availables_interviewer/${currentAvailableId}`, { ...selectors});
           window.alert("Registro enviado con exito")
           document.location.reload();
         }
