@@ -61,7 +61,7 @@ Se realiza el frontend con React, se utilizó webpack y las siguientes librería
 
 
 
--
+
 
 
 
