@@ -62,10 +62,21 @@
     margin-left: 7%;
     
 }
+.moderatorApplicantsCitedtable{
+    background-color: #ffffff;
+    width: 85vw;
+    height: auto;
+    padding: 10px;
+    margin: auto;
+    box-shadow: 1px 10px 25px #c7c7c7;
+}
 .tablemoderatorApplicantsCited{
     width: 75vw;
     margin: auto;
+}
 
+.moderatorApplicantCitedTitle{
+    margin-top: 2%;
 }
 .moderatorSpan{
     background-color:  #FDC300;
@@ -73,6 +84,17 @@
     border-radius: 10px;
     box-shadow: 1px 10px 25px #c7c7c7;
 }
+
+@media (max-width: 1260px) {
+
+.moderatorContainer43{
+    margin-bottom: 180px;
+
+   
+}
+}
+
+
 @media (max-width: 600px) {
     .moderatorContainer43 {
         height: auto;
@@ -84,6 +106,7 @@
         margin: auto;
         text-align: center;
         padding-top: 100px;
+        margin-bottom: 130px;
         
     }
     .moderatorApplicantsCitedContainer{
@@ -95,7 +118,7 @@
         padding: 20px 10px;
     }
     .tablemoderatorApplicantsCited{
-        width: 90vw;
+        width: 90%;
     }
 
   }

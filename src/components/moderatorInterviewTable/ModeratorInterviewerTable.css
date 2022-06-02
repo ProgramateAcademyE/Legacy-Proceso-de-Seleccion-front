@@ -16,7 +16,7 @@
 
   .tableInterview{
     width: 90vw;
-    height: 100vh;
+    height: auto;
     text-align: center;
     overflow: scroll;
     padding: 20px;

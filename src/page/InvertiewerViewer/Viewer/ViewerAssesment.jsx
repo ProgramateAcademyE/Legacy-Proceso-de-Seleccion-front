@@ -8,7 +8,6 @@ const ViewerAssesment = () => {
   const [currentAspirant, setCurrentAspirant] = React.useState();
 
   const handleCurrentAspirant = (newAspirant) => {
-    console.log("function", newAspirant);
     setCurrentAspirant(newAspirant);
   };
 
