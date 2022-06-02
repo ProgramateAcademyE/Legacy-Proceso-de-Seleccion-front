@@ -198,7 +198,7 @@ const ModeratorForm = () => {
                 type="url"
                 id="link"
                 name="link"
-                placeholder="Ingresa una URL"
+                placeholder="Ingresa una Link"
                 onChange={formik.handleChange}
               />
               {formik.errors.link ? (
@@ -208,6 +208,7 @@ const ModeratorForm = () => {
               )}
             </div>
           </div>
+          <div className="section3">
           <div className="ModeratorFormTitle">
             <h5 className="ModeratorFormApplicants">Aspirantes</h5>
           </div>
@@ -304,6 +305,7 @@ const ModeratorForm = () => {
               <span className="">Formulario Enviado con exito!</span>
             )}
           </div>
+        </div>
         </div>
       </Form>
     </Formik>
