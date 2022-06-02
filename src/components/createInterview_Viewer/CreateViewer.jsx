@@ -126,18 +126,19 @@ const CreateViewer = () => {
          }) 
         console.log("newselector", selectors)
         
-
+        
         if(currentAvailableId.length !== 0){
           axios.put(`http://localhost:3001/api/admin/update_availables/${currentAvailableId}`, { ...selectors});
-                 
-          Swal.fire({
-            icon: "success",
-            title: "Observador habilitado",
-            timer:2000
-            });
+          
             
+              Swal.fire({
+                title: "Observador Habilitado",
+              icon: "info",
+              timer:2000
+               });
+             
                     
-          //  document.location.reload();
+            (document.location.reload(),6000);
         }
         else {
           
@@ -152,14 +153,14 @@ const CreateViewer = () => {
          
             console.log("newAvailability: ", newAvailability);
             axios.post("http://localhost:3001/api/admin/availability", { ...newAvailability });
+           
+            
               Swal.fire({
-              icon: "success",
-              title: "Observador habilitado",
-              timer:2000
+                title: "Observador Habilitado",
+                icon: "info",
+                 timer:2000
                });
-              
-             
-            document.location.reload();
+             (document.location.reload(),6000);
         }
    
  // const citationAvailability = axios.get(`http://localhost:3001/api/admin/findCitationid/${citation.ID}`);

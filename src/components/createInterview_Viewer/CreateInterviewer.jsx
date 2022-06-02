@@ -116,14 +116,15 @@ const CreateInterViewer = () => {
         `http://localhost:3001/api/admin/update_availables/${currentAvailableId}`,
         { ...selectors }
       );
+      
       Swal.fire({
-        icon: "success",
-        title: "Entrevistador habilitado",
-        timer:2000
-         });
-        
-      //  document.location.reload();
-    } else {
+        title: "Observador Habilitado",
+        icon: "info",
+         timer:2000
+       });
+     (document.location.reload(),6000);
+     } 
+      else {
       const newAvailability = {
         citationID: IdCitation,
         date: date,
@@ -136,13 +137,12 @@ const CreateInterViewer = () => {
         ...newAvailability,
       });
       Swal.fire({
-        icon: "success",
-        title: "Entrevistador habilitado",
-        timer:2000
-         });
-        
-        document.location.reload();
-    }
+        title: "Observador Habilitado",
+        icon: "info",
+         timer:2000
+       });
+     (document.location.reload(),6000);
+}
 
     // const citationAvailability = axios.get(`http://localhost:3001/api/admin/findCitationid/${citation.ID}`);
   };
