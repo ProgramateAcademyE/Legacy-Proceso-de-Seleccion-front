@@ -41,7 +41,6 @@ const ModeratorForm = () => {
       setAvailable([]);
     }
   }
-  //console.log("citaciones: ", citations);
   function clear() {
     (assesmentsRooms = 0), (assesmentsRooms = 0), (link = "");
   }
@@ -55,7 +54,6 @@ const ModeratorForm = () => {
     },
 
     validate: (values) => {
-      console.log("VaLues en Validate");
       let errores = {};
       //validacion fecha
       if (!values.citationID || values.citationID.length === 0) {
@@ -89,10 +87,8 @@ const ModeratorForm = () => {
     },
 
     onSubmit: (values, { resetForm }) => {
-      //resetForm();
 
-      console.log("valores", values);
-      console.log("On submit", values);
+     // console.log("On submit", values);
       const toSubmit = {
         ...values,
         link: values.link.trim(),
@@ -104,24 +100,17 @@ const ModeratorForm = () => {
         observers: available.selectors.filter((s) => s.meetRole === 3),
       };
 
-      console.log("To submit", toSubmit);
+      //console.log("To submit", toSubmit);
 
       axios.post("http://localhost:3001/api/admin/meet", { ...toSubmit });
-      //resetForm();
       cambiarFormularioEnviado(true);
       setTimeout(() => cambiarFormularioEnviado(false), 80000);
 
-      /*formik.resetForm({
-        values: { assesmentsRooms: '', interviewRooms: '' },
-      });*/
-      //resetForm({values:''});
       //resetForm();
       //window.location.reload();
       setTimeout(window.location.reload(), 90000);
     },
   });
-
-  console.log("errores", formik.errors);
 
   useEffect(() => {
     setCitacionSelected(
@@ -133,8 +122,8 @@ const ModeratorForm = () => {
   }, [formik.values.citationID]);
 
   //mirar que tiene interviewersInput
-  console.log("Entrevistadoresinput", interviewersInput);
-  console.log("ObservadoresInput", viewersInput);
+  //console.log("Entrevistadoresinput", interviewersInput);
+  //console.log("ObservadoresInput", viewersInput);
 
   return (
     <Formik>
@@ -284,7 +273,7 @@ const ModeratorForm = () => {
             {available !== undefined ? (
               <>
                 <Field
-                  name="interviewers"
+                  name="observers"
                   as="text"
                   multiple
                   className="form-control select "
