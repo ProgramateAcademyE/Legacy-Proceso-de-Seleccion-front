@@ -90,6 +90,7 @@ const InterviewerApplicantsTable = (props) => {
       <DataTableExtensions columns={columns} data={processedCitation}>
         <DataTable
           title="Aspirantes Citados"
+          noDataComponent="No hay reuniones programadas"
           columns={columns}
           data={processedCitation}
           defaultSortField="id"

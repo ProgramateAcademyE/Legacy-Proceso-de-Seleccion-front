@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 import axios from "axios";
 import { useLocation, useHistory } from "react-router-dom";
 
-
 const InterviewerApplicantsCited = () => {
   const history = useHistory();
   const { pathname } = useLocation();
@@ -71,6 +70,9 @@ const InterviewerApplicantsCited = () => {
 
   return meet ? (
     <div className="interviewerApplicantContainer">
+      <button className="buttonBackInterviewerViewer" onClick={handleGoBack}>
+        Ver citas programadas
+      </button>
       <h1 className="interviewrApplicantTitle">
         <span className="interviewerSpan">Aspirantes citados </span>
       </h1>
@@ -78,8 +80,6 @@ const InterviewerApplicantsCited = () => {
         <h4 className="viewerAssesmentTitle2">
           Lista de estudiantes agendados para hoy...
         </h4>
-        <button onClick={handleGoBack}>Volver</button>
-
         <InterviewerApplicantsTable
           handleCurrentAspirant={handleCurrentAspirant}
           meet={meet}

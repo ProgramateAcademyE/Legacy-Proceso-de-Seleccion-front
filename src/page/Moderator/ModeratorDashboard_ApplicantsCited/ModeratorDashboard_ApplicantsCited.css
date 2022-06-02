@@ -1,4 +1,95 @@
-.moderatorContainer43{
+.moderatorContainer43 {
+  height: auto;
+  width: 99%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: auto;
+  text-align: center;
+  padding-top: 100px;
+}
+
+.moderatorIndex {
+  height: 80vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-content: center;
+  text-align: center;
+}
+
+.moderatorIndexTitle {
+  margin-top: 10%;
+}
+
+.moderatorApplicantsCitedTitle,
+.moderatorDashboardTitle {
+  font-size: 3rem;
+  padding: 20px 30px;
+  background-color: #ffffff;
+  box-shadow: 1px 10px 25px #c7c7c7;
+  margin: auto;
+}
+
+.moderatorContainer44 {
+  padding-top: 100px;
+  padding-bottom: 50px;
+  overflow-y: scroll;
+  border-radius: 7px;
+}
+
+.secondu {
+  width: 90%;
+  height: auto;
+  background-color: #ecfdcf;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.moderatorDashboard {
+  height: 20%;
+}
+
+.table77 {
+  margin-top: 100px;
+  margin-left: 7%;
+}
+.moderatorApplicantsCitedtable {
+  background-color: #ffffff;
+  width: 85vw;
+  height: auto;
+  padding: 10px;
+  margin: auto;
+  box-shadow: 1px 10px 25px #c7c7c7;
+}
+.tablemoderatorApplicantsCited {
+  width: 75vw;
+  margin: auto;
+}
+
+.moderatorApplicantCitedTitle {
+  margin-top: 2%;
+}
+.moderatorSpan {
+  background-color: rgba(253, 195, 0, 0.9);
+  padding: 5px 10px;
+  border-radius: 10px;
+  box-shadow: 1px 10px 25px #c7c7c7;
+}
+
+@media (max-width: 1260px) {
+  .moderatorContainer43 {
+    margin-bottom: 180px;
+  }
+}
+
+@media (max-width: 600px) {
+  .moderatorContainer43 {
     height: auto;
     width: 99%;
     display: flex;
@@ -8,126 +99,23 @@
     margin: auto;
     text-align: center;
     padding-top: 100px;
-}
-
-
-.moderatorIndex{
-    height: 80vh;
-    width: 100vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-    text-align: center;
-}
-
-.moderatorIndexTitle{
-    margin-top: 10%;
-}
-
-.moderatorApplicantsCitedTitle, .moderatorDashboardTitle{
-    font-size: 3rem;
-    padding: 20px 30px;
-    background-color:#ffffff;
-    box-shadow: 1px 10px 25px #c7c7c7;
-    margin: auto;
-}
-
-.moderatorContainer44{
-    padding-top: 100px;
-    padding-bottom: 50px;
-    overflow-y: scroll;
-    border-radius: 7px;
-}
-
-
-.secondu{
-    width: 90%;
-    height: auto;
-    background-color:#ecfdcf;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    border-radius: 10px;
-}
-
-
-.moderatorDashboard{
-    height: 20%;
-}
-
-.table77{
-    margin-top: 100px;
-    margin-left: 7%;
-    
-}
-.moderatorApplicantsCitedtable{
-    background-color: #ffffff;
-    width: 85vw;
-    height: auto;
-    padding: 10px;
-    margin: auto;
-    box-shadow: 1px 10px 25px #c7c7c7;
-}
-.tablemoderatorApplicantsCited{
-    width: 75vw;
-    margin: auto;
-}
-
-.moderatorApplicantCitedTitle{
-    margin-top: 2%;
-}
-.moderatorSpan{
-    background-color:  #FDC300;
-    padding: 5px 10px;
-    border-radius: 10px;
-    box-shadow: 1px 10px 25px #c7c7c7;
-}
-
-@media (max-width: 1260px) {
-
-.moderatorContainer43{
-    margin-bottom: 180px;
-
-   
-}
-}
-
-
-@media (max-width: 600px) {
-    .moderatorContainer43 {
-        height: auto;
-        width: 99%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        margin: auto;
-        text-align: center;
-        padding-top: 100px;
-        margin-bottom: 130px;
-        
-    }
-    .moderatorApplicantsCitedContainer{
-        
-        width: 99%;
-    }
-    .table{
-        width: 98%;
-        padding: 20px 10px;
-    }
-    .tablemoderatorApplicantsCited{
-        width: 90%;
-    }
-
+    margin-bottom: 130px;
   }
+  .moderatorApplicantsCitedContainer {
+    width: 99%;
+  }
+  .table {
+    width: 98%;
+    padding: 20px 10px;
+  }
+  .tablemoderatorApplicantsCited {
+    width: 90%;
+  }
+}
 
 @media (max-width: 530px) {
-
-    .moderatorIndexTitle{
-       font-size: 2rem;
-       padding: 20px;
-    }
-
+  .moderatorIndexTitle {
+    font-size: 2rem;
+    padding: 20px;
+  }
 }

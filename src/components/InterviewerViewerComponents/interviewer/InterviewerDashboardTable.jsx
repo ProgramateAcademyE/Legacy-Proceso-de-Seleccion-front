@@ -86,7 +86,10 @@ const InterviewerDashboardTable = () => {
     {
       name: "VER MAS",
       selector: (row) => (
-        <button onClick={() => handleCurrentMeet(row.meetId)}>
+        <button
+          className="buttonViewMoreInterviewerDashboard"
+          onClick={() => handleCurrentMeet(row.meetId)}
+        >
           Ver Detalles
         </button>
       ),
@@ -101,6 +104,7 @@ const InterviewerDashboardTable = () => {
           <DataTableExtensions columns={columns} data={processedMeets}>
             <DataTable
               title="Aspirantes Citados"
+              noDataComponent="No hay reuniones programadas"
               columns={columns}
               data={processedMeets}
               defaultSortField="id"

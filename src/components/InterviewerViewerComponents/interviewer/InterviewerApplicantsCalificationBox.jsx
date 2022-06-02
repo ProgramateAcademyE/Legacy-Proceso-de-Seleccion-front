@@ -109,36 +109,34 @@ const InterviewerApplicantsCalificationBox = (props) => {
             );
           })}
 
-          <div className="card text-start|center|end">
-            <div className="card-body">
-              <h4 className="card-header">OBSERVACIONES GENERALES</h4>
-              <div>
-                <Field
-                  name="comment"
-                  id="comment"
-                  className="InterviewerApplicanTextarea"
-                  rows="10"
-                  as="textarea"
-                  placeholder="Deja un comentario..."
-                  onChange={formik.handleChange}
-                />
-                {formik.errors.comment ? (
-                  <div style={{ color: "red" }}>{formik.errors.comment}</div>
-                ) : (
-                  <></>
-                )}
-              </div>
-
-              <p className="">
-                <button
-                  type="submit"
-                  className="InteviewerApplicantSubmit"
-                  onClick={formik.handleSubmit}
-                >
-                  Enviar Evaluación
-                </button>
-              </p>
+          <div className="card-body">
+            <h4 className="card-header">OBSERVACIONES GENERALES</h4>
+            <div>
+              <Field
+                name="comment"
+                id="comment"
+                className="InterviewerApplicanTextarea"
+                rows="10"
+                as="textarea"
+                placeholder="Deja un comentario..."
+                onChange={formik.handleChange}
+              />
+              {formik.errors.comment ? (
+                <div style={{ color: "red" }}>{formik.errors.comment}</div>
+              ) : (
+                <></>
+              )}
             </div>
+
+            <p className="">
+              <button
+                type="submit"
+                className="InteviewerApplicantSubmit"
+                onClick={formik.handleSubmit}
+              >
+                Enviar Evaluación
+              </button>
+            </p>
           </div>
         </div>
       </Form>

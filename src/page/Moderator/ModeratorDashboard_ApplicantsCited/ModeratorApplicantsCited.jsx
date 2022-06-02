@@ -124,6 +124,7 @@ const ModeratorApplicantsCited = () => {
                 title="Aspirantes Citados"
                 columns={columns}
                 data={processedCitation[date]}
+                noDataComponent="No hay reuniones programadas"
                 defaultSortField="id"
                 defaultSortAsc={false}
                 pagination
