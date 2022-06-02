@@ -1,6 +1,4 @@
 import React from 'react'
-
-//import "./ModeratorDashboard_ApplicantsCited.css";
 import "./ModeratorDashboard.css";
 import ModeratorInterviewerTable from '../../../components/moderatorInterviewTable/ModeratorInterviewerTable';
 

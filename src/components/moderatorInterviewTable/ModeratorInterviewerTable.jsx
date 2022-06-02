@@ -6,10 +6,10 @@ import DataTableExtensions from "react-data-table-component-extensions";
 import "react-data-table-component-extensions/dist/index.css";
 import { useSelector } from "react-redux";
 import axios from "axios";
-//import { columns, data } from "./data";
+
 
 const ModeratorInterviewerTable = () => {
-  //1 - Configurar los hooks
+
   const [users, setUsers] = useState([]);
 
   const token = useSelector((state) => state.token);
@@ -26,7 +26,7 @@ const ModeratorInterviewerTable = () => {
   useEffect(() => {
     showData();
   }, []);
-  //3
+  
   const columns = [
     {
       name: "FECHA",
@@ -65,7 +65,7 @@ const ModeratorInterviewerTable = () => {
     },
     {
       name: "DETALLE",
-      /*selector: (row) => row.detalle,*/
+   
       selector: (row) => (
         <a href="/moderadortablaentrevistas" target="_blank">
           ver detalles

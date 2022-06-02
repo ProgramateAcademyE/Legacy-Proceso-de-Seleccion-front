@@ -42,14 +42,13 @@ const ModeratorForm = () => {
       setAvailable([]);
     }
   }
-  //console.log("citaciones: ", citations);
+
   function clear() {
     (assesmentsRooms = 0), (assesmentsRooms = 0), (link = "");
   }
   const formik = useFormik({
     initialValues: {
       citationID: "",
-      //date: undefined,
       assesmentsRooms: 0,
       interviewRooms: 0,
       link: "",
@@ -58,11 +57,9 @@ const ModeratorForm = () => {
     validate: (values) => {
       console.log("VaLues en Validate");
       let errores = {};
-      //validacion fecha
       if (!values.citationID || values.citationID.length === 0) {
         errores.citationID = "Debes seleccionar una fecha";
       }
-      //validacion numero salas entrevistas
       if (!values.interviewRooms) {
         errores.interviewRooms = "Campo Requerido.";
       } else if (values.interviewRooms <= 0) {
@@ -71,7 +68,6 @@ const ModeratorForm = () => {
       if (values.interviewRooms > interviewersInput.current.childElementCount) {
         errores.interviewRooms = "No puede ser mayor numero entrevistadores";
       }
-      //validacion numero salas assessment
       if (!values.assesmentsRooms) {
         errores.assesmentsRooms = "Campo Requerido.";
       } else if (values.assesmentsRooms <= 0)
@@ -81,7 +77,6 @@ const ModeratorForm = () => {
         errores.assesmentsRooms = "No puede ser mayor numero Observadores";
       }
 
-      //validacion de link
       if (!values.link || values.link.length === 0) {
         errores.link = "El campo no puede estar vacio,";
       }
@@ -90,11 +85,8 @@ const ModeratorForm = () => {
     },
 
     onSubmit: (values, { resetForm }) => {
-      //resetForm();
 
-      console.log("valores", values);
-      console.log("On submit", values);
-      const toSubmit = {
+        const toSubmit = {
         ...values,
         link: values.link.trim(),
         date: citationSelected?.appointmentDate,
@@ -106,18 +98,10 @@ const ModeratorForm = () => {
       };
 
       console.log("To submit", toSubmit);
-
       axios.post("http://localhost:3001/api/admin/meet", { ...toSubmit });
-      //resetForm();
       cambiarFormularioEnviado(true);
       setTimeout(() => cambiarFormularioEnviado(false), 80000);
 
-      /*formik.resetForm({
-        values: { assesmentsRooms: '', interviewRooms: '' },
-      });*/
-      //resetForm({values:''});
-      //resetForm();
-      //window.location.reload();
       setTimeout(window.location.reload(), 90000);
     },
   });
@@ -175,7 +159,6 @@ const ModeratorForm = () => {
                 name="interviewRooms"
                 id="interviewRooms"
                 placeholder="Numero salas Entrevistas"
-                //value={formik.values.interviewRooms}
                 onChange={formik.handleChange}
               />
 
@@ -215,7 +198,6 @@ const ModeratorForm = () => {
                 type="url"
                 id="link"
                 name="link"
-                pattern="http://[A-Za-z]+[A-Za-z0-9\.-]*[^\.]\.com"
                 placeholder="Ingresa una URL"
                 onChange={formik.handleChange}
               />
@@ -231,7 +213,7 @@ const ModeratorForm = () => {
           </div>
 
           <div className="ModeratorFormSelect">
-            {citationSelected !== null ? ( //cambio a Null
+            {citationSelected !== null ? ( 
               <>
                 <Field
                   name="applicants"
@@ -312,7 +294,7 @@ const ModeratorForm = () => {
               type="submit"
               onClick={formik.handleSubmit}
               className="ModeratorFormSubmit"
-              //onClick={() => formik.resetForm()}
+           
             >
               Publicar y enviar
             </button>
