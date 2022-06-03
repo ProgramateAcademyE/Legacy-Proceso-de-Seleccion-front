@@ -182,6 +182,14 @@ export const ITEMS_MODERATOR = [
     pathname: "/moderadoraspirantescitados",
     id: 21,
   },
+
+  {
+    name: "Citas Entrevistador - Observador",
+    icon: "fa fa-bookmark",
+    items: [],
+    pathname: "/entrevistadordashboard",
+    id: 22,
+  },
 ];
 
 export const CONVOCATORY = [
@@ -245,13 +253,13 @@ export const ITEMS_INTERVIEWER = [
     icon: "fas fa-th-large",
     items: [],
     pathname: "/dashboard",
-    id: 22,
+    id: 23,
   },
   {
     name: "Citas programadas",
     icon: "fa fa-calendar",
     items: [],
     pathname: "/entrevistadordashboard",
-    id: 23,
+    id: 24,
   },
 ];
