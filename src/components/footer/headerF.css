@@ -15,8 +15,8 @@
 /*:::::Pie de Pagina*/
 .pie-pagina {
   width: 100%;
-  background-color:black;
-  margin-top: 12%;
+  background-color: black;
+  margin-top: 28vh;
 }
 .pie-pagina .grupo-1 {
   display: flex;
@@ -55,7 +55,7 @@
   display: flex;
   justify-content: flex-end;
 }
-.grupo-2{
+.grupo-2 {
   margin-left: 5vw;
 }
 .pie-pagina .grupo-2 {
@@ -67,6 +67,7 @@
 .pie-pagina .grupo-2 small {
   font-size: 15px;
 }
+
 @media screen and (max-width: 800px) {
   .pie-pagina .grupo-1 {
     width: 90%;
@@ -85,12 +86,8 @@
   justify-content: space-between;
 }
 
-
-
-
 @media screen and (max-width: 768px) {
   .Educamas {
     width: 100px !important;
   }
 }
-
