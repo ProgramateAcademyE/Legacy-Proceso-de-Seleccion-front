@@ -39,6 +39,32 @@ function ModalCreateNewViewer() {
     email: null,
   });
   const [errors, setErrors] = useState({});
+  /*
+  const [values, setValues] = useState("");
+  const initialStateValues = {
+    names:"",
+    surname: "",
+    email:"",
+    passwordHash:"",
+    role:""
+
+  };
+
+  const handleInputChange = e =>{
+    const {name, value} = e.target;
+    setValues({...values, [name]: value});
+  };
+  */
+
+  /*  setValues({...initialStateValues})
+
+    axios.post("http://localhost:3001/api/user/register_staff", { ...values });
+    window.alert("All safe");
+    console.log(values)
+    abrirCerrarModal()
+    }
+  
+*/
 
   const validate = (values) => {
     const error = {};
