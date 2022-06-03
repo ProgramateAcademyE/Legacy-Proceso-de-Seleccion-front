@@ -1,78 +1,68 @@
-*{
-	padding: 0px;
-	margin: 0;
-	box-sizing: border-box;
+* {
+  padding: 0px;
+  margin: 0;
+  box-sizing: border-box;
 }
 
 .ModeratorForm {
-	
-	width: 100%;
-    height: 100%;
-	
+  width: 100%;
+  height: 100%;
 }
-.ModeratorformContainer{
-	margin-top: 3rem; 
-
+.ModeratorformContainer {
+  margin-top: 3rem;
 }
 
-.ModeratorFormSection1{
-	display:flex;
-	justify-content: space-evenly;
-	align-content:center;
-	font-size:1.3rem;
-
+.ModeratorFormSection1 {
+  display: flex;
+  justify-content: space-evenly;
+  align-content: center;
+  font-size: 1.3rem;
 }
 
-.ModeratorFormSelectJornada{
-	height:3.5rem;
-
+.ModeratorFormSelectJornada {
+  height: 3.5rem;
 }
-.ModeratorFormSection2{
-	display:flex;
-	padding:20px;
-	align-content:center;
-	font-size:1.3rem;
+.ModeratorFormSection2 {
+  display: flex;
+  padding: 20px;
+  align-content: center;
+  font-size: 1.3rem;
 }
-.ModeratorFormLink{
-	width:43rem;
-	
+.ModeratorFormLink {
+  width: 43rem;
 }
-.ModeratorFormTitle{
-	display:flex;
-	justify-content:center;
-	align-items:center;
-	
+.ModeratorFormTitle {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.ModeratorFormSelect{
-	display:flex;
-	justify-content:center;
-	align-items:center;
-
+.ModeratorFormSelect {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.ModeratorFormApplicants{
-	display:flex;
-	justify-content: center;
-	align-items: center;
-	background-color: #010101;
-    color: #f1f1f1;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 1px 10px 25px #c7c7c7;
-    margin-top: 10%;
-
-
+.ModeratorFormApplicants {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #010101;
+  color: #f1f1f1;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 1px 10px 25px #c7c7c7;
+  margin-top: 10%;
 }
 
-h5{
-	width:10rem;
-	text-align: center;
-	background-color: #FFCC02;
-    color: #000;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 1px 10px 25px #c7c7c7;
-    margin-top: 10%;	
+h5 {
+  width: 10rem;
+  text-align: center;
+  background-color: #ffcc02;
+  color: #000;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 1px 10px 25px #c7c7c7;
+  margin-top: 10%;
 }
 /*
 .section3{
@@ -83,157 +73,144 @@ h5{
 	background-color: red;
 }*/
 
-.ModeratorFormButton{
-	display:flex;
-	justify-content: center;
-	align-items:center;
-
+.ModeratorFormButton {
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-.ModeratorFormSubmit{
-	background-color: #FFCC02;
-	font-weight: bold;
-    color: #000;
-    padding: 10px;
-    border-radius: 10px;
-    box-shadow: 1px 10px 25px #000;
-    margin-top: 10%;
+.ModeratorFormSubmit {
+  background-color: #ffcc02;
+  font-weight: bold;
+  color: #000;
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 1px 10px 25px gray;
+  margin-top: 10%;
 }
-.ModeratorFormExit{
-	display:flex;
-	flex-direction: column;
-	justify-content: center;
-	align-items:center;
-	padding:5px;
-	font-size:1rem;
-    font-weight: bold;
-	color:green;
+.ModeratorFormExit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 5px;
+  font-size: 1rem;
+  font-weight: bold;
+  color: green;
 }
 .select {
-    margin: 9px 0px 9px 0px;
-    box-shadow: 0px 0px 4px 0px #000;
-    border-radius: 5px;
-	width:100%;
-	height:50vh;
-	overflow: scroll;
-	display:flex;
-	flex-direction: column;
-	justify-content:center;
-	align-items:center;
-	font-size:1.3rem;
-	font-weight: bold;
-	color:#000;
-	
-	
+  margin: 9px 0px 9px 0px;
+  box-shadow: 0px 0px 4px 0px #000;
+  border-radius: 5px;
+  width: 100%;
+  height: 50vh;
+  overflow: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: #000;
 }
 
 /*Media query Tablet 
 @media screen and (max-width: 700px)*/
-@media  (max-width:991px){
-		.ModeratorFormSection1{
-			width:90vw;
-			display:flex;
-			flex-direction:column;
-			justify-content: space-evenly;
-			align-items:center;
-			flex-wrap: wrap;
-			align-content:center;
-			
-		}
+@media (max-width: 991px) {
+  .ModeratorFormSection1 {
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: center;
+  }
 
-	.ModeratorFormSection2{
-		width:90vw;
-		display:flex;
-		flex-direction:column;
-		justify-content: space-evenly;
-		align-content:center;
-		align-items:center;
-		flex-wrap: wrap;
-		align-content:center;
-		
-	}
-	.ModeratorFormLink{
-		width:19rem;
-	}
-	.ModeratorFormTitle{
-		display:flex;
-		justify-content:center;
-		align-items:center;
-		
-	}
-	.ModeratorFormSelect{
-		display:flex;
-		justify-content:center;
-		align-items:center;
-		
-	}
+  .ModeratorFormSection2 {
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: center;
+  }
+  .ModeratorFormLink {
+    width: 19rem;
+  }
+  .ModeratorFormTitle {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .ModeratorFormSelect {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 
-	.ModeratorFormButton{
-		display:flex;
-	
-		justify-content: center;
-		align-items:center;
-	}
-	
-	.select {
-		margin: 9px 0px 9px 0px;
-		box-shadow: 0px 0px 4px 0px black;
-		border-radius: 5px;
-		width:20rem;
-		overflow: scroll;
-		
-	}
+  .ModeratorFormButton {
+    display: flex;
 
-	
+    justify-content: center;
+    align-items: center;
+  }
+
+  .select {
+    margin: 9px 0px 9px 0px;
+    box-shadow: 0px 0px 4px 0px black;
+    border-radius: 5px;
+    width: 20rem;
+    overflow: scroll;
+  }
 }
 /*Media query celular */
 @media (max-width: 530px) {
-	.ModeratorFormSection1{
-		width:90vw;
-	display:flex;
-			flex-direction:column;
-			justify-content: space-evenly;
-			align-items:center;
-			flex-wrap: wrap;
-			align-content:center;
-	
-	}
-	.ModeratorFormSection2{
-		width:90vw;
-		display:flex;
-		flex-direction:column;
-		justify-content: space-evenly;
-	
-	}
-	
-	.ModeratorFormLink, .ModeratorFormRooms{
-		width:100%;
-	}
-	.ModeratorFormTitle{
-	    width:100vw;
-		display:flex;
-		justify-content:center;
-		align-items:center;
-	}
-	.ModeratorFormSelect{
-		display:flex;
-		justify-content:center;
-		align-items:center;
-		
-	}
+  .ModeratorFormSection1 {
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-wrap: wrap;
+    align-content: center;
+  }
+  .ModeratorFormSection2 {
+    width: 90vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+  }
 
-	.ModeratorFormButton{
-		width:100vw;
-		display:flex;
-		justify-content: center;
-		align-items:center;
-	}
-	
-	.select {
-		margin: 9px 0px 9px 0px;
-		box-shadow: 0px 0px 4px 0px black;
-		border-radius: 5px;
-		width:15rem;
-		overflow: scroll;
-	}
-	
+  .ModeratorFormLink,
+  .ModeratorFormRooms {
+    width: 100%;
+  }
+  .ModeratorFormTitle {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .ModeratorFormSelect {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .ModeratorFormButton {
+    width: 100vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .select {
+    margin: 9px 0px 9px 0px;
+    box-shadow: 0px 0px 4px 0px black;
+    border-radius: 5px;
+    width: 15rem;
+    overflow: scroll;
+  }
 }
