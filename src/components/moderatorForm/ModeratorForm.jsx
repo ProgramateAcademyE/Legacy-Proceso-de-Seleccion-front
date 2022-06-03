@@ -7,13 +7,12 @@ const ModeratorForm = () => {
   const [citations, setCitations] = useState([]);
   const [available, setAvailable] = useState(undefined);
   const [citationSelected, setCitacionSelected] = useState(undefined);
-  const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
+  const [submited, setSubmited] = useState(false);
   const token = useSelector((state) => state.token);
 
   const interviewersInput = useRef(null);
   const viewersInput = useRef(null);
 
-  const [countInterviewer, setCountIntervierwer] = useState(0);
   async function fetchCitations() {
     const { data } = await axios.get(
       "http://localhost:3001/api/admin/citation-all",
@@ -94,8 +93,8 @@ const ModeratorForm = () => {
       };
 
       axios.post("http://localhost:3001/api/admin/meet", { ...toSubmit });
-      cambiarFormularioEnviado(true);
-      setTimeout(() => cambiarFormularioEnviado(false), 80000);
+      setSubmited(true);
+      setTimeout(() => setSubmited(false), 80000);
 
       setTimeout(window.location.reload(), 90000);
     },
@@ -226,6 +225,7 @@ const ModeratorForm = () => {
               <h5 className="">Entrevistadores</h5>
             </div>
 
+<<<<<<< HEAD
             <div className="ModeratorFormSelect">
               {available !== undefined ? (
                 <>
@@ -295,6 +295,77 @@ const ModeratorForm = () => {
                 <span className="">Formulario Enviado con exito!</span>
               )}
             </div>
+=======
+          <div className="ModeratorFormSelect">
+            {available !== undefined ? (
+              <>
+                <Field
+                  name="interviewers"
+                  as="text"
+                  multiple
+                  className=" form-control select  "
+                >
+                  <div ref={interviewersInput}>
+                    {available?.selectors?.map((s) =>
+                      s.meetRole === 4 ? (
+                        <option value={s.names}>
+                          {`${s.names} ${s.surname}`}{" "}
+                        </option>
+                      ) : (
+                        <></>
+                      )
+                    )}
+                  </div>
+                </Field>
+              </>
+            ) : (
+              <></>
+            )}
+          </div>
+          <div className="ModeratorFormTitle">
+            <h5 className="">observadores</h5>
+          </div>
+          <div className="ModeratorFormSelect">
+            {available !== undefined ? (
+              <>
+                <Field
+                  name="observers"
+                  as="text"
+                  multiple
+                  className="form-control select "
+                >
+                  <div ref={viewersInput}>
+                    {available?.selectors?.map((s) =>
+                      s.meetRole === 3 ? (
+                        <option
+                          value={s.names}
+                        >{`${s.names} ${s.surname}`}</option>
+                      ) : (
+                        <></>
+                      )
+                    )}
+                  </div>
+                </Field>
+              </>
+            ) : (
+              <></>
+            )}
+          </div>
+          <div className="ModeratorFormButton">
+            <button
+              type="submit"
+              onClick={formik.handleSubmit}
+              className="ModeratorFormSubmit"
+              //onClick={() => formik.resetForm()}
+            >
+              Publicar y enviar
+            </button>
+          </div>
+          <div className="ModeratorFormExit">
+            {submited && (
+              <span className="">Formulario Enviado con exito!</span>
+            )}
+>>>>>>> 6f82119453cc9f816794e885e595191cae988737
           </div>
         </div>
       </Form>
