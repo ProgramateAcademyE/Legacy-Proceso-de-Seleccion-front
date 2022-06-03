@@ -3,9 +3,12 @@ import "./ViewerCalification.css";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import ViewerCalificationBoxCard from "./ViewerCalificationBoxCard";
+import { Formik, Field, Form, useFormik } from "formik";
 
 const ViewerCalificationBox = (props) => {
-  const { room } = props;
+  const { room, meet } = props;
+  const auth = useSelector((state) => state.auth);
+  const meId = auth.user;
 
   const [questionary, setQuestionary] = useState();
 
@@ -23,45 +26,112 @@ const ViewerCalificationBox = (props) => {
     setQuestionary(data.data[0]);
   }
 
+  console.log("Meet en cards: ", meet);
+
   useEffect(() => {
     fetchQuestionary();
   }, []);
 
-  return (
-    <div className="viewerCalificationBoxContainer">
-      {questionary?.groups?.map((item, index) => {
-        return (
-          <ViewerCalificationBoxCard
-            title={item.name}
-            questions={item.questions}
-            calification={item.qualificationOptions}
-            key={index}
-            aspirants={room.users}
-          />
-        );
-      })}
+  const formik = useFormik({
+    initialValues: {},
+    onSubmit: (values) => {
+      const finalSubmit = [];
 
-      {/* {questionary?.groups?.map((item, index) => {
-        return (
-     
+      for (let u = 0; u < room?.users?.length; u++) {
+        const currentAspirantInfo = room?.users[u];
+
+        const score =
+          values[`qualifications_${currentAspirantInfo._id}`]
+            .map((q) => parseInt(q.score))
+            .reduce((a, b) => a + b, 0) /
+          values[`qualifications_${currentAspirantInfo._id}`].length;
+
+        const toSubmit = {
+          meetID: meet._id,
+          userID: currentAspirantInfo._id,
+          names: currentAspirantInfo.names,
+          surname: currentAspirantInfo.surname,
+          questionaryAssesmentId: "temporales",
+          questionaryInterviewersId: "Temporales",
+          observers: {
+            selectorId: meId._id, // Interviewr _id
+            names: meId.names,
+            surname: meId.surname,
+            comment: values[`comment_${currentAspirantInfo._id}`],
+            score: score,
+            qualifications: values[`qualifications_${currentAspirantInfo._id}`],
+          },
+        };
+
+        finalSubmit.push(toSubmit);
+      }
+      console.log(finalSubmit);
+      axios.post("http://localhost:3001/api/admin/interviewDay-Observer", {
+        ...finalSubmit,
+      });
+    },
+  });
+
+  room?.users?.map((u) => {
+    formik.initialValues[`qualifications_${u._id}`] = [];
+    formik.initialValues[`comment_${u._id}`] = "";
+  });
+
+  const handleQA = (userId, newQualification) => {
+    console.log("En QA: ", userId, newQualification);
+    formik.setFieldValue(`qualifications_${userId}`, [
+      ...formik.values[`qualifications_${userId}`],
+      newQualification,
+    ]);
+  };
+
+  return (
+    <Formik>
+      <Form>
+        <div className="viewerCalificationBoxContainer">
+          {questionary?.groups?.map((item, index) => {
+            return (
+              <ViewerCalificationBoxCard
+                item={item}
+                key={index}
+                aspirants={room?.users}
+                handleQA={handleQA}
+              />
+            );
+          })}
+
+          {room?.users?.map((u) => (
             <div className="card-body">
               <h4 className="card-header">OBSERVACIONES GENERALES</h4>
-              <p className="">{room.users}</p>
-              <form action="">
-                <textarea
-                  className="InterviewerApplicanTextarea"
-                  id="w3review"
-                  name="w3review"
-                  rows="5"
-                />
-              </form>
+              <p className="">{u.names}</p>
+              <Field
+                id={`comment_${u._id}`}
+                name={`comment_${u._id}`}
+                rows="5"
+                className="InterviewerApplicanTextarea"
+                as="textarea"
+                placeholder="Deja un comentario..."
+                onChange={formik.handleChange}
+              />
+              {formik.errors.comment ? (
+                <div style={{ color: "red" }}>{formik.errors.comment}</div>
+              ) : (
+                <></>
+              )}
             </div>
-        
-        );
-      })} */}
-
-      <button className="InteviewerApplicantSubmit">Enviar Evaluación</button>
-    </div>
+          ))}
+        </div>
+        <div>
+          <button
+            type="submit"
+            className="InteviewerApplicantSubmit"
+            onClick={formik.handleSubmit}
+          >
+            Enviar Evaluación
+          </button>
+        </div>
+      </Form>
+    </Formik>
   );
 };
 
