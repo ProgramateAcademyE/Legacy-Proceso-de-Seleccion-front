@@ -4,25 +4,24 @@ Se realiza el frontend con React, se utilizó webpack y las siguientes librería
 
 ## Dependencias
 
-- **Axios:** Se utilizó para hacer conexión del back con el front por medio de los end-point.
+
 - **Material-ui/core:** se utilizó para realizar la barra de progreso del formulario de inscripción, los botones
 - **Chart.js:**  se utilizó para descargar la librería de gráficas
 - **Chartjs-plugin-datalabels:**  se utilizó para mostrar las etiquetas en los datos de los gráficos.
 - **Eslint:**  Análisis de código estático para identificar patrones problemáticos encontrados en el código JavaScript.
-- **Formik:** Se utilizó en la creación de formulario para crear reunión y la vista de los aspirantes citados
+
 - **Less-loader:**  Se utilizó para compilar la librería de react-big al no ser compatible con webpack
 - **Moment:**  Nos permitió mostrar fechas y horas de una forma mas amigable al usuario.
 - **React-big-calendar:**  Se utilizó para renderizar un componente de calendario de eventos para que el aspirante agende su cita de entrevista.	
 - **React-chartjs-2:**  se utilizó para representar gráficamente los datos en el dashboard
 - **React-csv:**  Se utilizó para tener la posibilidad de exportar y descargar las tablas a formato CSV.
 - **React-datetime-picker:**  Selector de fechas para agendar eventos en el calendario.
-- **React-data-table-component:**  Se utilizó para la creación de tablas en las vistas del moderador, observador y entrevistador.
-- **React-data-Table-component-extensions:** Se utilizó en las tablas moderador, observador y entrevistador.
+
 - **React-dom:**  se utilizó para renderizar un componente en el DOM.
 - **React-html-table-to-excel:**  Se utilizó para tener la posibilidad de exportar y descargar las tablas a formato excel.
 - **React-modal:**  Esta librería se utilizó para crear tarjetas modales específicamente en el calendario a la hora de realizar el agendamiento de una entrevista.
 - **React-router-dom:**  se utilizó para realizar las rutas de navegación de la aplicación.
-- **Styled-components:** Permitió escribir CSS para las tablas creadas con data-table.
+
 - **Style-loader:**  Cargadores de paquetes web que toma los archivos CSS y los inserta en la página para que los estilos estén activos en la página.
 - **Sweetalert2:**  se utilizó para realizar alertas como confirmación de una acción realizada por el usuario
 - **Eslint:** _Es sencillamente una herramienta de linting para JavaScript y JSX cuya función es la de revisar nuestro código tratando de encontrar errores que podrían provocar problemas de compilación o bien futuros bugs en nuestro desarrollo_
@@ -51,6 +50,14 @@ Se realiza el frontend con React, se utilizó webpack y las siguientes librería
 
 ## Fase 2:
 
+## Dependencias:
+- **Axios:** Se utilizó para hacer conexión del back con el front por medio de los end-point.
+- **Formik:** Se utilizó en la creación de formulario para crear reunión y la vista de los aspirantes citados.
+- **React-data-table-component:**  Se utilizó para la creación de tablas en las vistas del moderador, observador y entrevistador.
+- **React-data-Table-component-extensions:** Se utilizó en las tablas moderador, observador y entrevistador.
+- **Styled-components:** Permitió escribir CSS para las tablas creadas con data-table.
+
+## Vistas
 - Dashboard Moderador (Muestra las siguientes vistas: agenda programada, crear entrevistas y assesments, listado gral de entrevistas, entrevistadores, observadores, aspirantes citados)
 
 
