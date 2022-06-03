@@ -7,12 +7,13 @@ const ModeratorForm = () => {
   const [citations, setCitations] = useState([]);
   const [available, setAvailable] = useState(undefined);
   const [citationSelected, setCitacionSelected] = useState(undefined);
-  const [submited, setSubmited] = useState(false);
+  const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
   const token = useSelector((state) => state.token);
 
   const interviewersInput = useRef(null);
   const viewersInput = useRef(null);
 
+  const [countInterviewer, setCountIntervierwer] = useState(0);
   async function fetchCitations() {
     const { data } = await axios.get(
       "http://localhost:3001/api/admin/citation-all",
@@ -40,6 +41,7 @@ const ModeratorForm = () => {
       setAvailable([]);
     }
   }
+
   function clear() {
     (assesmentsRooms = 0), (assesmentsRooms = 0), (link = "");
   }
@@ -52,6 +54,7 @@ const ModeratorForm = () => {
     },
 
     validate: (values) => {
+      console.log("VaLues en Validate");
       let errores = {};
       if (!values.citationID || values.citationID.length === 0) {
         errores.citationID = "Debes seleccionar una fecha";
@@ -92,13 +95,16 @@ const ModeratorForm = () => {
         observers: available.selectors.filter((s) => s.meetRole === 3),
       };
 
+      console.log("To submit", toSubmit);
       axios.post("http://localhost:3001/api/admin/meet", { ...toSubmit });
-      setSubmited(true);
-      setTimeout(() => setSubmited(false), 80000);
+      cambiarFormularioEnviado(true);
+      setTimeout(() => cambiarFormularioEnviado(false), 80000);
 
       setTimeout(window.location.reload(), 90000);
     },
   });
+
+  console.log("errores", formik.errors);
 
   useEffect(() => {
     setCitacionSelected(
@@ -108,6 +114,10 @@ const ModeratorForm = () => {
     );
     fetchAvailibility(formik.values.citationID);
   }, [formik.values.citationID]);
+
+  //mirar que tiene interviewersInput
+  console.log("Entrevistadoresinput", interviewersInput);
+  console.log("ObservadoresInput", viewersInput);
 
   return (
     <Formik>
@@ -258,7 +268,7 @@ const ModeratorForm = () => {
               {available !== undefined ? (
                 <>
                   <Field
-                    name="observers"
+                    name="interviewers"
                     as="text"
                     multiple
                     className="form-control select "
