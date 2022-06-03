@@ -10,9 +10,9 @@ const InterviewerApplicantsCalificationBox = (props) => {
   const auth = useSelector((state) => state.auth);
   const meId = auth.user;
   const [questionary, setQuestionary] = useState();
+  const [submited, setSubmited] = useState(false);
 
   const questionaryId = "62855ad10a60a551a4aa7431";
-  const meetRole = 4;
 
   const token = useSelector((state) => state.token);
 
@@ -46,39 +46,27 @@ const InterviewerApplicantsCalificationBox = (props) => {
         values.qualifications
           .map((q) => parseInt(q.score))
           .reduce((a, b) => a + b, 0) / values.qualifications.length;
-      console.log("Score: ", score);
       const toSubmit = {
         meetID: meet._id,
         userID: currentAspirantInfo._id,
         names: currentAspirantInfo.names,
         surname: currentAspirantInfo.surname,
-        questionaryAssesmentId: "temporales",
-        questionaryInterviewersId: "Temporales",
+        questionaryInterviewersId: questionaryId,
+        interviewers: {
+          selectorId: meId._id, // Interviewr _id
+          names: meId.names,
+          surname: meId.surname,
+          comment: values.comment,
+          score: score,
+          qualifications: values.qualifications,
+        },
       };
-      if (meetRole === 4)
-        toSubmit["interviewers"] = [
-          {
-            selectorId: meId._id, // Interviewr _id
-            names: meId.names,
-            surname: meId.surname,
-            comment: values.comment,
-            score: score,
-            qualifications: values.qualifications,
-          },
-        ];
-
-      if (meetRole === 3)
-        toSubmit["observers"] = [
-          {
-            selectorId: String, // Interviewr _id
-            names: String,
-            surname: String,
-            comment: values.comment,
-            score: Number,
-            qualifications: values.qualifications,
-          },
-        ];
-      console.log(toSubmit);
+      axios.post("http://localhost:3001/api/admin/interviewDay-Interviewer", {
+        ...toSubmit,
+      });
+      setSubmited(true);
+      setTimeout(() => setSubmited(false), 80000);
+      setTimeout(window.location.reload(), 90000);
     },
   });
 
@@ -127,15 +115,19 @@ const InterviewerApplicantsCalificationBox = (props) => {
               )}
             </div>
 
-            <p className="">
-              <button
-                type="submit"
-                className="InteviewerApplicantSubmit"
-                onClick={formik.handleSubmit}
-              >
-                Enviar Evaluación
-              </button>
-            </p>
+            <button
+              type="submit"
+              className="InteviewerApplicantSubmit"
+              onClick={formik.handleSubmit}
+            >
+              Enviar Evaluación
+            </button>
+
+            <div className="ModeratorFormExit">
+              {submited && (
+                <span className="">Formulario Enviado con exito!</span>
+              )}
+            </div>
           </div>
         </div>
       </Form>

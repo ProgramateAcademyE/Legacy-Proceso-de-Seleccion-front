@@ -7,13 +7,12 @@ const ModeratorForm = () => {
   const [citations, setCitations] = useState([]);
   const [available, setAvailable] = useState(undefined);
   const [citationSelected, setCitacionSelected] = useState(undefined);
-  const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
+  const [submited, setSubmited] = useState(false);
   const token = useSelector((state) => state.token);
 
   const interviewersInput = useRef(null);
   const viewersInput = useRef(null);
 
-  const [countInterviewer, setCountIntervierwer] = useState(0);
   async function fetchCitations() {
     const { data } = await axios.get(
       "http://localhost:3001/api/admin/citation-all",
@@ -103,8 +102,8 @@ const ModeratorForm = () => {
       //console.log("To submit", toSubmit);
 
       axios.post("http://localhost:3001/api/admin/meet", { ...toSubmit });
-      cambiarFormularioEnviado(true);
-      setTimeout(() => cambiarFormularioEnviado(false), 80000);
+      setSubmited(true);
+      setTimeout(() => setSubmited(false), 80000);
 
       //resetForm();
       //window.location.reload();
@@ -306,7 +305,7 @@ const ModeratorForm = () => {
             </button>
           </div>
           <div className="ModeratorFormExit">
-            {formularioEnviado && (
+            {submited && (
               <span className="">Formulario Enviado con exito!</span>
             )}
           </div>

@@ -4,13 +4,16 @@ import axios from "axios";
 import { useSelector } from "react-redux";
 import ViewerCalificationBoxCard from "./ViewerCalificationBoxCard";
 import { Formik, Field, Form, useFormik } from "formik";
+import { useHistory } from "react-router-dom";
 
 const ViewerCalificationBox = (props) => {
+  const history = useHistory();
   const { room, meet } = props;
   const auth = useSelector((state) => state.auth);
   const meId = auth.user;
 
   const [questionary, setQuestionary] = useState();
+  const [submited, setSubmited] = useState(false);
 
   const questionaryId = "6286b5113c2f2c46dc9b7873";
 
@@ -25,8 +28,6 @@ const ViewerCalificationBox = (props) => {
     );
     setQuestionary(data.data[0]);
   }
-
-  console.log("Meet en cards: ", meet);
 
   useEffect(() => {
     fetchQuestionary();
@@ -51,8 +52,7 @@ const ViewerCalificationBox = (props) => {
           userID: currentAspirantInfo._id,
           names: currentAspirantInfo.names,
           surname: currentAspirantInfo.surname,
-          questionaryAssesmentId: "temporales",
-          questionaryInterviewersId: "Temporales",
+          questionaryAssesmentId: questionaryId,
           observers: {
             selectorId: meId._id, // Interviewr _id
             names: meId.names,
@@ -65,10 +65,12 @@ const ViewerCalificationBox = (props) => {
 
         finalSubmit.push(toSubmit);
       }
-      console.log(finalSubmit);
       axios.post("http://localhost:3001/api/admin/interviewDay-Observer", {
         ...finalSubmit,
       });
+      setSubmited(true);
+      setTimeout(() => setSubmited(false), 80000);
+      setTimeout(history.replace(`/entrevistadordashboard`), 90000);
     },
   });
 
@@ -78,7 +80,6 @@ const ViewerCalificationBox = (props) => {
   });
 
   const handleQA = (userId, newQualification) => {
-    console.log("En QA: ", userId, newQualification);
     formik.setFieldValue(`qualifications_${userId}`, [
       ...formik.values[`qualifications_${userId}`],
       newQualification,
@@ -129,6 +130,11 @@ const ViewerCalificationBox = (props) => {
           >
             Enviar Evaluación
           </button>
+          <div className="ModeratorFormExit">
+            {submited && (
+              <span className="">Formulario Enviado con exito!</span>
+            )}
+          </div>
         </div>
       </Form>
     </Formik>
