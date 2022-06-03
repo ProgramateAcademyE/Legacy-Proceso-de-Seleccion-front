@@ -49,7 +49,9 @@ Se realiza el frontend con React, se utilizó webpack y las siguientes librería
 
 
 
-- Dasboard Moderador (Muestra las siguientes vistas: agenda programada, crear entrevistas y assesments, listado gral de entrevistas, entrevistadores, observadores, aspirantes citados)
+## Fase 2:
+
+- Dashboard Moderador (Muestra las siguientes vistas: agenda programada, crear entrevistas y assesments, listado gral de entrevistas, entrevistadores, observadores, aspirantes citados)
 
 
 ![1](https://user-images.githubusercontent.com/97619450/171725488-6a1e7ba5-3e51-4fde-afef-1039c96e8b9f.png)
@@ -62,7 +64,12 @@ Se realiza el frontend con React, se utilizó webpack y las siguientes librería
 
 
 
+- Dashboard Observador (Aspirantes citados, Rúbricas a evaluar y Observaciones Generales)
 
 
+![Untitled design (4) (1)](https://user-images.githubusercontent.com/97619450/171938620-64bcde44-33e7-4a5b-bf4e-aac99a656e5d.png)
 
 
+- Dashboard Entrevistador (Aspirantes citados, Rúbricas a evaluar y Observaciones Generales)
+
+![Untitled design (3) (1)](https://user-images.githubusercontent.com/97619450/171937395-4713dcbc-be57-444a-8064-37470366677f.png)
