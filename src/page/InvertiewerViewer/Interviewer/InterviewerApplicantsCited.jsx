@@ -19,10 +19,6 @@ const InterviewerApplicantsCited = () => {
   const [role, setRole] = React.useState();
 
   const meetId = pathname.slice(10);
-<<<<<<< HEAD
-
-=======
->>>>>>> 2db0e0d013f05936f9d4dc94009cdae9f44556ee
   async function fetchCitation() {
     const { data } = await axios.get(
       `http://localhost:3001/api/admin/get-meet-by-meetId/${meetId}`,
@@ -31,10 +27,6 @@ const InterviewerApplicantsCited = () => {
       }
     );
     setMeet(data.data[0]);
-<<<<<<< HEAD
-
-=======
->>>>>>> 2db0e0d013f05936f9d4dc94009cdae9f44556ee
     const searchInterviewer = data.data[0]?.roomsInterviewers?.map((r) =>
       r?.selectors?.findIndex((s) => s._id === meId)
     );
