@@ -76,3 +76,22 @@ Se realiza el frontend con React, se utilizó webpack y las siguientes librería
 - Dashboard Entrevistador (Aspirantes citados, Rúbricas a evaluar y Observaciones Generales)
 
 ![Untitled design (3) (1)](https://user-images.githubusercontent.com/97619450/171937395-4713dcbc-be57-444a-8064-37470366677f.png)
+
+
+## Colaboradores: 
+- Luis Cabal
+- Diana Chávez
+- Leandro Gutierrez
+- Carolina Loaiza
+- Jymmy Murillo
+- Jocelyn Rincón
+- Doraly Santander
+
+## Formadores: 
+- Lorena Guerrero
+- Andrés Patiño
+- Juliana Fajardo
+
+## Agradecimientos:
+- Xiomara Pérez
+- Enmanuel Pereira
