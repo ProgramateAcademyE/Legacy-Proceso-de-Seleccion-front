@@ -83,7 +83,6 @@ const InterviewerApplicantsCalificationBox = (props) => {
   });
 
   const handleQA = (newQualification) => {
-    console.log(newQualification);
     formik.setFieldValue("qualifications", [
       ...formik.values.qualifications,
       newQualification,

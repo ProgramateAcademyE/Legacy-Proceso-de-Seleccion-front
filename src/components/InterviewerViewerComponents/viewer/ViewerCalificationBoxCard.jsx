@@ -2,14 +2,14 @@ import React from "react";
 import "./ViewerCalification.css";
 
 const ViewerCalificationBoxCard = (props) => {
-  const { aspirants } = props;
+  const { aspirants, handleQA, item } = props;
   return (
     <div className="card">
-      <h4 className="card-header">{props.title}</h4>
+      <h4 className="card-header">{item.name}</h4>
       <br />
 
       <h4 className="card-text">Calificación</h4>
-      {props.calification
+      {item?.qualificationOptions
         .sort((a, b) => b.value - a.value)
         .map((c) => (
           <p className="viewerCardParagraph">
@@ -33,7 +33,17 @@ const ViewerCalificationBoxCard = (props) => {
       {aspirants.map((a) => (
         <p className="card-footer">
           {a.names}
-          <select className="interviewerSelect" name="" id="">
+          <select
+            className="interviewerSelect"
+            name=""
+            id=""
+            onChange={(e) =>
+              handleQA(a._id, {
+                name: item.name,
+                score: e.target.value, // Entre 1 y 5
+              })
+            }
+          >
             <option value="">Selecciona un valor</option>
             <option value="5">5</option>
             <option value="4">4</option>

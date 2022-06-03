@@ -3,7 +3,7 @@ import "./InterviewerApplicants.css";
 
 const InterviewerApplicantsCalificationBoxCard = (props) => {
   const { handleQA, item, currentAspirant } = props;
-  console.log("aspirante: ", currentAspirant);
+
   return (
     <div className="card">
       <h4 className="card-header">{item.name}</h4>
