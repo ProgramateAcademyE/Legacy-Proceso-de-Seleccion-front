@@ -17,7 +17,7 @@ const InterviewerDashboardTable = () => {
 
   async function fetchUserMeets(id) {
     const { data } = await axios.get(
-      `http://localhost:3001/api/admin/userMeets/${id}`,
+      `https://legacy-selection-educamas.herokuapp.com/api/admin/userMeets/${id}`,
       {
         headers: { Authorization: token },
       }

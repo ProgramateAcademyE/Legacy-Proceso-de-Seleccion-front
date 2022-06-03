@@ -15,7 +15,7 @@ const ModeratorInterviewTable = () => {
 
   async function fetchCitations() {
     const { data } = await axios.get(
-      "http://localhost:3001/api/admin/citation-all",
+      "https://legacy-selection-educamas.herokuapp.com/api/admin/citation-all",
       {
         headers: { Authorization: token },
       }
@@ -29,7 +29,7 @@ const ModeratorInterviewTable = () => {
 
   async function fetchMeetID(citationID) {
     const { data } = await axios.get(
-      `http://localhost:3001/api/admin/get-meet-id/${citationID}`,
+      `https://legacy-selection-educamas.herokuapp.com/api/admin/get-meet-id/${citationID}`,
       {
         headers: { Authorization: token },
       }

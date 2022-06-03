@@ -6,7 +6,7 @@ export const eventStartAddNew = (event) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.post(
-        "http://localhost:3001/api/admin/calendar",
+        "https://legacy-selection-educamas.herokuapp.com/api/admin/calendar",
         event
       );
       if (data.ok) {

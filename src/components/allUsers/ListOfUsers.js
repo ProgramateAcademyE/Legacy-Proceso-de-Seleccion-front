@@ -13,7 +13,8 @@ const ListOfUsers = () => {
 
   async function fetchData(page) {
     const { data } = await axios.get(
-      "http://localhost:3001/api/user/all_info/" + page,
+      "https://legacy-selection-educamas.herokuapp.com/api/user/all_info/" +
+        page,
       {
         headers: { Authorization: token },
       }

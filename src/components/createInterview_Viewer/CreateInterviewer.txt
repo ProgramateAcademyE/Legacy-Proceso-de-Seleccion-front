@@ -24,7 +24,7 @@ const [usersSelected, setUsersSelected] = useState([]);
  //connect users staff endpoint
  async function fetchUser() {
   const { data } = await axios.get(
-    "http://localhost:3001/api/user/roles_meeting_info",
+    "https://legacy-selection-educamas.herokuapp.com/api/user/roles_meeting_info",
     {
       headers: { Authorization: token },
     }
@@ -37,7 +37,7 @@ const [usersSelected, setUsersSelected] = useState([]);
 //connect citations info endpoint
 async function fetchCitation() {
   const { data } = await axios.get(
-    "http://localhost:3001/api/admin/citation-all",
+    "https://legacy-selection-educamas.herokuapp.com/api/admin/citation-all",
     {
       headers: { Authorization: token },
     }

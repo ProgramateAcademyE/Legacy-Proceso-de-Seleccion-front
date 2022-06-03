@@ -5,7 +5,7 @@ export const getProfileFull = (id) => {
   return async (dispatch) => {
     try {
       const res = await axios.get(
-        `http://localhost:3001/api/candidate/sololearm/${id}`
+        `https://legacy-selection-educamas.herokuapp.com/api/candidate/sololearm/${id}`
       );
       dispatch(getResult(res));
     } catch (error) {
@@ -23,7 +23,7 @@ export const getData = (id) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.get(
-        `http://localhost:3001/api/candidate/result/${id}`
+        `https://legacy-selection-educamas.herokuapp.com/api/candidate/result/${id}`
       );
       dispatch(getProfile(data));
     } catch (error) {

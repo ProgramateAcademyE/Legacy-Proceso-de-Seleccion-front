@@ -18,7 +18,7 @@ const InterviewerApplicantsCalificationBox = (props) => {
 
   async function fetchQuestionary() {
     const { data } = await axios.get(
-      `http://localhost:3001/api/admin/get-questionary/${questionaryId}`,
+      `https://legacy-selection-educamas.herokuapp.com/api/admin/get-questionary/${questionaryId}`,
       {
         headers: { Authorization: token },
       }
@@ -61,9 +61,12 @@ const InterviewerApplicantsCalificationBox = (props) => {
           qualifications: values.qualifications,
         },
       };
-      axios.post("http://localhost:3001/api/admin/interviewDay-Interviewer", {
-        ...toSubmit,
-      });
+      axios.post(
+        "https://legacy-selection-educamas.herokuapp.com/api/admin/interviewDay-Interviewer",
+        {
+          ...toSubmit,
+        }
+      );
       setSubmited(true);
       setTimeout(() => setSubmited(false), 80000);
       setTimeout(window.location.reload(), 90000);

@@ -85,10 +85,13 @@ const Login = () => {
     }
     try {
       await axios
-        .post("http://localhost:3001/api/user/login", {
-          email,
-          password,
-        })
+        .post(
+          "https://legacy-selection-educamas.herokuapp.com/api/user/login",
+          {
+            email,
+            password,
+          }
+        )
         .then((res) => {
           if (res.status === 200) {
             setUser({ ...user, err: "", success: res.data.msg });

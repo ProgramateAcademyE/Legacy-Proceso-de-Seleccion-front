@@ -17,7 +17,7 @@ const ModeratorApplicantsCited = () => {
 
   async function fetchCitation() {
     const { data } = await axios.get(
-      "http://localhost:3001/api/admin/citation-all",
+      "https://legacy-selection-educamas.herokuapp.com/api/admin/citation-all",
       {
         headers: { Authorization: token },
       }
@@ -41,7 +41,7 @@ const ModeratorApplicantsCited = () => {
   const token = useSelector((state) => state.token);
   async function fetchCitationSelected() {
     const { data } = await axios.get(
-      `http://localhost:3001/api/admin/citation-id/${IdCitation}`,
+      `https://legacy-selection-educamas.herokuapp.com/api/admin/citation-id/${IdCitation}`,
       {
         headers: { Authorization: token },
       }

@@ -58,7 +58,7 @@ function ModalCreateNewViewer() {
 
   /*  setValues({...initialStateValues})
 
-    axios.post("http://localhost:3001/api/user/register_staff", { ...values });
+    axios.post("https://legacy-selection-educamas.herokuapp.com/api/user/register_staff", { ...values });
     window.alert("All safe");
     console.log(values)
     abrirCerrarModal()

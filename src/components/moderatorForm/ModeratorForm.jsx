@@ -16,7 +16,7 @@ const ModeratorForm = () => {
   const [countInterviewer, setCountIntervierwer] = useState(0);
   async function fetchCitations() {
     const { data } = await axios.get(
-      "http://localhost:3001/api/admin/citation-all",
+      "https://legacy-selection-educamas.herokuapp.com/api/admin/citation-all",
       {
         headers: { Authorization: token },
       }
@@ -31,7 +31,7 @@ const ModeratorForm = () => {
   async function fetchAvailibility(citationID) {
     try {
       const { data } = await axios.get(
-        `http://localhost:3001/api/admin/available-id/${citationID}`,
+        `https://legacy-selection-educamas.herokuapp.com/api/admin/available-id/${citationID}`,
         {
           headers: { Authorization: token },
         }
@@ -96,7 +96,10 @@ const ModeratorForm = () => {
       };
 
       console.log("To submit", toSubmit);
-      axios.post("http://localhost:3001/api/admin/meet", { ...toSubmit });
+      axios.post(
+        "https://legacy-selection-educamas.herokuapp.com/api/admin/meet",
+        { ...toSubmit }
+      );
       cambiarFormularioEnviado(true);
       setTimeout(() => cambiarFormularioEnviado(false), 80000);
 

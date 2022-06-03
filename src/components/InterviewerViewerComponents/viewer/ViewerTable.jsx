@@ -23,7 +23,7 @@ const ViewerTable = (props) => {
   const meetId = "6290dbfaffb2ee7777ba38ad";
   async function fetchCitation() {
     const { data } = await axios.get(
-      `http://localhost:3001/api/admin/get-meet-by-meetId/${meetId}`,
+      `https://legacy-selection-educamas.herokuapp.com/api/admin/get-meet-by-meetId/${meetId}`,
       {
         headers: { Authorization: token },
       }

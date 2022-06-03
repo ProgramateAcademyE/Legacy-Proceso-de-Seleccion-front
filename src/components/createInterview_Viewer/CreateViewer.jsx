@@ -27,7 +27,7 @@ const CreateViewer = () => {
   //connect users staff endpoint
   async function fetchUser() {
     const { data } = await axios.get(
-      "http://localhost:3001/api/user/roles_meeting_info",
+      "https://legacy-selection-educamas.herokuapp.com/api/user/roles_meeting_info",
       {
         headers: { Authorization: token },
       }
@@ -39,7 +39,7 @@ const CreateViewer = () => {
   //connect citations info endpoint
   async function fetchCitation() {
     const { data } = await axios.get(
-      "http://localhost:3001/api/admin/citation-all",
+      "https://legacy-selection-educamas.herokuapp.com/api/admin/citation-all",
       {
         headers: { Authorization: token },
       }
@@ -50,7 +50,7 @@ const CreateViewer = () => {
   //Bring citation by id
   async function fetchCitationSelected() {
     const { data } = await axios.get(
-      `http://localhost:3001/api/admin/citationFilter/${IdCitation}`,
+      `https://legacy-selection-educamas.herokuapp.com/api/admin/citationFilter/${IdCitation}`,
       {
         headers: { Authorization: token },
       }
@@ -62,7 +62,7 @@ const CreateViewer = () => {
   //Check if availability register is already exists
   async function fetchAvailability() {
     const { data } = await axios.get(
-      `http://localhost:3001/api/admin/available-id/${IdCitation}`
+      `https://legacy-selection-educamas.herokuapp.com/api/admin/available-id/${IdCitation}`
     );
 
     if (data.data.length !== 0) {
@@ -136,7 +136,7 @@ const CreateViewer = () => {
     //Endpoint to send if availability register is already exists
     if (currentAvailableId.length !== 0) {
       axios.put(
-        `http://localhost:3001/api/admin//update_availables_viewer/${currentAvailableId}`,
+        `https://legacy-selection-educamas.herokuapp.com/api/admin//update_availables_viewer/${currentAvailableId}`,
         { ...finalStaff }
       );
 
@@ -158,9 +158,12 @@ const CreateViewer = () => {
       };
 
       console.log("newAvailability: ", newAvailability);
-      axios.post("http://localhost:3001/api/admin/availability", {
-        ...newAvailability,
-      });
+      axios.post(
+        "https://legacy-selection-educamas.herokuapp.com/api/admin/availability",
+        {
+          ...newAvailability,
+        }
+      );
       Swal.fire({
         icon: "success",
         title: "Observador Asignado",
@@ -173,7 +176,7 @@ const CreateViewer = () => {
 
   //const deleteAvailability = () => {
   //  const id_available=UsersSelected._id;
-  //  axios.delete(`http://localhost:3001/api/admin/deleteAvailability/${id_available}`);
+  //  axios.delete(`https://legacy-selection-educamas.herokuapp.com/api/admin/deleteAvailability/${id_available}`);
   //  };
 
   const handleSelect = (e) => {

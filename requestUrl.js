@@ -1,6 +1,6 @@
 // Endpoints
 //const BASEURL = 'https://selectprocess.herokuapp.com/api/'
-const BASEURL = "http://localhost:3001/api/";
+const BASEURL = "https://legacy-selection-educamas.herokuapp.com/api/";
 
 export const PETITIONS = {
   // ============ User ======================

@@ -5,7 +5,7 @@ class RequestService {
   constructor() {
     /* */
     this.version = "api";
-    this.urlServer = "http://localhost:3001/";
+    this.urlServer = "https://legacy-selection-educamas.herokuapp.com/";
   }
 
   async post(url, data) {

@@ -3,9 +3,12 @@ import { useDispatch } from "react-redux";
 import { types } from "../types/types";
 
 export const fetchAllUsers = async (token) => {
-  const res = await axios.get("http://localhost:3001/api/user/all_info", {
-    headers: { Authorization: token },
-  });
+  const res = await axios.get(
+    "https://legacy-selection-educamas.herokuapp.com/api/user/all_info",
+    {
+      headers: { Authorization: token },
+    }
+  );
   return res;
 };
 
@@ -20,7 +23,7 @@ export const getFormAll = (id) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.get(
-        `http://localhost:3001/api/candidate/infoperfil/${id}`
+        `https://legacy-selection-educamas.herokuapp.com/api/candidate/infoperfil/${id}`
       );
       dispatch(getForm(data));
     } catch (error) {

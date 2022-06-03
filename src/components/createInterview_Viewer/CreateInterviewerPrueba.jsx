@@ -21,7 +21,7 @@ const ModeratorViewer = () => {
   //connect users staff endpoint
   async function fetchUser() {
     const { data } = await axios.get(
-      "http://localhost:3001/api/user/roles_meeting_info",
+      "https://legacy-selection-educamas.herokuapp.com/api/user/roles_meeting_info",
       {
         headers: { Authorization: token },
       }
@@ -33,7 +33,7 @@ const ModeratorViewer = () => {
   //connect citations info endpoint
   async function fetchCitation() {
     const { data } = await axios.get(
-      "http://localhost:3001/api/admin/citation-all",
+      "https://legacy-selection-educamas.herokuapp.com/api/admin/citation-all",
       {
         headers: { Authorization: token },
       }
@@ -43,7 +43,7 @@ const ModeratorViewer = () => {
 
   async function fetchCitationSelected() {
     const { data } = await axios.get(
-      `http://localhost:3001/api/admin/citationFilter/${IdCitation}`,
+      `https://legacy-selection-educamas.herokuapp.com/api/admin/citationFilter/${IdCitation}`,
       {
         headers: { Authorization: token },
       }
@@ -54,7 +54,7 @@ const ModeratorViewer = () => {
 
   async function fetchAvailability() {
     const { data } = await axios.get(
-      `http://localhost:3001/api/admin/available-id/${IdCitation}`
+      `https://legacy-selection-educamas.herokuapp.com/api/admin/available-id/${IdCitation}`
     );
 
     if (data.data.length !== 0) {
@@ -107,7 +107,7 @@ const ModeratorViewer = () => {
 
     if (currentAvailableId.length !== 0) {
       axios.put(
-        `http://localhost:3001/api/admin/update_availables/${currentAvailableId}`,
+        `https://legacy-selection-educamas.herokuapp.com/api/admin/update_availables/${currentAvailableId}`,
         { ...selectors }
       );
     } else {
@@ -118,17 +118,20 @@ const ModeratorViewer = () => {
         selectors,
       };
 
-      axios.post("http://localhost:3001/api/admin/availability", {
-        ...newAvailability,
-      });
+      axios.post(
+        "https://legacy-selection-educamas.herokuapp.com/api/admin/availability",
+        {
+          ...newAvailability,
+        }
+      );
     }
 
-    // const citationAvailability = axios.get(`http://localhost:3001/api/admin/findCitationid/${citation.ID}`);
+    // const citationAvailability = axios.get(`https://legacy-selection-educamas.herokuapp.com/api/admin/findCitationid/${citation.ID}`);
   };
 
   //const deleteAvailability = () => {
   //  const id_available=UsersSelected._id;
-  //  axios.delete(`http://localhost:3001/api/admin/deleteAvailability/${id_available}`);
+  //  axios.delete(`https://legacy-selection-educamas.herokuapp.com/api/admin/deleteAvailability/${id_available}`);
   //  };
 
   const handleSelect = (e) => {

@@ -26,7 +26,7 @@ export const dataTypePopulation = [
 ];
 
 export const getOneConvocatory = async (id) => {
-  const APIURL = `http://localhost:3001/api/admin/convocatory/${id}`;
+  const APIURL = `https://legacy-selection-educamas.herokuapp.com/api/admin/convocatory/${id}`;
 
   // Fetching data...
   const res = await fetch(APIURL);

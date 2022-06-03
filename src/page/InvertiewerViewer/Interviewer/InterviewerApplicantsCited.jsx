@@ -21,7 +21,7 @@ const InterviewerApplicantsCited = () => {
   const meetId = pathname.slice(10);
   async function fetchCitation() {
     const { data } = await axios.get(
-      `http://localhost:3001/api/admin/get-meet-by-meetId/${meetId}`,
+      `https://legacy-selection-educamas.herokuapp.com/api/admin/get-meet-by-meetId/${meetId}`,
       {
         headers: { Authorization: token },
       }

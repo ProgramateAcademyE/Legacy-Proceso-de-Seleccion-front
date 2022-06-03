@@ -7,15 +7,13 @@ import "react-data-table-component-extensions/dist/index.css";
 import { useSelector } from "react-redux";
 import axios from "axios";
 
-
 const ModeratorInterviewerTable = () => {
-
   const [users, setUsers] = useState([]);
 
   const token = useSelector((state) => state.token);
   async function showData() {
     const { data } = await axios.get(
-      "http://localhost:3001/api/admin/get-meets",
+      "https://legacy-selection-educamas.herokuapp.com/api/admin/get-meets",
       {
         headers: { Authorization: token },
       }
@@ -26,7 +24,7 @@ const ModeratorInterviewerTable = () => {
   useEffect(() => {
     showData();
   }, []);
-  
+
   const columns = [
     {
       name: "FECHA",
@@ -65,7 +63,7 @@ const ModeratorInterviewerTable = () => {
     },
     {
       name: "DETALLE",
-   
+
       selector: (row) => (
         <a href="/moderadortablaentrevistas" target="_blank">
           ver detalles

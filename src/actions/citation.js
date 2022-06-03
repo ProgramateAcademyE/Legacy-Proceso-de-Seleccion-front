@@ -5,7 +5,7 @@ export const setCitationData = (iduSER, idEvent) => {
   return async (dispatch) => {
     try {
       const { data } = await axios.post(
-        `http://localhost:3001/api/candidate/attendevent/${iduSER}/${idEvent}`
+        `https://legacy-selection-educamas.herokuapp.com/api/candidate/attendevent/${iduSER}/${idEvent}`
       );
 
       dispatch(setCitation(data));

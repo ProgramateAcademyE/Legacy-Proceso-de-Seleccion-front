@@ -9,9 +9,12 @@ export const dispatchLogin = () => {
 
 export const fetchUser = async (token) => {
   try {
-    const res = await axios.get("http://localhost:3001/api/user/info", {
-      headers: { Authorization: token },
-    });
+    const res = await axios.get(
+      "https://legacy-selection-educamas.herokuapp.com/api/user/info",
+      {
+        headers: { Authorization: token },
+      }
+    );
     return res;
   } catch (error) {
     return error;

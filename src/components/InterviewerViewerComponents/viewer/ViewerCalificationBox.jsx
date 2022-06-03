@@ -21,7 +21,7 @@ const ViewerCalificationBox = (props) => {
 
   async function fetchQuestionary() {
     const { data } = await axios.get(
-      `http://localhost:3001/api/admin/get-questionary/${questionaryId}`,
+      `https://legacy-selection-educamas.herokuapp.com/api/admin/get-questionary/${questionaryId}`,
       {
         headers: { Authorization: token },
       }
@@ -65,9 +65,12 @@ const ViewerCalificationBox = (props) => {
 
         finalSubmit.push(toSubmit);
       }
-      axios.post("http://localhost:3001/api/admin/interviewDay-Observer", {
-        ...finalSubmit,
-      });
+      axios.post(
+        "https://legacy-selection-educamas.herokuapp.com/api/admin/interviewDay-Observer",
+        {
+          ...finalSubmit,
+        }
+      );
       setSubmited(true);
       setTimeout(() => setSubmited(false), 80000);
       setTimeout(history.replace(`/entrevistadordashboard`), 90000);

@@ -28,7 +28,7 @@ const Header = () => {
       const getToken = async () => {
         try {
           const res = await axios.post(
-            "http://localhost:3001/api/user/refresh_token",
+            "https://legacy-selection-educamas.herokuapp.com/api/user/refresh_token",
             { refreshtoken }
           );
           dispatch({ type: "getToken", payload: res.data.access_token });
