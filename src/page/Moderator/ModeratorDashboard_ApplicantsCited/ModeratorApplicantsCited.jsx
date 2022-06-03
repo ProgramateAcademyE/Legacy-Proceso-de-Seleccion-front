@@ -98,7 +98,7 @@ const ModeratorApplicantsCited = () => {
     //1 - Configurar los hooks
 
     <div className="moderatorContainer43">
-      <h2>
+      <h2 className="moderatorApplicantCitedTitle">
         <span className="moderatorSpan">Aspirantes Citados</span>{" "}
       </h2>
       <div>
@@ -114,19 +114,25 @@ const ModeratorApplicantsCited = () => {
         </select>
       </div>
       <div className="moderatorApplicantsCitedContainer">
-        <div className="tablemoderatorApplicantsCited">
-          <DataTableExtensions columns={columns} data={processedCitation[date]}>
-            <DataTable
-              title="Aspirantes Citados"
+        <div className="moderatorApplicantsCitedtable">
+          <div className="tablemoderatorApplicantsCited">
+            <DataTableExtensions
               columns={columns}
               data={processedCitation[date]}
-              defaultSortField="id"
-              defaultSortAsc={false}
-              pagination
-              paginationRowsPerPageOptions={[5, 10, 25, 50, 100]}
-              highlightOnHover
-            />
-          </DataTableExtensions>
+            >
+              <DataTable
+                title="Aspirantes Citados"
+                columns={columns}
+                data={processedCitation[date]}
+                noDataComponent="No hay reuniones programadas"
+                defaultSortField="id"
+                defaultSortAsc={false}
+                pagination
+                paginationRowsPerPageOptions={[5, 10, 25, 50, 100]}
+                highlightOnHover
+              />
+            </DataTableExtensions>
+          </div>
         </div>
       </div>
     </div>

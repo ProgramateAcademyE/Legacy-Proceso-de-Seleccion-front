@@ -1,21 +1,22 @@
-import React from 'react'
+import React from "react";
+
+//import "./ModeratorDashboard_ApplicantsCited.css";
 import "./ModeratorDashboard.css";
-import ModeratorInterviewerTable from '../../../components/moderatorInterviewTable/ModeratorInterviewerTable';
-
-
+import ModeratorInterviewerTable from "../../../components/moderatorInterviewTable/ModeratorInterviewerTable";
 
 const ModeratorDashboard = () => {
-
   return (
     <>
-  <div className="moderatorInterviewDasboard">
-    <div className="moderatorInterviewDasboardTitle">
-    <h1 className="moderatorInterviewDasboardTableTitle">Agenda de salas programadas </h1>
-      <ModeratorInterviewerTable/>
-    </div>
-    </div>
+      <div className="moderatorInterviewDasboard">
+        <div className="moderatorInterviewDasboardTitle">
+          <h1 className="moderatorInterviewDasboardTableTitle">
+            Agenda de salas programadas
+          </h1>
+          <ModeratorInterviewerTable />
+        </div>
+      </div>
     </>
-  )
-}
+  );
+};
 
-export default ModeratorDashboard
+export default ModeratorDashboard;

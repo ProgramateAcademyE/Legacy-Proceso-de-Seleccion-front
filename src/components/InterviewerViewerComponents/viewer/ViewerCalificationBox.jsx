@@ -5,7 +5,7 @@ import { useSelector } from "react-redux";
 import ViewerCalificationBoxCard from "./ViewerCalificationBoxCard";
 
 const ViewerCalificationBox = (props) => {
-  const [users, setUsers] = useState([]);
+  const { room } = props;
 
   const [questionary, setQuestionary] = useState();
 
@@ -23,8 +23,6 @@ const ViewerCalificationBox = (props) => {
     setQuestionary(data.data[0]);
   }
 
-  console.log("Questio..: ", questionary);
-
   useEffect(() => {
     fetchQuestionary();
   }, []);
@@ -38,60 +36,31 @@ const ViewerCalificationBox = (props) => {
             questions={item.questions}
             calification={item.qualificationOptions}
             key={index}
-            currentAspirant={props.currentAspirant}
+            aspirants={room.users}
           />
         );
       })}
-      <div className="card text-start|center|end">
-        <div className="card-body">
-          <h4 className="card-header">OBSERVACIONES GENERALES</h4>
-          <p className="">Aspirante 1</p>
-          <form action="">
-            <textarea
-              className="InterviewerApplicanTextarea"
-              id="w3review"
-              name="w3review"
-              rows="5"
-            />
-          </form>
 
-          <p className="">Aspirante 2</p>
-          <form action="">
-            <textarea
-              className="InterviewerApplicanTextarea"
-              id="w3review"
-              name="w3review"
-              rows="5"
-            />
-          </form>
+      {/* {questionary?.groups?.map((item, index) => {
+        return (
+     
+            <div className="card-body">
+              <h4 className="card-header">OBSERVACIONES GENERALES</h4>
+              <p className="">{room.users}</p>
+              <form action="">
+                <textarea
+                  className="InterviewerApplicanTextarea"
+                  id="w3review"
+                  name="w3review"
+                  rows="5"
+                />
+              </form>
+            </div>
+        
+        );
+      })} */}
 
-          <p className="">Aspirante 3</p>
-          <form action="">
-            <textarea
-              className="InterviewerApplicanTextarea"
-              id="w3review"
-              name="w3review"
-              rows="5"
-            />
-          </form>
-
-          <p className="">Aspirante 4</p>
-          <form action="">
-            <textarea
-              className="InterviewerApplicanTextarea"
-              id="w3review"
-              name="w3review"
-              rows="5"
-            />
-          </form>
-
-          <p className="">
-            <button className="InteviewerApplicantSubmit">
-              Enviar Evaluación
-            </button>
-          </p>
-        </div>
-      </div>
+      <button className="InteviewerApplicantSubmit">Enviar Evaluación</button>
     </div>
   );
 };

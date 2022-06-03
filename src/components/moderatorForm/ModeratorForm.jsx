@@ -3,7 +3,6 @@ import { Formik, Field, Form, ErrorMessage, useFormik } from "formik";
 import axios from "axios";
 import { useSelector } from "react-redux";
 
-
 const ModeratorForm = () => {
   const [citations, setCitations] = useState([]);
   const [available, setAvailable] = useState(undefined);
@@ -42,7 +41,6 @@ const ModeratorForm = () => {
       setAvailable([]);
     }
   }
-
   function clear() {
     (assesmentsRooms = 0), (assesmentsRooms = 0), (link = "");
   }
@@ -55,7 +53,6 @@ const ModeratorForm = () => {
     },
 
     validate: (values) => {
-      console.log("VaLues en Validate");
       let errores = {};
       if (!values.citationID || values.citationID.length === 0) {
         errores.citationID = "Debes seleccionar una fecha";
@@ -85,8 +82,7 @@ const ModeratorForm = () => {
     },
 
     onSubmit: (values, { resetForm }) => {
-
-        const toSubmit = {
+      const toSubmit = {
         ...values,
         link: values.link.trim(),
         date: citationSelected?.appointmentDate,
@@ -106,8 +102,6 @@ const ModeratorForm = () => {
     },
   });
 
-  console.log("errores", formik.errors);
-
   useEffect(() => {
     setCitacionSelected(
       citations?.data?.filter(
@@ -118,12 +112,12 @@ const ModeratorForm = () => {
   }, [formik.values.citationID]);
 
   //mirar que tiene interviewersInput
-  console.log("Entrevistadoresinput", interviewersInput);
-  console.log("ObservadoresInput", viewersInput);
+  //console.log("Entrevistadoresinput", interviewersInput);
+  //console.log("ObservadoresInput", viewersInput);
 
   return (
     <Formik>
-        <Form id="formulario" className="ModeratorForm">
+      <Form id="formulario" className="ModeratorForm">
         <div className="ModeratorformContainer">
           <div className="ModeratorFormSection1">
             <div>
@@ -209,107 +203,107 @@ const ModeratorForm = () => {
             </div>
           </div>
           <div className="section3">
-          <div className="ModeratorFormTitle">
-            <h5 className="ModeratorFormApplicants">Aspirantes</h5>
-          </div>
+            <div className="ModeratorFormTitle">
+              <h5 className="ModeratorFormApplicants">Aspirantes</h5>
+            </div>
 
-          <div className="ModeratorFormSelect">
-            {citationSelected !== null ? ( 
-              <>
-                <Field
-                  name="applicants"
-                  as="text"
-                  multiple
-                  className="form-control select "
-                >
-                  {citationSelected?.users?.map((u) => (
-                    <option value={u.names}>{`${u.names} ${u.surname}`}</option>
-                  ))}
-                </Field>
-              </>
-            ) : (
-              <></>
-            )}
-          </div>
-          <div className="ModeratorFormTitle">
-            <h5 className="">Entrevistadores</h5>
-          </div>
+            <div className="ModeratorFormSelect">
+              {citationSelected !== null ? (
+                <>
+                  <Field
+                    name="applicants"
+                    as="text"
+                    multiple
+                    className="form-control select "
+                  >
+                    {citationSelected?.users?.map((u) => (
+                      <option
+                        value={u.names}
+                      >{`${u.names} ${u.surname}`}</option>
+                    ))}
+                  </Field>
+                </>
+              ) : (
+                <></>
+              )}
+            </div>
+            <div className="ModeratorFormTitle">
+              <h5 className="">Entrevistadores</h5>
+            </div>
 
-          <div className="ModeratorFormSelect">
-            {available !== undefined ? (
-              <>
-                <Field
-                  name="interviewers"
-                  as="text"
-                  multiple
-                  className=" form-control select  "
-                >
-                  <div ref={interviewersInput}>
-                    {available?.selectors?.map((s) =>
-                      s.meetRole === 4 ? (
-                        <option value={s.names}>
-                          {`${s.names} ${s.surname}`}{" "}
-                        </option>
-                      ) : (
-                        <></>
-                      )
-                    )}
-                  </div>
-                </Field>
-              </>
-            ) : (
-              <></>
-            )}
+            <div className="ModeratorFormSelect">
+              {available !== undefined ? (
+                <>
+                  <Field
+                    name="interviewers"
+                    as="text"
+                    multiple
+                    className=" form-control select  "
+                  >
+                    <div ref={interviewersInput}>
+                      {available?.selectors?.map((s) =>
+                        s.meetRole === 4 ? (
+                          <option value={s.names}>
+                            {`${s.names} ${s.surname}`}{" "}
+                          </option>
+                        ) : (
+                          <></>
+                        )
+                      )}
+                    </div>
+                  </Field>
+                </>
+              ) : (
+                <></>
+              )}
+            </div>
+            <div className="ModeratorFormTitle">
+              <h5 className="">observadores</h5>
+            </div>
+            <div className="ModeratorFormSelect">
+              {available !== undefined ? (
+                <>
+                  <Field
+                    name="observers"
+                    as="text"
+                    multiple
+                    className="form-control select "
+                  >
+                    <div ref={viewersInput}>
+                      {available?.selectors?.map((s) =>
+                        s.meetRole === 3 ? (
+                          <option
+                            value={s.names}
+                          >{`${s.names} ${s.surname}`}</option>
+                        ) : (
+                          <></>
+                        )
+                      )}
+                    </div>
+                  </Field>
+                </>
+              ) : (
+                <></>
+              )}
+            </div>
+            <div className="ModeratorFormButton">
+              <button
+                type="submit"
+                onClick={formik.handleSubmit}
+                className="ModeratorFormSubmit"
+              >
+                Publicar y enviar
+              </button>
+            </div>
+            <div className="ModeratorFormExit">
+              {formularioEnviado && (
+                <span className="">Formulario Enviado con exito!</span>
+              )}
+            </div>
           </div>
-          <div className="ModeratorFormTitle">
-            <h5 className="">observadores</h5>
-          </div>
-          <div className="ModeratorFormSelect">
-            {available !== undefined ? (
-              <>
-                <Field
-                  name="interviewers"
-                  as="text"
-                  multiple
-                  className="form-control select "
-                >
-                  <div ref={viewersInput}>
-                    {available?.selectors?.map((s) =>
-                      s.meetRole === 3 ? (
-                        <option
-                          value={s.names}
-                        >{`${s.names} ${s.surname}`}</option>
-                      ) : (
-                        <></>
-                      )
-                    )}
-                  </div>
-                </Field>
-              </>
-            ) : (
-              <></>
-            )}
-          </div>
-          <div className="ModeratorFormButton">
-            <button
-              type="submit"
-              onClick={formik.handleSubmit}
-              className="ModeratorFormSubmit"
-           
-            >
-              Publicar y enviar
-            </button>
-          </div>
-          <div className="ModeratorFormExit">
-            {formularioEnviado && (
-              <span className="">Formulario Enviado con exito!</span>
-            )}
-          </div>
-        </div>
         </div>
       </Form>
     </Formik>
-       
   );
 };
 

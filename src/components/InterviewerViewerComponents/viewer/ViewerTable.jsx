@@ -18,7 +18,6 @@ const ViewerTable = (props) => {
 
   const handleChange = ({ selectedRows }) => {
     // You can set state or dispatch with something like Redux so we can use the retrieved data
-    console.log("Selected Rows: ", selectedRows);
   };
 
   const meetId = "6290dbfaffb2ee7777ba38ad";
@@ -51,8 +50,6 @@ const ViewerTable = (props) => {
       ? meet.roomsInterviewers[searchInterviewer.findIndex((p) => p === 1)]
       : "";
 
-  console.log("Room: ", room);
-
   const processedCitation = room?.users?.map((item) => {
     return {
       id: item._id,
@@ -68,9 +65,7 @@ const ViewerTable = (props) => {
     fetchCitation();
   }, []);
 
-  useEffect(() => {
-    console.log("Aiuda!!!!");
-  }, [currentUser]);
+  useEffect(() => {}, [currentUser]);
 
   const columns = [
     {
@@ -104,6 +99,8 @@ const ViewerTable = (props) => {
     <div className="interviewerApplicantTable">
       <DataTableExtensions columns={columns} data={processedCitation}>
         <DataTable
+          title="Aspirantes Citados"
+          noDataComponent="No hay reuniones programadas"
           columns={columns}
           data={processedCitation}
           defaultSortField="id"

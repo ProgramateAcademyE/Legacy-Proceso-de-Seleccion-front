@@ -1,5 +1,10 @@
-import React, { useEffect, useState } from "react";
-import { Switch, Route, useLocation, Redirect } from "react-router-dom";
+import React, { useEffect } from "react";
+import {
+  Switch,
+  Route,
+  useLocation,
+  Redirect,
+} from "react-router-dom";
 import Header from "../components/header/Header";
 import Nav from "../components/nav/Nav";
 import Parameterization from "../components/inscription/Parameterization";
@@ -67,7 +72,6 @@ const App = () => {
   const { isLogged /*isAdmin, isModerator, isInterviewer, isViewer*/ } = auth;
 
   const role = auth.user.role;
-  console.log(role);
 
   const { pathname } = useLocation();
 
@@ -79,11 +83,16 @@ const App = () => {
         pathname !== "/verify" && <Header />) || <NavBarIndex />}
 
       {/* {pathname !== "/login" && <Nav user={user} adminstate={adminstate} />} */}
-      {pathname !== "/" &&
+      {pathname?.includes("calificar") ? (
+        <></>
+      ) : (
+        pathname !== "/" &&
         pathname !== "/register" &&
-        pathname !== "/verify" && <Nav />}
+        pathname !== "/verify" && <Nav />
+      )}
 
       <Switch>
+        <Redirect from="/calificar" to="/entrevistadordashboard" exact={true} />
         <Route exact path="/verify" component={Verify} />
 
         <Route exact path="/" component={LoginFull} />
@@ -181,10 +190,16 @@ const App = () => {
                 component={InterviewerDashboard}
               />
               <Route
+                exact
+                path="/calificar:id"
+                component={InterviewerApplicantsCited}
+              />
+              /
+              {/*<Route
                 path="/entrevistadoraplicantescitados"
                 component={InterviewerApplicantsCited}
               />
-              <Route path="/observadorassesment" component={ViewerAssesment} />
+          <Route path="/observadorassesment" component={ViewerAssesment} />*/}
             </>
           ) : (
             <>

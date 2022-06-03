@@ -119,9 +119,9 @@ const CreateInterViewer = () => {
       Swal.fire({
         icon: "success",
         title: "Entrevistador habilitado",
-        timer:2000
-         });
-        
+        timer: 2000,
+      });
+
       //  document.location.reload();
     } else {
       const newAvailability = {
@@ -138,10 +138,10 @@ const CreateInterViewer = () => {
       Swal.fire({
         icon: "success",
         title: "Entrevistador habilitado",
-        timer:2000
-         });
-        
-        document.location.reload();
+        timer: 2000,
+      });
+
+      document.location.reload();
     }
 
     // const citationAvailability = axios.get(`http://localhost:3001/api/admin/findCitationid/${citation.ID}`);

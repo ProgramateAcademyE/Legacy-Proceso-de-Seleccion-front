@@ -86,6 +86,7 @@ h5 {
   border-radius: 10px;
   box-shadow: 1px 10px 25px gray;
   margin-top: 10%;
+  border: none;
 }
 .ModeratorFormExit {
   display: flex;

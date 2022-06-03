@@ -1,71 +1,63 @@
 import "./InterviewerApplicants.css";
 import DataTableExtensions from "react-data-table-component-extensions";
 import "react-data-table-component-extensions/dist/index.css";
-import React, { useState, useEffect } from "react";
-import DataTable, { createTheme } from "react-data-table-component";
+import React from "react";
+import DataTable from "react-data-table-component";
 import "styled-components";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import { useHistory } from "react-router-dom";
 
 const InterviewerDashboardTable = () => {
-  const [citation, setCitation] = useState([]);
-  const [IdCitation, setIdCitation] = useState([]);
-  const [citationSelected, setCitationSelected] = useState([]);
-  const [date, setDate] = useState(-1);
-  const [processedCitation, setProcessedCitation] = useState([]);
-
-  async function fetchCitation() {
-    const { data } = await axios.get(
-      "http://localhost:3001/api/admin/citation-all",
-      {
-        headers: { Authorization: token },
-      }
-    );
-    setCitation(data.data);
-    setProcessedCitation(
-      data.data.map((item) => {
-        return item.users.map((subitem) => {
-          return {
-            fecha: item.appointmentDate.slice(0, 10),
-            jornada: item.shift,
-            convocatoria: item.titleConvocatory,
-            rol_asignado: item.rol,
-            aspirantes: item.usersNumber,
-          };
-        });
-      })
-    );
-  }
-  console.log("citacion", citation);
-
+  const history = useHistory();
+  const auth = useSelector((state) => state.auth);
+  const meId = auth.user._id;
   const token = useSelector((state) => state.token);
-  async function fetchCitationSelected() {
+  const [userMeets, setUserMeets] = React.useState();
+
+  async function fetchUserMeets(id) {
     const { data } = await axios.get(
-      `http://localhost:3001/api/admin/citation-id/${IdCitation}`,
+      `http://localhost:3001/api/admin/userMeets/${id}`,
       {
         headers: { Authorization: token },
       }
     );
-
-    setCitationSelected(data);
+    setUserMeets(data.data);
   }
-  console.log("citation selected", citationSelected);
-
-  useEffect(() => {
-    fetchCitation();
+  console.log("Meets", userMeets);
+  React.useEffect(() => {
+    fetchUserMeets(meId);
   }, []);
 
-  console.log("processed", processedCitation);
-
-  const handleSelect = (e) => {
-    let index = e.target.selectedIndex;
-    let date = e.target.options[index].text;
-    setDate(e.target.value);
-    setIdCitation(e.target.value);
-    fetchCitationSelected();
+  const handleCurrentMeet = (meetId) => {
+    history.replace(`/calificar${meetId}`);
   };
 
-  console.log("citations", IdCitation);
+  const processedMeets = userMeets?.map((m) => {
+    let meetRole;
+    if (
+      m[0].roomsAssesments
+        ?.map((i) => i.selectors?.findIndex((s) => s._id === meId) !== -1)
+        .includes(true)
+    ) {
+      meetRole = "Observador";
+    } else if (
+      m[0].roomsInterviewers
+        ?.map((i) => i.selectors?.findIndex((s) => s._id === meId) !== -1)
+        .includes(true)
+    ) {
+      meetRole = "Entrevistador";
+    }
+    return {
+      meetId: m[0]._id,
+      fecha: m[0].date?.slice(0, 10),
+      jornada: m[0]?.shift,
+      horario: m[0]?.shift,
+      convocatoria: m[0].titleConvocatory,
+      rol_asignado: meetRole,
+      aspirantes: m[0].usersNumber,
+    };
+  });
 
   const columns = [
     {
@@ -94,36 +86,27 @@ const InterviewerDashboardTable = () => {
     {
       name: "VER MAS",
       selector: (row) => (
-        <a href="/entrevistadoraplicantescitados" target="_blank">
-          ver detalles
-        </a>
+        <button
+          className="buttonViewMoreInterviewerDashboard"
+          onClick={() => handleCurrentMeet(row.meetId)}
+        >
+          Ver Detalles
+        </button>
       ),
       sortable: true,
     },
   ];
 
   return (
-    //1 - Configurar los hooks
-
     <div className="interviewerDashboardTable">
-      <div>
-        <select className="selectButton" onChange={handleSelect}>
-          <option value="">Seleccione una fecha</option>
-          {citation.map((cita, index) => (
-            <option value={index}>
-              {`${cita.appointmentDate.toString().slice(0, -14)}
-                    ${cita.shift}`}{" "}
-            </option>
-          ))}
-        </select>
-      </div>
       <div className="moderatorApplicantsCitedContainer">
         <div className="tablemoderatorApplicantsCited">
-          <DataTableExtensions columns={columns} data={processedCitation[date]}>
+          <DataTableExtensions columns={columns} data={processedMeets}>
             <DataTable
               title="Aspirantes Citados"
+              noDataComponent="No hay reuniones programadas"
               columns={columns}
-              data={processedCitation[date]}
+              data={processedMeets}
               defaultSortField="id"
               defaultSortAsc={false}
               pagination

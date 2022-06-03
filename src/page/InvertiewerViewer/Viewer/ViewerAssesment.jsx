@@ -2,14 +2,15 @@ import React from "react";
 import ViewerCalificationBox from "../../../components/InterviewerViewerComponents/viewer/ViewerCalificationBox";
 import ViewerTable from "../../../components/InterviewerViewerComponents/viewer/ViewerTable";
 import "./ViewerAssesment.css";
+import { useHistory } from "react-router-dom";
 
 const ViewerAssesment = () => {
   const [currentAspirant, setCurrentAspirant] = React.useState();
 
   const handleCurrentAspirant = (newAspirant) => {
-    console.log("function", newAspirant);
     setCurrentAspirant(newAspirant);
   };
+
   return (
     <>
       <div className="viewerAssesmentContainer">

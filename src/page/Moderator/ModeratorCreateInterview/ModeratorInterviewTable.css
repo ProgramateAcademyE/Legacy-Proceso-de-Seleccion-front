@@ -9,8 +9,8 @@
     margin-left: 7%;
     overflow-y: scroll;
     padding: 7px;
-    padding-top: 15%;
-    margin-bottom: 300px;
+    padding-top: 10%;
+    margin-bottom: 400px;
   }
 
 .divi{
@@ -20,10 +20,17 @@
   flex-direction: column;
   align-items: center;
 }
+
 .moderatorInterviewTableTitle{
   font-size: 2rem;
 }
 
+@media (max-width: 991px) {
+  .moderatorInterviewTableContainer{
+    padding-top: 15%;
+
+  }
+}
 
 @media (max-width: 698px) {
   .moderatorInterviewTableTitle{

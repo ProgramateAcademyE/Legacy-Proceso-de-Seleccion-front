@@ -2,38 +2,107 @@ import React from "react";
 import InterviewerApplicantsCalificationBox from "../../../components/InterviewerViewerComponents/interviewer/InterviewerApplicantsCalificationBox";
 import InterviewerApplicantsTable from "../../../components/InterviewerViewerComponents/interviewer/InterviewerApplicantsTable";
 import "./InterviewerApplicant.css";
+import ViewerCalificationBox from "../../../components/InterviewerViewerComponents/viewer/ViewerCalificationBox";
+import { useSelector } from "react-redux";
+import axios from "axios";
+import { useLocation, useHistory } from "react-router-dom";
 
 const InterviewerApplicantsCited = () => {
+  const history = useHistory();
+  const { pathname } = useLocation();
+  const token = useSelector((state) => state.token);
+  const auth = useSelector((state) => state.auth);
+  const meId = auth.user._id;
   const [currentAspirant, setCurrentAspirant] = React.useState();
+  const [meet, setMeet] = React.useState();
+  const [room, setRoom] = React.useState();
+  const [role, setRole] = React.useState();
+
+  const meetId = pathname.slice(10);
+  console.log("Meet ID: ", meetId);
+  async function fetchCitation() {
+    const { data } = await axios.get(
+      `http://localhost:3001/api/admin/get-meet-by-meetId/${meetId}`,
+      {
+        headers: { Authorization: token },
+      }
+    );
+    setMeet(data.data[0]);
+    console.log("meeeeet", data.data[0]);
+    const searchInterviewer = data.data[0]?.roomsInterviewers?.map((r) =>
+      r?.selectors?.findIndex((s) => s._id === meId)
+    );
+    const searchAssesment = data.data[0]?.roomsAssesments?.map((r) =>
+      r?.selectors?.findIndex((s) => s._id === meId)
+    );
+
+    const role = searchInterviewer?.some((e) => e !== -1)
+      ? "interviewer"
+      : searchAssesment?.some((e) => e !== -1)
+      ? "Observer"
+      : null;
+
+    setRole(role === "interviewer" ? 4 : 3);
+
+    const room =
+      role === "interviewer"
+        ? data.data[0]?.roomsInterviewers[
+            searchInterviewer?.findIndex((p) => p !== -1)
+          ]
+        : data.data[0]?.roomsAssesments[
+            searchAssesment?.findIndex((p) => p !== -1)
+          ];
+    setRoom(room);
+    console.log("Room ene el padre", room);
+  }
 
   const handleCurrentAspirant = (newAspirant) => {
-    console.log("function", newAspirant);
     setCurrentAspirant(newAspirant);
   };
 
-  return (
-    <>
-      <div className="interviewerApplicantContainer">
-        <h1 className="interviewrApplicantTitle">
-          <span className="interviewerSpan">Aspirantes citados </span>
-        </h1>
-        <div className="">
-          <h4 className="viewerAssesmentTitle2">
-            Lista de estudiantes agendados para hoy...
-          </h4>
-          <InterviewerApplicantsTable
-            handleCurrentAspirant={handleCurrentAspirant}
-          />
+  const handleGoBack = () => {
+    history.replace(`/entrevistadordashboard`);
+  };
 
-          <h1 className="interviewrApplicantTitle2">
-            <span className="interviewerSpan">Aspirante</span>
-          </h1>
+  React.useEffect(() => {
+    fetchCitation();
+  }, []);
+
+  return meet ? (
+    <div className="interviewerApplicantContainer">
+      <button className="buttonBackInterviewerViewer" onClick={handleGoBack}>
+        Ver citas programadas
+      </button>
+      <h1 className="interviewrApplicantTitle">
+        <span className="interviewerSpan">Aspirantes citados </span>
+      </h1>
+      <div className="">
+        <h4 className="viewerAssesmentTitle2">
+          Lista de estudiantes agendados para hoy...
+        </h4>
+        <InterviewerApplicantsTable
+          handleCurrentAspirant={handleCurrentAspirant}
+          meet={meet}
+          room={room}
+          role={role}
+        />
+
+        <h1 className="interviewrApplicantTitle2">
+          <span className="interviewerSpan">Aspirante</span>
+        </h1>
+        {role === 4 ? (
           <InterviewerApplicantsCalificationBox
+            meet={meet}
+            room={room}
             currentAspirant={currentAspirant}
           />
-        </div>
+        ) : (
+          <ViewerCalificationBox room={room} />
+        )}
       </div>
-    </>
+    </div>
+  ) : (
+    <></>
   );
 };
 

@@ -33,10 +33,10 @@ const ExpandableComponent = ({ data }) => {
   );
 };
 
-function ModeratorApplicantsCitedPrueba () {
+function ModeratorApplicantsCitedPrueba() {
   const tableData = {
     columns,
-    data
+    data,
   };
 
   const [dataTemp, setDataTemp] = useState([]);
@@ -52,6 +52,7 @@ function ModeratorApplicantsCitedPrueba () {
         <DataTable
           columns={columns}
           data={data}
+          noDataComponent="No hay reuniones programadas"
           noHeader
           defaultSortField="id"
           defaultSortAsc={false}

@@ -79,6 +79,7 @@ const ModeratorInterviewerTable = () => {
       <DataTableExtensions columns={columns} data={users}>
         <DataTable
           columns={columns}
+          noDataComponent="No hay reuniones programadas"
           data={users}
           defaultSortField="id"
           defaultSortAsc={false}

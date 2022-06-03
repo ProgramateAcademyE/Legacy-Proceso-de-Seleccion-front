@@ -15,8 +15,8 @@
 /*:::::Pie de Pagina*/
 .pie-pagina {
   width: 100%;
-  background-color: black;
-  margin-top: 4.5em;
+  background-color:black;
+  margin-top: 12%;
 }
 .pie-pagina .grupo-1 {
   display: flex;

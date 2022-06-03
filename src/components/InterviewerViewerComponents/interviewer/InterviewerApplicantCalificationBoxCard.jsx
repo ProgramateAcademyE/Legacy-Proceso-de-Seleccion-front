@@ -2,13 +2,14 @@ import React from "react";
 import "./InterviewerApplicants.css";
 
 const InterviewerApplicantsCalificationBoxCard = (props) => {
-  console.log("aspirante: ", props.currentAspirant);
+  const { handleQA, item, currentAspirant } = props;
+  console.log("aspirante: ", currentAspirant);
   return (
     <div className="card">
-      <h4 className="card-header">{props.title}</h4>
+      <h4 className="card-header">{item.name}</h4>
       <br />
       <h4 className="card-title">Preguntas</h4>
-      {props.questions.map((q, index) => {
+      {item.questions.map((q, index) => {
         //console.log(q.split("<br>"));
         return (
           <>
@@ -33,7 +34,7 @@ const InterviewerApplicantsCalificationBoxCard = (props) => {
       })}
       <br />
       <h4 className="card-text">Calificación</h4>
-      {props.calification
+      {item.qualificationOptions
         .sort((a, b) => b.value - a.value)
         .map((c) => (
           <p className="interviewerCardParagraph">
@@ -53,10 +54,21 @@ const InterviewerApplicantsCalificationBoxCard = (props) => {
             {c.description}
           </p>
         ))}
-      {props.currentAspirant ? (
+      {currentAspirant ? (
         <p className="card-footer">
-          {props.currentAspirant?.aspirante}
-          <select className="interviewerSelect" name="" id="">
+          {currentAspirant?.aspirante}
+          <select
+            className="interviewerSelect"
+            name=""
+            id=""
+            onChange={(e) =>
+              handleQA({
+                name: item.name,
+                score: e.target.value, // Entre 1 y 5
+              })
+            }
+          >
+            <option value="">Selecciona un valor</option>
             <option value="5">5</option>
             <option value="4">4</option>
             <option value="3">3</option>
