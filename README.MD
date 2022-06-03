@@ -85,12 +85,12 @@ Se realiza el frontend con React, se utilizó webpack y las siguientes librería
 - https://legacy-proceso-seleccion.netlify.app/
 
 ## Colaboradores: 
-- Luis Cabal
-- Diana Chávez    https://github.com/dianachavezr
+- Luis Cabal        https://github.com/ElCabal
+- Diana Chávez      https://github.com/dianachavezr
 - Leandro Gutierrez
 - Carolina Loaiza
-- Jymmy Murillo
-- Jocelyn Rincón
+- Jymmy Murillo    https://github.com/JymmyMurillo
+- Jocelyn Rincón    https://github.com/JocelynRincon
 - Doraly Santander
 
 ## Formadores: 
