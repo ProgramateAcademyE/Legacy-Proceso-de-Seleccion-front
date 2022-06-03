@@ -22,12 +22,14 @@ text-align: center;
 
  
 .moderatorInterviewerTitle{
+  background: #1d1c1c;
   font-size: 2rem;
   margin-top: 10%;
   font-size: 2rem;
   border-radius: 10px;
   padding: 10px;
-  color: black;
+  color: rgb(254, 248, 248);
+  border: 2px solid #fdc300;
 }
 
 @media (max-width: 991px){

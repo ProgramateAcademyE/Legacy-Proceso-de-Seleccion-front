@@ -10,12 +10,17 @@ const CreateViewer = () => {
   const [citation, setCitation] = useState([]);
   const [citationSelected, setCitationSelected] = useState([]);
   const [IdCitation, setIdCitation] = useState([]);
-  const [date, setDate] = useState([]);
   const [UsersSelected, setUsersSelected] = useState([]);
+  const [UsersSelectedOne, setUsersSelectedOne] = useState([]);
   const [currentSelectors, setCurrentSelectors] = useState([]);
   const [currentAvailableId, setCurrentAvailableId] = useState("");
-  const [checked, setCheked] = useState(true);
-  const [spinner, mostrarSpinner] = useState(true);
+  const [finalSelectors, setFinalSelectors] = useState([]);
+  const [date, setDate] = useState([]);
+
+  //convert string to date format
+  const finalDate = date.slice(0, -6);
+  const finalDate2 = Date.parse(finalDate);
+  const fecha = new Date(finalDate2);
 
   const token = useSelector((state) => state.token);
 
@@ -42,6 +47,7 @@ const CreateViewer = () => {
     setCitation(data.data);
   }
 
+  //Bring citation by id
   async function fetchCitationSelected() {
     const { data } = await axios.get(
       `http://localhost:3001/api/admin/citationFilter/${IdCitation}`,
@@ -53,6 +59,7 @@ const CreateViewer = () => {
     setCitationSelected(data);
   }
 
+  //Check if availability register is already exists
   async function fetchAvailability() {
     const { data } = await axios.get(
       `http://localhost:3001/api/admin/available-id/${IdCitation}`
@@ -78,27 +85,28 @@ const CreateViewer = () => {
     fetchAvailability();
   }, [IdCitation]);
 
+  //Set info everytime check is on true, or unset if not
   const toggleChecked = (e) => {
-    if (UsersSelected.findIndex((user) => user._id == e.target.value) !== -1) {
-      const selector = UsersSelected.findIndex(
+    if (
+      currentSelectors.findIndex((user) => user._id == e.target.value) !== -1
+    ) {
+      const selector = currentSelectors.findIndex(
         (user) => user._id == e.target.value
       );
-
-      UsersSelected.splice(selector, 1);
-      setCheked(selector);
-
-      setUsersSelected([...UsersSelected]);
+      currentSelectors.splice(selector, 1);
+      setCurrentSelectors([...currentSelectors]);
     } else {
       const selector = users.find((user) => user._id == e.target.value);
-      setUsersSelected([...UsersSelected, selector]);
+      setUsersSelectedOne([...UsersSelectedOne, selector]);
     }
   };
 
-  // Post availability staff
+  // Post availability staff selected
   const postAvailability = () => {
     fetchCitationSelected();
 
-    const selectors = UsersSelected.map((dat) => {
+    //map all new staff selected
+    const selectors = UsersSelectedOne.map((dat) => {
       return {
         _id: dat._id,
         names: dat.names,
@@ -108,40 +116,59 @@ const CreateViewer = () => {
       };
     });
 
+    //map all staff that is already safe on database
+    const selectores = currentSelectors.map((dat) => {
+      return {
+        _id: dat._id,
+        names: dat.names,
+        surname: dat.surname,
+        role: dat.role,
+        meetRole: dat.meetRole,
+      };
+    });
+    console.log("newselector", selectors);
+    console.log("oldselectors", selectores);
+
+    //concat both arrays to finally send to database
+    const finalStaff = selectors.concat(selectores);
+    setFinalSelectors(finalStaff);
+
+    //Endpoint to send if availability register is already exists
     if (currentAvailableId.length !== 0) {
       axios.put(
-        `http://localhost:3001/api/admin/update_availables/${currentAvailableId}`,
-        { ...selectors }
+        `http://localhost:3001/api/admin//update_availables_viewer/${currentAvailableId}`,
+        { ...finalStaff }
       );
 
       Swal.fire({
         icon: "success",
-        title: "Observador habilitado",
-        timer: 2000,
+        title: "Observador Asignado",
+        timer: 500,
       });
+      document.location.reload();
+    }
 
-      //  document.location.reload();
-    } else {
+    //if availability register does not exists create a new availability register
+    else {
       const newAvailability = {
         citationID: IdCitation,
-        date: date,
-        shift: "mañana",
+        date: fecha,
+        shift: date.slice(11),
         selectors,
       };
 
+      console.log("newAvailability: ", newAvailability);
       axios.post("http://localhost:3001/api/admin/availability", {
         ...newAvailability,
       });
       Swal.fire({
         icon: "success",
-        title: "Observador habilitado",
-        timer: 2000,
+        title: "Observador Asignado",
+        timer: 500,
       });
 
       document.location.reload();
     }
-
-    // const citationAvailability = axios.get(`http://localhost:3001/api/admin/findCitationid/${citation.ID}`);
   };
 
   //const deleteAvailability = () => {
@@ -178,6 +205,7 @@ const CreateViewer = () => {
               <tr className="table_head">
                 <th>Observador</th>
                 <th>Rol Principal</th>
+                <th>Meet Rol</th>
                 <th>Fecha disponible</th>
                 <th>Jornada disponible </th>
                 <th>Habilitar</th>
@@ -188,7 +216,24 @@ const CreateViewer = () => {
                     <td>
                       {staff.names} {staff.surname}
                     </td>
-                    <td>{staff.role}</td>
+                    <td>
+                      {staff.role === 1
+                        ? "Administrador"
+                        : staff.role === 2
+                        ? "Moderador"
+                        : staff.role === 3
+                        ? "Observador"
+                        : "Entrevistador"}
+                    </td>
+                    <td>
+                      {staff.meetRole === 1
+                        ? "Administrador"
+                        : staff.meetRole === 2
+                        ? "Moderador"
+                        : staff.meetRole === 3
+                        ? "Observador"
+                        : "Entrevistador"}
+                    </td>
                     <td>{date.slice(0, -6)}</td>
                     <td>{date.slice(11)}</td>
 
@@ -197,7 +242,7 @@ const CreateViewer = () => {
                         value={staff._id}
                         type="checkbox"
                         name="id"
-                        checked={checked}
+                        checked={true}
                         onChange={toggleChecked}
                       />
                     </td>
@@ -215,7 +260,16 @@ const CreateViewer = () => {
                     <td>
                       {staff.names} {staff.surname}
                     </td>
-                    <td>{staff.role}</td>
+                    <td>
+                      {staff.role === 1
+                        ? "Administrador"
+                        : staff.role === 2
+                        ? "Moderador"
+                        : staff.role === 3
+                        ? "Observador"
+                        : "Entrevistador"}
+                    </td>
+                    <td></td>
                     <td>{date.slice(0, -6)}</td>
                     <td>{date.slice(11)}</td>
 
