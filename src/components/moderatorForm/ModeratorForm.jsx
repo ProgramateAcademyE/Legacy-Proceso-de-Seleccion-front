@@ -93,7 +93,6 @@ const ModeratorForm = () => {
         observers: available.selectors.filter((s) => s.meetRole === 3),
       };
 
-      console.log("To submit", toSubmit);
       axios.post("http://localhost:3001/api/admin/meet", { ...toSubmit });
       cambiarFormularioEnviado(true);
       setTimeout(() => cambiarFormularioEnviado(false), 80000);
@@ -110,10 +109,6 @@ const ModeratorForm = () => {
     );
     fetchAvailibility(formik.values.citationID);
   }, [formik.values.citationID]);
-
-  //mirar que tiene interviewersInput
-  //console.log("Entrevistadoresinput", interviewersInput);
-  //console.log("ObservadoresInput", viewersInput);
 
   return (
     <Formik>

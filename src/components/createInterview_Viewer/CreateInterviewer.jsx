@@ -56,7 +56,6 @@ const CreateInterViewer = () => {
     const { data } = await axios.get(
       `http://localhost:3001/api/admin/available-id/${IdCitation}`
     );
-    console.log("datos", data.data[0]);
 
     if (data.data.length !== 0) {
       setCurrentSelectors(data.data[0].selectors);
@@ -68,7 +67,6 @@ const CreateInterViewer = () => {
       setCurrentAvailableId("");
     }
   }
-  console.log("availaId", currentAvailableId);
 
   useEffect(() => {
     fetchUser();
@@ -84,7 +82,7 @@ const CreateInterViewer = () => {
       const selector = UsersSelected.findIndex(
         (user) => user._id == e.target.value
       );
-      console.log("seconSelector:", UsersSelected);
+
       UsersSelected.splice(selector, 1);
       setCheked(selector);
 
@@ -93,7 +91,6 @@ const CreateInterViewer = () => {
       const selector = users.find((user) => user._id == e.target.value);
       setUsersSelected([...UsersSelected, selector]);
     }
-    console.log("selctor:", UsersSelected);
   };
 
   // Post availability staff
@@ -109,7 +106,6 @@ const CreateInterViewer = () => {
         meetRole: 3,
       };
     });
-    console.log("newselector", selectors);
 
     if (currentAvailableId.length !== 0) {
       axios.put(
@@ -131,7 +127,6 @@ const CreateInterViewer = () => {
         selectors,
       };
 
-      console.log("newAvailability: ", newAvailability);
       axios.post("http://localhost:3001/api/admin/availability", {
         ...newAvailability,
       });
@@ -158,15 +153,6 @@ const CreateInterViewer = () => {
     setDate(date);
     setIdCitation(e.target.value);
   };
-
-  console.log("users:", users);
-  console.log("usersSelected:", UsersSelected);
-  console.log("citation:", citation);
-  console.log("IdCitation:", IdCitation);
-  console.log("date:", date);
-  console.log("citationSelected:", citationSelected);
-  console.log("available:", currentSelectors);
-  console.log("availableId:", currentAvailableId);
 
   return (
     <>

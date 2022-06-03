@@ -37,7 +37,6 @@ const ModeratorApplicantsCited = () => {
       })
     );
   }
-  console.log("citacion", citation);
 
   const token = useSelector((state) => state.token);
   async function fetchCitationSelected() {
@@ -50,13 +49,10 @@ const ModeratorApplicantsCited = () => {
 
     setCitationSelected(data);
   }
-  console.log("citation selected", citationSelected);
 
   useEffect(() => {
     fetchCitation();
   }, []);
-
-  console.log("processed", processedCitation);
 
   const handleSelect = (e) => {
     let index = e.target.selectedIndex;
@@ -65,8 +61,6 @@ const ModeratorApplicantsCited = () => {
     setIdCitation(e.target.value);
     fetchCitationSelected();
   };
-
-  console.log("citations", IdCitation);
 
   const columns = [
     {

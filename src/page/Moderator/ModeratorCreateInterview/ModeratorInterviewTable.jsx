@@ -23,8 +23,6 @@ const ModeratorInterviewTable = () => {
     setCitations(data);
   }
 
-  console.log("citaciones", citations);
-
   useEffect(() => {
     fetchCitations();
   }, []);
@@ -38,8 +36,6 @@ const ModeratorInterviewTable = () => {
     );
     setMeet(data.data[0]);
   }
-  console.log("citationSelected", citationSelected);
-  console.log("Meet", meet);
 
   const formik = useFormik({
     initialValues: {

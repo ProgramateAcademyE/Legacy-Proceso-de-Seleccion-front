@@ -46,7 +46,7 @@ const InterviewerApplicantsCalificationBox = (props) => {
         values.qualifications
           .map((q) => parseInt(q.score))
           .reduce((a, b) => a + b, 0) / values.qualifications.length;
-      console.log("Score: ", score);
+
       const toSubmit = {
         meetID: meet._id,
         userID: currentAspirantInfo._id,
@@ -78,12 +78,10 @@ const InterviewerApplicantsCalificationBox = (props) => {
             qualifications: values.qualifications,
           },
         ];
-      console.log(toSubmit);
     },
   });
 
   const handleQA = (newQualification) => {
-    console.log(newQualification);
     formik.setFieldValue("qualifications", [
       ...formik.values.qualifications,
       newQualification,

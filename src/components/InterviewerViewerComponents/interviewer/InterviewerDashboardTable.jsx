@@ -24,7 +24,7 @@ const InterviewerDashboardTable = () => {
     );
     setUserMeets(data.data);
   }
-  console.log("Meets", userMeets);
+
   React.useEffect(() => {
     fetchUserMeets(meId);
   }, []);

@@ -3,14 +3,13 @@ import "./InterviewerApplicants.css";
 
 const InterviewerApplicantsCalificationBoxCard = (props) => {
   const { handleQA, item, currentAspirant } = props;
-  console.log("aspirante: ", currentAspirant);
+
   return (
     <div className="card">
       <h4 className="card-header">{item.name}</h4>
       <br />
       <h4 className="card-title">Preguntas</h4>
       {item.questions.map((q, index) => {
-        //console.log(q.split("<br>"));
         return (
           <>
             <p className="">

@@ -19,7 +19,7 @@ const InterviewerApplicantsCited = () => {
   const [role, setRole] = React.useState();
 
   const meetId = pathname.slice(10);
-  console.log("Meet ID: ", meetId);
+
   async function fetchCitation() {
     const { data } = await axios.get(
       `http://localhost:3001/api/admin/get-meet-by-meetId/${meetId}`,
@@ -28,7 +28,7 @@ const InterviewerApplicantsCited = () => {
       }
     );
     setMeet(data.data[0]);
-    console.log("meeeeet", data.data[0]);
+
     const searchInterviewer = data.data[0]?.roomsInterviewers?.map((r) =>
       r?.selectors?.findIndex((s) => s._id === meId)
     );
@@ -53,7 +53,6 @@ const InterviewerApplicantsCited = () => {
             searchAssesment?.findIndex((p) => p !== -1)
           ];
     setRoom(room);
-    console.log("Room ene el padre", room);
   }
 
   const handleCurrentAspirant = (newAspirant) => {

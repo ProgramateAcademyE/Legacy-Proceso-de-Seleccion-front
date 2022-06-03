@@ -10,7 +10,6 @@ import { CSVLink } from "react-csv";
 // import * as jsa from "./response_sale_order.json";
 
 const ExpandableComponent = ({ data }) => {
-  console.log(data);
   return (
     <table>
       <thead>

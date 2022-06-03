@@ -2,7 +2,6 @@ import React from "react";
 import "./constructormoderator.css";
 
 const ConstructorModerator = (props) => {
-  console.log(props.selectores);
   return (
     <div className="containerconstructormoderator1">
       <div className="containerconstructormoderator2">

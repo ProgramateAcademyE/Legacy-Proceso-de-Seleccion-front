@@ -2,9 +2,8 @@ import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
-import "./CreateInterviewer.css"
+import "./CreateInterviewer.css";
 import Swal from "sweetalert2";
-
 
 const CreateViewer = () => {
   const [users, setUsers] = useState([]);
@@ -17,7 +16,6 @@ const CreateViewer = () => {
   const [currentAvailableId, setCurrentAvailableId] = useState("");
   const [checked, setCheked] = useState(true);
   const [spinner, mostrarSpinner] = useState(true);
-  
 
   const token = useSelector((state) => state.token);
 
@@ -59,7 +57,6 @@ const CreateViewer = () => {
     const { data } = await axios.get(
       `http://localhost:3001/api/admin/available-id/${IdCitation}`
     );
-    console.log("datos", data.data[0]);
 
     if (data.data.length !== 0) {
       setCurrentSelectors(data.data[0].selectors);
@@ -71,7 +68,6 @@ const CreateViewer = () => {
       setCurrentAvailableId("");
     }
   }
-  console.log("availaId", currentAvailableId);
 
   useEffect(() => {
     fetchUser();
@@ -82,89 +78,71 @@ const CreateViewer = () => {
     fetchAvailability();
   }, [IdCitation]);
 
-   
-  const toggleChecked = e => {
+  const toggleChecked = (e) => {
+    if (UsersSelected.findIndex((user) => user._id == e.target.value) !== -1) {
+      const selector = UsersSelected.findIndex(
+        (user) => user._id == e.target.value
+      );
 
-   if(UsersSelected.findIndex((user)=>(user._id == e.target.value)) !== -1){
-    
-    const selector = UsersSelected.findIndex((user)=>(user._id == e.target.value))
-    console.log("seconSelector:", UsersSelected)
-    UsersSelected.splice(selector, 1) 
-    setCheked(selector)
-    
-    
-    
-    setUsersSelected([...UsersSelected])
-   }
-   else{
-    const selector = users.find((user)=>(user._id == e.target.value))
-      setUsersSelected([...UsersSelected, selector])
-   }
-  console.log("selctor:", UsersSelected)
-  }
+      UsersSelected.splice(selector, 1);
+      setCheked(selector);
 
+      setUsersSelected([...UsersSelected]);
+    } else {
+      const selector = users.find((user) => user._id == e.target.value);
+      setUsersSelected([...UsersSelected, selector]);
+    }
+  };
 
-   
-  
   // Post availability staff
   const postAvailability = () => {
     fetchCitationSelected();
 
     const selectors = UsersSelected.map((dat) => {
-          
-          return( 
-                  {
-                    _id:(dat._id),
-                    names:(dat.names),
-                    surname:(dat.surname),
-                    role:(dat.role),
-                    meetRole:3
-                  
-                  }
-                
-                  )
-         }) 
-        console.log("newselector", selectors)
-        
+      return {
+        _id: dat._id,
+        names: dat.names,
+        surname: dat.surname,
+        role: dat.role,
+        meetRole: 3,
+      };
+    });
 
-        if(currentAvailableId.length !== 0){
-          axios.put(`http://localhost:3001/api/admin/update_availables/${currentAvailableId}`, { ...selectors});
-          
-        
-          Swal.fire({
-            icon: "success",
-            title: "Observador habilitado",
-            timer:2000
-            });
-            
-                    
-          //  document.location.reload();
-        }
-        else {
-          
-            const newAvailability = {
-      
-               citationID:IdCitation,
-               date: (date),
-               shift: "mañana", 
-               selectors
-                   
-             };
-         
-            console.log("newAvailability: ", newAvailability);
-            axios.post("http://localhost:3001/api/admin/availability", { ...newAvailability });
-              Swal.fire({
-              icon: "success",
-              title: "Observador habilitado",
-              timer:2000
-               });
-              
-             
-            document.location.reload();
-        }
-   
- // const citationAvailability = axios.get(`http://localhost:3001/api/admin/findCitationid/${citation.ID}`);
-  }
+    if (currentAvailableId.length !== 0) {
+      axios.put(
+        `http://localhost:3001/api/admin/update_availables/${currentAvailableId}`,
+        { ...selectors }
+      );
+
+      Swal.fire({
+        icon: "success",
+        title: "Observador habilitado",
+        timer: 2000,
+      });
+
+      //  document.location.reload();
+    } else {
+      const newAvailability = {
+        citationID: IdCitation,
+        date: date,
+        shift: "mañana",
+        selectors,
+      };
+
+      axios.post("http://localhost:3001/api/admin/availability", {
+        ...newAvailability,
+      });
+      Swal.fire({
+        icon: "success",
+        title: "Observador habilitado",
+        timer: 2000,
+      });
+
+      document.location.reload();
+    }
+
+    // const citationAvailability = axios.get(`http://localhost:3001/api/admin/findCitationid/${citation.ID}`);
+  };
 
   //const deleteAvailability = () => {
   //  const id_available=UsersSelected._id;
@@ -177,15 +155,6 @@ const CreateViewer = () => {
     setDate(date);
     setIdCitation(e.target.value);
   };
-
-  console.log("users:", users);
-  console.log("usersSelected:", UsersSelected);
-  console.log("citation:", citation);
-  console.log("IdCitation:", IdCitation);
-  console.log("date:", date);
-  console.log("citationSelected:", citationSelected);
-  console.log("available:", currentSelectors);
-  console.log("availableId:", currentAvailableId);
 
   return (
     <>
@@ -225,11 +194,12 @@ const CreateViewer = () => {
 
                     <td>
                       <input
-                      value={staff._id}
-                      type="checkbox"
-                      name="id"
-                      checked={checked}
-                      onChange={toggleChecked}/>
+                        value={staff._id}
+                        type="checkbox"
+                        name="id"
+                        checked={checked}
+                        onChange={toggleChecked}
+                      />
                     </td>
                   </tr>
                 ))
@@ -270,6 +240,5 @@ const CreateViewer = () => {
     </>
   );
 };
-
 
 export default CreateViewer;
