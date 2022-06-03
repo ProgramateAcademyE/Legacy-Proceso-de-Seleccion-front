@@ -69,7 +69,7 @@ const InterviewerApplicantsCalificationBox = (props) => {
       );
       setSubmited(true);
       setTimeout(() => setSubmited(false), 80000);
-      setTimeout(window.location.reload(), 90000);
+      //setTimeout(window.location.reload(), 90000);
     },
   });
 

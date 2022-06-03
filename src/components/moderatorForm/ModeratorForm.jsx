@@ -103,7 +103,7 @@ const ModeratorForm = () => {
       cambiarFormularioEnviado(true);
       setTimeout(() => cambiarFormularioEnviado(false), 80000);
 
-      setTimeout(window.location.reload(), 90000);
+      //setTimeout(window.location.reload(), 90000);
     },
   });
 

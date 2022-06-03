@@ -1,10 +1,5 @@
 import React, { useEffect } from "react";
-import {
-  Switch,
-  Route,
-  useLocation,
-  Redirect,
-} from "react-router-dom";
+import { Switch, Route, useLocation, Redirect } from "react-router-dom";
 import Header from "../components/header/Header";
 import Nav from "../components/nav/Nav";
 import Parameterization from "../components/inscription/Parameterization";
@@ -153,6 +148,30 @@ const App = () => {
 
               <Route path="/parameterization" component={Parameterization} />
               <Route path="/selection-results" component={SelectionResults} />
+              <Route
+                path="/moderadordashboard"
+                component={ModeratorDashboard}
+              />
+              <Route
+                path="/moderadorcrearentrevistayassesment"
+                component={ModeratorCreateInterview}
+              />
+              <Route
+                path="/moderadortablaentrevistas"
+                component={ModeratorInterviewTable}
+              />
+              <Route
+                path="/moderadorentrevistadores"
+                component={ModeratorInterviewer}
+              />
+              <Route
+                path="/moderadorobservadores"
+                component={ModeratorViewer}
+              />
+              <Route
+                path="/moderadoraspirantescitados"
+                component={ModeratorApplicantsCited}
+              />
             </>
           ) : role === 2 ? (
             <>

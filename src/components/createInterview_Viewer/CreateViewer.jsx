@@ -140,12 +140,12 @@ const CreateViewer = () => {
         { ...finalStaff }
       );
 
-      Swal.fire({
+      /* Swal.fire({
         icon: "success",
         title: "Observador Asignado",
         timer: 500,
       });
-      document.location.reload();
+      document.location.reload();*/
     }
 
     //if availability register does not exists create a new availability register
@@ -164,13 +164,13 @@ const CreateViewer = () => {
           ...newAvailability,
         }
       );
-      Swal.fire({
+      /* Swal.fire({
         icon: "success",
         title: "Observador Asignado",
         timer: 500,
       });
 
-      document.location.reload();
+      document.location.reload();*/
     }
   };
 

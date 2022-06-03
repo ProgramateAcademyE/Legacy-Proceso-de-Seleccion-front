@@ -139,11 +139,11 @@ const CreateInterViewer = () => {
         { ...finalStaff }
       );
 
-      Swal.fire({
+      /*Swal.fire({
         icon: "success",
         title: "Entrevistador asignado",
         timer: 500,
-      });
+      });*/
       //document.location.reload();
     }
 
@@ -163,14 +163,13 @@ const CreateInterViewer = () => {
           ...newAvailability,
         }
       );
-      Swal.fire({
-        icon: "success",
-        title: "Entrevistador asignado",
-        timer: 500,
-      });
-
-      //document.location.reload();
     }
+    /* Swal.fire({
+      icon: "success",
+      title: "Entrevistador asignado",
+      timer: 500,
+    });
+    document.location.reload();*/
   };
 
   //const deleteAvailability = () => {
