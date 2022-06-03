@@ -172,6 +172,10 @@ const App = () => {
                 path="/moderadoraspirantescitados"
                 component={ModeratorApplicantsCited}
               />
+              <Route
+                path="/entrevistadordashboard"
+                component={InterviewerDashboard}
+              />
             </>
           ) : role === 2 ? (
             <>

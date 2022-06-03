@@ -64,9 +64,21 @@ export const ITEMS = [
     ],
   },
   {
+    name: "Entrevistador - Observador",
+    icon: "fa fa-star",
+    id: 6,
+    items: [
+      {
+        name: "Citas programadas",
+        pathname: "/entrevistadordashboard",
+      },
+    ],
+  },
+
+  {
     name: "Moderador",
     icon: "fa fa-smile",
-    id: 6,
+    id: 7,
     items: [
       {
         name: "Agenda programada",
@@ -105,31 +117,31 @@ export const ITEMS_ASPIRANTS = [
   {
     name: "Dashboard de progreso",
     icon: "fas fa-th-large",
+    items: [],
     pathname: "/dashboard",
-    item: [],
-    id: 7,
+    id: 8,
   },
   {
     name: "Aplicar a la convocatoria",
     icon: "fa fa-bullhorn",
+    items: [],
     pathname: "/Convocatoriasaspirante",
-    item: [],
-    id: 10,
+    id: 9,
   },
   {
     name: "Formulario de inscripcion",
     icon: "far fa-file-alt",
+    items: [],
     pathname: "/inscripcion",
-    item: [],
-    id: 11,
+    id: 10,
   },
 
   {
     name: "Prueba Técnica",
     icon: "fas fa-laptop-code",
-    item: [],
+    items: [],
     pathname: "/aspirante",
-    id: 12,
+    id: 11,
   },
   //{
   // name: "Entrevistador",
@@ -166,42 +178,49 @@ export const ITEMS_MODERATOR = [
   {
     name: "INICIO",
     icon: "fas fa-th-large",
+    items: [],
     pathname: "/dashboard",
     id: 15,
   },
   {
     name: "Agenda programada",
     icon: "fa fa-calendar",
+    items: [],
     pathname: "/moderadordashboard",
     id: 16,
   },
   {
     name: "Crear entrevistas y assesments",
     icon: "fa fa-plus-circle",
+    items: [],
     pathname: "/moderadorcrearentrevistayassesment",
     id: 17,
   },
   {
     name: "Listado General Entrevistas",
     icon: "fa fa-list",
+    items: [],
     pathname: "/moderadortablaentrevistas",
     id: 18,
   },
   {
     name: "Entrevistadores",
     icon: "fa fa-star",
+    items: [],
     pathname: "/moderadorentrevistadores",
     id: 19,
   },
   {
     name: "Observadores",
     icon: "fa fa-smile",
+    items: [],
     pathname: "/moderadorobservadores",
     id: 20,
   },
   {
     name: "Aspirantes citados",
     icon: "fa fa-bullhorn",
+    items: [],
     pathname: "/moderadoraspirantescitados",
     id: 21,
   },
@@ -266,12 +285,14 @@ export const ITEMS_INTERVIEWER = [
   {
     name: "INICIO",
     icon: "fas fa-th-large",
+    items: [],
     pathname: "/dashboard",
     id: 22,
   },
   {
     name: "Citas programadas",
     icon: "fa fa-calendar",
+    items: [],
     pathname: "/entrevistadordashboard",
     id: 23,
   },
