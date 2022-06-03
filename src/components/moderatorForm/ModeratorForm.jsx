@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Formik, Field, Form, ErrorMessage, useFormik } from "formik";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import Swal from "sweetalert2";
 
 const ModeratorForm = () => {
   const [citations, setCitations] = useState([]);
@@ -101,7 +102,10 @@ const ModeratorForm = () => {
       cambiarFormularioEnviado(true);
       setTimeout(() => cambiarFormularioEnviado(false), 80000);
 
-      //setTimeout(window.location.reload(), 90000);
+      setTimeout(window.location.reload(), 90000);
+      /*window.setTimeout(function () {
+        location.reload();
+      }, 2000);*/
     },
   });
 
