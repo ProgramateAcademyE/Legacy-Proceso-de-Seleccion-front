@@ -71,7 +71,7 @@ const InterviewerApplicantsCited = () => {
         Ver citas programadas
       </button>
       <h1 className="interviewrApplicantTitle">
-        <span className="interviewerSpan">Aspirantes citados </span>
+        <span className="interviewerSpan">Aspirantes citados</span>
       </h1>
       <div className="">
         <h4 className="viewerAssesmentTitle2">
