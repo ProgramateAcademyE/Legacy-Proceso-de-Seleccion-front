@@ -135,17 +135,32 @@ const CreateViewer = () => {
 
     //Endpoint to send if availability register is already exists
     if (currentAvailableId.length !== 0) {
-      axios.put(
+      axios
+      .put(
         `https://legacy-selection-educamas.herokuapp.com/api/admin//update_availables_viewer/${currentAvailableId}`,
-        { ...finalStaff }
-      );
-
+        { ...finalStaff })
+      .then((res) => {
+               
+        Swal.fire({
+          icon: "success",
+          title: "Registro Exitoso!",
+          text: res.data.msg,
+        });
+      
+        setTimeout(() => {
+          (window.location.reload())
+        }, 1000);
+        
+    })
+    .catch((err) => {
+     
       Swal.fire({
-        icon: "success",
-        title: "Observador Asignado",
-        timer: 500,
+        icon: "error",
+        title: "Oops...",
+        text: err?.response?.data?.msg,
       });
-      document.location.reload();
+     
+    });
     }
 
     //if availability register does not exists create a new availability register
@@ -158,19 +173,35 @@ const CreateViewer = () => {
       };
 
       console.log("newAvailability: ", newAvailability);
-      axios.post(
+      axios
+      .post(
         "https://legacy-selection-educamas.herokuapp.com/api/admin/availability",
-        {
-          ...newAvailability,
-        }
-      );
+        { ...newAvailability,})
+      .then((res) => {
+        Swal.fire({
+          icon: "success",
+          title: "Registro Exitoso!",
+          text: res.data.msg,
+          showCancelButton: true,
+         
+        }).then((result) => {
+          if (result.isConfirmed) {
+            document.location.reload();
+          }
+        })  
+        
+    })
+    .catch((err) => {
+     
       Swal.fire({
-        icon: "success",
-        title: "Observador Asignado",
-        timer: 500,
+        icon: "error",
+        title: "Oops...",
+        text: err?.response?.data?.msg,
       });
+     
+    });
 
-      document.location.reload();
+     
     }
   };
 

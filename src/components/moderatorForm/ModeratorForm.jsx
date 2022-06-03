@@ -2,6 +2,7 @@ import React, { useState, useEffect, useRef } from "react";
 import { Formik, Field, Form, ErrorMessage, useFormik } from "formik";
 import axios from "axios";
 import { useSelector } from "react-redux";
+import Swal from "sweetalert2";
 
 const ModeratorForm = () => {
   const [citations, setCitations] = useState([]);
@@ -96,14 +97,38 @@ const ModeratorForm = () => {
       };
 
       console.log("To submit", toSubmit);
-      axios.post(
+      axios
+      .post(
         "https://legacy-selection-educamas.herokuapp.com/api/admin/meet",
-        { ...toSubmit }
-      );
-      cambiarFormularioEnviado(true);
-      setTimeout(() => cambiarFormularioEnviado(false), 80000);
+        { ...toSubmit })
+      .then((res) => {
+        Swal.fire({
+          icon: "success",
+          title: "Registro Exitoso!",
+          text: res.data.msg,
+          showCancelButton: true,
+         
+        }).then((result) => {
+          if (result.isConfirmed) {
+            document.location.reload();
+          }
+        })  
+        
+    })
+    .catch((err) => {
+     
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: err?.response?.data?.msg,
+      });
+     
+    });
+      
+  //    cambiarFormularioEnviado(true);
+    //  setTimeout(() => cambiarFormularioEnviado(false), 80000);
 
-      setTimeout(window.location.reload(), 90000);
+     // setTimeout(window.location.reload(), 90000);
     },
   });
 

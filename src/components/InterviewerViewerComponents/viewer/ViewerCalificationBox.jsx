@@ -65,15 +65,29 @@ const ViewerCalificationBox = (props) => {
 
         finalSubmit.push(toSubmit);
       }
-      axios.post(
+      axios
+      .post(
         "https://legacy-selection-educamas.herokuapp.com/api/admin/interviewDay-Observer",
         {
           ...finalSubmit,
         }
-      );
-      setSubmited(true);
-      setTimeout(() => setSubmited(false), 80000);
-      setTimeout(history.replace(`/entrevistadordashboard`), 90000);
+      ).then((res) => {
+               
+       
+        setTimeout(history.replace(`/entrevistadordashboard`), 1000)
+        
+    })
+    .catch((err) => {
+     
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: err?.response?.data?.msg,
+      });
+     
+    });
+    setSubmited(true);
+    setTimeout(() => setSubmited(false), 80000);
     },
   });
 

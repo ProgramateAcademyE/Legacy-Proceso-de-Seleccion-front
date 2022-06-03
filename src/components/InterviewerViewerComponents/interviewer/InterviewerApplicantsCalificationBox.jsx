@@ -4,6 +4,7 @@ import InterviewerApplicantsCalificationBoxCard from "./InterviewerApplicantCali
 import axios from "axios";
 import { useSelector } from "react-redux";
 import { Formik, Field, Form, useFormik } from "formik";
+import Swal from "sweetalert2";
 
 const InterviewerApplicantsCalificationBox = (props) => {
   const { currentAspirant, meet, room } = props;
@@ -66,10 +67,31 @@ const InterviewerApplicantsCalificationBox = (props) => {
         {
           ...toSubmit,
         }
-      );
+      ).then((res) => {
+               
+        Swal.fire({
+          icon: "success",
+          title: "Registro Exitoso!",
+          text: res.data.msg,
+        });
+      
+        setTimeout(() => {
+          (window.location.reload())
+        }, 1000);
+        
+    })
+    .catch((err) => {
+     
+      Swal.fire({
+        icon: "error",
+        title: "Oops...",
+        text: err?.response?.data?.msg,
+      });
+     
+    });
       setSubmited(true);
       setTimeout(() => setSubmited(false), 80000);
-      setTimeout(window.location.reload(), 90000);
+     // setTimeout(window.location.reload(), 90000);
     },
   });
 

@@ -142,9 +142,9 @@ const CreateInterViewer = () => {
       Swal.fire({
         icon: "success",
         title: "Entrevistador asignado",
-        timer: 500,
+        timer: 9000,
       });
-      //document.location.reload();
+      document.location.reload();
     }
 
     //if availability register does not exists create a new availability register
@@ -166,10 +166,10 @@ const CreateInterViewer = () => {
       Swal.fire({
         icon: "success",
         title: "Entrevistador asignado",
-        timer: 500,
+        timer: 9000,
       });
 
-      //document.location.reload();
+      document.location.reload();
     }
   };
 
