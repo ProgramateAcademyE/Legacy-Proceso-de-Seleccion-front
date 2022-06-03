@@ -54,7 +54,6 @@ const ModeratorForm = () => {
     },
 
     validate: (values) => {
-      console.log("VaLues en Validate");
       let errores = {};
       if (!values.citationID || values.citationID.length === 0) {
         errores.citationID = "Debes seleccionar una fecha";
@@ -95,7 +94,6 @@ const ModeratorForm = () => {
         observers: available.selectors.filter((s) => s.meetRole === 3),
       };
 
-      console.log("To submit", toSubmit);
       axios.post(
         "https://legacy-selection-educamas.herokuapp.com/api/admin/meet",
         { ...toSubmit }
@@ -107,8 +105,6 @@ const ModeratorForm = () => {
     },
   });
 
-  console.log("errores", formik.errors);
-
   useEffect(() => {
     setCitacionSelected(
       citations?.data?.filter(
@@ -119,8 +115,6 @@ const ModeratorForm = () => {
   }, [formik.values.citationID]);
 
   //mirar que tiene interviewersInput
-  console.log("Entrevistadoresinput", interviewersInput);
-  console.log("ObservadoresInput", viewersInput);
 
   return (
     <Formik>

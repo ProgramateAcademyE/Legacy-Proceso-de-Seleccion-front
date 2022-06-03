@@ -125,8 +125,6 @@ const CreateInterViewer = () => {
         meetRole: dat.meetRole,
       };
     });
-    console.log("newselector", selectors);
-    console.log("oldselectors", selectores);
 
     //concat both arrays to finally send to database
     const finalStaff = selectors.concat(selectores);
@@ -155,8 +153,6 @@ const CreateInterViewer = () => {
         shift: date.slice(11),
         selectors,
       };
-
-      console.log("newAvailability: ", newAvailability);
       axios.post(
         "https://legacy-selection-educamas.herokuapp.com/api/admin/availability",
         {
