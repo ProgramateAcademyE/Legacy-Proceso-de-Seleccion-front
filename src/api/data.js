@@ -32,15 +32,15 @@ export const ITEMS = [
     ],
   },
   // {
-  //     name: "Aspirantes",
-  //     icon: "far fa-user",
-  //     id: 3,
-  //     items: [
-  //         {
-  //             name: "Informacion Aspirantes",
-  //             pathname: "/InfoAspirants",
-  //         },
-  //     ],
+  // name: "Aspirantes",
+  // icon: "far fa-user",
+  // id: 3,
+  // items: [
+  // {
+  // name: "Informacion Aspirantes",
+  // pathname: "/InfoAspirants",
+  // },
+  // ],
 
   // },
 
@@ -131,6 +131,35 @@ export const ITEMS_ASPIRANTS = [
     pathname: "/aspirante",
     id: 12,
   },
+  //{
+  // name: "Entrevistador",
+  // icon: "fas fa-star",
+  //
+  // id: 13,
+  // items: [
+  // {
+  // name: "Inicio Entrevistador",
+  // pathname: "/entrevistadordashboard",
+  // },
+  // {
+  // name: "Aspirante Citados",
+  // pathname: "/entrevistadoraplicantescitados",
+  // },
+  // ],
+  //},
+  //
+  //{
+  // name: "Observador",
+  // icon: "far fa-smile",
+  // id: 14,
+  // items: [
+  // {
+  // name: "Inicio Observador",
+  // pathname: "/observadordashboard",
+  //
+  // },
+  // ],
+  //},
 ];
 
 export const ITEMS_MODERATOR = [
@@ -138,50 +167,43 @@ export const ITEMS_MODERATOR = [
     name: "INICIO",
     icon: "fas fa-th-large",
     pathname: "/dashboard",
-    item: [],
-    id: 13,
+    id: 15,
   },
   {
     name: "Agenda programada",
     icon: "fa fa-calendar",
     pathname: "/moderadordashboard",
-    item: [],
-    id: 13,
+    id: 16,
   },
   {
     name: "Crear entrevistas y assesments",
     icon: "fa fa-plus-circle",
     pathname: "/moderadorcrearentrevistayassesment",
-    item: [],
-    id: 13,
+    id: 17,
   },
   {
     name: "Listado General Entrevistas",
     icon: "fa fa-list",
     pathname: "/moderadortablaentrevistas",
-    item: [],
-    id: 13,
+    id: 18,
   },
   {
     name: "Entrevistadores",
     icon: "fa fa-star",
     pathname: "/moderadorentrevistadores",
-    item: [],
-    id: 13,
+    id: 19,
   },
   {
     name: "Observadores",
     icon: "fa fa-smile",
     pathname: "/moderadorobservadores",
-    item: [],
-    id: 13,
+    id: 20,
   },
   {
     name: "Aspirantes citados",
     icon: "fa fa-bullhorn",
     pathname: "/moderadoraspirantescitados",
-    item: [],
-    id: 13,
+    id: 21,
   },
 ];
 
@@ -245,14 +267,26 @@ export const ITEMS_INTERVIEWER = [
     name: "INICIO",
     icon: "fas fa-th-large",
     pathname: "/dashboard",
-    item: [],
-    id: 13,
+    id: 22,
   },
   {
     name: "Citas programadas",
     icon: "fa fa-calendar",
     pathname: "/entrevistadordashboard",
-    item: [],
-    id: 13,
+    id: 23,
   },
+  //{
+  // name: "Aspirante citados",
+  // icon: "fa fa-bullhorn",
+  // items: [],
+  // pathname: "/entrevistadoraplicantescitados",
+  // id: 14,
+  //},
+  //{
+  // name: "Observador assesment",
+  // icon: "fa fa-smile",
+  // items: [],
+  // pathname: "/observadorassesment",
+  // id: 14,
+  //},
 ];
