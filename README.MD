@@ -46,6 +46,10 @@ Se realiza el frontend con React, se utilizó webpack y las siguientes librería
 
 ## Fase 2:
 
+## Contexto: 
+ Esta fase del proyecto tiene como propósito terminar el legado de Desarrollo de una plataforma que centraliza las operaciones, datos y análisis del proceso de    selección de Prográmate. Esta plataforma debe contar con:
+- Un espacio administrativo del equipo selector que crea y administra convocatorias con sus respectivos roles (Moderador, Observador, Entrevistador)
+
 ## Dependencias:
 - **Axios:** Se utilizó para hacer conexión del back con el front por medio de los end-point.
 - **Formik:** Se utilizó en la creación de formulario para crear reunión y la vista de los aspirantes citados.
@@ -80,7 +84,7 @@ Se realiza el frontend con React, se utilizó webpack y las siguientes librería
 
 ## Colaboradores: 
 - Luis Cabal
-- Diana Chávez
+- Diana Chávez    https://github.com/dianachavezr
 - Leandro Gutierrez
 - Carolina Loaiza
 - Jymmy Murillo
