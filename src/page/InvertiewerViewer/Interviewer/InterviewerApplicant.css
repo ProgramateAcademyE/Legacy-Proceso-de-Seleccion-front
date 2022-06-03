@@ -23,14 +23,13 @@
 
 .buttonBackInterviewerViewer {
   border: none;
-  background-color: #6d6d6d;
+  background-color: #c7c7c7;
   border: 1px solid #fdc300;
   color: #000000;
   padding: 5px 10px;
   border-radius: 10px;
   cursor: pointer;
   box-shadow: 1px 10px 25px #c7c7c7;
-  color: #fffff5;
   margin-top: 10%;
   font-size: 1rem;
   font-weight: bolder;
@@ -39,6 +38,7 @@
 
 .buttonBackInterviewerViewer:hover {
   background: #505050;
+  color: #ffffff;
   font-weight: 700;
   transition-property: initial;
   transition-duration: 1s;
