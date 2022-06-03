@@ -176,6 +176,11 @@ const App = () => {
                 path="/entrevistadordashboard"
                 component={InterviewerDashboard}
               />
+              <Route
+                exact
+                path="/calificar:id"
+                component={InterviewerApplicantsCited}
+              />
             </>
           ) : role === 2 ? (
             <>

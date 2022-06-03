@@ -31,19 +31,6 @@ export const ITEMS = [
       },
     ],
   },
-  // {
-  // name: "Aspirantes",
-  // icon: "far fa-user",
-  // id: 3,
-  // items: [
-  // {
-  // name: "Informacion Aspirantes",
-  // pathname: "/InfoAspirants",
-  // },
-  // ],
-
-  // },
-
   {
     name: "Calificaciones",
     icon: "fas fa-user-edit",
@@ -63,11 +50,22 @@ export const ITEMS = [
       },
     ],
   },
+  {
+    name: "Entrevistador - Observador",
+    icon: "fa fa-star",
+    id: 6,
+    items: [
+      {
+        name: "Citas programadas",
+        pathname: "/entrevistadordashboard",
+      },
+    ],
+  },
 
   {
     name: "Moderador",
     icon: "fa fa-smile",
-    id: 6,
+    id: 7,
     items: [
       {
         name: "Agenda programada",
@@ -108,21 +106,21 @@ export const ITEMS_ASPIRANTS = [
     icon: "fas fa-th-large",
     items: [],
     pathname: "/dashboard",
-    id: 7,
+    id: 8,
   },
   {
     name: "Aplicar a la convocatoria",
     icon: "fa fa-bullhorn",
     items: [],
     pathname: "/Convocatoriasaspirante",
-    id: 10,
+    id: 9,
   },
   {
     name: "Formulario de inscripcion",
     icon: "far fa-file-alt",
     items: [],
     pathname: "/inscripcion",
-    id: 11,
+    id: 10,
   },
 
   {
@@ -130,37 +128,8 @@ export const ITEMS_ASPIRANTS = [
     icon: "fas fa-laptop-code",
     items: [],
     pathname: "/aspirante",
-    id: 12,
+    id: 11,
   },
-  //{
-  // name: "Entrevistador",
-  // icon: "fas fa-star",
-  //
-  // id: 13,
-  // items: [
-  // {
-  // name: "Inicio Entrevistador",
-  // pathname: "/entrevistadordashboard",
-  // },
-  // {
-  // name: "Aspirante Citados",
-  // pathname: "/entrevistadoraplicantescitados",
-  // },
-  // ],
-  //},
-  //
-  //{
-  // name: "Observador",
-  // icon: "far fa-smile",
-  // id: 14,
-  // items: [
-  // {
-  // name: "Inicio Observador",
-  // pathname: "/observadordashboard",
-  //
-  // },
-  // ],
-  //},
 ];
 
 export const ITEMS_MODERATOR = [
@@ -285,18 +254,4 @@ export const ITEMS_INTERVIEWER = [
     pathname: "/entrevistadordashboard",
     id: 23,
   },
-  //{
-  // name: "Aspirante citados",
-  // icon: "fa fa-bullhorn",
-  // items: [],
-  // pathname: "/entrevistadoraplicantescitados",
-  // id: 14,
-  //},
-  //{
-  // name: "Observador assesment",
-  // icon: "fa fa-smile",
-  // items: [],
-  // pathname: "/observadorassesment",
-  // id: 14,
-  //},
 ];
