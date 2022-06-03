@@ -4,13 +4,26 @@ import "styled-components";
 import "./ModeratorInterviewerTable.css";
 import DataTableExtensions from "react-data-table-component-extensions";
 import "react-data-table-component-extensions/dist/index.css";
+import { useSelector } from "react-redux";
+import axios from "axios";
 //import { columns, data } from "./data";
 
+const ModeratorInterviewerTable = () => {
+  //1 - Configurar los hooks
+  const [users, setUsers] = useState([]);
 
-const ModeratorInterviewerTable= ()=> {
-   //1 - Configurar los hooks
-  const [users, setUsers] = useState([])
-    //2 - Función para mostrar los datos con fetch
+  const token = useSelector((state) => state.token);
+  async function showData() {
+    const { data } = await axios.get(
+      "http://localhost:3001/api/admin/get-meets",
+      {
+        headers: { Authorization: token },
+      }
+    );
+    setUsers(data);
+  }
+
+  /* //2 - Función para mostrar los datos con fetch
   const URL= "http://localhost:3002/interviewTable";
   const showData = async() =>{
     const response = await fetch(URL)
@@ -18,64 +31,58 @@ const ModeratorInterviewerTable= ()=> {
     console.log(data)
     setUsers(data)
 
-  }
-  useEffect(()=>{
-    showData()
+  }*/
 
-  },[])
-//3 
+  useEffect(() => {
+    showData();
+  }, []);
+  //3
   const columns = [
-   
     {
       name: "FECHA",
-      selector: (row) => row.fecha,
-      sortable:true
+      selector: (row) => row.date.slice(0, 10),
+      sortable: true,
     },
     {
       name: "JORNADA",
-      selector: (row) => row.jornada,
-      sortable:true
+      selector: (row) => row.shift,
+      sortable: true,
     },
     {
       name: "CONVOCATORIA",
-      selector: (row) => row.convocatoria,
-      sortable:true,
-      
+      selector: (row) => row.titleConvocatory,
+      sortable: true,
     },
     {
       name: "# ASPIRANTES",
-      selector: (row) => row.aspirante,
-      sortable:true,
-    
+      selector: (row) => row.usersNumber,
+      sortable: true,
     },
     {
       name: "# ENTREVISTADORES",
-      selector: (row) => row.entrevistador,
-      sortable:true,
-    
+      selector: (row) => row.interviewersNumber,
+      sortable: true,
     },
     {
       name: "# OBSERVADORES",
-      selector: (row) => row.observador,
-      sortable:true,
-     
+      selector: (row) => row.observersNumber,
+      sortable: true,
     },
     {
       name: "# SALAS",
-      selector: (row) => row.salas,
-      sortable:true
-
+      selector: (row) => row.interviewRooms,
+      sortable: true,
     },
     {
       name: "DETALLE",
-
       /*selector: (row) => row.detalle,*/
-      selector: (row) => <a href="https://educamas.com.co/" target="_blank">mas detalles</a>,
-      sortable:true
+      selector: (row) => (
+        <a href="/moderadortablaentrevistas" target="_blank">
+          ver detalles
+        </a>
+      ),
     },
-  
   ];
-
 
   /*const tableData = {
     columns,
@@ -84,10 +91,7 @@ const ModeratorInterviewerTable= ()=> {
 
   return (
     <div className="tableInterview">
-      <DataTableExtensions 
-        columns={columns}
-        data={users}
-      >
+      <DataTableExtensions columns={columns} data={users}>
         <DataTable
           columns={columns}
           data={users}
@@ -100,11 +104,9 @@ const ModeratorInterviewerTable= ()=> {
           fixedHeader
           fixedHeaderScrollHeight="600px"
           noHeader
-                  
         />
       </DataTableExtensions>
     </div>
   );
-}
-export default ModeratorInterviewerTable
-
+};
+export default ModeratorInterviewerTable;

@@ -22,14 +22,14 @@
     background: #c7c7c7;
     font-size: 1.2rem;
     height: 70px;
-    border: solid 1px black;
+    border: solid 1px #c7c7c7;
     
     
 }
 
 
 td{
-    border: solid 1px black;
+    border: solid 1px #c7c7c7;
     height: 40px;
 }
 td:hover {

@@ -9,7 +9,7 @@ const ModeratorViewer = () => {
     <>
       <div className="moderatorContainer_viewer">
         <div className="moderatorInterviewerContainer">
-          <h1 className="moderatorInterviewerTitle">TABLA DE OBSERVADORES</h1>
+          <h1 className="moderatorInterviewerTitle">Tabla De Observadores</h1>
           <ModalCreateNewViewer />
           <CreateViewer />
         </div>

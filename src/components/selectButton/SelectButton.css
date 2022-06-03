@@ -1,4 +1,10 @@
-
+/*.selectContainer{
+    background: red;
+    width: 80vw;
+    display: flex;
+    justify-content: end;
+    align-content: center;
+}*/
 .selectButton{
     margin-bottom: 20px;
     padding: 10px;
@@ -8,11 +14,11 @@
     font-size: 1.5rem;
     border: none;
     box-shadow: 1px 10px 25px #c7c7c7;
-    }
-    
-    @media (max-width: 530px) {
-    
+}
+
+@media (max-width: 530px) {
+
     .selectButton{
-    font-size: 1rem;
+        font-size: 1rem;
     }
-    }
+}

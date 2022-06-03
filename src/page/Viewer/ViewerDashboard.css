@@ -1,14 +1,73 @@
 .viewerDashboardContainer{
-   
-    height: 95vh;
-    width: 90vw;
-    background-color: green;
+    height: auto;
+    width: 90%;
     display: flex;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin-left: 7%;
+    text-align: center;
 }
 
-.viewrDashboardTitle{
-    font-size: 4rem;
+.viewerDashboardTitle{
+    margin-top: 10%;
+    font-size: 2rem;
+}
+.viewerDashboardTitle2{
+    margin-top: 2%;
+    font-size: 2rem;
+}
+
+.viewerSpan{
+    background-color:  #FDC300;
+    padding: 5px 10px;
+    border-radius: 10px;
+    box-shadow: 1px 10px 25px #c7c7c7;
+}
+
+.table59{
+    width: 90%;
+
+}
+
+.rdt_TableCol{
+    background-color: #c7c7c7;
+    display: flex;
+    justify-content: center;
+}
+.rdt_TableCell{
+    background-color: rgb(255, 255, 255);
+    display: flex;
+    justify-content: center;
+    border-right: 1px solid #c7c7c7;
+
+}
+
+
+
+
+@media (max-width: 991px) {
+    .viewerDashboardTitle{
+        margin-top: 17%;
+        font-size: 1.5rem;
+    }
+    .viewerDashboardTitle2{
+        font-size: 1.5rem;
+    }
+    
+}
+
+@media (max-width: 530px) {
+    .viewerDashboardTitle{
+        margin-top: 27%;
+        font-size: 1rem;
+    }
+    .viewerDashboardTitle2{
+        font-size: 1rem;
+    }
+    .viewerSpan{
+        box-shadow: none;
+    }
+
+
 }

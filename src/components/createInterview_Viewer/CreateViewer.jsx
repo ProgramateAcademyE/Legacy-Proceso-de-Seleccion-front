@@ -1,8 +1,9 @@
-import React from 'react'
+import React from "react";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import "./CreateInterviewer.css"
+import Swal from "sweetalert2";
 
 
 const CreateViewer = () => {
@@ -10,13 +11,17 @@ const CreateViewer = () => {
   const [citation, setCitation] = useState([]);
   const [citationSelected, setCitationSelected] = useState([]);
   const [IdCitation, setIdCitation] = useState([]);
-  const [date, setDate] = useState([]);
   const [UsersSelected, setUsersSelected] = useState([]);
   const [UsersSelectedOne, setUsersSelectedOne] = useState([]);
   const [currentSelectors, setCurrentSelectors] = useState([]);
   const [currentAvailableId, setCurrentAvailableId] = useState("");
   const [finalSelectors, setFinalSelectors] = useState([]);
+  const [date, setDate] = useState([]);
 
+  //convert string to date format
+  const finalDate = (date).slice(0, -6)
+  const finalDate2 = Date.parse(finalDate)
+  const fecha = new Date(finalDate2);
 
   const token = useSelector((state) => state.token);
 
@@ -43,6 +48,7 @@ const CreateViewer = () => {
     setCitation(data.data);
   }
 
+  //Bring citation by id
   async function fetchCitationSelected() {
     const { data } = await axios.get(
       `http://localhost:3001/api/admin/citationFilter/${IdCitation}`,
@@ -54,6 +60,7 @@ const CreateViewer = () => {
     setCitationSelected(data);
   }
 
+  //Check if availability register is already exists
   async function fetchAvailability() {
     const { data } = await axios.get(
       `http://localhost:3001/api/admin/available-id/${IdCitation}`
@@ -82,6 +89,7 @@ const CreateViewer = () => {
   }, [IdCitation]);
 
    
+  //Set info everytime check is on true, or unset if not
   const toggleChecked = e => {
   
    if(currentSelectors.findIndex((user)=>(user._id == e.target.value)) !== -1){
@@ -98,10 +106,11 @@ const CreateViewer = () => {
   }
   
   
-  // Post availability staff
+  // Post availability staff selected
   const postAvailability = () => {
     fetchCitationSelected();
-
+  
+  //map all new staff selected
     const selectors = UsersSelectedOne.map((dat) => {
           
           return( 
@@ -117,6 +126,7 @@ const CreateViewer = () => {
                   )
          }) 
 
+    //map all staff that is already safe on database
          const selectores = currentSelectors.map((dat) => {
           
           return( 
@@ -133,31 +143,46 @@ const CreateViewer = () => {
          }) 
         console.log("newselector", selectors)
         console.log("oldselectors", selectores)
+
         
+        //concat both arrays to finally send to database
         const finalStaff = selectors.concat(selectores)
         setFinalSelectors(finalStaff)
         
+        //Endpoint to send if availability register is already exists 
          if(currentAvailableId.length !== 0){
           axios.put(`http://localhost:3001/api/admin//update_availables_viewer/${currentAvailableId}`,
-           { ...finalStaff})
-          window.alert("Registro enviado con exito")
-          document.location.reload();
-        }
+          { ...finalStaff})
+
+           Swal.fire({
+            icon: "success",
+            title: "Observador Asignado",
+            timer:500
+            });
+            document.location.reload();
+          }
+
+      //if availability register does not exists create a new availability register
         else {
           
             const newAvailability = {
-      
-               citationID:IdCitation,
-               date: (date),
-               shift: "mañana", 
+           
+              citationID:IdCitation,
+               date: fecha,
+               shift:(date).slice(11), 
                selectors
                     
              };
          
             console.log("newAvailability: ", newAvailability);
             axios.post("http://localhost:3001/api/admin/availability", { ...newAvailability });
-            window.alert("Registro enviado con exito")
-            document.location.reload();
+            Swal.fire({
+              icon: "success",
+              title: "Observador Asignado",
+              timer:500
+               });
+                     
+             document.location.reload();
         }
    
  
@@ -189,24 +214,26 @@ const CreateViewer = () => {
   return (
     <>
       <div className="moderator_createviewer">
-        <div>
-          <h4 className="">Por favor seleccione fecha y hora</h4>
-          <select className="selectButton" onChange={handleSelect}>
-            <option value="">Seleccione una fecha</option>
-            {citation.map((cita) => (
-              <option value={cita._id}>
-                {`${cita.appointmentDate.toString().slice(0, -14)}
-                      ${cita.shift}`}
-              </option>
-            ))}
-          </select>
-        </div>
         <div className="moderatorInterviewerContainer">
+          <div>
+            <h4 className="">Por favor seleccione fecha y hora</h4>
+            <select className="selectButton" onChange={handleSelect}>
+              <option value="">Seleccione una fecha</option>
+              {citation.map((cita) => (
+                <option value={cita._id}>
+                  {`${cita.appointmentDate.toString().slice(0, -14)}
+                      ${cita.shift}`}{" "}
+                </option>
+              ))}
+            </select>
+          </div>
+
           <table className="table_full">
             <tbody className="table_body">
               <tr className="table_head">
-                <th>Entrevistador</th>
+                <th>Observador</th>
                 <th>Rol Principal</th>
+                <th>Meet Rol</th>
                 <th>Fecha disponible</th>
                 <th>Jornada disponible </th>
                 <th>Habilitar</th>
@@ -217,7 +244,15 @@ const CreateViewer = () => {
                     <td>
                       {staff.names} {staff.surname}
                     </td>
-                    <td>{staff.role}</td>
+                    <td>{staff.role === 1 ? "Administrador"
+                        : staff.role === 2 ? "Moderador"
+                        : staff.role === 3 ? "Observador"
+                        : "Entrevistador"}
+                    </td>
+                    <td>{staff.meetRole === 1 ? "Administrador"
+                        :staff.meetRole === 2 ? "Moderador"
+                        :staff.meetRole === 3 ? "Observador"
+                        : "Entrevistador"}</td>
                     <td>{date.slice(0, -6)}</td>
                     <td>{date.slice(11)}</td>
 
@@ -243,7 +278,12 @@ const CreateViewer = () => {
                     <td>
                       {staff.names} {staff.surname}
                     </td>
-                    <td>{staff.role}</td>
+                    <td>{staff.role === 1 ? "Administrador"
+                        : staff.role === 2 ? "Moderador"
+                        : staff.role === 3 ? "Observador"
+                        : "Entrevistador"}
+                    </td>
+                    <td></td>
                     <td>{date.slice(0, -6)}</td>
                     <td>{date.slice(11)}</td>
 
@@ -271,23 +311,3 @@ const CreateViewer = () => {
 
 
 export default CreateViewer;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

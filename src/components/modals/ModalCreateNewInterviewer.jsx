@@ -34,7 +34,7 @@ textfield:{
 }))
 
 
-function ModalCreateNewInterviewer() {
+function ModalCreateNewViewer() {
   const styles=useStyles();
   const [spinner, mostrarSpinner] = useState(true);
   const [modal, setModal]=useState(false);
@@ -45,6 +45,7 @@ function ModalCreateNewInterviewer() {
     email: null,
     
   });
+  const [errors, setErrors] = useState({});
   /*
   const [values, setValues] = useState("");
   const initialStateValues = {
@@ -71,18 +72,54 @@ function ModalCreateNewInterviewer() {
     }
   
 */
+
+const validate = (values) => {
+  const error = {};
+
+  if (!values.names) error.names = "Este campo es obligatorio";
+  else error.names = null;
+
+  if (!values.surname) error.surname = "Este campo es obligatorio";
+  else error.names = null;
+
+  if (!values.email) error.email = "Este campo es obligatorio";
+  else if (
+    !/^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/i.test(
+      values.email
+    )
+  )
+  error.email = "Revisa tu email";
+  else error.email = null;
+
+  if (values.password === null) error.password = "Este campo es obligatorio";
+  else if (values.password.length < 6)
+    error.password = "Tu contraseña debe tener al menos 6 caracteres";
+  else if (values.confirmPassword !== values.password)
+    error.password = "Tus contraseñas no son iguales";
+  else error.password = null;
+
+  setErrors(error);
+  //if has errors return true
+  if (error.password || error.email || error.names || error.surname)
+    return true;
+  else return false;
+};
+
   const abrirCerrarModal =()=>{
     setModal(!modal);
   }
   
   const addNewUser = (e) => {
     e.preventDefault();
-    abrirCerrarModal()
-   
+    
+    if (validate(user)) {
+      return;
+    }
     mostrarSpinner(true);
     axios
       .post(PETITIONS.registerStaff, { ...user, role: 4 })
       .then((res) => {
+        abrirCerrarModal()
         setTimeout(() => {
           mostrarSpinner(true);
           Swal.fire({
@@ -99,8 +136,8 @@ function ModalCreateNewInterviewer() {
           });
           document.location.reload();
         }, 500);
-      })
-      .catch((err) => {
+       }).catch((err) => {
+         abrirCerrarModal()
         Swal.fire({
           icon: "error",
           title: "Oops...",
@@ -114,26 +151,32 @@ function ModalCreateNewInterviewer() {
   const handleName = (e) => {
     const names = e.target.value;
     setUser({ ...user, names });
-   
+    setErrors({ ...errors, names: null });
   };
 
   const handleSurname = (e) => {
     const surname = e.target.value;
     setUser({ ...user, surname });
-   
+    setErrors({ ...errors, surname: null });
   };
 
   const handleEmail = (e) => {
     const email = e.target.value;
     setUser({ ...user, email });
-   
+    setErrors({ ...errors, email: null });
   };
 
   const handlePassword = (e) => {
     const password = e.target.value;
-    setUser({ ...user, password });  
+    setUser({ ...user, password });
+    setErrors({ ...errors, password: null });
   };
 
+  const handleConfirmPassword = (e) => {
+    const confirmPassword = e.target.value;
+    setUser({ ...user, confirmPassword });
+    setErrors({ ...errors, password: null });
+  };
 
 
   const body=(
@@ -148,6 +191,9 @@ function ModalCreateNewInterviewer() {
           className={styles.textfield}
           onChange={handleName}
         />
+        {errors.names && (
+            <small style={{ color: "red" }}>{errors.names}</small>
+          )}
         <br/>
         <TextField 
           label="Apellidos" 
@@ -156,6 +202,9 @@ function ModalCreateNewInterviewer() {
           className={styles.textfield}
           onChange={handleSurname}
         />
+         {errors.surname && (
+            <small style={{ color: "red" }}>{errors.surname}</small>
+          )}
         <br/>
         <TextField 
           label="Email" 
@@ -164,14 +213,33 @@ function ModalCreateNewInterviewer() {
           className={styles.textfield}
           onChange={handleEmail}
         />
+         {errors.email && (
+            <small style={{ color: "red" }}>{errors.email}</small>
+          )}
          <br/>
          <TextField 
-          label="Contraseña" 
-          name="contraseña"
-          value={user.password || ""}
-          className={styles.textfield}
-          onChange={handlePassword}
-        />
+            label="Contraseña"
+            className={`${errors.password ? "fail" : ""}`}
+            type="password"
+            onChange={handlePassword}
+            value={user.password || ""}
+          />
+          {errors.password && (
+            <small style={{ color: "red" }}>{errors.password}</small>
+          )}
+          
+          <br/>
+          <TextField 
+            label="Confirme Contraseña"
+            className={`${errors.password ? "fail" : ""}`}
+            type="password"
+            onChange={handleConfirmPassword}
+            value={user.confirmPassword || ""}
+          />
+          {errors.password && (
+            <small style={{ color: "red" }}>{errors.password}</small>
+          )}
+        
         <br/>
         
          
@@ -189,7 +257,7 @@ function ModalCreateNewInterviewer() {
 
   return (
     <div>
-      <button className="btncreate_interviewer" onClick={()=>abrirCerrarModal()} >Crear Entrevistador </button>
+      <button className="btncreate_interviewer" onClick={()=>abrirCerrarModal()} >Crear Observador </button>
         <Modal
         open={modal}
         onClose={abrirCerrarModal}>
@@ -200,4 +268,4 @@ function ModalCreateNewInterviewer() {
   )
 }
 
-export default ModalCreateNewInterviewer
+export default ModalCreateNewViewer

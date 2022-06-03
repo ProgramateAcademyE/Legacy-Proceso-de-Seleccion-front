@@ -22,12 +22,17 @@
    box-shadow: 1px 10px 25px #c7c7c7;
    border-radius: 10px;
    font-size: 20px;
-   font-family:Arial, Helvetica, sans-serif
-   
-
+   font-family:Arial, Helvetica, sans-serif;
+   background-color: #6d6d6d;
+   color: #fff;
+   border: 1px solid #fdc300;
 }
+
 .btncreate_interviewer:hover {
-    background: #c1c1c1;
+    background: #505050;
+    font-weight: 700;
+    transition-property:initial;   
+    transition-duration: 1s;
 }
 .btnadd_interviewer{
     box-shadow: 1px 10px 15px #c7c7c7;

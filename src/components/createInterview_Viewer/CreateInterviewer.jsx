@@ -3,19 +3,24 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import Swal from "sweetalert2";
-import "./CreateInterviewer.css"
+import "./CreateInterviewer.css";
 
 const CreateInterViewer = () => {
   const [users, setUsers] = useState([]);
   const [citation, setCitation] = useState([]);
   const [citationSelected, setCitationSelected] = useState([]);
   const [IdCitation, setIdCitation] = useState([]);
-  const [date, setDate] = useState([]);
   const [UsersSelected, setUsersSelected] = useState([]);
+  const [UsersSelectedOne, setUsersSelectedOne] = useState([]);
   const [currentSelectors, setCurrentSelectors] = useState([]);
   const [currentAvailableId, setCurrentAvailableId] = useState("");
-  const [checked, setCheked] = useState(true);
-  
+  const [finalSelectors, setFinalSelectors] = useState([]);
+  const [date, setDate] = useState([]);
+
+  //convert string to date format
+  const finalDate = (date).slice(0, -6)
+  const finalDate2 = Date.parse(finalDate)
+  const fecha = new Date(finalDate2);
 
   const token = useSelector((state) => state.token);
 
@@ -80,35 +85,29 @@ const CreateInterViewer = () => {
     fetchAvailability();
   }, [IdCitation]);
 
-   
+  //Set info everytime check is on true, or unset if not
+
   const toggleChecked = e => {
-
-   if(UsersSelected.findIndex((user)=>(user._id == e.target.value)) !== -1){
-    
-    const selector = UsersSelected.findIndex((user)=>(user._id == e.target.value))
-    console.log("seconSelector:", UsersSelected)
-    UsersSelected.splice(selector, 1) 
-    setCheked(selector)
-    
-    
-    
-    setUsersSelected([...UsersSelected])
-   }
-   else{
-    const selector = users.find((user)=>(user._id == e.target.value))
-      setUsersSelected([...UsersSelected, selector])
-   }
-  console.log("selctor:", UsersSelected)
-  }
-
-
-   
   
-  // Post availability staff
+    if(currentSelectors.findIndex((user)=>(user._id == e.target.value)) !== -1){
+     
+     const selector = currentSelectors.findIndex((user)=>(user._id == e.target.value))
+     currentSelectors.splice(selector, 1)
+     setCurrentSelectors([...currentSelectors])
+    }
+    else {
+     const selector = users.find((user)=>(user._id == e.target.value))
+     setUsersSelectedOne([...UsersSelectedOne, selector])
+    }
+   
+   }
+
+ // Post availability staff selected
   const postAvailability = () => {
     fetchCitationSelected();
-
-    const selectors = UsersSelected.map((dat) => {
+  
+  //map all new staff selected
+    const selectors = UsersSelectedOne.map((dat) => {
           
           return( 
                   {
@@ -122,33 +121,69 @@ const CreateInterViewer = () => {
                 
                   )
          }) 
-        console.log("newselector", selectors)
-        
 
-        if(currentAvailableId.length !== 0){
-          axios.put(`http://localhost:3001/api/admin/update_availables_interviewer/${currentAvailableId}`, { ...selectors});
-          window.alert("Registro enviado con exito")
-          document.location.reload();
-        }
+    //map all staff that is already safe on database
+         const selectores = currentSelectors.map((dat) => {
+          
+          return( 
+                  {
+                    _id:(dat._id),
+                    names:(dat.names),
+                    surname:(dat.surname),
+                    role:(dat.role),
+                    meetRole:(dat.meetRole)
+                                  
+                  }
+                
+                  )
+         }) 
+        console.log("newselector", selectors)
+        console.log("oldselectors", selectores)
+
+        
+        //concat both arrays to finally send to database
+        const finalStaff = selectors.concat(selectores)
+        setFinalSelectors(finalStaff)
+        
+        //Endpoint to send if availability register is already exists 
+         if(currentAvailableId.length !== 0){
+          axios.put(`http://localhost:3001/api/admin//update_availables_viewer/${currentAvailableId}`,
+          { ...finalStaff})
+
+           Swal.fire({
+            icon: "success",
+            title: "Entrevistador asignado",
+            timer:500
+            });
+            document.location.reload();
+          }
+
+      //if availability register does not exists create a new availability register
         else {
           
             const newAvailability = {
-      
-               citationID:IdCitation,
-               date: (date),
-               shift: "mañana", 
+           
+              citationID:IdCitation,
+               date: fecha,
+               shift:(date).slice(11), 
                selectors
-                   
+                    
              };
          
             console.log("newAvailability: ", newAvailability);
             axios.post("http://localhost:3001/api/admin/availability", { ...newAvailability });
-            window.alert("Registro enviado con exito")
-            document.location.reload();
+            Swal.fire({
+              icon: "success",
+              title: "Entrevistador asignado",
+              timer:500
+               });
+                     
+             document.location.reload();
         }
    
- // const citationAvailability = axios.get(`http://localhost:3001/api/admin/findCitationid/${citation.ID}`);
+ 
   }
+
 
   //const deleteAvailability = () => {
   //  const id_available=UsersSelected._id;
@@ -162,14 +197,16 @@ const CreateInterViewer = () => {
     setIdCitation(e.target.value);
   };
 
-  console.log("users:", users);
-  console.log("usersSelected:", UsersSelected);
-  console.log("citation:", citation);
-  console.log("IdCitation:", IdCitation);
-  console.log("date:", date);
-  console.log("citationSelected:", citationSelected);
-  console.log("available:", currentSelectors);
-  console.log("availableId:", currentAvailableId);
+// console.log("users:", users);
+console.log("usersSelected:", UsersSelected);
+// console.log("citation:", citation);
+// console.log("IdCitation:", IdCitation);
+// console.log("date:", date);
+// console.log("citationSelected:", citationSelected);
+ console.log("available:", currentSelectors);
+// console.log("availableId:", currentAvailableId);
+ console.log("usersSelectedOne:", UsersSelectedOne);
+ console.log("FinalSElector", finalSelectors)
 
   return (
     <>
@@ -192,6 +229,7 @@ const CreateInterViewer = () => {
               <tr className="table_head">
                 <th>Entrevistador</th>
                 <th>Rol Principal</th>
+                <th>Meet Rol</th>
                 <th>Fecha disponible</th>
                 <th>Jornada disponible </th>
                 <th>Habilitar</th>
@@ -202,7 +240,15 @@ const CreateInterViewer = () => {
                     <td>
                       {staff.names} {staff.surname}
                     </td>
-                    <td>{staff.role}</td>
+                    <td>{staff.role === 1 ? "Administrador"
+                        : staff.role === 2 ? "Moderador"
+                        : staff.role === 3 ? "Observador"
+                        : "Entrevistador"}
+                    </td>
+                    <td>{staff.meetRole === 1 ? "Administrador"
+                        :staff.meetRole === 2 ? "Moderador"
+                        :staff.meetRole === 3 ? "Observador"
+                        : "Entrevistador"}</td>
                     <td>{date.slice(0, -6)}</td>
                     <td>{date.slice(11)}</td>
 
@@ -211,8 +257,8 @@ const CreateInterViewer = () => {
                       value={staff._id}
                       type="checkbox"
                       name="id"
-                      checked={checked}
-                      onChange={toggleChecked}/>
+                      checked={true}
+                      onChange={ toggleChecked }/>
                     </td>
                   </tr>
                 ))
@@ -225,26 +271,32 @@ const CreateInterViewer = () => {
                   <></>
                 ) : (
                   <tr>
-                    <td>
-                      {staff.names} {staff.surname}
-                    </td>
-                    <td>{staff.role}</td>
-                    <td>{date.slice(0, -6)}</td>
-                    <td>{date.slice(11)}</td>
+                  <td>
+                    {staff.names} {staff.surname}
+                  </td>
+                  <td>{staff.role === 1 ? "Administrador"
+                      : staff.role === 2 ? "Moderador"
+                      : staff.role === 3 ? "Observador"
+                      : "Entrevistador"}
+                  </td>
+                  <td></td>
+                  <td>{date.slice(0, -6)}</td>
+                  <td>{date.slice(11)}</td>
 
-                    <td>
-                      <input
-                        value={staff._id}
-                        type="checkbox"
-                        name="id"
-                        onChange={toggleChecked}
-                      />
-                    </td>
-                  </tr>
+                  <td>
+                    <input
+                      value={staff._id}
+                      type="checkbox"
+                      name="id"
+                      onChange={toggleChecked}
+                    />
+                  </td>
+                </tr>
                 )
               )}
             </tbody>
           </table>
+
           <button className="btnadd_interviewer" onClick={postAvailability}>
             Asignar
           </button>

@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import "./Auth.css";
 import { dispatchLogin } from "../../actions/authAction";
 import Spinner from "./Spinner";
-import programateacademycolorBN from '../../../dist/Assets/Programateacademynegros.png';
+import programateacademycolorBN from "../../../dist/Assets/Programateacademynegros.png";
 
 import Swal from "sweetalert2";
 
@@ -128,10 +128,10 @@ const Login = () => {
 
   return (
     <div className="login">
-    {/* <div className='Logo__Programate'><img src={programateacademycolorBN} alt='Logo'/></div>  */}
+      {/* <div className='Logo__Programate'><img src={programateacademycolorBN} alt='Logo'/></div>  */}
       <div className="cardLoggin">
         <div className="login_page">
-        <div className="mensajes">{spinner ? <Spinner /> : null}</div>
+          <div className="mensajes">{spinner ? <Spinner /> : null}</div>
           <h2>Iniciar Sesión</h2>
 
           <form onSubmit={handleSubmit}>
