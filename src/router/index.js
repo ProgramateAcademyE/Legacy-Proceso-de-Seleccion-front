@@ -214,11 +214,6 @@ const App = () => {
                 component={InterviewerApplicantsCited}
               />
               /
-              {/*<Route
-                path="/entrevistadoraplicantescitados"
-                component={InterviewerApplicantsCited}
-              />
-          <Route path="/observadorassesment" component={ViewerAssesment} />*/}
             </>
           ) : (
             <>
