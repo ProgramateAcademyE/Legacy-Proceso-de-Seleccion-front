@@ -268,7 +268,7 @@ const ModeratorForm = () => {
               {available !== undefined ? (
                 <>
                   <Field
-                    name="interviewers"
+                    name="observers"
                     as="text"
                     multiple
                     className="form-control select "

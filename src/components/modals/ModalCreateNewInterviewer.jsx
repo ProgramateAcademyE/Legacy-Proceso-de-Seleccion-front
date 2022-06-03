@@ -249,7 +249,7 @@ function ModalCreateNewViewer() {
         className="btncreate_interviewer"
         onClick={() => abrirCerrarModal()}
       >
-        Crear Observador{" "}
+        Crear Entrevistador
       </button>
       <Modal open={modal} onClose={abrirCerrarModal}>
         {body}
