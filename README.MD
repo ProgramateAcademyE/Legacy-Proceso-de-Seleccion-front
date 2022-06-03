@@ -90,11 +90,11 @@ Se realiza el frontend con React, se utilizó webpack y las siguientes librería
 ## Colaboradores: 
 - Luis Cabal        https://github.com/ElCabal
 - Diana Chávez      https://github.com/dianachavezr
-- Leandro Gutierrez
+- Leandro Gutierrez  https://github.com/leagut
 - Carolina Loaiza
 - Jymmy Murillo    https://github.com/JymmyMurillo
 - Jocelyn Rincón    https://github.com/JocelynRincon
-- Doraly Santander
+- Doraly Santander  https://github.com/doralysantander
 
 ## Formadores: 
 - Lorena Guerrero
