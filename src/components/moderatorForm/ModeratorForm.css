@@ -88,6 +88,15 @@ h5 {
   margin-top: 10%;
   border: none;
 }
+
+.ModeratorFormSubmit:hover {
+  background-color: #000000;
+  color: #ffffff;
+  transition-property: initial;
+  transition-duration: 1s;
+  text-decoration: underline;
+}
+
 .ModeratorFormExit {
   display: flex;
   flex-direction: column;
