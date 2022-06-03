@@ -5,6 +5,7 @@
     padding: 20px;
     background-color:#ffffff;
     margin: auto;
+    box-shadow: 1px 10px 25px #c7c7c7;
 }
 .table_full{
    
@@ -15,7 +16,7 @@
 .table_body{
     
     width: 80vw;
-    box-shadow: 1px 10px 25px #c7c7c7;
+    
     height: 90%;
 }
 .table_head{
@@ -30,7 +31,7 @@
 
 td{
     border: solid 1px #c7c7c7;
-    height: 40px;
+    height: 50px;
 }
 td:hover {
     background-color: #c7c7c7;

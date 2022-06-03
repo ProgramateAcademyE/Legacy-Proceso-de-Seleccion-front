@@ -7,47 +7,80 @@ import "react-data-table-component-extensions/dist/index.css";
 import axios from "axios";
 import { useSelector } from "react-redux";
 
-const InterviewerApplicantsTable = () => {
-  const [citation, setCitation] = useState([]);
-  const [processedCitation, setProcessedCitation] = useState([]);
+const InterviewerApplicantsTable = (props) => {
+  const token = useSelector((state) => state.token);
+  const auth = useSelector((state) => state.auth);
+  const meId = auth.user._id;
+
+  const [currentUser, setCurrentUser] = useState("");
+
+  const [meet, setMeet] = useState([]);
 
   const handleChange = ({ selectedRows }) => {
     // You can set state or dispatch with something like Redux so we can use the retrieved data
     console.log("Selected Rows: ", selectedRows);
   };
 
-  const token = useSelector((state) => state.token);
+  const meetId = "6290dbfaffb2ee7777ba38ad";
   async function fetchCitation() {
     const { data } = await axios.get(
-      "http://localhost:3001/api/admin/citation-all",
+      `http://localhost:3001/api/admin/get-meet-by-meetId/${meetId}`,
       {
         headers: { Authorization: token },
       }
     );
 
-    setCitation(data.data);
-    setProcessedCitation(
-      data.data.map((item) => {
-        return item.users.map((subitem) => {
-          return {
-            fecha: item.appointmentDate.slice(0, 10),
-            jornada: item.shift,
-            horario: item.shiftStart,
-            aspirante: subitem.names + " " + subitem.surname,
-            id_aspirante: subitem.documentNumber,
-            entrevistador: subitem.interviewer_name,
-            observador: subitem.viewer_name,
-          };
-        });
-      })
-    );
+    setMeet(data.data[0]);
   }
+
+  const handleCheck = (e, row) => {
+    if (e.target.value !== currentUser) {
+      setCurrentUser(e.target.value);
+      props.handleCurrentAspirant(row);
+    } else {
+      setCurrentUser("");
+      props.handleCurrentAspirant(undefined);
+    }
+  };
 
   useEffect(() => {
     fetchCitation();
   }, []);
 
-  console.log("users", citation);
+  useEffect(() => {
+    console.log("Aiuda!!!!");
+  }, [currentUser]);
+
+  const searchInterviewer = meet?.roomsInterviewers?.map((r) =>
+    r?.selectors?.findIndex((s) => s._id === meId)
+  );
+  const searchAsse = meet?.roomsAssesments?.map((r) =>
+    r?.selectors?.findIndex((s) => s._id === meId)
+  );
+
+  const role = searchInterviewer?.includes(1)
+    ? "interviewer"
+    : searchAsse?.includes(1)
+    ? "Observer"
+    : null;
+
+  const room =
+    role === "interviewer"
+      ? meet.roomsInterviewers[searchInterviewer.findIndex((p) => p === 1)]
+      : "";
+
+  console.log("Room: ", room);
+  const processedCitation = room?.users?.map((item) => {
+    return {
+      id: item._id,
+      fecha: meet?.date?.slice(0, 10),
+      jornada: meet?.shift,
+      horario: meet?.shift,
+      aspirante: item.names + " " + item.surname,
+      id_aspirante: item.documentNumber,
+      ubicacion: item.location,
+    };
+  });
   const columns = [
     {
       name: "ID",
@@ -75,22 +108,28 @@ const InterviewerApplicantsTable = () => {
       sortable: true,
     },
     {
-      name: "ENTREVISTADOR",
-      selector: (row) => row["entrevistador"],
-      sortable: true,
-    },
-    {
-      name: "OBSERVADOR",
-      selector: (row) => row["viewer_name"],
+      name: "UBICACION",
+      selector: (row) => row["ubicacion"],
       sortable: true,
     },
     {
       name: "SELECCIONAR",
-      selector: (row) => <input type="checkbox" />,
+      selector: (row) => {
+        console.log("Row", row.aspirante, row.id === currentUser);
+        return (
+          <input
+            type="checkbox"
+            value={row.id}
+            checked={row.id === currentUser}
+            onChange={(e) => handleCheck(e, row)}
+          />
+        );
+      },
       sortable: true,
     },
   ];
 
+  console.log("current ", currentUser);
   return (
     <>
       <div className="interviewerApplicantTable">

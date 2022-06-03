@@ -35,10 +35,11 @@
     width: 460px;
     box-shadow: 1px 10px 25px #c7c7c7;
     text-align: center;
-    padding: 0;
+    padding:10px 20px ;
     height: 600px;
     overflow-y: scroll;
 }
+
 
 .card-header{
     font-size: 1rem;
@@ -49,7 +50,12 @@
     justify-content: center;
     align-items: center;
 }
-
+.card-text{
+    margin-top: 20px;
+}
+.viewerCardParagraph{
+    margin-top: 10px;
+}
 .interviewerCardSpan{
     font-weight: bolder;
 }

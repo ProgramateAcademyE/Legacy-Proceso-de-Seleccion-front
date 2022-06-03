@@ -22,9 +22,12 @@ text-align: center;
 
  
 .moderatorInterviewerTitle{
+<<<<<<< HEAD
   background: #1d1c1c;
+=======
+>>>>>>> 279b11e5b9a1f3e860eec86a44a0419fb1b5a9d0
   font-size: 2rem;
-    margin-top: 10%;
+  margin-top: 10%;
   font-size: 2rem;
   border-radius: 10px;
   padding: 10px;
