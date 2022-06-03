@@ -81,6 +81,8 @@ Se realiza el frontend con React, se utilizó webpack y las siguientes librería
 
 ![Untitled design (3) (1)](https://user-images.githubusercontent.com/97619450/171937395-4713dcbc-be57-444a-8064-37470366677f.png)
 
+## Deploy
+- https://legacy-proceso-seleccion.netlify.app/
 
 ## Colaboradores: 
 - Luis Cabal
