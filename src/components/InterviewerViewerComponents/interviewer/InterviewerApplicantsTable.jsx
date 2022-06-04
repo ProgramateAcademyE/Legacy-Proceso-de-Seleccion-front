@@ -57,12 +57,12 @@ const InterviewerApplicantsTable = (props) => {
         sortable: true,
       },
       {
-        name: "IDENTIFICACION",
+        name: "IDENTIFICACIÓN",
         selector: (row) => row["id_aspirante"],
         sortable: true,
       },
       {
-        name: "UBICACION",
+        name: "UBICACIÓN",
         selector: (row) => row["ubicacion"],
         sortable: true,
       },

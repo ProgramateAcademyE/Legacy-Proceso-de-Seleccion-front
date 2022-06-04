@@ -82,7 +82,7 @@ const ModeratorApplicantsCited = () => {
       sortable: true,
     },
     {
-      name: "UBICACION",
+      name: "UBICACIÓN",
       selector: (row) => row["ubicacion"],
       sortable: true,
     },

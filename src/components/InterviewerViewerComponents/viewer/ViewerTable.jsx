@@ -89,7 +89,7 @@ const ViewerTable = (props) => {
       sortable: true,
     },
     {
-      name: "Ubicacion",
+      name: "Ubicación",
       selector: (row) => row["ubicacion"],
       sortable: true,
     },

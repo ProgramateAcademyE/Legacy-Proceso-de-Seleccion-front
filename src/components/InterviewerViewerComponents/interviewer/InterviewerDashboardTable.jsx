@@ -84,7 +84,7 @@ const InterviewerDashboardTable = () => {
       sortable: true,
     },
     {
-      name: "VER MAS",
+      name: "VER MÁS",
       selector: (row) => (
         <button
           className="buttonViewMoreInterviewerDashboard"

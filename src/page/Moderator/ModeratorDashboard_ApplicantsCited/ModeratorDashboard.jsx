@@ -10,7 +10,7 @@ const ModeratorDashboard = () => {
       <div className="moderatorInterviewDasboard">
         <div className="moderatorInterviewDasboardTitle">
           <h1 className="moderatorInterviewDasboardTableTitle">
-            Agenda de salas programadas
+            Agenda programada
           </h1>
           <ModeratorInterviewerTable />
         </div>

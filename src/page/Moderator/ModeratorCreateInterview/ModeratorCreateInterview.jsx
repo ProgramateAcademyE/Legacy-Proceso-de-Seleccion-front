@@ -6,16 +6,13 @@ import "../../../components/moderatorForm/ModeratorForm.css";
 import ModeratorForm from "../../../components/moderatorForm/ModeratorForm";
 
 const ModeratorCreateInterview = () => {
- 
-
   return (
     <>
       <div className="moderatorContainerInterview">
         <div className="moderatorCreateInterviewContainer">
-          <h1 className="moderatorCreateInterviewTitle">Crear Reunion </h1>
-      
-           <ModeratorForm /> 
-     
+          <h1 className="moderatorCreateInterviewTitle">Crear Reunión </h1>
+
+          <ModeratorForm />
         </div>
       </div>
     </>
