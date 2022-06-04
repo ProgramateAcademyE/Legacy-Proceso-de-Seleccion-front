@@ -3,17 +3,14 @@ import { Formik, Field, Form, ErrorMessage, useFormik } from "formik";
 import axios from "axios";
 import { useSelector } from "react-redux";
 import Swal from "sweetalert2";
-
 const ModeratorForm = () => {
   const [citations, setCitations] = useState([]);
   const [available, setAvailable] = useState(undefined);
   const [citationSelected, setCitacionSelected] = useState(undefined);
   const [formularioEnviado, cambiarFormularioEnviado] = useState(false);
   const token = useSelector((state) => state.token);
-
   const interviewersInput = useRef(null);
   const viewersInput = useRef(null);
-
   const [countInterviewer, setCountIntervierwer] = useState(0);
   async function fetchCitations() {
     const { data } = await axios.get(
@@ -24,11 +21,9 @@ const ModeratorForm = () => {
     );
     setCitations(data);
   }
-
   useEffect(() => {
     fetchCitations();
   }, []);
-
   async function fetchAvailibility(citationID) {
     try {
       const { data } = await axios.get(
@@ -42,7 +37,6 @@ const ModeratorForm = () => {
       setAvailable([]);
     }
   }
-
   function clear() {
     (assesmentsRooms = 0), (assesmentsRooms = 0), (link = "");
   }
@@ -53,8 +47,8 @@ const ModeratorForm = () => {
       interviewRooms: 0,
       link: "",
     },
-
     validate: (values) => {
+      console.log("VaLues en Validate");
       let errores = {};
       if (!values.citationID || values.citationID.length === 0) {
         errores.citationID = "Debes seleccionar una fecha";
@@ -71,18 +65,14 @@ const ModeratorForm = () => {
         errores.assesmentsRooms = "Campo Requerido.";
       } else if (values.assesmentsRooms <= 0)
         errores.assesmentsRooms = "Debe ser mayor a 0.";
-
       if (values.assesmentsRooms > viewersInput.current.childElementCount) {
         errores.assesmentsRooms = "No puede ser mayor numero Observadores";
       }
-
       if (!values.link || values.link.length === 0) {
         errores.link = "El campo no puede estar vacio,";
       }
-
       return errores;
     },
-
     onSubmit: (values, { resetForm }) => {
       const toSubmit = {
         ...values,
@@ -94,21 +84,38 @@ const ModeratorForm = () => {
         interviewers: available.selectors.filter((s) => s.meetRole === 4),
         observers: available.selectors.filter((s) => s.meetRole === 3),
       };
+      console.log("To submit", toSubmit);
+      axios
+        .post(
+          "https://legacy-selection-educamas.herokuapp.com/api/admin/meet",
+          { ...toSubmit }
+        )
+        .then((res) => {
+          Swal.fire({
+            icon: "success",
+            title: "Registro Exitoso!",
+            text: res.data.msg,
+            showCancelButton: true,
+          }).then((result) => {
+            if (result.isConfirmed) {
+              document.location.reload();
+            }
+          });
+        })
+        .catch((err) => {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: err?.response?.data?.msg,
+          });
+        });
 
-      axios.post(
-        "https://legacy-selection-educamas.herokuapp.com/api/admin/meet",
-        { ...toSubmit }
-      );
-      cambiarFormularioEnviado(true);
-      setTimeout(() => cambiarFormularioEnviado(false), 80000);
-
-      setTimeout(window.location.reload(), 90000);
-      /*window.setTimeout(function () {
-        location.reload();
-      }, 2000);*/
+      //    cambiarFormularioEnviado(true);
+      //  setTimeout(() => cambiarFormularioEnviado(false), 80000);
+      // setTimeout(window.location.reload(), 90000);
     },
   });
-
+  console.log("errores", formik.errors);
   useEffect(() => {
     setCitacionSelected(
       citations?.data?.filter(
@@ -117,9 +124,9 @@ const ModeratorForm = () => {
     );
     fetchAvailibility(formik.values.citationID);
   }, [formik.values.citationID]);
-
   //mirar que tiene interviewersInput
-
+  console.log("Entrevistadoresinput", interviewersInput);
+  console.log("ObservadoresInput", viewersInput);
   return (
     <Formik>
       <Form id="formulario" className="ModeratorForm">
@@ -137,7 +144,6 @@ const ModeratorForm = () => {
                 onChange={formik.handleChange}
               >
                 <option value="">Seleccione una Fecha</option>
-
                 {citations?.data?.map((c) => (
                   <option value={c._id}>{`${c.appointmentDate
                     .toString()
@@ -160,7 +166,6 @@ const ModeratorForm = () => {
                 placeholder="Numero salas Entrevistas"
                 onChange={formik.handleChange}
               />
-
               {formik.errors.interviewRooms ? (
                 <div style={{ color: "red" }}>
                   {formik.errors.interviewRooms}
@@ -169,7 +174,6 @@ const ModeratorForm = () => {
                 <></>
               )}
             </div>
-
             <div>
               <label htmlFor="assesmentsRooms">No salas Assessment</label>
               <Field
@@ -211,7 +215,6 @@ const ModeratorForm = () => {
             <div className="ModeratorFormTitle">
               <h5 className="ModeratorFormApplicants">Aspirantes</h5>
             </div>
-
             <div className="ModeratorFormSelect">
               {citationSelected !== null ? (
                 <>
@@ -235,7 +238,6 @@ const ModeratorForm = () => {
             <div className="ModeratorFormTitle">
               <h5 className="">Entrevistadores</h5>
             </div>
-
             <div className="ModeratorFormSelect">
               {available !== undefined ? (
                 <>
@@ -311,5 +313,4 @@ const ModeratorForm = () => {
     </Formik>
   );
 };
-
 export default ModeratorForm;

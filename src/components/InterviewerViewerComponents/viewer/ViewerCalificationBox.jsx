@@ -65,15 +65,25 @@ const ViewerCalificationBox = (props) => {
 
         finalSubmit.push(toSubmit);
       }
-      axios.post(
-        "https://legacy-selection-educamas.herokuapp.com/api/admin/interviewDay-Observer",
-        {
-          ...finalSubmit,
-        }
-      );
+      axios
+        .post(
+          "https://legacy-selection-educamas.herokuapp.com/api/admin/interviewDay-Observer",
+          {
+            ...finalSubmit,
+          }
+        )
+        .then((res) => {
+          setTimeout(history.replace(`/entrevistadordashboard`), 1000);
+        })
+        .catch((err) => {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: err?.response?.data?.msg,
+          });
+        });
       setSubmited(true);
       setTimeout(() => setSubmited(false), 80000);
-      setTimeout(history.replace(`/entrevistadordashboard`), 90000);
     },
   });
 
@@ -107,7 +117,9 @@ const ViewerCalificationBox = (props) => {
           {room?.users?.map((u) => (
             <div className="card-body">
               <h4 className="card-header">OBSERVACIONES GENERALES</h4>
-              <p className="">{u.names}</p>
+              <p className="">
+                {u.names} {u.surname}
+              </p>
               <Field
                 id={`comment_${u._id}`}
                 name={`comment_${u._id}`}

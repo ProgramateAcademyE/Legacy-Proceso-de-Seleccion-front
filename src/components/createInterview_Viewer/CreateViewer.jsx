@@ -135,17 +135,29 @@ const CreateViewer = () => {
 
     //Endpoint to send if availability register is already exists
     if (currentAvailableId.length !== 0) {
-      axios.put(
-        `https://legacy-selection-educamas.herokuapp.com/api/admin//update_availables_viewer/${currentAvailableId}`,
-        { ...finalStaff }
-      );
+      axios
+        .put(
+          `https://legacy-selection-educamas.herokuapp.com/api/admin//update_availables_viewer/${currentAvailableId}`,
+          { ...finalStaff }
+        )
+        .then((res) => {
+          Swal.fire({
+            icon: "success",
+            title: "Registro Exitoso!",
+            text: res.data.msg,
+          });
 
-      /* Swal.fire({
-        icon: "success",
-        title: "Observador Asignado",
-        timer: 500,
-      });
-      document.location.reload();*/
+          setTimeout(() => {
+            window.location.reload();
+          }, 1000);
+        })
+        .catch((err) => {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: err?.response?.data?.msg,
+          });
+        });
     }
 
     //if availability register does not exists create a new availability register
@@ -158,19 +170,32 @@ const CreateViewer = () => {
       };
 
       console.log("newAvailability: ", newAvailability);
-      axios.post(
-        "https://legacy-selection-educamas.herokuapp.com/api/admin/availability",
-        {
-          ...newAvailability,
-        }
-      );
-      /* Swal.fire({
-        icon: "success",
-        title: "Observador Asignado",
-        timer: 500,
-      });
-
-      document.location.reload();*/
+      axios
+        .post(
+          "https://legacy-selection-educamas.herokuapp.com/api/admin/availability",
+          {
+            ...newAvailability,
+          }
+        )
+        .then((res) => {
+          Swal.fire({
+            icon: "success",
+            title: "Registro Exitoso!",
+            text: res.data.msg,
+            showCancelButton: true,
+          }).then((result) => {
+            if (result.isConfirmed) {
+              document.location.reload();
+            }
+          });
+        })
+        .catch((err) => {
+          Swal.fire({
+            icon: "error",
+            title: "Oops...",
+            text: err?.response?.data?.msg,
+          });
+        });
     }
   };
 

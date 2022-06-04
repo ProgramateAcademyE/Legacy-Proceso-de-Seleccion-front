@@ -32,7 +32,7 @@ const ViewerCalificationBoxCard = (props) => {
 
       {aspirants.map((a) => (
         <p className="card-footer">
-          {a.names}
+          {a.names} {a.surname}
           <select
             className="interviewerSelect"
             name=""
