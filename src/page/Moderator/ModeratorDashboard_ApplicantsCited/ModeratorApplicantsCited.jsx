@@ -96,7 +96,9 @@ const ModeratorApplicantsCited = () => {
         <span className="moderatorSpan">Aspirantes Citados</span>{" "}
       </h2>
       <div>
-        <h4 className="">Por favor seleccione fecha y hora</h4>
+        <h3 className="moderatorApplicantCitedParagraph">
+          Por favor seleccione fecha y hora
+        </h3>
         <select className="selectButton" onChange={handleSelect}>
           <option value="">Seleccione una fecha</option>
           {citation.map((cita, index) => (

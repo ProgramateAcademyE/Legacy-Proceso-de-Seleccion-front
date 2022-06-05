@@ -98,7 +98,7 @@ const Nav = () => {
                     />
                   )))}
 
-            <div>
+            {/* <div className="btnClose">
               <a
                 href="#close"
                 title="close"
@@ -108,7 +108,7 @@ const Nav = () => {
               >
                 X
               </a>
-            </div>
+            </div>*/}
           </nav>
         </div>
       </div>

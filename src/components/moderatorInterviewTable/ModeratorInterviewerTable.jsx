@@ -62,7 +62,7 @@ const ModeratorInterviewerTable = () => {
       sortable: true,
     },
     {
-      name: "DETALLE",
+      name: "VER MÁS",
 
       selector: (row) => (
         <a href="/moderadortablaentrevistas" target="_blank">

@@ -24,76 +24,47 @@
   position: relative !important;
   left: 0 !important;
 }
+.nav__item {
+  padding: 0;
+  padding-bottom: 15px;
+}
 
 .nav__subitem-label {
   display: inline-block;
 }
-@media screen and (max-width: 991px) {
-  .close {
-    display: flex;
-    justify-content: center;
-  }
 
-  .nav {
-    left: -100%;
-    width: 240px;
-    position: fixed !important;
-    height: 100vh !important;
-    z-index: 1000;
-    -webkit-box-shadow: 4px 8px 16px 3px #00000054 !important;
-    box-shadow: 4px 8px 16px 3px #00000054 !important;
-    -webkit-transition: 0.8s all ease;
-    transition: 0.8s all ease;
-  }
-  .nav__title,
-  .nav__subitem {
-    display: block !important;
-  }
-  .nav__title,
-  .nav__subitem {
-    display: block !important;
-  }
-  .nav__item-label {
-    color: black;
-    font-weight: bold;
-    display: block !important;
-  }
+.nav__title,
+.nav__subitem {
+  display: none !important;
 }
-
-@media screen and (min-width: 991px) {
-  .nav__title,
-  .nav__subitem {
-    display: none !important;
-  }
-  .nav__item-label {
-    color: black;
-    font-weight: 500 !important;
-    display: none !important;
-  }
-  .nav:hover {
-    width: 294px;
-  }
-  .nav:hover .nav__fixed {
-    width: 294px;
-    overflow-y: scroll !important;
-    overflow-x: hidden !important;
-  }
-  .nav:hover .nav__title,
-  .nav:hover .nav__item-label,
-  .nav:hover .nav__item-iconArrow {
-    display: block !important;
-  }
-  .nav:hover .nav__subitem {
-    display: -webkit-box !important;
-    display: -ms-flexbox !important;
-    display: flex !important;
-  }
-  .nav:hover .nav__item-icon {
-    position: relative;
-    font-size: 19px;
-    text-align: start;
-    width: 40px;
-  }
+.nav__item-label {
+  color: black;
+  font-weight: 500 !important;
+  display: none !important;
+}
+.nav:hover {
+  width: 294px;
+}
+.nav:hover .nav__fixed {
+  width: 294px;
+  overflow-y: scroll !important;
+  overflow-x: hidden !important;
+}
+.nav:hover .nav__title,
+.nav:hover .nav__item-label,
+.nav:hover .nav__item-iconArrow {
+  display: block !important;
+}
+.nav:hover .nav__subitem {
+  display: -webkit-box !important;
+  display: -ms-flexbox !important;
+  display: flex !important;
+}
+.nav:hover .nav__item-icon {
+  position: relative;
+  font-size: 19px;
+  text-align: start;
+  width: 40px;
 }
 
 .nav__title {
@@ -122,7 +93,7 @@
   -ms-flex-direction: column;
   flex-direction: column;
   width: 75px;
-  height: 78%;
+  height: 100vh;
   -webkit-transition: 0.4s all;
   transition: 0.4s all;
   background: #fdc300;
@@ -136,4 +107,42 @@
 .nav__fixed::-webkit-scrollbar-thumb {
   background: #d8a602;
   border-radius: 5px;
+}
+
+@media screen and (max-width: 991px) {
+  .close {
+    display: flex;
+    justify-content: center;
+    position: absolute;
+  }
+
+  .nav {
+    left: -100%;
+    width: 294px;
+    position: fixed !important;
+    height: 100vh !important;
+    z-index: 1000;
+    -webkit-box-shadow: 4px 8px 16px 3px #00000054 !important;
+    box-shadow: 4px 8px 16px 3px #00000054 !important;
+    -webkit-transition: 0.8s all ease;
+    transition: 0.8s all ease;
+  }
+  .nav__title,
+  .nav__subitem {
+    display: block !important;
+  }
+  .nav__title,
+  .nav__subitem {
+    display: block !important;
+  }
+  .nav__item-label {
+    color: black;
+    font-weight: bold;
+    display: block !important;
+  }
+
+  .nav__fixed {
+    width: 294px;
+    overflow-y: scroll;
+  }
 }

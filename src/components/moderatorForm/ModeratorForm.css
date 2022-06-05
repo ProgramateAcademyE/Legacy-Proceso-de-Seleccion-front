@@ -9,7 +9,18 @@
   height: 100%;
 }
 .ModeratorformContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
   margin-top: 3rem;
+  background-color: #ffffff;
+  padding: 30px;
+  box-shadow: 1px 10px 25px #c7c7c7;
+  width: 100%;
+  margin: auto;
+  border-radius: 10px;
+  margin-top: 3%;
 }
 
 .ModeratorFormSection1 {
@@ -43,15 +54,12 @@
 }
 
 .ModeratorFormApplicants {
-  display: flex;
-  justify-content: center;
-  align-items: center;
   background-color: #010101;
   color: #f1f1f1;
   padding: 10px;
   border-radius: 10px;
   box-shadow: 1px 10px 25px #c7c7c7;
-  margin-top: 10%;
+  margin-top: 3%;
 }
 
 h5 {
@@ -62,7 +70,7 @@ h5 {
   padding: 10px;
   border-radius: 10px;
   box-shadow: 1px 10px 25px #c7c7c7;
-  margin-top: 10%;
+  margin-top: 3%;
 }
 /*
 .section3{
@@ -111,7 +119,7 @@ h5 {
   margin: 9px 0px 9px 0px;
   box-shadow: 0px 0px 4px 0px #000;
   border-radius: 5px;
-  width: 100%;
+  width: 80vw;
   height: 50vh;
   overflow: scroll;
   display: flex;
@@ -126,6 +134,10 @@ h5 {
 /*Media query Tablet 
 @media screen and (max-width: 700px)*/
 @media (max-width: 991px) {
+  .ModeratorformContainer {
+    width: 90%;
+    margin: auto;
+  }
   .ModeratorFormSection1 {
     width: 90vw;
     display: flex;
@@ -154,6 +166,11 @@ h5 {
     justify-content: center;
     align-items: center;
   }
+
+  .ModeratorFormLink,
+  .ModeratorFormRooms {
+    width: 90%;
+  }
   .ModeratorFormSelect {
     display: flex;
     justify-content: center;
@@ -168,16 +185,15 @@ h5 {
   }
 
   .select {
-    margin: 9px 0px 9px 0px;
-    box-shadow: 0px 0px 4px 0px black;
-    border-radius: 5px;
-    width: 20rem;
-    overflow: scroll;
+    width: 80vw;
   }
 }
 /*Media query celular */
 @media (max-width: 530px) {
-  .ModeratorFormSection1 {
+  .ModeratorformContainer {
+    width: 80%;
+  }
+  /*.ModeratorFormSection1 {
     width: 90vw;
     display: flex;
     flex-direction: column;
@@ -192,10 +208,12 @@ h5 {
     flex-direction: column;
     justify-content: space-evenly;
   }
-
+*/
   .ModeratorFormLink,
   .ModeratorFormRooms {
+    display: flex;
     width: 100%;
+    margin: auto;
   }
   .ModeratorFormTitle {
     width: 100vw;
@@ -214,13 +232,5 @@ h5 {
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-
-  .select {
-    margin: 9px 0px 9px 0px;
-    box-shadow: 0px 0px 4px 0px black;
-    border-radius: 5px;
-    width: 15rem;
-    overflow: scroll;
   }
 }

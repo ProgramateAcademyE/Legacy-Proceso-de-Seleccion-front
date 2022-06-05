@@ -133,7 +133,7 @@ const ModeratorForm = () => {
         <div className="ModeratorformContainer">
           <div className="ModeratorFormSection1">
             <div>
-              <label htmlFor="citationID">Fecha </label>
+              <label htmlFor="citationID">Fecha: </label>
               <Field
                 as="select"
                 placeholder="Selecciona una Fecha"
@@ -157,7 +157,7 @@ const ModeratorForm = () => {
               )}
             </div>
             <div>
-              <label htmlFor="interviewRooms">No salas Entrevistas</label>
+              <label htmlFor="interviewRooms">Nro. salas Entrevistas: </label>
               <Field
                 className="ModeratorFormRooms"
                 type="number"
@@ -175,7 +175,7 @@ const ModeratorForm = () => {
               )}
             </div>
             <div>
-              <label htmlFor="assesmentsRooms">No salas Assessment</label>
+              <label htmlFor="assesmentsRooms">Nro. salas Assessment: </label>
               <Field
                 className="ModeratorFormRooms"
                 type="number"
@@ -195,7 +195,7 @@ const ModeratorForm = () => {
           </div>
           <div className="ModeratorFormSection2">
             <div>
-              <label htmlFor="link">Link Reunión</label>
+              <label htmlFor="link">Link Reunión: </label>
               <Field
                 className="ModeratorFormLink"
                 type="url"

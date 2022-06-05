@@ -227,93 +227,95 @@ const CreateViewer = () => {
               ))}
             </select>
           </div>
+          <div className="tableResponsive">
+            <table className="table_full">
+              <tbody className="table_body">
+                <tr className="table_head">
+                  <th>Observador</th>
+                  <th>Rol Principal</th>
+                  <th>Meet Rol</th>
+                  <th>Fecha disponible</th>
+                  <th>Jornada disponible </th>
+                  <th>Habilitar</th>
+                </tr>
+                {currentSelectors?.length !== 0 ? (
+                  currentSelectors?.map((staff) => (
+                    <tr>
+                      <td>
+                        {staff.names} {staff.surname}
+                      </td>
+                      <td>
+                        {staff.role === 1
+                          ? "Administrador"
+                          : staff.role === 2
+                          ? "Moderador"
+                          : staff.role === 3
+                          ? "Observador"
+                          : "Entrevistador"}
+                      </td>
+                      <td>
+                        {staff.meetRole === 1
+                          ? "Administrador"
+                          : staff.meetRole === 2
+                          ? "Moderador"
+                          : staff.meetRole === 3
+                          ? "Observador"
+                          : "Entrevistador"}
+                      </td>
+                      <td>{date.slice(0, -6)}</td>
+                      <td>{date.slice(11)}</td>
 
-          <table className="table_full">
-            <tbody className="table_body">
-              <tr className="table_head">
-                <th>Observador</th>
-                <th>Rol Principal</th>
-                <th>Meet Rol</th>
-                <th>Fecha disponible</th>
-                <th>Jornada disponible </th>
-                <th>Habilitar</th>
-              </tr>
-              {currentSelectors?.length !== 0 ? (
-                currentSelectors?.map((staff) => (
-                  <tr>
-                    <td>
-                      {staff.names} {staff.surname}
-                    </td>
-                    <td>
-                      {staff.role === 1
-                        ? "Administrador"
-                        : staff.role === 2
-                        ? "Moderador"
-                        : staff.role === 3
-                        ? "Observador"
-                        : "Entrevistador"}
-                    </td>
-                    <td>
-                      {staff.meetRole === 1
-                        ? "Administrador"
-                        : staff.meetRole === 2
-                        ? "Moderador"
-                        : staff.meetRole === 3
-                        ? "Observador"
-                        : "Entrevistador"}
-                    </td>
-                    <td>{date.slice(0, -6)}</td>
-                    <td>{date.slice(11)}</td>
-
-                    <td>
-                      <input
-                        value={staff._id}
-                        type="checkbox"
-                        name="id"
-                        checked={true}
-                        onChange={toggleChecked}
-                      />
-                    </td>
-                  </tr>
-                ))
-              ) : (
-                <></>
-              )}
-              {users.map((staff) =>
-                currentSelectors.findIndex((user) => user._id == staff._id) !==
-                -1 ? (
-                  <></>
+                      <td>
+                        <input
+                          value={staff._id}
+                          type="checkbox"
+                          name="id"
+                          checked={true}
+                          onChange={toggleChecked}
+                        />
+                      </td>
+                    </tr>
+                  ))
                 ) : (
-                  <tr>
-                    <td>
-                      {staff.names} {staff.surname}
-                    </td>
-                    <td>
-                      {staff.role === 1
-                        ? "Administrador"
-                        : staff.role === 2
-                        ? "Moderador"
-                        : staff.role === 3
-                        ? "Observador"
-                        : "Entrevistador"}
-                    </td>
-                    <td></td>
-                    <td>{date.slice(0, -6)}</td>
-                    <td>{date.slice(11)}</td>
+                  <></>
+                )}
+                {users.map((staff) =>
+                  currentSelectors.findIndex(
+                    (user) => user._id == staff._id
+                  ) !== -1 ? (
+                    <></>
+                  ) : (
+                    <tr>
+                      <td>
+                        {staff.names} {staff.surname}
+                      </td>
+                      <td>
+                        {staff.role === 1
+                          ? "Administrador"
+                          : staff.role === 2
+                          ? "Moderador"
+                          : staff.role === 3
+                          ? "Observador"
+                          : "Entrevistador"}
+                      </td>
+                      <td></td>
+                      <td>{date.slice(0, -6)}</td>
+                      <td>{date.slice(11)}</td>
 
-                    <td>
-                      <input
-                        value={staff._id}
-                        type="checkbox"
-                        name="id"
-                        onChange={toggleChecked}
-                      />
-                    </td>
-                  </tr>
-                )
-              )}
-            </tbody>
-          </table>
+                      <td>
+                        <input
+                          value={staff._id}
+                          type="checkbox"
+                          name="id"
+                          onChange={toggleChecked}
+                        />
+                      </td>
+                    </tr>
+                  )
+                )}
+              </tbody>
+            </table>
+          </div>
           <button className="btnadd_interviewer" onClick={postAvailability}>
             Asignar
           </button>

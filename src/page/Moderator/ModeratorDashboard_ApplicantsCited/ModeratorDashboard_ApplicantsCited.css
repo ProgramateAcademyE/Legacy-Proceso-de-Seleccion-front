@@ -44,7 +44,7 @@
 .secondu {
   width: 90%;
   height: auto;
-  background-color: #ecfdcf;
+  background-color: #ffffff;
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -115,7 +115,14 @@
 
 @media (max-width: 530px) {
   .moderatorIndexTitle {
+    margin-top: 35%;
     font-size: 2rem;
     padding: 20px;
+  }
+  .moderatorApplicantCitedTitle {
+    font-size: 1rem;
+  }
+  .moderatorApplicantCitedParagraph {
+    font-size: 1rem;
   }
 }

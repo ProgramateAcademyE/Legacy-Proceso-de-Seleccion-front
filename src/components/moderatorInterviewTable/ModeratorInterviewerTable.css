@@ -1,40 +1,32 @@
-
-
-.rdt_TableCol{
-    background-color:#c7c7c7;
-    color:black;
-    display: flex;
-    justify-content: center;
-    
-
-  }
-  .rdt_TableCell{
-    display: flex;
-    justify-content: center;
-    border: 1px solid #c7c7c7;
+.rdt_TableCol {
+  background-color: #c7c7c7;
+  color: black;
+  display: flex;
+  justify-content: center;
+  font-weight: bolder;
+}
+.rdt_TableCell {
+  display: flex;
+  justify-content: center;
+  border: 1px solid #c7c7c7;
 }
 
-  .tableInterview{
+.tableInterview {
+  width: 90vw;
+  height: auto;
+  text-align: center;
+  overflow: scroll;
+  padding: 20px;
+  padding: 20px 30px;
+  background-color: #ffffff;
+  box-shadow: 1px 10px 25px #c7c7c7;
+  margin: auto;
+}
+
+@media (max-width: 991px) {
+  .tableInterview {
     width: 90vw;
-    height: auto;
-    text-align: center;
-    overflow: scroll;
-    padding: 20px;
-    padding: 20px 30px;
-    background-color:#ffffff;
-    box-shadow: 1px 10px 25px #c7c7c7;
     margin: auto;
-
+    padding: 10px;
   }
-
-  @media (max-width: 991px) {
-
-    .tableInterview{
-        width: 90vw;
-        margin: auto;
-        padding: 10px;
-    }
-
 }
-
-

@@ -5,17 +5,26 @@
   background-color: #ffffff;
   margin: auto;
   box-shadow: 1px 10px 25px #c7c7c7;
+  overflow: scroll;
+  margin-left: 3.5%;
+}
+table .table_head {
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+}
+.tableResponsive {
+  overflow: scroll;
+  height: 350px;
 }
 .table_full {
-  width: 100%;
+  width: 75vw;
+  margin: auto;
 }
-.table_body {
-  width: 80vw;
-  height: 90%;
-}
+
 .table_head {
   background: #c7c7c7;
-  font-size: 1.2rem;
+  font-size: 1rem;
   height: 70px;
   border: solid 1px #c7c7c7;
 }
@@ -28,18 +37,9 @@ td:hover {
   background-color: #c7c7c7;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 991px) {
   .moderator_createviewer {
-    width: 80vw;
-    margin: auto;
-    overflow: scroll;
-  }
-}
-
-@media (max-width: 465px) {
-  .moderator_createviewer {
-    width: 80vw;
-    margin: auto;
-    overflow: scroll;
+    width: 90vw;
+    margin-left: 0;
   }
 }
