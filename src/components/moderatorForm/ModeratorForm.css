@@ -13,7 +13,6 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 3rem;
   background-color: #ffffff;
   padding: 30px;
   box-shadow: 1px 10px 25px #c7c7c7;
@@ -191,7 +190,7 @@ h5 {
 /*Media query celular */
 @media (max-width: 530px) {
   .ModeratorformContainer {
-    width: 80%;
+    width: 75%;
   }
   /*.ModeratorFormSection1 {
     width: 90vw;
@@ -212,7 +211,7 @@ h5 {
   .ModeratorFormLink,
   .ModeratorFormRooms {
     display: flex;
-    width: 100%;
+    width: 90%;
     margin: auto;
   }
   .ModeratorFormTitle {
