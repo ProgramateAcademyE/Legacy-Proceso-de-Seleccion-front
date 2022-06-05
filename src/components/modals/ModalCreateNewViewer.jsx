@@ -11,11 +11,11 @@ import "./Modal.css";
 const useStyles = makeStyles((theme) => ({
   modal: {
     position: "absolute",
-    width: "47%",
+    width: "63%",
     backgroundColor: "white",
     border: "1px solid #000",
     boxShadow: "1px 10px 25px",
-    padding: "26px 32px 24px",
+    padding: "10px",
     borderRadius: "10px",
     top: 150,
     left: 0,
